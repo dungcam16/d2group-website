@@ -8,9 +8,11 @@ import { useEffect, useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProgressBar from "./components/ProgressBar";
+import ChatbotButton from "./components/ChatbotButton";
 import Index from "./pages/Index";
-import Services from "./pages/Services";
-import UseCases from "./pages/UseCases";
+import About from "./pages/About";
+import Features from "./pages/Features";
+import CaseStudies from "./pages/CaseStudies";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
@@ -44,14 +46,16 @@ const App = () => {
             <main className="flex-1">
               <Routes>
                 <Route path="/" element={<Index />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/use-cases" element={<UseCases />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/features" element={<Features />} />
+                <Route path="/case-studies" element={<CaseStudies />} />
                 <Route path="/pricing" element={<Pricing />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
             <Footer />
+            <ChatbotButton />
           </div>
         </BrowserRouter>
       </TooltipProvider>

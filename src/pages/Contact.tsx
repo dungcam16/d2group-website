@@ -7,13 +7,16 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import { Phone, Mail, MapPin, Clock, MessageSquare, Calendar, Rocket, Facebook, Linkedin } from "lucide-react";
+import Section from "@/components/ui/section";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     company: "",
-    need: "",
+    areaOfInterest: "",
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -38,16 +41,17 @@ const Contact = () => {
 
       if (response.ok) {
         toast({
-          title: "Cảm ơn bạn đã liên hệ!",
-          description: "Chúng tôi sẽ phản hồi trong vòng 24h. Hãy kiểm tra email nhé!",
+          title: "Thank you for your inquiry!",
+          description: "We'll get back to you within 24 hours. Check your email for confirmation.",
         });
         
         // Reset form
         setFormData({
           name: "",
           email: "",
+          phone: "",
           company: "",
-          need: "",
+          areaOfInterest: "",
           message: ""
         });
       } else {
@@ -56,8 +60,8 @@ const Contact = () => {
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
-        title: "Có lỗi xảy ra",
-        description: "Không thể gửi form. Vui lòng thử lại sau hoặc liên hệ trực tiếp qua email.",
+        title: "Oops! Something went wrong",
+        description: "Unable to submit form. Please try again or contact us directly via email.",
         variant: "destructive",
       });
     } finally {
@@ -75,260 +79,275 @@ const Contact = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-ai-gradient-soft">
-        <div className="container mx-auto px-4 text-center">
-          <h1 className="text-5xl font-bold mb-6 gradient-text">
-            Liên hệ với chúng tôi
+      <Section background="gradient">
+        <div className="text-center max-w-4xl mx-auto">
+          <h1 className="text-5xl font-bold mb-6 text-gray-900">
+            Get in <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Touch</span>
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Sẵn sàng tư vấn miễn phí và hỗ trợ bạn tìm ra giải pháp AI Chatbot phù hợp nhất. 
-            Hãy chia sẻ nhu cầu để chúng tôi có thể hỗ trợ tốt nhất.
+          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            Ready to transform your customer conversations? Let's discuss how D2 Group can help you 
+            achieve your automation goals. Our experts are standing by to provide personalized guidance.
           </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <MessageSquare className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Free Consultation</h3>
+              <p className="text-gray-600 text-sm">Expert guidance tailored to your needs</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Calendar className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">24-Hour Response</h3>
+              <p className="text-gray-600 text-sm">Quick turnaround on all inquiries</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Rocket className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Fast Implementation</h3>
+              <p className="text-gray-600 text-sm">Go live in as little as 48 hours</p>
+            </div>
+          </div>
         </div>
-      </section>
+      </Section>
 
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div>
-              <Card className="border-none shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-2xl gradient-text">
-                    Nhận tư vấn miễn phí
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <Label htmlFor="name">Họ và tên *</Label>
-                        <Input
-                          id="name"
-                          value={formData.name}
-                          onChange={(e) => handleInputChange("name", e.target.value)}
-                          placeholder="Nguyễn Văn A"
-                          required
-                          className="mt-1"
-                        />
-                      </div>
-                      <div>
-                        <Label htmlFor="email">Email *</Label>
-                        <Input
-                          id="email"
-                          type="email"
-                          value={formData.email}
-                          onChange={(e) => handleInputChange("email", e.target.value)}
-                          placeholder="email@company.com"
-                          required
-                          className="mt-1"
-                        />
-                      </div>
-                    </div>
-
+      <Section background="white">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Form */}
+          <div>
+            <Card className="border-none shadow-xl">
+              <CardHeader>
+                <CardTitle className="text-3xl font-bold text-gray-900">
+                  Let's Start the <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Conversation</span>
+                </CardTitle>
+                <p className="text-gray-600">
+                  Fill out the form below and our team will reach out to you within 24 hours.
+                </p>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="company">Tên công ty</Label>
+                      <Label htmlFor="name">Full Name *</Label>
+                      <Input
+                        id="name"
+                        value={formData.name}
+                        onChange={(e) => handleInputChange("name", e.target.value)}
+                        placeholder="John Smith"
+                        required
+                        className="mt-1"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="email">Email Address *</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => handleInputChange("email", e.target.value)}
+                        placeholder="john@company.com"
+                        required
+                        className="mt-1"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="phone">Phone Number</Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(e) => handleInputChange("phone", e.target.value)}
+                        placeholder="+1 (555) 123-4567"
+                        className="mt-1"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="company">Company Name</Label>
                       <Input
                         id="company"
                         value={formData.company}
                         onChange={(e) => handleInputChange("company", e.target.value)}
-                        placeholder="ABC Company"
+                        placeholder="Acme Corporation"
                         className="mt-1"
                       />
                     </div>
-
-                    <div>
-                      <Label htmlFor="need">Nhu cầu chính *</Label>
-                      <Select onValueChange={(value) => handleInputChange("need", value)} required>
-                        <SelectTrigger className="mt-1">
-                          <SelectValue placeholder="Chọn nhu cầu của bạn" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="demo">Xem demo sản phẩm</SelectItem>
-                          <SelectItem value="consult">Tư vấn giải pháp</SelectItem>
-                          <SelectItem value="pricing">Báo giá chi tiết</SelectItem>
-                          <SelectItem value="integration">Tích hợp hệ thống</SelectItem>
-                          <SelectItem value="training">Đào tạo sử dụng</SelectItem>
-                          <SelectItem value="support">Hỗ trợ kỹ thuật</SelectItem>
-                          <SelectItem value="other">Khác</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="message">Mô tả chi tiết</Label>
-                      <Textarea
-                        id="message"
-                        value={formData.message}
-                        onChange={(e) => handleInputChange("message", e.target.value)}
-                        placeholder="Chia sẻ thêm về doanh nghiệp và nhu cầu cụ thể của bạn..."
-                        rows={4}
-                        className="mt-1"
-                      />
-                    </div>
-
-                    <Button 
-                      type="submit" 
-                      disabled={isSubmitting}
-                      className="w-full bg-ai-orange hover:bg-ai-orange/90 text-white font-semibold py-3"
-                    >
-                      {isSubmitting ? "Đang gửi..." : "Gửi yêu cầu tư vấn"}
-                    </Button>
-                  </form>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Contact Info & Map */}
-            <div className="space-y-8">
-              {/* Contact Information */}
-              <Card className="border-none shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-2xl gradient-text">
-                    Thông tin liên hệ
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-ai-gradient rounded-lg flex items-center justify-center text-white text-xl">
-                      📧
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg">Email</h3>
-                      <p className="text-gray-600">contact@d2group.vn</p>
-                      <p className="text-gray-600">sales@d2group.vn</p>
-                    </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-ai-gradient rounded-lg flex items-center justify-center text-white text-xl">
-                      📞
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg">Hotline</h3>
-                      <p className="text-gray-600">1900 1234 (24/7)</p>
-                      <p className="text-gray-600">+84 24 1234 5678</p>
-                    </div>
+                  <div>
+                    <Label htmlFor="areaOfInterest">Area of Interest *</Label>
+                    <Select onValueChange={(value) => handleInputChange("areaOfInterest", value)} required>
+                      <SelectTrigger className="mt-1">
+                        <SelectValue placeholder="What can we help you with?" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="demo">Schedule a Product Demo</SelectItem>
+                        <SelectItem value="pricing">Get Pricing Information</SelectItem>
+                        <SelectItem value="integration">Discuss Integration Options</SelectItem>
+                        <SelectItem value="enterprise">Enterprise Solutions</SelectItem>
+                        <SelectItem value="support">Technical Support</SelectItem>
+                        <SelectItem value="partnership">Partnership Opportunities</SelectItem>
+                        <SelectItem value="other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-ai-gradient rounded-lg flex items-center justify-center text-white text-xl">
-                      📍
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg">Địa chỉ</h3>
-                      <p className="text-gray-600">
-                        Tầng 10, Tòa nhà ABC<br />
-                        123 Đường Láng, Đống Đa<br />
-                        Hà Nội, Việt Nam
-                      </p>
-                    </div>
+                  <div>
+                    <Label htmlFor="message">Message</Label>
+                    <Textarea
+                      id="message"
+                      value={formData.message}
+                      onChange={(e) => handleInputChange("message", e.target.value)}
+                      placeholder="Tell us about your business needs, current challenges, or any specific questions you have..."
+                      rows={4}
+                      className="mt-1"
+                    />
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <div className="w-12 h-12 bg-ai-gradient rounded-lg flex items-center justify-center text-white text-xl">
-                      🕒
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-lg">Giờ làm việc</h3>
-                      <p className="text-gray-600">
-                        Thứ 2 - Thứ 6: 8:00 - 18:00<br />
-                        Thứ 7: 8:00 - 12:00<br />
-                        <span className="text-ai-blue font-semibold">Hỗ trợ 24/7 qua chatbot</span>
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 text-lg"
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                  </Button>
 
-              {/* Google Map */}
-              <Card className="border-none shadow-lg">
-                <CardHeader>
-                  <CardTitle className="text-2xl gradient-text">
-                    Vị trí văn phòng
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="aspect-video bg-gray-200 rounded-lg overflow-hidden">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.096815417413!2d105.81536177503156!3d21.028810780631806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab86cece9ac3%3A0xe2015b08c2b8abb1!2zxJDhuqFpIGjhu41jIELDoWNoIGtob2EgSMOgIE7hu5lp!5e0!3m2!1svi!2s!4v1703234567890!5m2!1svi!2s"
-                      width="100%"
-                      height="100%"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="D2 Group Office Location"
-                    ></iframe>
+                  <p className="text-xs text-gray-500 text-center">
+                    By submitting this form, you agree to our Privacy Policy and Terms of Service.
+                  </p>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Contact Information */}
+          <div className="space-y-8">
+            {/* Contact Details */}
+            <Card className="border-none shadow-xl">
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-gray-900">
+                  Contact <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Information</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
+                    <Mail className="w-6 h-6" />
                   </div>
-                </CardContent>
-              </Card>
-            </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-gray-900">Email</h3>
+                    <p className="text-gray-600">contact@d2group.com</p>
+                    <p className="text-gray-600">sales@d2group.com</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
+                    <Phone className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-gray-900">Phone</h3>
+                    <p className="text-gray-600">+84 28 1234 5678</p>
+                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
+                    <MapPin className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-gray-900">Address</h3>
+                    <p className="text-gray-600">
+                      Level 10, ABC Building<br />
+                      123 Tech Street, District 1<br />
+                      Ho Chi Minh City, Vietnam
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
+                    <Clock className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-gray-900">Business Hours</h3>
+                    <p className="text-gray-600">
+                      Monday - Friday: 9:00 AM - 6:00 PM (GMT+7)<br />
+                      Saturday: 10:00 AM - 2:00 PM (GMT+7)<br />
+                      <span className="text-blue-600 font-semibold">Emergency support: 24/7</span>
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Map */}
+            <Card className="border-none shadow-xl">
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-gray-900">
+                  Find <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Us</span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="aspect-video bg-gray-200 rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4609870313887!2d106.69750631480093!3d10.776664992309456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f38f9ed887b%3A0x14aded5703768989!2sBitexco%20Financial%20Tower!5e0!3m2!1sen!2s!4v1697234567890!5m2!1sen!2s"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="D2 Group Office Location"
+                  ></iframe>
+                </div>
+              </CardContent>
+            </Card>
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Quick Actions */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12 gradient-text">
-            Cách khác để liên hệ
+      {/* Success Message Section */}
+      <Section background="gray">
+        <div className="text-center max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            Thank You for Your <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Interest</span>!
           </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="text-center border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-ai-blue rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl group-hover:animate-float">
-                  💬
-                </div>
-                <h3 className="text-xl font-bold mb-4 group-hover:text-ai-blue transition-colors">
-                  Chat trực tiếp
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Nhấn vào icon chat ở góc phải để nói chuyện trực tiếp với chuyên gia
-                </p>
-                <Button className="bg-ai-blue hover:bg-ai-blue/90 text-white">
-                  Bắt đầu chat
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-ai-purple rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl group-hover:animate-float">
-                  📅
-                </div>
-                <h3 className="text-xl font-bold mb-4 group-hover:text-ai-blue transition-colors">
-                  Đặt lịch demo
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Chọn thời gian phù hợp để xem demo và tư vấn trực tiếp 1-1
-                </p>
-                <Button className="bg-ai-purple hover:bg-ai-purple/90 text-white">
-                  Đặt lịch ngay
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
-              <CardContent className="p-8">
-                <div className="w-16 h-16 bg-ai-orange rounded-full mx-auto mb-6 flex items-center justify-center text-white text-2xl group-hover:animate-float">
-                  🚀
-                </div>
-                <h3 className="text-xl font-bold mb-4 group-hover:text-ai-blue transition-colors">
-                  Dùng thử ngay
-                </h3>
-                <p className="text-gray-600 mb-6">
-                  Bắt đầu dùng thử 14 ngày miễn phí, không cần thẻ tín dụng
-                </p>
-                <Button className="bg-ai-orange hover:bg-ai-orange/90 text-white">
-                  Thử miễn phí
-                </Button>
-              </CardContent>
-            </Card>
+          <p className="text-xl text-gray-600 mb-8">
+            Your message has been received and our team will respond within 24 hours. 
+            In the meantime, feel free to connect with us on social media.
+          </p>
+          <div className="flex justify-center space-x-6">
+            <a 
+              href="#" 
+              className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors"
+              aria-label="Facebook"
+            >
+              <Facebook className="w-6 h-6" />
+            </a>
+            <a 
+              href="#" 
+              className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="w-6 h-6" />
+            </a>
+            <a 
+              href="#" 
+              className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors"
+              aria-label="Email"
+            >
+              <Mail className="w-6 h-6" />
+            </a>
           </div>
         </div>
-      </section>
+      </Section>
     </div>
   );
 };

@@ -1,66 +1,124 @@
 
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Facebook, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
+  const quickLinks = [
+    { name: "Home", path: "/" },
+    { name: "About Us", path: "/about" },
+    { name: "Features", path: "/features" },
+    { name: "Case Studies", path: "/case-studies" },
+    { name: "Pricing", path: "/pricing" },
+    { name: "Contact Us", path: "/contact" },
+  ];
+
+  const handleNavigation = (path: string) => {
+    navigate(path);
+  };
+
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-ai-gradient rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-xl">D2</span>
-              </div>
-              <span className="font-bold text-xl">D2 Group</span>
+            <div className="flex items-center space-x-3">
+              <img 
+                src="/lovable-uploads/e2a562a2-0da7-4581-a153-4d44091323a9.png" 
+                alt="D2 Group" 
+                className="h-10 w-auto"
+                loading="lazy"
+              />
+              <span className="text-xl font-bold">D2 Group</span>
             </div>
-            <p className="text-gray-400">
-              Đơn vị tiên phong trong việc cung cấp giải pháp AI Chatbot tự động, 
-              giúp doanh nghiệp tối ưu hóa trải nghiệm khách hàng.
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Transforming customer conversations with AI-driven chatbot solutions. 
+              Trusted by 500+ businesses worldwide.
             </p>
+            <div className="flex space-x-4">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Liên kết nhanh</h3>
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-gray-400 hover:text-white transition-colors">Trang chủ</Link></li>
-              <li><Link to="/services" className="text-gray-400 hover:text-white transition-colors">Dịch vụ</Link></li>
-              <li><Link to="/use-cases" className="text-gray-400 hover:text-white transition-colors">Case Studies</Link></li>
-              <li><Link to="/pricing" className="text-gray-400 hover:text-white transition-colors">Bảng giá</Link></li>
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <button
+                    onClick={() => handleNavigation(link.path)}
+                    className="text-gray-400 hover:text-white transition-colors text-sm"
+                  >
+                    {link.name}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Solutions */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Solutions</h3>
+            <ul className="space-y-2 text-sm text-gray-400">
+              <li>E-commerce Automation</li>
+              <li>Customer Support</li>
+              <li>Lead Generation</li>
+              <li>Appointment Booking</li>
+              <li>Multi-channel Deployment</li>
+              <li>Enterprise Integration</li>
             </ul>
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Liên hệ</h3>
-            <ul className="space-y-2 text-gray-400">
-              <li>📧 contact@d2group.vn</li>
-              <li>📞 1900 xxxx</li>
-              <li>📍 Hà Nội, Việt Nam</li>
-            </ul>
-          </div>
-
-          {/* Partners & Social */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-lg">Đối tác</h3>
-            <div className="flex space-x-4">
-              <div className="w-16 h-8 bg-gray-700 rounded flex items-center justify-center text-xs">
-                Partner 1
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
+            <div className="space-y-3 text-sm text-gray-400">
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                <span>
+                  Level 10, ABC Building<br />
+                  123 Tech Street, District 1<br />
+                  Ho Chi Minh City, Vietnam
+                </span>
               </div>
-              <div className="w-16 h-8 bg-gray-700 rounded flex items-center justify-center text-xs">
-                Partner 2
+              <div className="flex items-center space-x-3">
+                <Phone className="w-4 h-4 flex-shrink-0" />
+                <span>+84 28 1234 5678</span>
               </div>
-            </div>
-            <div className="flex space-x-4 mt-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">Facebook</a>
+              <div className="flex items-center space-x-3">
+                <Mail className="w-4 h-4 flex-shrink-0" />
+                <span>contact@d2group.com</span>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 D2 Group. Tất cả quyền được bảo lưu. | Chính sách bảo mật</p>
+        {/* Bottom Section */}
+        <div className="border-t border-gray-800 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-400 text-sm">
+              © 2024 D2 Group. All rights reserved.
+            </p>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+                Privacy Policy
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+                Terms of Service
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
+                Cookie Policy
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
