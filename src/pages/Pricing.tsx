@@ -220,7 +220,7 @@ const Pricing = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Pricing Comparison <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Chi tiết</span>
+            Pricing <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Comparison</span>
           </h2>
           <p className="text-xl text-gray-600">
             Compare all features across our pricing plans.
