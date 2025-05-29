@@ -8,13 +8,33 @@ import Section from "@/components/ui/section";
 
 const Pricing = () => {
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  const getPricing = (plan: string) => {
+    if (language === 'vi') {
+      switch (plan) {
+        case 'starter': return "2.900.000đ";
+        case 'growth': return "3.900.000đ";
+        case 'business': return "7.900.000đ";
+        case 'enterprise': return t('pricing.contactPricing');
+        default: return "";
+      }
+    } else {
+      switch (plan) {
+        case 'starter': return "119$";
+        case 'growth': return "149$";
+        case 'business': return "299$";
+        case 'enterprise': return t('pricing.contactPricing');
+        default: return "";
+      }
+    }
+  };
 
   const pricingPlans = [
     {
       name: t('pricing.starter'),
-      price: "119$",
-      period: " VND" + t('pricing.month'),
+      price: getPricing('starter'),
+      period: language === 'vi' ? "" : " VND" + t('pricing.month'),
       description: t('pricing.starter.desc'),
       popular: false,
       features: [
@@ -29,8 +49,8 @@ const Pricing = () => {
     },
     {
       name: t('pricing.growth'), 
-      price: "199$",
-      period: " VND" + t('pricing.month'),
+      price: getPricing('growth'),
+      period: language === 'vi' ? "" : " VND" + t('pricing.month'),
       description: t('pricing.growth.desc'),
       popular: true,
       features: [
@@ -47,8 +67,8 @@ const Pricing = () => {
     },
     {
       name: t('pricing.business'),
-      price: "299$",
-      period: " VND" + t('pricing.month'),
+      price: getPricing('business'),
+      period: language === 'vi' ? "" : " VND" + t('pricing.month'),
       description: t('pricing.business.desc'),
       popular: false,
       features: [
