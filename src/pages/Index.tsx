@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -379,7 +378,7 @@ const Index = () => {
                 "{t('home.testimonials.1.content')}"
               </blockquote>
               <div className="flex items-center">
-                <TestimonialAvatar name="Sarah Chen" />
+                <TestimonialAvatar src="/placeholder.svg" alt="Sarah Chen" fallback="SC" />
                 <div className="ml-3">
                   <div className="font-semibold text-gray-900">Sarah Chen</div>
                   <div className="text-sm text-gray-600">CEO, TechCorp</div>
@@ -399,7 +398,7 @@ const Index = () => {
                 "{t('home.testimonials.2.content')}"
               </blockquote>
               <div className="flex items-center">
-                <TestimonialAvatar name="Michael Rodriguez" />
+                <TestimonialAvatar src="/placeholder.svg" alt="Michael Rodriguez" fallback="MR" />
                 <div className="ml-3">
                   <div className="font-semibold text-gray-900">Michael Rodriguez</div>
                   <div className="text-sm text-gray-600">Marketing Director, E-Shop</div>
@@ -419,7 +418,7 @@ const Index = () => {
                 "{t('home.testimonials.3.content')}"
               </blockquote>
               <div className="flex items-center">
-                <TestimonialAvatar name="Dr. Emily Watson" />
+                <TestimonialAvatar src="/placeholder.svg" alt="Dr. Emily Watson" fallback="EW" />
                 <div className="ml-3">
                   <div className="font-semibold text-gray-900">Dr. Emily Watson</div>
                   <div className="text-sm text-gray-600">Academic Director, EduPlatform</div>
