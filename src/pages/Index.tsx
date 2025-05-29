@@ -238,7 +238,7 @@ const Index = () => {
   const pricingPlans = [
     {
       name: t('pricing.starter'),
-      price: "2.900.000",
+      price: "119$",
       period: t('pricing.month'),
       description: t('pricing.starter.desc'),
       features: [
@@ -254,7 +254,7 @@ const Index = () => {
     },
     {
       name: t('pricing.growth'),
-      price: "3.900.000",
+      price: "149$",
       period: t('pricing.month'),
       description: t('pricing.growth.desc'),
       features: [
@@ -271,7 +271,7 @@ const Index = () => {
     },
     {
       name: t('pricing.business'),
-      price: "7.900.000",
+      price: "299$",
       period: t('pricing.month'),
       description: t('pricing.business.desc'),
       features: [
