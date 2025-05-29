@@ -10,21 +10,20 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType>({
   language: 'en',
   setLanguage: () => {},
-  t: () => ''
+  t: (key: string) => key
 });
 
 const translations = {
   en: {
-    // Header
-    'header.home': 'Home',
-    'header.features': 'Features',
-    'header.pricing': 'Pricing',
-    'header.about': 'About',
-    'header.contact': 'Contact',
-    'header.caseStudies': 'Case Studies',
-    'header.services': 'Services',
-    'header.useCases': 'Use Cases',
-    'header.getStarted': 'Get Started',
+    // Navigation
+    'nav.home': 'Home',
+    'nav.about': 'About',
+    'nav.features': 'Features',
+    'nav.caseStudies': 'Case Studies',
+    'nav.pricing': 'Pricing',
+    'nav.contact': 'Contact',
+    'nav.getDemo': 'Get Demo',
+    'nav.contactUs': 'Contact Us',
 
     // Home page
     'home.hero.title': 'Transform Customer Experience',
@@ -109,6 +108,106 @@ const translations = {
     'home.finalCta.noCreditCard': 'No credit card required',
     'home.finalCta.setupIn5': 'Setup in 5 minutes',
 
+    // About page
+    'about.hero.title': 'About D2 Group',
+    'about.hero.subtitle': 'We are dedicated to transforming how Vietnamese businesses communicate with their customers through cutting-edge AI technology.',
+
+    'about.mission.title': 'Our Mission',
+    'about.mission.desc': 'To empower Vietnamese businesses with intelligent chatbot solutions that enhance customer experiences, increase efficiency, and drive sustainable growth.',
+
+    'about.vision.title': 'Our Vision',
+    'about.vision.desc': 'To become the leading AI chatbot platform in Southeast Asia, enabling seamless communication between businesses and customers across all digital channels.',
+
+    'about.values.title': 'Our Values',
+    'about.values.subtitle': 'The principles that guide everything we do',
+    'about.values.innovation.title': 'Innovation',
+    'about.values.innovation.desc': 'Continuously pushing boundaries with cutting-edge AI technology',
+    'about.values.reliability.title': 'Reliability',
+    'about.values.reliability.desc': 'Delivering consistent, dependable solutions our clients can trust',
+    'about.values.customer.title': 'Customer First',
+    'about.values.customer.desc': 'Putting our customers\' success at the center of everything we do',
+    'about.values.global.title': 'Global Vision',
+    'about.values.global.desc': 'Thinking globally while understanding local Vietnamese market needs',
+
+    'about.team.title': 'Our Team',
+    'about.team.subtitle': 'Meet the experts behind D2 Group\'s success',
+    'about.team.ceo.name': 'Nguyễn Văn Minh',
+    'about.team.ceo.role': 'CEO & Founder',
+    'about.team.ceo.desc': '15+ years in AI and software development, leading D2 Group\'s vision and strategy.',
+    'about.team.cto.name': 'Trần Thị Lan',
+    'about.team.cto.role': 'CTO',
+    'about.team.cto.desc': 'AI specialist with deep expertise in natural language processing and machine learning.',
+    'about.team.head.name': 'Lê Minh Tuấn',
+    'about.team.head.role': 'Head of Sales',
+    'about.team.head.desc': 'Business development expert focused on helping companies achieve digital transformation.',
+
+    'about.achievements.title': 'Our Achievements',
+    'about.achievements.clients': 'Happy Clients',
+    'about.achievements.satisfaction': 'Client Satisfaction',
+    'about.achievements.awards': 'Industry Awards',
+    'about.achievements.countries': 'Countries Served',
+
+    'about.cta.title': 'Ready to Work with Us?',
+    'about.cta.subtitle': 'Let\'s discuss how D2 Group can help transform your customer communication.',
+    'about.cta.contact': 'Contact Us',
+    'about.cta.caseStudies': 'View Case Studies',
+
+    // Features page
+    'features.hero.title': 'Powerful Features',
+    'features.hero.subtitle': 'Discover all the capabilities that make D2 Group\'s chatbot platform the perfect choice for Vietnamese businesses.',
+    'features.hero.getDemo': 'Get Free Demo',
+    'features.hero.seePricing': 'See Pricing',
+
+    'features.core.title': 'Core Features',
+    'features.core.subtitle': 'Essential capabilities that power every conversation',
+    'features.core.conversations.title': 'Smart Conversations',
+    'features.core.conversations.desc': 'Natural, contextual conversations that feel human',
+    'features.core.conversations.feature1': 'Context-aware responses',
+    'features.core.conversations.feature2': 'Multi-turn conversation handling',
+    'features.core.conversations.feature3': 'Sentiment analysis',
+    'features.core.conversations.feature4': 'Intent recognition',
+    'features.core.ai.title': 'AI Intelligence',
+    'features.core.ai.desc': 'Advanced AI optimized for Vietnamese language and culture',
+    'features.core.ai.feature1': 'Vietnamese NLP optimization',
+    'features.core.ai.feature2': 'Machine learning algorithms',
+    'features.core.ai.feature3': 'Continuous learning',
+    'features.core.ai.feature4': 'Cultural context understanding',
+    'features.core.multichannel.title': 'Multi-Channel Support',
+    'features.core.multichannel.desc': 'Seamless integration across all communication platforms',
+    'features.core.multichannel.feature1': 'WhatsApp Business API',
+    'features.core.multichannel.feature2': 'Facebook Messenger',
+    'features.core.multichannel.feature3': 'Website chat widget',
+    'features.core.multichannel.feature4': 'Mobile app integration',
+    'features.core.analytics.title': 'Analytics & Insights',
+    'features.core.analytics.desc': 'Comprehensive data to optimize your customer interactions',
+    'features.core.analytics.feature1': 'Real-time conversation analytics',
+    'features.core.analytics.feature2': 'Customer satisfaction tracking',
+    'features.core.analytics.feature3': 'Performance metrics',
+    'features.core.analytics.feature4': 'Custom reporting',
+
+    'features.advanced.title': 'Advanced Features',
+    'features.advanced.subtitle': 'Enterprise-grade capabilities for growing businesses',
+    'features.advanced.automation.title': 'Workflow Automation',
+    'features.advanced.automation.desc': 'Automate complex business processes with intelligent workflows',
+    'features.advanced.security.title': 'Enterprise Security',
+    'features.advanced.security.desc': 'Bank-grade security with data sovereignty compliance',
+    'features.advanced.customization.title': 'Custom Branding',
+    'features.advanced.customization.desc': 'White-label solutions with your brand identity',
+    'features.advanced.scalability.title': 'Scalable Infrastructure',
+    'features.advanced.scalability.desc': 'Handle millions of conversations with 99.9% uptime',
+    'features.advanced.collaboration.title': 'Team Collaboration',
+    'features.advanced.collaboration.desc': 'Multi-user access with role-based permissions',
+    'features.advanced.support.title': '24/7 Support',
+    'features.advanced.support.desc': 'Round-the-clock technical support and assistance',
+
+    'features.integrations.title': 'Platform Integrations',
+    'features.integrations.subtitle': 'Connect with all major messaging platforms and business tools',
+
+    'features.cta.title': 'Ready to Get Started?',
+    'features.cta.subtitle': 'Experience the power of D2 Group\'s chatbot platform for your business.',
+    'features.cta.getStarted': 'Get Started',
+    'features.cta.viewCases': 'View Case Studies',
+
     // Pricing page
     'pricing.title': 'Simple Transparent Pricing',
     'pricing.subtitle': 'Choose the perfect plan for your business needs. All plans include our core AI features.',
@@ -130,7 +229,7 @@ const translations = {
     'pricing.enterprise': 'Enterprise',
     'pricing.enterprise.desc': 'Custom solutions for large organizations with specific needs',
 
-    // Features
+    // Features for pricing
     'feature.conversations': 'conversations',
     'feature.basicTemplates': 'Basic chatbot templates',
     'feature.advancedTemplates': 'Advanced chatbot templates',
@@ -244,16 +343,15 @@ const translations = {
     'caseStudies.industry': 'Industry',
   },
   vi: {
-    // Header
-    'header.home': 'Trang chủ',
-    'header.features': 'Tính năng',
-    'header.pricing': 'Bảng giá',
-    'header.about': 'Giới thiệu',
-    'header.contact': 'Liên hệ',
-    'header.caseStudies': 'Nghiên cứu tình huống',
-    'header.services': 'Dịch vụ',
-    'header.useCases': 'Ứng dụng',
-    'header.getStarted': 'Bắt đầu',
+    // Navigation
+    'nav.home': 'Trang chủ',
+    'nav.about': 'Giới thiệu',
+    'nav.features': 'Tính năng',
+    'nav.caseStudies': 'Nghiên cứu tình huống',
+    'nav.pricing': 'Bảng giá',
+    'nav.contact': 'Liên hệ',
+    'nav.getDemo': 'Dùng thử',
+    'nav.contactUs': 'Liên hệ',
 
     // Home page
     'home.hero.title': 'Chuyển đổi trải nghiệm khách hàng',
@@ -338,6 +436,106 @@ const translations = {
     'home.finalCta.noCreditCard': 'Không cần thẻ tín dụng',
     'home.finalCta.setupIn5': 'Thiết lập trong 5 phút',
 
+    // About page
+    'about.hero.title': 'Giới thiệu D2 Group',
+    'about.hero.subtitle': 'Chúng tôi cam kết chuyển đổi cách thức doanh nghiệp Việt Nam giao tiếp với khách hàng thông qua công nghệ AI tiên tiến.',
+
+    'about.mission.title': 'Sứ mệnh',
+    'about.mission.desc': 'Trao quyền cho các doanh nghiệp Việt Nam với các giải pháp chatbot thông minh nhằm nâng cao trải nghiệm khách hàng, tăng hiệu quả và thúc đẩy tăng trưởng bền vững.',
+
+    'about.vision.title': 'Tầm nhìn',
+    'about.vision.desc': 'Trở thành nền tảng chatbot AI hàng đầu tại Đông Nam Á, cho phép giao tiếp liền mạch giữa doanh nghiệp và khách hàng trên tất cả các kênh số.',
+
+    'about.values.title': 'Giá trị cốt lõi',
+    'about.values.subtitle': 'Những nguyên tắc định hướng mọi việc chúng tôi làm',
+    'about.values.innovation.title': 'Đổi mới',
+    'about.values.innovation.desc': 'Liên tục vượt qua giới hạn với công nghệ AI tiên tiến',
+    'about.values.reliability.title': 'Đáng tin cậy',
+    'about.values.reliability.desc': 'Cung cấp các giải pháp nhất quán, đáng tin cậy mà khách hàng có thể tin tưởng',
+    'about.values.customer.title': 'Khách hàng là trọng tâm',
+    'about.values.customer.desc': 'Đặt thành công của khách hàng làm trung tâm của mọi việc chúng tôi làm',
+    'about.values.global.title': 'Tầm nhìn toàn cầu',
+    'about.values.global.desc': 'Tư duy toàn cầu trong khi hiểu nhu cầu thị trường Việt Nam địa phương',
+
+    'about.team.title': 'Đội ngũ của chúng tôi',
+    'about.team.subtitle': 'Gặp gỡ các chuyên gia đằng sau thành công của D2 Group',
+    'about.team.ceo.name': 'Nguyễn Văn Minh',
+    'about.team.ceo.role': 'CEO & Người sáng lập',
+    'about.team.ceo.desc': 'Hơn 15 năm kinh nghiệm trong AI và phát triển phần mềm, dẫn dắt tầm nhìn và chiến lược của D2 Group.',
+    'about.team.cto.name': 'Trần Thị Lan',
+    'about.team.cto.role': 'CTO',
+    'about.team.cto.desc': 'Chuyên gia AI với chuyên môn sâu về xử lý ngôn ngữ tự nhiên và học máy.',
+    'about.team.head.name': 'Lê Minh Tuấn',
+    'about.team.head.role': 'Trưởng phòng Kinh doanh',
+    'about.team.head.desc': 'Chuyên gia phát triển kinh doanh tập trung vào việc giúp các công ty đạt được chuyển đổi số.',
+
+    'about.achievements.title': 'Thành tựu của chúng tôi',
+    'about.achievements.clients': 'Khách hàng hài lòng',
+    'about.achievements.satisfaction': 'Sự hài lòng khách hàng',
+    'about.achievements.awards': 'Giải thưởng ngành',
+    'about.achievements.countries': 'Quốc gia phục vụ',
+
+    'about.cta.title': 'Sẵn sàng làm việc với chúng tôi?',
+    'about.cta.subtitle': 'Hãy thảo luận về cách D2 Group có thể giúp chuyển đổi giao tiếp khách hàng của bạn.',
+    'about.cta.contact': 'Liên hệ',
+    'about.cta.caseStudies': 'Xem nghiên cứu tình huống',
+
+    // Features page
+    'features.hero.title': 'Tính năng mạnh mẽ',
+    'features.hero.subtitle': 'Khám phá tất cả các khả năng làm cho nền tảng chatbot của D2 Group trở thành lựa chọn hoàn hảo cho các doanh nghiệp Việt Nam.',
+    'features.hero.getDemo': 'Dùng thử miễn phí',
+    'features.hero.seePricing': 'Xem bảng giá',
+
+    'features.core.title': 'Tính năng cốt lõi',
+    'features.core.subtitle': 'Khả năng thiết yếu cung cấp năng lượng cho mọi cuộc trò chuyện',
+    'features.core.conversations.title': 'Hội thoại thông minh',
+    'features.core.conversations.desc': 'Cuộc trò chuyện tự nhiên, theo ngữ cảnh mang cảm giác con người',
+    'features.core.conversations.feature1': 'Phản hồi nhận biết ngữ cảnh',
+    'features.core.conversations.feature2': 'Xử lý cuộc trò chuyện nhiều lượt',
+    'features.core.conversations.feature3': 'Phân tích cảm xúc',
+    'features.core.conversations.feature4': 'Nhận dạng ý định',
+    'features.core.ai.title': 'Trí tuệ AI',
+    'features.core.ai.desc': 'AI tiên tiến được tối ưu hóa cho ngôn ngữ và văn hóa Việt Nam',
+    'features.core.ai.feature1': 'Tối ưu hóa NLP tiếng Việt',
+    'features.core.ai.feature2': 'Thuật toán học máy',
+    'features.core.ai.feature3': 'Học liên tục',
+    'features.core.ai.feature4': 'Hiểu ngữ cảnh văn hóa',
+    'features.core.multichannel.title': 'Hỗ trợ đa kênh',
+    'features.core.multichannel.desc': 'Tích hợp liền mạch trên tất cả các nền tảng giao tiếp',
+    'features.core.multichannel.feature1': 'WhatsApp Business API',
+    'features.core.multichannel.feature2': 'Facebook Messenger',
+    'features.core.multichannel.feature3': 'Widget chat website',
+    'features.core.multichannel.feature4': 'Tích hợp ứng dụng di động',
+    'features.core.analytics.title': 'Phân tích & Thông tin chi tiết',
+    'features.core.analytics.desc': 'Dữ liệu toàn diện để tối ưu hóa tương tác khách hàng của bạn',
+    'features.core.analytics.feature1': 'Phân tích cuộc trò chuyện theo thời gian thực',
+    'features.core.analytics.feature2': 'Theo dõi sự hài lòng của khách hàng',
+    'features.core.analytics.feature3': 'Chỉ số hiệu suất',
+    'features.core.analytics.feature4': 'Báo cáo tùy chỉnh',
+
+    'features.advanced.title': 'Tính năng nâng cao',
+    'features.advanced.subtitle': 'Khả năng cấp doanh nghiệp cho các doanh nghiệp đang phát triển',
+    'features.advanced.automation.title': 'Tự động hóa quy trình',
+    'features.advanced.automation.desc': 'Tự động hóa các quy trình kinh doanh phức tạp với quy trình thông minh',
+    'features.advanced.security.title': 'Bảo mật doanh nghiệp',
+    'features.advanced.security.desc': 'Bảo mật cấp độ ngân hàng với tuân thủ chủ quyền dữ liệu',
+    'features.advanced.customization.title': 'Thương hiệu tùy chỉnh',
+    'features.advanced.customization.desc': 'Giải pháp nhãn trắng với bản sắc thương hiệu của bạn',
+    'features.advanced.scalability.title': 'Cơ sở hạ tầng có thể mở rộng',
+    'features.advanced.scalability.desc': 'Xử lý hàng triệu cuộc trò chuyện với thời gian hoạt động 99.9%',
+    'features.advanced.collaboration.title': 'Hợp tác nhóm',
+    'features.advanced.collaboration.desc': 'Truy cập nhiều người dùng với quyền dựa trên vai trò',
+    'features.advanced.support.title': 'Hỗ trợ 24/7',
+    'features.advanced.support.desc': 'Hỗ trợ và trợ giúp kỹ thuật suốt ngày đêm',
+
+    'features.integrations.title': 'Tích hợp nền tảng',
+    'features.integrations.subtitle': 'Kết nối với tất cả các nền tảng nhắn tin và công cụ kinh doanh chính',
+
+    'features.cta.title': 'Sẵn sàng bắt đầu?',
+    'features.cta.subtitle': 'Trải nghiệm sức mạnh của nền tảng chatbot D2 Group cho doanh nghiệp của bạn.',
+    'features.cta.getStarted': 'Bắt đầu',
+    'features.cta.viewCases': 'Xem nghiên cứu tình huống',
+
     // Pricing page
     'pricing.title': 'Bảng giá đơn giản minh bạch',
     'pricing.subtitle': 'Chọn gói hoàn hảo cho nhu cầu doanh nghiệp của bạn. Tất cả các gói đều bao gồm các tính năng AI cốt lõi của chúng tôi.',
@@ -359,7 +557,7 @@ const translations = {
     'pricing.enterprise': 'Enterprise',
     'pricing.enterprise.desc': 'Giải pháp tùy chỉnh cho các tổ chức lớn với nhu cầu cụ thể',
 
-    // Features
+    // Features for pricing
     'feature.conversations': 'cuộc trò chuyện',
     'feature.basicTemplates': 'Mẫu chatbot cơ bản',
     'feature.advancedTemplates': 'Mẫu chatbot nâng cao',
