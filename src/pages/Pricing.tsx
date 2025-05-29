@@ -103,28 +103,28 @@ const Pricing = () => {
         { name: "Widget Website", starter: true, growth: true, business: true, enterprise: true },
         { name: "WhatsApp Business", starter: false, growth: true, business: true, enterprise: true },
         { name: "Facebook Messenger", starter: false, growth: true, business: true, enterprise: true },
-        { name: "Tích hợp CRM", starter: false, growth: true, business: true, enterprise: true },
-        { name: "Truy cập API tùy chỉnh", starter: false, growth: false, business: false, enterprise: true }
+        { name: "CRM Integration", starter: false, growth: true, business: true, enterprise: true },
+        { name: "Custom API Access", starter: false, growth: false, business: false, enterprise: true }
       ]
     }
   ];
 
   const faqs = [
     {
-      question: "Cuộc hội thoại được tính như thế nào?",
-      answer: "Một cuộc hội thoại được tính mỗi khi một người dùng duy nhất tương tác với chatbot của bạn trong khoảng thời gian 24 giờ, bất kể số lượng tin nhắn được trao đổi."
+      question: "How are chat sessions counted?",
+      answer: "A chat session is counted each time a unique user interacts with your chatbot within a 24-hour window, regardless of the number of messages exchanged."
     },
     {
-      question: "Tôi có thể nâng cấp hoặc hạ cấp gói bất cứ lúc nào không?",
-      answer: "Có, bạn có thể thay đổi gói của mình bất cứ lúc nào. Nâng cấp có hiệu lực ngay lập tức, trong khi hạ cấp có hiệu lực vào chu kỳ thanh toán tiếp theo."
+      question: "Can I upgrade or downgrade my plan at any time?",
+      answer: "Yes—you can switch plans whenever you like. Upgrades take effect immediately; downgrades apply on your next billing cycle."
     },
     {
-      question: "Có dùng thử miễn phí không?",
-      answer: "Có, chúng tôi cung cấp dùng thử miễn phí 14 ngày cho tất cả các gói. Không cần thẻ tín dụng để bắt đầu và bạn có thể hủy bất cứ lúc nào trong thời gian dùng thử."
+      question: "Is there a free trial available?",
+      answer: "Yes—we offer a 14-day free trial on all plans. No credit card required, and you can cancel at any time during the trial."
     },
     {
-      question: "Điều gì xảy ra nếu tôi vượt quá giới hạn cuộc hội thoại?",
-      answer: "Nếu bạn vượt quá giới hạn hàng tháng, các cuộc hội thoại bổ sung sẽ được tính phí 3.000 VND mỗi cuộc. Chúng tôi sẽ thông báo cho bạn khi bạn sắp đạt đến giới hạn."
+      question: "What happens if I exceed my chat session limit?",
+      answer: "If you go over your monthly quota, additional sessions are billed at VND 3,000 per session. We’ll send you a notification as you approach your limit."
     }
   ];
 
@@ -308,10 +308,10 @@ const Pricing = () => {
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Câu hỏi <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Thường gặp</span>
+            Frequently Asked Questions <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Thường gặp</span>
           </h2>
           <p className="text-xl text-gray-600">
-            Mọi thứ bạn cần biết về giá cả và gói dịch vụ của chúng tôi
+            Everything you need to know about our pricing and service packages.
           </p>
         </div>
         
