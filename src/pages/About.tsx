@@ -4,9 +4,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Award, Users, Target, ArrowRight, Globe, Zap, Shield } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Section from "@/components/ui/section";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const teamMembers = [
     {
@@ -108,24 +110,23 @@ const About = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
-            About <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">D2 Group</span>
+            {t('about.hero.title')}
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            We're on a mission to transform how businesses communicate with their customers through intelligent automation. 
-            Since 2019, we've been pioneering AI-driven chatbot solutions that deliver real results.
+            {t('about.hero.subtitle')} {t('about.hero.description')}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
             <div className="text-center">
               <div className="text-4xl font-bold text-blue-600 mb-2">500+</div>
-              <div className="text-gray-600">Happy Clients</div>
+              <div className="text-gray-600">{t('about.stats.clients')}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-blue-600 mb-2">12</div>
-              <div className="text-gray-600">Countries Served</div>
+              <div className="text-gray-600">{t('about.stats.countries')}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-blue-600 mb-2">99.9%</div>
-              <div className="text-gray-600">Uptime SLA</div>
+              <div className="text-gray-600">{t('about.stats.uptime')}</div>
             </div>
           </div>
         </div>
@@ -136,33 +137,32 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-4xl font-bold mb-6 text-gray-900">
-              Our <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Mission</span>
+              {t('about.mission.title')}
             </h2>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-              To democratize AI technology and make intelligent customer communication accessible to businesses of all sizes. 
-              We believe every company deserves enterprise-grade automation capabilities without the complexity.
+              {t('about.mission.description')}
             </p>
             
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
                 <Globe className="w-6 h-6 text-blue-600 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Global Reach</h3>
-                  <p className="text-gray-600">Serving clients across Asia-Pacific with localized solutions</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">{t('about.mission.global.title')}</h3>
+                  <p className="text-gray-600">{t('about.mission.global.desc')}</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <Zap className="w-6 h-6 text-blue-600 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Innovation First</h3>
-                  <p className="text-gray-600">Constantly pushing the boundaries of conversational AI</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">{t('about.mission.innovation.title')}</h3>
+                  <p className="text-gray-600">{t('about.mission.innovation.desc')}</p>
                 </div>
               </div>
               <div className="flex items-start space-x-4">
                 <Shield className="w-6 h-6 text-blue-600 mt-1" />
                 <div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Trust & Security</h3>
-                  <p className="text-gray-600">Enterprise-grade security and compliance standards</p>
+                  <h3 className="font-semibold text-gray-900 mb-2">{t('about.mission.security.title')}</h3>
+                  <p className="text-gray-600">{t('about.mission.security.desc')}</p>
                 </div>
               </div>
             </div>
@@ -171,10 +171,9 @@ const About = () => {
           <div className="relative">
             <div className="aspect-square bg-gradient-to-br from-blue-100 to-indigo-100 rounded-3xl p-8 flex items-center justify-center">
               <div className="text-center">
-                <h3 className="text-3xl font-bold text-gray-900 mb-4">Our Vision</h3>
+                <h3 className="text-3xl font-bold text-gray-900 mb-4">{t('about.vision.title')}</h3>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  "A world where every business conversation is intelligent, personalized, and delightful - 
-                  powered by AI that truly understands human needs."
+                  {t('about.vision.description')}
                 </p>
                 <div className="mt-6">
                   <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto flex items-center justify-center">
@@ -191,10 +190,10 @@ const About = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Meet Our <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Team</span>
+            {t('about.team.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            A diverse group of AI experts, engineers, and business strategists united by our passion for innovation
+            {t('about.team.subtitle')}
           </p>
         </div>
 
@@ -223,10 +222,10 @@ const About = () => {
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Our <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Journey</span>
+            {t('about.journey.title')}
           </h2>
           <p className="text-xl text-gray-600">
-            From startup to industry leader - the milestones that define us
+            {t('about.journey.subtitle')}
           </p>
         </div>
 
@@ -260,10 +259,10 @@ const About = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Recognition & <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Awards</span>
+            {t('about.awards.title')}
           </h2>
           <p className="text-xl text-gray-600">
-            Industry recognition for our innovation and excellence
+            {t('about.awards.subtitle')}
           </p>
         </div>
 
@@ -284,18 +283,17 @@ const About = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Ready to Join Our <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Success Story</span>?
+            {t('about.cta.title')}
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Let's discuss how D2 Group can transform your customer communication strategy. 
-            Our team is ready to design a solution that fits your unique needs.
+            {t('about.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
-              Get Started Today
+              {t('about.cta.getStarted')}
             </Button>
             <Button size="lg" variant="outline" onClick={handleContactClick} className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg">
-              Schedule a Call
+              {t('about.cta.scheduleCall')}
             </Button>
           </div>
         </div>
