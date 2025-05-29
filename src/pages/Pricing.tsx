@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, X, Star, HelpCircle } from "lucide-react";
@@ -12,76 +11,76 @@ const Pricing = () => {
 
   const pricingPlans = [
     {
-      name: t('pricing.starter'),
+      name: "Starter",
       price: "119$",
-      period: " VND" + t('pricing.month'),
-      description: t('pricing.starter.desc'),
+      period: " VND/tháng",
+      description: "Hoàn hảo cho các doanh nghiệp nhỏ bắt đầu với AI chatbot",
       popular: false,
       features: [
-        "1.000 " + t('feature.conversations'),
-        t('feature.basicTemplates'),
-        t('feature.websiteIntegration'),
-        t('feature.emailSupport'),
-        t('feature.basicAnalytics'),
-        "5 " + t('feature.workflows'),
-        t('feature.standardResponse')
+        "1.000 cuộc hội thoại/tháng",
+        "Mẫu chatbot cơ bản",
+        "Tích hợp website",
+        "Hỗ trợ email",
+        "Phân tích cơ bản",
+        "5 workflow tự động",
+        "Thời gian phản hồi tiêu chuẩn"
       ]
     },
     {
-      name: t('pricing.growth'), 
+      name: "Growth", 
       price: "199$",
-      period: " VND" + t('pricing.month'),
-      description: t('pricing.growth.desc'),
+      period: " VND/tháng",
+      description: "Lý tưởng cho doanh nghiệp đang phát triển cần nhiều tính năng hơn",
       popular: true,
       features: [
-        "5.000 " + t('feature.conversations'),
-        t('feature.advancedTemplates'),
-        t('feature.multiChannel'),
-        t('feature.crmIntegration'),
-        t('feature.advancedAnalytics'),
-        t('feature.unlimitedWorkflows'),
-        t('feature.prioritySupport'),
-        t('feature.abTesting'),
-        t('feature.leadQualification')
+        "5.000 cuộc hội thoại/tháng",
+        "Mẫu chatbot nâng cao",
+        "Đa kênh (Website, Facebook, WhatsApp)",
+        "Tích hợp CRM",
+        "Phân tích nâng cao",
+        "Workflow không giới hạn",
+        "Hỗ trợ ưu tiên",
+        "A/B Testing",
+        "Phân loại khách hàng tiềm năng"
       ]
     },
     {
-      name: t('pricing.business'),
+      name: "Business",
       price: "299$",
-      period: " VND" + t('pricing.month'),
-      description: t('pricing.business.desc'),
+      period: " VND/tháng",
+      description: "Phù hợp cho doanh nghiệp lớn với nhu cầu tùy chỉnh cao",
       popular: false,
       features: [
-        "15.000 " + t('feature.conversations'),
-        t('feature.customDesign'),
-        t('feature.multiChannel'),
-        t('feature.crmIntegration'),
-        t('feature.advancedAnalytics'),
-        t('feature.unlimitedWorkflows'),
-        t('feature.prioritySupport'),
-        t('feature.abTesting'),
-        t('feature.leadQualification'),
-        t('feature.customBranding'),
-        t('feature.priorityResponse')
+        "15.000 cuộc hội thoại/tháng",
+        "Thiết kế chatbot tùy chỉnh",
+        "Đa kênh (Website, Facebook, WhatsApp)",
+        "Tích hợp CRM",
+        "Phân tích nâng cao",
+        "Workflow không giới hạn",
+        "Hỗ trợ ưu tiên",
+        "A/B Testing",
+        "Phân loại khách hàng tiềm năng",
+        "Thương hiệu tùy chỉnh",
+        "Phản hồi ưu tiên"
       ]
     },
     {
-      name: t('pricing.enterprise'),
-      price: t('pricing.contactPricing'),
+      name: "Enterprise",
+      price: "Liên hệ",
       period: "",
-      description: t('pricing.enterprise.desc'),
+      description: "Giải pháp doanh nghiệp với tính năng tùy chỉnh hoàn toàn",
       popular: false,
       features: [
-        t('feature.unlimited') + " " + t('feature.conversations'),
-        t('feature.customAI'),
-        t('feature.dedicatedManager'),
-        t('feature.onPremise'),
-        t('feature.security'),
-        t('feature.customIntegrations'),
-        t('feature.phoneSupport'),
-        t('feature.slaGuarantees'),
-        t('feature.whiteLabel'),
-        t('feature.advancedReporting')
+        "Cuộc hội thoại không giới hạn",
+        "AI tùy chỉnh hoàn toàn",
+        "Quản lý tài khoản chuyên biệt",
+        "Triển khai tại chỗ",
+        "Bảo mật cấp doanh nghiệp",
+        "Tích hợp tùy chỉnh",
+        "Hỗ trợ điện thoại 24/7",
+        "Cam kết SLA",
+        "Nhãn trắng",
+        "Báo cáo nâng cao"
       ]
     }
   ];
@@ -138,23 +137,23 @@ const Pricing = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
-            {t('pricing.title').split(' ').slice(0, -1).join(' ')}, <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('pricing.title').split(' ').slice(-1)}</span>
+            Bảng Giá <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Minh Bạch</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            {t('pricing.subtitle')}
+            Chọn gói phù hợp với nhu cầu doanh nghiệp của bạn. Tất cả các gói đều bao gồm dùng thử miễn phí 14 ngày.
           </p>
           <div className="flex items-center justify-center space-x-6 text-sm text-gray-600">
             <span className="flex items-center space-x-2">
               <Check className="w-4 h-4 text-green-500" />
-              <span>{t('pricing.freeTrial')}</span>
+              <span>Dùng thử miễn phí 14 ngày</span>
             </span>
             <span className="flex items-center space-x-2">
               <Check className="w-4 h-4 text-green-500" />
-              <span>{t('pricing.noSetupFees')}</span>
+              <span>Không phí thiết lập</span>
             </span>
             <span className="flex items-center space-x-2">
               <Check className="w-4 h-4 text-green-500" />
-              <span>{t('pricing.cancelAnytime')}</span>
+              <span>Hủy bất kỳ lúc nào</span>
             </span>
           </div>
         </div>
@@ -176,7 +175,7 @@ const Pricing = () => {
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <span className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center space-x-1">
                     <Star className="w-4 h-4" />
-                    <span>{t('pricing.mostPopular')}</span>
+                    <span>Phổ biến nhất</span>
                   </span>
                 </div>
               )}
@@ -208,7 +207,7 @@ const Pricing = () => {
                       : 'bg-gray-800 hover:bg-gray-900'
                   } text-white`}
                 >
-                  {plan.name === t('pricing.enterprise') ? t('pricing.contactForPricing') : t('pricing.getStarted')}
+                  {plan.name === 'Enterprise' ? 'Liên hệ báo giá' : 'Bắt đầu ngay'}
                 </Button>
               </CardContent>
             </Card>
