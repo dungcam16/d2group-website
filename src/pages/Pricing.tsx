@@ -13,7 +13,7 @@ const Pricing = () => {
   const pricingPlans = [
     {
       name: t('pricing.starter'),
-      price: "2.900.000",
+      price: "119$",
       period: " VND" + t('pricing.month'),
       description: t('pricing.starter.desc'),
       popular: false,
@@ -29,7 +29,7 @@ const Pricing = () => {
     },
     {
       name: t('pricing.growth'), 
-      price: "3.900.000",
+      price: "199$",
       period: " VND" + t('pricing.month'),
       description: t('pricing.growth.desc'),
       popular: true,
@@ -47,7 +47,7 @@ const Pricing = () => {
     },
     {
       name: t('pricing.business'),
-      price: "7.900.000",
+      price: "299$",
       period: " VND" + t('pricing.month'),
       description: t('pricing.business.desc'),
       popular: false,
