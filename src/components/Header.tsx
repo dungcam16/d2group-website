@@ -1,21 +1,23 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { language, setLanguage, t } = useLanguage();
 
   const navigationItems = [
-    { name: "Home", path: "/" },
-    { name: "About Us", path: "/about" },
-    { name: "Features", path: "/features" },
-    { name: "Case Studies", path: "/case-studies" },
-    { name: "Pricing", path: "/pricing" },
-    { name: "Contact Us", path: "/contact" },
+    { name: t('nav.home'), path: "/" },
+    { name: t('nav.about'), path: "/about" },
+    { name: t('nav.features'), path: "/features" },
+    { name: t('nav.caseStudies'), path: "/case-studies" },
+    { name: t('nav.pricing'), path: "/pricing" },
+    { name: t('nav.contact'), path: "/contact" },
   ];
 
   const handleNavigation = (path: string) => {
@@ -30,6 +32,10 @@ const Header = () => {
 
   const isCurrentPath = (path: string) => {
     return location.pathname === path;
+  };
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'vi' ? 'en' : 'vi');
   };
 
   return (
@@ -66,20 +72,27 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Desktop CTA */}
+          {/* Desktop CTA + Language Toggle */}
           <div className="hidden lg:flex items-center space-x-4">
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center space-x-1 text-sm text-gray-600 hover:text-blue-600 transition-colors"
+            >
+              <Globe className="w-4 h-4" />
+              <span>{language === 'vi' ? 'EN' : 'VI'}</span>
+            </button>
             <Button 
               variant="outline" 
               onClick={handleContactClick}
               className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
             >
-              Get Demo
+              {t('nav.getDemo')}
             </Button>
             <Button 
               onClick={handleContactClick}
               className="bg-blue-600 hover:bg-blue-700 text-white"
             >
-              Contact Us
+              {t('nav.contactUs')}
             </Button>
           </div>
 
@@ -115,18 +128,25 @@ const Header = () => {
                 </button>
               ))}
               <div className="px-4 pt-4 space-y-2">
+                <button
+                  onClick={toggleLanguage}
+                  className="w-full flex items-center justify-center space-x-2 p-2 text-sm text-gray-600 hover:text-blue-600 transition-colors border border-gray-300 rounded"
+                >
+                  <Globe className="w-4 h-4" />
+                  <span>{language === 'vi' ? 'English' : 'Tiếng Việt'}</span>
+                </button>
                 <Button 
                   variant="outline" 
                   onClick={handleContactClick}
                   className="w-full border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
                 >
-                  Get Demo
+                  {t('nav.getDemo')}
                 </Button>
                 <Button 
                   onClick={handleContactClick}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                 >
-                  Contact Us
+                  {t('nav.contactUs')}
                 </Button>
               </div>
             </nav>

@@ -3,151 +3,128 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, X, Star, HelpCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 import Section from "@/components/ui/section";
 
 const Pricing = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const pricingPlans = [
     {
-      name: "Starter",
-      price: "$99",
-      period: "/month",
-      description: "Perfect for small businesses getting started with AI chatbots",
+      name: t('pricing.starter'),
+      price: "2.900.000",
+      period: " VND" + t('pricing.month'),
+      description: t('pricing.starter.desc'),
       popular: false,
       features: [
-        "Up to 1,000 conversations/month",
-        "Basic chatbot templates",
-        "Website integration",
-        "Email support",
-        "Basic analytics dashboard",
-        "5 predefined workflows",
-        "Standard response time"
+        "1.000 " + t('feature.conversations'),
+        t('feature.basicTemplates'),
+        t('feature.websiteIntegration'),
+        t('feature.emailSupport'),
+        t('feature.basicAnalytics'),
+        "5 " + t('feature.workflows'),
+        t('feature.standardResponse')
       ]
     },
     {
-      name: "Business", 
-      price: "$299",
-      period: "/month",
-      description: "Ideal for growing companies with higher volume needs",
+      name: t('pricing.growth'), 
+      price: "3.900.000",
+      period: " VND" + t('pricing.month'),
+      description: t('pricing.growth.desc'),
       popular: true,
       features: [
-        "Up to 10,000 conversations/month",
-        "Custom chatbot design",
-        "Multi-channel deployment",
-        "CRM integrations",
-        "Advanced analytics",
-        "Unlimited workflows",
-        "Priority support",
-        "A/B testing capabilities",
-        "Lead qualification",
-        "Custom branding"
+        "5.000 " + t('feature.conversations'),
+        t('feature.advancedTemplates'),
+        t('feature.multiChannel'),
+        t('feature.crmIntegration'),
+        t('feature.advancedAnalytics'),
+        t('feature.unlimitedWorkflows'),
+        t('feature.prioritySupport'),
+        t('feature.abTesting'),
+        t('feature.leadQualification')
       ]
     },
     {
-      name: "Enterprise",
-      price: "Custom",
-      period: "",
-      description: "Tailored solutions for large organizations with specific requirements",
+      name: t('pricing.business'),
+      price: "7.900.000",
+      period: " VND" + t('pricing.month'),
+      description: t('pricing.business.desc'),
       popular: false,
       features: [
-        "Unlimited conversations",
-        "Custom AI model training",
-        "Dedicated account manager",
-        "On-premise deployment option",
-        "Advanced security & compliance",
-        "Custom integrations",
-        "24/7 phone support",
-        "SLA guarantees",
-        "White-label solution",
-        "Advanced reporting suite"
+        "15.000 " + t('feature.conversations'),
+        t('feature.customDesign'),
+        t('feature.multiChannel'),
+        t('feature.crmIntegration'),
+        t('feature.advancedAnalytics'),
+        t('feature.unlimitedWorkflows'),
+        t('feature.prioritySupport'),
+        t('feature.abTesting'),
+        t('feature.leadQualification'),
+        t('feature.customBranding'),
+        t('feature.priorityResponse')
+      ]
+    },
+    {
+      name: t('pricing.enterprise'),
+      price: t('pricing.contactPricing'),
+      period: "",
+      description: t('pricing.enterprise.desc'),
+      popular: false,
+      features: [
+        t('feature.unlimited') + " " + t('feature.conversations'),
+        t('feature.customAI'),
+        t('feature.dedicatedManager'),
+        t('feature.onPremise'),
+        t('feature.security'),
+        t('feature.customIntegrations'),
+        t('feature.phoneSupport'),
+        t('feature.slaGuarantees'),
+        t('feature.whiteLabel'),
+        t('feature.advancedReporting')
       ]
     }
   ];
 
   const comparisonFeatures = [
     {
-      category: "Core Features",
+      category: "Tính năng cốt lõi",
       features: [
-        { name: "Monthly Conversations", starter: "1,000", business: "10,000", enterprise: "Unlimited" },
-        { name: "Chatbot Templates", starter: "Basic", business: "Advanced", enterprise: "Custom" },
-        { name: "Response Time", starter: "Standard", business: "Priority", enterprise: "Instant" },
-        { name: "Analytics Dashboard", starter: true, business: true, enterprise: true },
-        { name: "Website Integration", starter: true, business: true, enterprise: true }
+        { name: "Cuộc hội thoại hàng tháng", starter: "1,000", growth: "5,000", business: "15,000", enterprise: "Không giới hạn" },
+        { name: "Mẫu Chatbot", starter: "Cơ bản", growth: "Nâng cao", business: "Tùy chỉnh", enterprise: "Tùy chỉnh hoàn toàn" },
+        { name: "Thời gian phản hồi", starter: "Tiêu chuẩn", growth: "Ưu tiên", business: "Ưu tiên", enterprise: "Tức thì" },
+        { name: "Bảng điều khiển phân tích", starter: true, growth: true, business: true, enterprise: true },
+        { name: "Tích hợp Website", starter: true, growth: true, business: true, enterprise: true }
       ]
     },
     {
-      category: "Channels & Integration",
+      category: "Kênh & Tích hợp",
       features: [
-        { name: "Website Widget", starter: true, business: true, enterprise: true },
-        { name: "WhatsApp Business", starter: false, business: true, enterprise: true },
-        { name: "Facebook Messenger", starter: false, business: true, enterprise: true },
-        { name: "CRM Integration", starter: false, business: true, enterprise: true },
-        { name: "Custom API Access", starter: false, business: false, enterprise: true }
-      ]
-    },
-    {
-      category: "AI & Customization",
-      features: [
-        { name: "Pre-built Workflows", starter: "5", business: "Unlimited", enterprise: "Custom" },
-        { name: "Custom Branding", starter: false, business: true, enterprise: true },
-        { name: "A/B Testing", starter: false, business: true, enterprise: true },
-        { name: "Custom AI Training", starter: false, business: false, enterprise: true },
-        { name: "White-label Solution", starter: false, business: false, enterprise: true }
-      ]
-    },
-    {
-      category: "Support & Services",
-      features: [
-        { name: "Email Support", starter: true, business: true, enterprise: true },
-        { name: "Priority Support", starter: false, business: true, enterprise: true },
-        { name: "Phone Support", starter: false, business: false, enterprise: true },
-        { name: "Dedicated Account Manager", starter: false, business: false, enterprise: true },
-        { name: "SLA Guarantee", starter: false, business: false, enterprise: true }
+        { name: "Widget Website", starter: true, growth: true, business: true, enterprise: true },
+        { name: "WhatsApp Business", starter: false, growth: true, business: true, enterprise: true },
+        { name: "Facebook Messenger", starter: false, growth: true, business: true, enterprise: true },
+        { name: "Tích hợp CRM", starter: false, growth: true, business: true, enterprise: true },
+        { name: "Truy cập API tùy chỉnh", starter: false, growth: false, business: false, enterprise: true }
       ]
     }
   ];
 
   const faqs = [
     {
-      question: "What counts as a conversation?",
-      answer: "A conversation is counted each time a unique user interacts with your chatbot within a 24-hour period, regardless of the number of messages exchanged."
+      question: "Cuộc hội thoại được tính như thế nào?",
+      answer: "Một cuộc hội thoại được tính mỗi khi một người dùng duy nhất tương tác với chatbot của bạn trong khoảng thời gian 24 giờ, bất kể số lượng tin nhắn được trao đổi."
     },
     {
-      question: "Can I upgrade or downgrade my plan anytime?",
-      answer: "Yes, you can change your plan at any time. Upgrades take effect immediately, while downgrades take effect at the next billing cycle."
+      question: "Tôi có thể nâng cấp hoặc hạ cấp gói bất cứ lúc nào không?",
+      answer: "Có, bạn có thể thay đổi gói của mình bất cứ lúc nào. Nâng cấp có hiệu lực ngay lập tức, trong khi hạ cấp có hiệu lực vào chu kỳ thanh toán tiếp theo."
     },
     {
-      question: "Is there a free trial available?",
-      answer: "Yes, we offer a 14-day free trial for all plans. No credit card required to start, and you can cancel anytime during the trial period."
+      question: "Có dùng thử miễn phí không?",
+      answer: "Có, chúng tôi cung cấp dùng thử miễn phí 14 ngày cho tất cả các gói. Không cần thẻ tín dụng để bắt đầu và bạn có thể hủy bất cứ lúc nào trong thời gian dùng thử."
     },
     {
-      question: "What happens if I exceed my conversation limit?",
-      answer: "If you exceed your monthly limit, additional conversations are charged at $0.10 each. We'll notify you when you're approaching your limit."
-    },
-    {
-      question: "Do you offer custom enterprise solutions?",
-      answer: "Yes, our Enterprise plan is fully customizable. We work with you to create a solution that meets your specific requirements and compliance needs."
-    },
-    {
-      question: "What kind of support is included?",
-      answer: "All plans include comprehensive onboarding, training materials, and ongoing support. Higher-tier plans include priority support and dedicated account management."
-    },
-    {
-      question: "Can I integrate with my existing CRM?",
-      answer: "Yes, Business and Enterprise plans include CRM integrations with popular platforms like Salesforce, HubSpot, Pipedrive, and many others."
-    },
-    {
-      question: "Is my data secure?",
-      answer: "Absolutely. We use enterprise-grade security with end-to-end encryption, SOC 2 compliance, and follow strict data privacy regulations including GDPR."
-    },
-    {
-      question: "How quickly can I get started?",
-      answer: "Most customers are up and running within 24-48 hours. Our simple setup process and pre-built templates make deployment quick and easy."
-    },
-    {
-      question: "Do you provide training for my team?",
-      answer: "Yes, all plans include comprehensive training materials, video tutorials, and live training sessions for Business and Enterprise customers."
+      question: "Điều gì xảy ra nếu tôi vượt quá giới hạn cuộc hội thoại?",
+      answer: "Nếu bạn vượt quá giới hạn hàng tháng, các cuộc hội thoại bổ sung sẽ được tính phí 3.000 VND mỗi cuộc. Chúng tôi sẽ thông báo cho bạn khi bạn sắp đạt đến giới hạn."
     }
   ];
 
@@ -161,24 +138,23 @@ const Pricing = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
-            Simple, <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Transparent Pricing</span>
+            {t('pricing.title').split(' ').slice(0, -1).join(' ')}, <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('pricing.title').split(' ').slice(-1)}</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Choose the plan that fits your business needs. All plans include free setup, training, 
-            and a 14-day free trial with no commitments.
+            {t('pricing.subtitle')}
           </p>
           <div className="flex items-center justify-center space-x-6 text-sm text-gray-600">
             <span className="flex items-center space-x-2">
               <Check className="w-4 h-4 text-green-500" />
-              <span>Free 14-day trial</span>
+              <span>{t('pricing.freeTrial')}</span>
             </span>
             <span className="flex items-center space-x-2">
               <Check className="w-4 h-4 text-green-500" />
-              <span>No setup fees</span>
+              <span>{t('pricing.noSetupFees')}</span>
             </span>
             <span className="flex items-center space-x-2">
               <Check className="w-4 h-4 text-green-500" />
-              <span>Cancel anytime</span>
+              <span>{t('pricing.cancelAnytime')}</span>
             </span>
           </div>
         </div>
@@ -186,7 +162,7 @@ const Pricing = () => {
 
       {/* Pricing Cards */}
       <Section background="white">
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {pricingPlans.map((plan, index) => (
             <Card 
               key={index}
@@ -200,7 +176,7 @@ const Pricing = () => {
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <span className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center space-x-1">
                     <Star className="w-4 h-4" />
-                    <span>Most Popular</span>
+                    <span>{t('pricing.mostPopular')}</span>
                   </span>
                 </div>
               )}
@@ -208,8 +184,8 @@ const Pricing = () => {
               <CardHeader className="text-center pb-4">
                 <CardTitle className="text-2xl font-bold mb-2">{plan.name}</CardTitle>
                 <div className="mb-4">
-                  <span className="text-4xl font-bold text-blue-600">{plan.price}</span>
-                  <span className="text-gray-600 ml-2">{plan.period}</span>
+                  <span className="text-3xl font-bold text-blue-600">{plan.price}</span>
+                  <span className="text-gray-600 ml-1 text-sm">{plan.period}</span>
                 </div>
                 <p className="text-gray-600 text-sm leading-relaxed">{plan.description}</p>
               </CardHeader>
@@ -232,7 +208,7 @@ const Pricing = () => {
                       : 'bg-gray-800 hover:bg-gray-900'
                   } text-white`}
                 >
-                  {plan.name === 'Enterprise' ? 'Contact Sales' : 'Start Free Trial'}
+                  {plan.name === t('pricing.enterprise') ? t('pricing.contactForPricing') : t('pricing.getStarted')}
                 </Button>
               </CardContent>
             </Card>
@@ -244,10 +220,10 @@ const Pricing = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Detailed Feature <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Comparison</span>
+            So sánh tính năng <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Chi tiết</span>
           </h2>
           <p className="text-xl text-gray-600">
-            Compare all features across our pricing plans
+            So sánh tất cả các tính năng trên các gói giá của chúng tôi
           </p>
         </div>
         
@@ -256,8 +232,9 @@ const Pricing = () => {
             <table className="w-full">
               <thead className="bg-gradient-to-r from-blue-600 to-indigo-600">
                 <tr>
-                  <th className="text-left p-6 text-white font-semibold">Features</th>
+                  <th className="text-left p-6 text-white font-semibold">Tính năng</th>
                   <th className="text-center p-6 text-white font-semibold">Starter</th>
+                  <th className="text-center p-6 text-white font-semibold">Growth</th>
                   <th className="text-center p-6 text-white font-semibold">Business</th>
                   <th className="text-center p-6 text-white font-semibold">Enterprise</th>
                 </tr>
@@ -266,7 +243,7 @@ const Pricing = () => {
                 {comparisonFeatures.map((category, categoryIndex) => (
                   <>
                     <tr key={`category-${categoryIndex}`} className="bg-gray-100">
-                      <td colSpan={4} className="p-4 font-bold text-blue-600 text-lg">
+                      <td colSpan={5} className="p-4 font-bold text-blue-600 text-lg">
                         {category.category}
                       </td>
                     </tr>
@@ -282,6 +259,17 @@ const Pricing = () => {
                             )
                           ) : (
                             <span className="font-semibold">{feature.starter}</span>
+                          )}
+                        </td>
+                        <td className="p-4 text-center">
+                          {typeof feature.growth === 'boolean' ? (
+                            feature.growth ? (
+                              <Check className="w-5 h-5 text-green-500 mx-auto" />
+                            ) : (
+                              <X className="w-5 h-5 text-gray-300 mx-auto" />
+                            )
+                          ) : (
+                            <span className="font-semibold">{feature.growth}</span>
                           )}
                         </td>
                         <td className="p-4 text-center">
@@ -320,10 +308,10 @@ const Pricing = () => {
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Frequently Asked <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Questions</span>
+            Câu hỏi <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Thường gặp</span>
           </h2>
           <p className="text-xl text-gray-600">
-            Everything you need to know about our pricing and plans
+            Mọi thứ bạn cần biết về giá cả và gói dịch vụ của chúng tôi
           </p>
         </div>
         
@@ -350,22 +338,22 @@ const Pricing = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Ready to Get <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Started</span>?
+            Sẵn sàng <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Bắt đầu</span>?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Start your free trial today and see how D2 Group can transform your customer conversations. 
-            No credit card required, cancel anytime.
+            Bắt đầu dùng thử miễn phí ngay hôm nay và xem D2 Group có thể chuyển đổi các cuộc hội thoại khách hàng của bạn như thế nào. 
+            Không cần thẻ tín dụng, hủy bất cứ lúc nào.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
-              Start Free Trial
+              Bắt đầu dùng thử miễn phí
             </Button>
             <Button size="lg" variant="outline" onClick={handleContactClick} className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg">
-              Contact Sales
+              Liên hệ bán hàng
             </Button>
           </div>
           <div className="mt-6 text-sm text-gray-600">
-            Questions? Our sales team is here to help you choose the right plan.
+            Có câu hỏi? Đội ngũ bán hàng của chúng tôi sẵn sàng giúp bạn chọn gói phù hợp.
           </div>
         </div>
       </Section>
