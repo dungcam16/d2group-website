@@ -1,4 +1,3 @@
-
 import { Translations } from '../types';
 
 export const viTranslations: Translations = {
@@ -332,10 +331,105 @@ export const viTranslations: Translations = {
   // Case Studies
   'caseStudies.hero.title': 'Câu chuyện thành công thực tế',
   'caseStudies.hero.subtitle': 'Khám phá cách các doanh nghiệp trên nhiều ngành đã chuyển đổi trải nghiệm khách hàng và đạt được kết quả đáng kể với giải pháp chatbot AI của D2 Group.',
+  
+  // Case Studies Content - NEW TRANSLATIONS
+  'caseStudies.content.stats.deployments': 'Triển khai thành công',
+  'caseStudies.content.stats.conversionIncrease': 'Tăng chuyển đổi trung bình',
+  'caseStudies.content.stats.costReduction': 'Giảm chi phí trung bình',
+  'caseStudies.content.stats.support': 'Hỗ trợ khách hàng',
+
+  'caseStudies.content.case1.title': 'Tập đoàn thương mại điện tử tăng chuyển đổi 45%',
+  'caseStudies.content.case1.company': 'TechMart Vietnam',
+  'caseStudies.content.case1.industry': 'Thương mại điện tử',
+  'caseStudies.content.case1.challenge': 'Tỷ lệ bỏ giỏ hàng cao và lượng câu hỏi khách hàng quá tải trong mùa cao điểm',
+  'caseStudies.content.case1.solution': 'Triển khai chatbot AI cho đề xuất sản phẩm, theo dõi đơn hàng và hỗ trợ khách hàng tức thì',
+  'caseStudies.content.case1.testimonial': 'Chatbot đã thay đổi hoàn toàn trải nghiệm khách hàng. Chúng tôi đang đạt tỷ lệ chuyển đổi kỷ lục và đội hỗ trợ có thể tập trung vào các vấn đề phức tạp.',
+  'caseStudies.content.case1.author': 'Nguyễn Văn Minh, CEO TechMart Vietnam',
+
+  'caseStudies.content.case2.title': 'Nhà cung cấp dịch vụ y tế giảm thời gian chờ 60%',
+  'caseStudies.content.case2.company': 'MedCare Plus',
+  'caseStudies.content.case2.industry': 'Chăm sóc sức khỏe',
+  'caseStudies.content.case2.challenge': 'Thời gian chờ lâu cho đặt lịch hẹn và các câu hỏi sức khỏe cơ bản',
+  'caseStudies.content.case2.solution': 'Triển khai bot đặt lịch hẹn với hệ thống kiểm tra triệu chứng và thông tin y tế',
+  'caseStudies.content.case2.testimonial': 'Bệnh nhân của chúng tôi thích phản hồi tức thì cho việc đặt lịch và câu hỏi sức khỏe cơ bản. Nó đã cách mạng hóa quy trình chăm sóc bệnh nhân.',
+  'caseStudies.content.case2.author': 'Dr. Trần Thị Lan, Giám đốc Y khoa',
+
+  'caseStudies.content.case3.title': 'Dịch vụ tài chính cải thiện chất lượng khách hàng tiềm năng 80%',
+  'caseStudies.content.case3.company': 'VietFinance Solutions',
+  'caseStudies.content.case3.industry': 'Dịch vụ tài chính',
+  'caseStudies.content.case3.challenge': 'Quy trình đánh giá khách hàng tiềm năng kém và việc tiếp nhận khách hàng tốn thời gian',
+  'caseStudies.content.case3.solution': 'Triển khai bot đánh giá khách hàng tiềm năng thông minh với xử lý tài liệu và tự động hóa KYC',
+  'caseStudies.content.case3.testimonial': 'Chatbot AI đánh giá khách hàng tiềm năng tốt đến mức đội bán hàng chỉ nói chuyện với khách hàng nghiêm túc. Tỷ lệ chuyển đổi chưa bao giờ cao như vậy.',
+  'caseStudies.content.case3.author': 'Lê Hoàng Nam, Giám đốc Bán hàng',
+
+  'caseStudies.content.case4.title': 'Nền tảng giáo dục tăng sự tham gia của học sinh 70%',
+  'caseStudies.content.case4.company': 'EduTech Academy',
+  'caseStudies.content.case4.industry': 'Giáo dục',
+  'caseStudies.content.case4.challenge': 'Sự tham gia thấp của học sinh và tỷ lệ bỏ học cao trong các khóa học trực tuyến',
+  'caseStudies.content.case4.solution': 'Tạo bot gia sư AI cho hỗ trợ học sinh 24/7, đề xuất khóa học và theo dõi tiến độ',
+  'caseStudies.content.case4.testimonial': 'Học sinh có gia sư AI cá nhân 24/7. Sự cải thiện trong tham gia và tỷ lệ hoàn thành thật đáng chú ý.',
+  'caseStudies.content.case4.author': 'Phạm Thị Mai, Giám đốc Học thuật',
+
+  'caseStudies.content.case5.title': 'Công ty bất động sản tạo ra gấp 3 lần khách hàng tiềm năng chất lượng',
+  'caseStudies.content.case5.company': 'PropertyPro Vietnam',
+  'caseStudies.content.case5.industry': 'Bất động sản',
+  'caseStudies.content.case5.challenge': 'Khó khăn trong việc đánh giá người mua nghiêm túc và quản lý lượng lớn câu hỏi về bất động sản',
+  'caseStudies.content.case5.solution': 'Triển khai bot tìm kiếm bất động sản với tour ảo và hệ thống đánh giá người mua',
+  'caseStudies.content.case5.testimonial': 'Chatbot đánh giá người mua và lên lịch xem nhà tự động. Các đại lý của chúng tôi giờ chỉ dành thời gian cho những người mua nghiêm túc.',
+  'caseStudies.content.case5.author': 'Vũ Minh Tuấn, Giám đốc Điều hành',
+
+  'caseStudies.content.case6.title': 'Chuỗi khách sạn đạt 90% tự động hóa đặt phòng',
+  'caseStudies.content.case6.company': 'Luxury Resorts Group',
+  'caseStudies.content.case6.industry': 'Khách sạn',
+  'caseStudies.content.case6.challenge': 'Quy trình đặt phòng thủ công làm quá tải nhân viên trong mùa du lịch cao điểm',
+  'caseStudies.content.case6.solution': 'Triển khai bot tự động đặt phòng với đề xuất phòng và tính năng dịch vụ khách',
+  'caseStudies.content.case6.testimonial': 'Khách có thể đặt phòng, yêu cầu dịch vụ và nhận đề xuất ngay lập tức. Tỷ lệ lấp đầy của chúng tôi đạt mức cao nhất mọi thời đại.',
+  'caseStudies.content.case6.author': 'Nguyễn Thị Hoa, Quản lý Vận hành',
+
+  // Case Studies Metrics
+  'caseStudies.metrics.conversionRate': 'Tỷ lệ chuyển đổi',
+  'caseStudies.metrics.cartAbandonment': 'Bỏ giỏ hàng',
+  'caseStudies.metrics.responseTime': 'Thời gian phản hồi',
+  'caseStudies.metrics.customerSatisfaction': 'Hài lòng khách hàng',
+  'caseStudies.metrics.waitTimes': 'Thời gian chờ',
+  'caseStudies.metrics.appointmentBookings': 'Đặt lịch hẹn',
+  'caseStudies.metrics.staffEfficiency': 'Hiệu quả nhân viên',
+  'caseStudies.metrics.leadQuality': 'Chất lượng khách hàng tiềm năng',
+  'caseStudies.metrics.onboardingTime': 'Thời gian tiếp nhận',
+  'caseStudies.metrics.processEfficiency': 'Hiệu quả quy trình',
+  'caseStudies.metrics.studentEngagement': 'Tham gia học sinh',
+  'caseStudies.metrics.courseCompletion': 'Hoàn thành khóa học',
+  'caseStudies.metrics.supportQueries': 'Câu hỏi hỗ trợ',
+  'caseStudies.metrics.qualifiedLeads': 'Khách hàng tiềm năng chất lượng',
+  'caseStudies.metrics.propertyViews': 'Lượt xem bất động sản',
+  'caseStudies.metrics.salesCycle': 'Chu kỳ bán hàng',
+  'caseStudies.metrics.agentProductivity': 'Năng suất đại lý',
+  'caseStudies.metrics.bookingAutomation': 'Tự động đặt phòng',
+  'caseStudies.metrics.staffWorkload': 'Khối lượng công việc nhân viên',
+  'caseStudies.metrics.bookingConversion': 'Chuyển đổi đặt phòng',
+  'caseStudies.metrics.guestSatisfaction': 'Hài lòng khách',
+
+  // Industries We Serve Section
   'caseStudies.industries.title': 'Các ngành chúng tôi phục vụ',
   'caseStudies.industries.subtitle': 'Thành công đã được chứng minh trên các lĩnh vực kinh doanh đa dạng',
+  'caseStudies.industries.ecommerce': 'Thương mại điện tử',
+  'caseStudies.industries.healthcare': 'Chăm sóc sức khỏe',
+  'caseStudies.industries.finance': 'Tài chính',
+  'caseStudies.industries.education': 'Giáo dục',
+  'caseStudies.industries.realestate': 'Bất động sản',
+  'caseStudies.industries.hospitality': 'Khách sạn',
+  'caseStudies.industries.retail': 'Bán lẻ',
+  'caseStudies.industries.automotive': 'Ô tô',
+  'caseStudies.industries.insurance': 'Bảo hiểm',
+  'caseStudies.industries.manufacturing': 'Sản xuất',
+  'caseStudies.industries.travel': 'Du lịch',
+  'caseStudies.industries.logistics': 'Logistics',
+
+  // CTA Section
   'caseStudies.cta.title': 'Sẵn sàng viết câu chuyện thành công của bạn?',
   'caseStudies.cta.subtitle': 'Tham gia hàng trăm doanh nghiệp thành công đã chuyển đổi trải nghiệm khách hàng với D2 Group. Hãy thảo luận về cách chúng tôi có thể mang lại kết quả tương tự cho tổ chức của bạn.',
+  'caseStudies.cta.startStory': 'Bắt đầu câu chuyện thành công',
+  'caseStudies.cta.viewPricing': 'Xem bảng giá',
 
   // Not Found Page
   'notFound.title': 'Không tìm thấy trang',
