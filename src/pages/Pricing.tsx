@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, X, Star, HelpCircle } from "lucide-react";
@@ -12,75 +13,75 @@ const Pricing = () => {
   const pricingPlans = [
     {
       name: "Starter",
-      price: "119$",
-      period: " VND/tháng",
-      description: "Hoàn hảo cho các doanh nghiệp nhỏ bắt đầu với AI chatbot",
+      price: "$119",
+      period: "/month",
+      description: "Perfect for small businesses starting with AI chatbots",
       popular: false,
       features: [
-        "1.000 cuộc hội thoại/tháng",
-        "Mẫu chatbot cơ bản",
-        "Tích hợp website",
-        "Hỗ trợ email",
-        "Phân tích cơ bản",
-        "5 workflow tự động",
-        "Thời gian phản hồi tiêu chuẩn"
+        "1,000 conversations/month",
+        "Basic chatbot templates",
+        "Website integration",
+        "Email support",
+        "Basic analytics",
+        "5 automated workflows",
+        "Standard response time"
       ]
     },
     {
       name: "Growth", 
-      price: "199$",
-      period: " VND/tháng",
-      description: "Lý tưởng cho doanh nghiệp đang phát triển cần nhiều tính năng hơn",
+      price: "$199",
+      period: "/month",
+      description: "Ideal for growing businesses that need more features",
       popular: true,
       features: [
-        "5.000 cuộc hội thoại/tháng",
-        "Mẫu chatbot nâng cao",
-        "Đa kênh (Website, Facebook, WhatsApp)",
-        "Tích hợp CRM",
-        "Phân tích nâng cao",
-        "Workflow không giới hạn",
-        "Hỗ trợ ưu tiên",
-        "A/B Testing",
-        "Phân loại khách hàng tiềm năng"
+        "5,000 conversations/month",
+        "Advanced chatbot templates",
+        "Multi-channel (Website, Facebook, WhatsApp)",
+        "CRM integration",
+        "Advanced analytics",
+        "Unlimited workflows",
+        "Priority support",
+        "A/B testing",
+        "Lead qualification"
       ]
     },
     {
       name: "Business",
-      price: "299$",
-      period: " VND/tháng",
-      description: "Phù hợp cho doanh nghiệp lớn với nhu cầu tùy chỉnh cao",
+      price: "$299",
+      period: "/month",
+      description: "Suitable for large businesses with high customization needs",
       popular: false,
       features: [
-        "15.000 cuộc hội thoại/tháng",
-        "Thiết kế chatbot tùy chỉnh",
-        "Đa kênh (Website, Facebook, WhatsApp)",
-        "Tích hợp CRM",
-        "Phân tích nâng cao",
-        "Workflow không giới hạn",
-        "Hỗ trợ ưu tiên",
-        "A/B Testing",
-        "Phân loại khách hàng tiềm năng",
-        "Thương hiệu tùy chỉnh",
-        "Phản hồi ưu tiên"
+        "15,000 conversations/month",
+        "Custom chatbot design",
+        "Multi-channel (Website, Facebook, WhatsApp)",
+        "CRM integration",
+        "Advanced analytics",
+        "Unlimited workflows",
+        "Priority support",
+        "A/B testing",
+        "Lead qualification",
+        "Custom branding",
+        "Priority response"
       ]
     },
     {
       name: "Enterprise",
-      price: "Liên hệ",
+      price: "Contact",
       period: "",
-      description: "Giải pháp doanh nghiệp với tính năng tùy chỉnh hoàn toàn",
+      description: "Enterprise solution with fully customizable features",
       popular: false,
       features: [
-        "Cuộc hội thoại không giới hạn",
-        "AI tùy chỉnh hoàn toàn",
-        "Quản lý tài khoản chuyên biệt",
-        "Triển khai tại chỗ",
-        "Bảo mật cấp doanh nghiệp",
-        "Tích hợp tùy chỉnh",
-        "Hỗ trợ điện thoại 24/7",
-        "Cam kết SLA",
-        "Nhãn trắng",
-        "Báo cáo nâng cao"
+        "Unlimited conversations",
+        "Fully custom AI",
+        "Dedicated account manager",
+        "On-premise deployment",
+        "Enterprise-grade security",
+        "Custom integrations",
+        "24/7 phone support",
+        "SLA commitment",
+        "White label",
+        "Advanced reporting"
       ]
     }
   ];
@@ -99,7 +100,7 @@ const Pricing = () => {
     {
       category: "Channels & Integrations",
       features: [
-        { name: "Widget Website", starter: true, growth: true, business: true, enterprise: true },
+        { name: "Website Widget", starter: true, growth: true, business: true, enterprise: true },
         { name: "WhatsApp Business", starter: false, growth: true, business: true, enterprise: true },
         { name: "Facebook Messenger", starter: false, growth: true, business: true, enterprise: true },
         { name: "CRM Integration", starter: false, growth: true, business: true, enterprise: true },
@@ -123,7 +124,7 @@ const Pricing = () => {
     },
     {
       question: "What happens if I exceed my chat session limit?",
-      answer: "If you go over your monthly quota, additional sessions are billed at VND 3,000 per session. We’ll send you a notification as you approach your limit."
+      answer: "If you go over your monthly quota, additional sessions are billed at $3 per session. We'll send you a notification as you approach your limit."
     }
   ];
 
@@ -137,23 +138,23 @@ const Pricing = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
-            Bảng Giá <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Minh Bạch</span>
+            Transparent <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Pricing</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Chọn gói phù hợp với nhu cầu doanh nghiệp của bạn. Tất cả các gói đều bao gồm dùng thử miễn phí 14 ngày.
+            Choose the plan that fits your business needs. All plans include a 14-day free trial.
           </p>
           <div className="flex items-center justify-center space-x-6 text-sm text-gray-600">
             <span className="flex items-center space-x-2">
               <Check className="w-4 h-4 text-green-500" />
-              <span>Dùng thử miễn phí 14 ngày</span>
+              <span>14-day free trial</span>
             </span>
             <span className="flex items-center space-x-2">
               <Check className="w-4 h-4 text-green-500" />
-              <span>Không phí thiết lập</span>
+              <span>No setup fees</span>
             </span>
             <span className="flex items-center space-x-2">
               <Check className="w-4 h-4 text-green-500" />
-              <span>Hủy bất kỳ lúc nào</span>
+              <span>Cancel anytime</span>
             </span>
           </div>
         </div>
@@ -175,7 +176,7 @@ const Pricing = () => {
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <span className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center space-x-1">
                     <Star className="w-4 h-4" />
-                    <span>Phổ biến nhất</span>
+                    <span>Most Popular</span>
                   </span>
                 </div>
               )}
@@ -207,7 +208,7 @@ const Pricing = () => {
                       : 'bg-gray-800 hover:bg-gray-900'
                   } text-white`}
                 >
-                  {plan.name === 'Enterprise' ? 'Liên hệ báo giá' : 'Bắt đầu ngay'}
+                  {plan.name === 'Enterprise' ? 'Contact Sales' : 'Get Started'}
                 </Button>
               </CardContent>
             </Card>
@@ -219,7 +220,7 @@ const Pricing = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Pricing <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Comparison</span>
+            Feature <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Comparison</span>
           </h2>
           <p className="text-xl text-gray-600">
             Compare all features across our pricing plans.
@@ -337,10 +338,10 @@ const Pricing = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Ready to <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Get Started?</span>?
+            Ready to <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Get Started</span>?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Start your free trial today and discover how D2 Group’s AI chatbots can transform your customer conversations. No credit card required—cancel anytime.
+            Start your free trial today and discover how D2 Group's AI chatbots can transform your customer conversations. No credit card required—cancel anytime.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
