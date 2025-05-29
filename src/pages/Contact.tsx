@@ -242,7 +242,6 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg text-gray-900">Email</h3>
                     <p className="text-gray-600">contact@d2group.co</p>
-                    <p className="text-gray-600">sales@d2group.co</p>
                   </div>
                 </div>
 
@@ -252,8 +251,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+84 90909 9421</p>
-                    <p className="text-gray-600">+84 90909 9421</p>
+                    <p className="text-gray-600">+84 909 099 421</p>
+                    <p className="text-gray-600">+84 933 221 059</p>
                   </div>
                 </div>
 
@@ -297,7 +296,7 @@ const Contact = () => {
               <CardContent>
                 <div className="aspect-video bg-gray-200 rounded-lg overflow-hidden">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.4609870313887!2d106.69750631480093!3d10.776664992309456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f38f9ed887b%3A0x14aded5703768989!2sBitexco%20Financial%20Tower!5e0!3m2!1sen!2s!4v1697234567890!5m2!1sen!2s"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.585089432689!2d106.72348467637474!3d10.766425459375347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317525b0fd9e9f3f%3A0xf04a8174c09efc3c!2sD2%20GROUP!5e0!3m2!1sen!2s!4v1748530631630!5m2!1sen!2s"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
