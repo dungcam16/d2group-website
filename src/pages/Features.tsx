@@ -1,23 +1,8 @@
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { 
-  MessageSquare, 
-  Zap, 
-  BarChart3, 
-  Globe, 
-  Shield, 
-  Smartphone,
-  Bot,
-  Brain,
-  Clock,
-  Users,
-  Settings,
-  TrendingUp,
-  CheckCircle,
-  ArrowRight
-} from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Check, X, MessageSquare, Brain, BarChart3, Shield, Zap, Globe, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Section from "@/components/ui/section";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -28,92 +13,185 @@ const Features = () => {
 
   const coreFeatures = [
     {
-      icon: <MessageSquare className="w-8 h-8 text-blue-600" />,
-      title: t('features.core.conversations.title'),
-      description: t('features.core.conversations.desc'),
-      features: [
-        t('features.core.conversations.feature1'),
-        t('features.core.conversations.feature2'),
-        t('features.core.conversations.feature3'),
-        t('features.core.conversations.feature4')
-      ]
-    },
-    {
+      titleKey: "features.core.nlp.title",
+      descKey: "features.core.nlp.desc",
       icon: <Brain className="w-8 h-8 text-blue-600" />,
-      title: t('features.core.ai.title'),
-      description: t('features.core.ai.desc'),
-      features: [
-        t('features.core.ai.feature1'),
-        t('features.core.ai.feature2'),
-        t('features.core.ai.feature3'),
-        t('features.core.ai.feature4')
+      detailsKeys: [
+        "features.core.nlp.detail1",
+        "features.core.nlp.detail2",
+        "features.core.nlp.detail3",
+        "features.core.nlp.detail4"
       ]
     },
     {
+      titleKey: "features.core.multiChannel.title",
+      descKey: "features.core.multiChannel.desc",
       icon: <Globe className="w-8 h-8 text-blue-600" />,
-      title: t('features.core.multichannel.title'),
-      description: t('features.core.multichannel.desc'),
-      features: [
-        t('features.core.multichannel.feature1'),
-        t('features.core.multichannel.feature2'),
-        t('features.core.multichannel.feature3'),
-        t('features.core.multichannel.feature4')
+      detailsKeys: [
+        "features.core.multiChannel.detail1",
+        "features.core.multiChannel.detail2",
+        "features.core.multiChannel.detail3",
+        "features.core.multiChannel.detail4"
       ]
     },
     {
+      titleKey: "features.core.realTime.title",
+      descKey: "features.core.realTime.desc",
       icon: <BarChart3 className="w-8 h-8 text-blue-600" />,
-      title: t('features.core.analytics.title'),
-      description: t('features.core.analytics.desc'),
-      features: [
-        t('features.core.analytics.feature1'),
-        t('features.core.analytics.feature2'),
-        t('features.core.analytics.feature3'),
-        t('features.core.analytics.feature4')
+      detailsKeys: [
+        "features.core.realTime.detail1",
+        "features.core.realTime.detail2",
+        "features.core.realTime.detail3",
+        "features.core.realTime.detail4"
       ]
+    },
+    {
+      titleKey: "features.core.security.title",
+      descKey: "features.core.security.desc",
+      icon: <Shield className="w-8 h-8 text-blue-600" />,
+      detailsKeys: [
+        "features.core.security.detail1",
+        "features.core.security.detail2",
+        "features.core.security.detail3",
+        "features.core.security.detail4"
+      ]
+    },
+    {
+      titleKey: "features.core.deployment.title",
+      descKey: "features.core.deployment.desc",
+      icon: <Zap className="w-8 h-8 text-blue-600" />,
+      detailsKeys: [
+        "features.core.deployment.detail1",
+        "features.core.deployment.detail2",
+        "features.core.deployment.detail3",
+        "features.core.deployment.detail4"
+      ]
+    },
+    {
+      titleKey: "features.core.conversations.title",
+      descKey: "features.core.conversations.desc",
+      icon: <MessageSquare className="w-8 h-8 text-blue-600" />,
+      detailsKeys: [
+        "features.core.conversations.detail1",
+        "features.core.conversations.detail2",
+        "features.core.conversations.detail3",
+        "features.core.conversations.detail4"
+      ]
+    }
+  ];
+
+  const comparisonTable = [
+    {
+      featureKey: "features.comparison.responseTime",
+      traditionalKey: "features.comparison.traditional.responseTime",
+      aiChatbotKey: "features.comparison.ai.responseTime",
+      improvementKey: "features.comparison.improvement.responseTime"
+    },
+    {
+      featureKey: "features.comparison.availability",
+      traditionalKey: "features.comparison.traditional.availability",
+      aiChatbotKey: "features.comparison.ai.availability",
+      improvementKey: "features.comparison.improvement.availability"
+    },
+    {
+      featureKey: "features.comparison.scalability",
+      traditionalKey: "features.comparison.traditional.scalability",
+      aiChatbotKey: "features.comparison.ai.scalability",
+      improvementKey: "features.comparison.improvement.scalability"
+    },
+    {
+      featureKey: "features.comparison.consistency",
+      traditionalKey: "features.comparison.traditional.consistency",
+      aiChatbotKey: "features.comparison.ai.consistency",
+      improvementKey: "features.comparison.improvement.consistency"
+    },
+    {
+      featureKey: "features.comparison.costPerInteraction",
+      traditionalKey: "features.comparison.traditional.costPerInteraction",
+      aiChatbotKey: "features.comparison.ai.costPerInteraction",
+      improvementKey: "features.comparison.improvement.costPerInteraction"
+    },
+    {
+      featureKey: "features.comparison.languageSupport",
+      traditionalKey: "features.comparison.traditional.languageSupport",
+      aiChatbotKey: "features.comparison.ai.languageSupport",
+      improvementKey: "features.comparison.improvement.languageSupport"
     }
   ];
 
   const advancedFeatures = [
     {
-      icon: <Zap className="w-6 h-6 text-blue-600" />,
-      title: t('features.advanced.automation.title'),
-      description: t('features.advanced.automation.desc')
+      categoryKey: "features.advanced.ai.category",
+      features: [
+        {
+          nameKey: "features.advanced.ai.conversationFlow.name",
+          descKey: "features.advanced.ai.conversationFlow.desc"
+        },
+        {
+          nameKey: "features.advanced.ai.intentTraining.name",
+          descKey: "features.advanced.ai.intentTraining.desc"
+        },
+        {
+          nameKey: "features.advanced.ai.autoLearning.name",
+          descKey: "features.advanced.ai.autoLearning.desc"
+        },
+        {
+          nameKey: "features.advanced.ai.fallbackHandling.name",
+          descKey: "features.advanced.ai.fallbackHandling.desc"
+        }
+      ]
     },
     {
-      icon: <Shield className="w-6 h-6 text-blue-600" />,
-      title: t('features.advanced.security.title'),
-      description: t('features.advanced.security.desc')
+      categoryKey: "features.advanced.integration.category",
+      features: [
+        {
+          nameKey: "features.advanced.integration.crm.name",
+          descKey: "features.advanced.integration.crm.desc"
+        },
+        {
+          nameKey: "features.advanced.integration.ecommerce.name",
+          descKey: "features.advanced.integration.ecommerce.desc"
+        },
+        {
+          nameKey: "features.advanced.integration.customApi.name",
+          descKey: "features.advanced.integration.customApi.desc"
+        },
+        {
+          nameKey: "features.advanced.integration.webhook.name",
+          descKey: "features.advanced.integration.webhook.desc"
+        }
+      ]
     },
     {
-      icon: <Settings className="w-6 h-6 text-blue-600" />,
-      title: t('features.advanced.customization.title'),
-      description: t('features.advanced.customization.desc')
-    },
-    {
-      icon: <TrendingUp className="w-6 h-6 text-blue-600" />,
-      title: t('features.advanced.scalability.title'),
-      description: t('features.advanced.scalability.desc')
-    },
-    {
-      icon: <Users className="w-6 h-6 text-blue-600" />,
-      title: t('features.advanced.collaboration.title'),
-      description: t('features.advanced.collaboration.desc')
-    },
-    {
-      icon: <Clock className="w-6 h-6 text-blue-600" />,
-      title: t('features.advanced.support.title'),
-      description: t('features.advanced.support.desc')
+      categoryKey: "features.advanced.analytics.category",
+      features: [
+        {
+          nameKey: "features.advanced.analytics.conversation.name",
+          descKey: "features.advanced.analytics.conversation.desc"
+        },
+        {
+          nameKey: "features.advanced.analytics.performance.name",
+          descKey: "features.advanced.analytics.performance.desc"
+        },
+        {
+          nameKey: "features.advanced.analytics.dashboard.name",
+          descKey: "features.advanced.analytics.dashboard.desc"
+        },
+        {
+          nameKey: "features.advanced.analytics.abTesting.name",
+          descKey: "features.advanced.analytics.abTesting.desc"
+        }
+      ]
     }
   ];
 
-  const integrations = [
-    { name: "WhatsApp", icon: "💬" },
-    { name: "Facebook Messenger", icon: "📘" },
-    { name: "Zalo", icon: "💙" },
-    { name: "Telegram", icon: "✈️" },
-    { name: "Website Chat", icon: "🌐" },
-    { name: "Mobile Apps", icon: "📱" }
-  ];
+  const handleContactClick = () => {
+    navigate('/contact');
+  };
+
+  const handleCaseStudiesClick = () => {
+    navigate('/case-studies');
+  };
 
   return (
     <div className="pt-16">
@@ -121,19 +199,14 @@ const Features = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
-            {t('features.hero.title').split(' ')[0]} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.hero.title').split(' ').slice(1).join(' ')}</span>
+            {t('features.hero.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.hero.titleHighlight')}</span> {t('features.hero.titleEnd')}
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            {t('features.hero.subtitle')}
+            {t('features.hero.description')}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" onClick={() => navigate('/contact')} className="bg-blue-600 hover:bg-blue-700 text-white">
-              {t('features.hero.getDemo')}
-            </Button>
-            <Button size="lg" variant="outline" onClick={() => navigate('/pricing')} className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
-              {t('features.hero.seePricing')}
-            </Button>
-          </div>
+          <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
+            {t('features.hero.cta')}
+          </Button>
         </div>
       </Section>
 
@@ -141,33 +214,25 @@ const Features = () => {
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            {t('features.core.title').split(' ')[0]} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.core.title').split(' ').slice(1).join(' ')}</span>
+            {t('features.core.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.core.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600">
             {t('features.core.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {coreFeatures.map((feature, index) => (
-            <Card key={index} className="border-none shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <CardHeader>
-                <div className="flex items-center space-x-4">
-                  <div className="p-3 bg-blue-100 rounded-lg">
-                    {feature.icon}
-                  </div>
-                  <div>
-                    <CardTitle className="text-2xl text-gray-900">{feature.title}</CardTitle>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-gray-600 mb-6 leading-relaxed">{feature.description}</p>
-                <ul className="space-y-3">
-                  {feature.features.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start space-x-3">
-                      <CheckCircle className="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-600">{item}</span>
+            <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+              <CardContent className="p-8">
+                <div className="mb-6 group-hover:scale-110 transition-transform duration-300">{feature.icon}</div>
+                <h3 className="text-2xl font-bold mb-4 group-hover:text-blue-600 transition-colors">{t(feature.titleKey)}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">{t(feature.descKey)}</p>
+                <ul className="space-y-2">
+                  {feature.detailsKeys.map((detailKey, detailIndex) => (
+                    <li key={detailIndex} className="flex items-start space-x-3">
+                      <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                      <span className="text-sm text-gray-600">{t(detailKey)}</span>
                     </li>
                   ))}
                 </ul>
@@ -177,68 +242,136 @@ const Features = () => {
         </div>
       </Section>
 
-      {/* Advanced Features */}
+      {/* Comparison with Traditional Live Chat */}
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            {t('features.advanced.title').split(' ')[0]} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.advanced.title').split(' ').slice(1).join(' ')}</span>
+            {t('features.comparison.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.comparison.titleHighlight')}</span>
+          </h2>
+          <p className="text-xl text-gray-600">
+            {t('features.comparison.subtitle')}
+          </p>
+        </div>
+
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead className="bg-gradient-to-r from-blue-600 to-indigo-600">
+                <tr>
+                  <th className="text-left p-6 text-white font-semibold">{t('features.comparison.tableHeader.feature')}</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('features.comparison.tableHeader.traditional')}</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('features.comparison.tableHeader.aiChatbot')}</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('features.comparison.tableHeader.improvement')}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {comparisonTable.map((row, index) => (
+                  <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                    <td className="p-6 font-medium text-gray-900">{t(row.featureKey)}</td>
+                    <td className="p-6 text-center">
+                      <span className="inline-flex items-center space-x-2">
+                        <X className="w-4 h-4 text-red-500" />
+                        <span className="text-gray-600">{t(row.traditionalKey)}</span>
+                      </span>
+                    </td>
+                    <td className="p-6 text-center">
+                      <span className="inline-flex items-center space-x-2">
+                        <Check className="w-4 h-4 text-green-500" />
+                        <span className="text-gray-900 font-semibold">{t(row.aiChatbotKey)}</span>
+                      </span>
+                    </td>
+                    <td className="p-6 text-center">
+                      <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
+                        {t(row.improvementKey)}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </Section>
+
+      {/* Advanced Features with Accordion */}
+      <Section background="white">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">
+            {t('features.advanced.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.advanced.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600">
             {t('features.advanced.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {advancedFeatures.map((feature, index) => (
-            <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-              <CardContent className="p-8">
-                <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold mb-3 text-gray-900">{feature.title}</h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </CardContent>
-            </Card>
-          ))}
+        <div className="max-w-4xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-4">
+            {advancedFeatures.map((category, categoryIndex) => (
+              <AccordionItem key={categoryIndex} value={`item-${categoryIndex}`} className="border border-gray-200 rounded-lg">
+                <AccordionTrigger className="px-6 py-4 hover:no-underline">
+                  <div className="flex items-center space-x-4">
+                    <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                    <span className="text-xl font-semibold text-gray-900">{t(category.categoryKey)}</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent className="px-6 pb-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {category.features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="border border-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow">
+                        <h4 className="font-semibold text-blue-600 mb-2">{t(feature.nameKey)}</h4>
+                        <p className="text-gray-600 text-sm leading-relaxed">{t(feature.descKey)}</p>
+                      </div>
+                    ))}
+                  </div>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </Section>
 
-      {/* Integrations */}
-      <Section background="white">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            {t('features.integrations.title').split(' ')[0]} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.integrations.title').split(' ').slice(1).join(' ')}</span>
-          </h2>
-          <p className="text-xl text-gray-600">
-            {t('features.integrations.subtitle')}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-6">
-          {integrations.map((integration, index) => (
-            <Card key={index} className="border-none shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-2 text-center">
-              <CardContent className="p-6">
-                <div className="text-4xl mb-3">{integration.icon}</div>
-                <h3 className="font-semibold text-sm">{integration.name}</h3>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </Section>
-
-      {/* CTA */}
+      {/* Interactive Demo Preview */}
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            {t('features.cta.title').split(' ').slice(0, -1).join(' ')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.cta.title').split(' ').slice(-1)}</span>
+            {t('features.demo.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.demo.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            {t('features.cta.subtitle')}
+            {t('features.demo.description')}
           </p>
+          
+          <div className="bg-white rounded-2xl shadow-2xl p-8 mb-8">
+            <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center mb-6">
+              <div className="text-center">
+                <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <MessageSquare className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('features.demo.interactive.title')}</h3>
+                <p className="text-gray-600">{t('features.demo.interactive.description')}</p>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              <div className="flex items-center space-x-2">
+                <Check className="w-4 h-4 text-green-500" />
+                <span>{t('features.demo.feature1')}</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Check className="w-4 h-4 text-green-500" />
+                <span>{t('features.demo.feature2')}</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Check className="w-4 h-4 text-green-500" />
+                <span>{t('features.demo.feature3')}</span>
+              </div>
+            </div>
+          </div>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" onClick={() => navigate('/contact')} className="bg-blue-600 hover:bg-blue-700 text-white">
-              {t('features.cta.getStarted')} <ArrowRight className="ml-2 w-4 h-4" />
+            <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
+              {t('features.demo.bookDemo')}
             </Button>
-            <Button size="lg" variant="outline" onClick={() => navigate('/case-studies')} className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white">
-              {t('features.cta.viewCases')}
+            <Button size="lg" variant="outline" onClick={handleCaseStudiesClick} className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg">
+              {t('features.demo.viewCaseStudies')} <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </div>
         </div>
