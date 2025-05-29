@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, X, Star, HelpCircle } from "lucide-react";
@@ -15,7 +16,7 @@ const Pricing = () => {
         case 'starter': return "2.900.000đ";
         case 'growth': return "3.900.000đ";
         case 'business': return "7.900.000đ";
-        case 'enterprise': return "Liên lạc";
+        case 'enterprise': return t('pricing.contactPricing');
         default: return "";
       }
     } else {
@@ -23,7 +24,7 @@ const Pricing = () => {
         case 'starter': return "$119";
         case 'growth': return "$149";
         case 'business': return "$299";
-        case 'enterprise': return "Contact";
+        case 'enterprise': return t('pricing.contactPricing');
         default: return "";
       }
     }
@@ -33,7 +34,7 @@ const Pricing = () => {
     {
       name: t('pricing.starter'),
       price: getPricing('starter'),
-      period: language === 'vi' ? "/tháng" : "/month",
+      period: t('pricing.month'),
       description: t('pricing.starter.desc'),
       popular: false,
       features: [
@@ -49,7 +50,7 @@ const Pricing = () => {
     {
       name: t('pricing.growth'), 
       price: getPricing('growth'),
-      period: language === 'vi' ? "/tháng" : "/month",
+      period: t('pricing.month'),
       description: t('pricing.growth.desc'),
       popular: true,
       features: [
@@ -67,7 +68,7 @@ const Pricing = () => {
     {
       name: t('pricing.business'),
       price: getPricing('business'),
-      period: language === 'vi' ? "/tháng" : "/month",
+      period: t('pricing.month'),
       description: t('pricing.business.desc'),
       popular: false,
       features: [
@@ -107,43 +108,43 @@ const Pricing = () => {
 
   const comparisonFeatures = [
     {
-      category: "Core Features",
+      category: t('pricing.coreFeatures') || "Core Features",
       features: [
-        { name: "Monthly Chat Sessions", starter: "1,000", growth: "5,000", business: "15,000", enterprise: "Unlimited" },
-        { name: "Chatbot Template", starter: "Basic", growth: "Advanced", business: "Custom", enterprise: "Fully Custom" },
-        { name: "Response Time SLA", starter: "Standard", growth: "Priority", business: "Priority", enterprise: "Instant" },
-        { name: "Analytics Dashboard", starter: true, growth: true, business: true, enterprise: true },
-        { name: "Website Widget Integration", starter: true, growth: true, business: true, enterprise: true }
+        { name: t('pricing.monthlySessions') || "Monthly Chat Sessions", starter: "1,000", growth: "5,000", business: "15,000", enterprise: t('feature.unlimited') || "Unlimited" },
+        { name: t('pricing.chatbotTemplate') || "Chatbot Template", starter: t('pricing.basic') || "Basic", growth: t('pricing.advanced') || "Advanced", business: t('pricing.custom') || "Custom", enterprise: t('pricing.fullyCustom') || "Fully Custom" },
+        { name: t('pricing.responseTimeSLA') || "Response Time SLA", starter: t('feature.standardResponse') || "Standard", growth: t('feature.priorityResponse') || "Priority", business: t('feature.priorityResponse') || "Priority", enterprise: t('pricing.instant') || "Instant" },
+        { name: t('pricing.analyticsDashboard') || "Analytics Dashboard", starter: true, growth: true, business: true, enterprise: true },
+        { name: t('feature.websiteIntegration') || "Website Widget Integration", starter: true, growth: true, business: true, enterprise: true }
       ]
     },
     {
-      category: "Channels & Integrations",
+      category: t('pricing.channelsIntegrations') || "Channels & Integrations",
       features: [
-        { name: "Widget Website", starter: true, growth: true, business: true, enterprise: true },
-        { name: "WhatsApp Business", starter: false, growth: true, business: true, enterprise: true },
-        { name: "Facebook Messenger", starter: false, growth: true, business: true, enterprise: true },
-        { name: "CRM Integration", starter: false, growth: true, business: true, enterprise: true },
-        { name: "Custom API Access", starter: false, growth: false, business: false, enterprise: true }
+        { name: t('pricing.websiteWidget') || "Widget Website", starter: true, growth: true, business: true, enterprise: true },
+        { name: t('pricing.whatsappBusiness') || "WhatsApp Business", starter: false, growth: true, business: true, enterprise: true },
+        { name: t('pricing.facebookMessenger') || "Facebook Messenger", starter: false, growth: true, business: true, enterprise: true },
+        { name: t('feature.crmIntegration') || "CRM Integration", starter: false, growth: true, business: true, enterprise: true },
+        { name: t('pricing.customApiAccess') || "Custom API Access", starter: false, growth: false, business: false, enterprise: true }
       ]
     }
   ];
 
   const faqs = [
     {
-      question: "How are chat sessions counted?",
-      answer: "A chat session is counted each time a unique user interacts with your chatbot within a 24-hour window, regardless of the number of messages exchanged."
+      question: t('pricing.faq.q1') || "How are chat sessions counted?",
+      answer: t('pricing.faq.a1') || "A chat session is counted each time a unique user interacts with your chatbot within a 24-hour window, regardless of the number of messages exchanged."
     },
     {
-      question: "Can I upgrade or downgrade my plan at any time?",
-      answer: "Yes—you can switch plans whenever you like. Upgrades take effect immediately; downgrades apply on your next billing cycle."
+      question: t('pricing.faq.q2') || "Can I upgrade or downgrade my plan at any time?",
+      answer: t('pricing.faq.a2') || "Yes—you can switch plans whenever you like. Upgrades take effect immediately; downgrades apply on your next billing cycle."
     },
     {
-      question: "Is there a free trial available?",
-      answer: "Yes—we offer a 14-day free trial on all plans. No credit card required, and you can cancel at any time during the trial."
+      question: t('pricing.faq.q3') || "Is there a free trial available?",
+      answer: t('pricing.faq.a3') || "Yes—we offer a 14-day free trial on all plans. No credit card required, and you can cancel at any time during the trial."
     },
     {
-      question: "What happens if I exceed my chat session limit?",
-      answer: "If you go over your monthly quota, additional sessions are billed at VND 3,000 per session. We'll send you a notification as you approach your limit."
+      question: t('pricing.faq.q4') || "What happens if I exceed my chat session limit?",
+      answer: t('pricing.faq.a4') || "If you go over your monthly quota, additional sessions are billed at VND 3,000 per session. We'll send you a notification as you approach your limit."
     }
   ];
 
@@ -239,10 +240,10 @@ const Pricing = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Pricing <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Comparison</span>
+            {t('pricing.comparisonTitle') || 'Pricing'} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('pricing.comparison') || 'Comparison'}</span>
           </h2>
           <p className="text-xl text-gray-600">
-            Compare all features across our pricing plans.
+            {t('pricing.comparisonSubtitle') || 'Compare all features across our pricing plans.'}
           </p>
         </div>
         
@@ -251,11 +252,11 @@ const Pricing = () => {
             <table className="w-full">
               <thead className="bg-gradient-to-r from-blue-600 to-indigo-600">
                 <tr>
-                  <th className="text-left p-6 text-white font-semibold">Features</th>
-                  <th className="text-center p-6 text-white font-semibold">Starter</th>
-                  <th className="text-center p-6 text-white font-semibold">Growth</th>
-                  <th className="text-center p-6 text-white font-semibold">Business</th>
-                  <th className="text-center p-6 text-white font-semibold">Enterprise</th>
+                  <th className="text-left p-6 text-white font-semibold">{t('pricing.features') || 'Features'}</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('pricing.starter')}</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('pricing.growth')}</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('pricing.business')}</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('pricing.enterprise')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -327,10 +328,10 @@ const Pricing = () => {
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Frequently Asked <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Questions</span>
+            {t('pricing.faqTitle') || 'Frequently Asked'} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('pricing.faqQuestions') || 'Questions'}</span>
           </h2>
           <p className="text-xl text-gray-600">
-            Everything you need to know about our pricing and service packages.
+            {t('pricing.faqSubtitle') || 'Everything you need to know about our pricing and service packages.'}
           </p>
         </div>
         
@@ -357,21 +358,21 @@ const Pricing = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Ready to <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Get Started?</span>?
+            {t('pricing.ctaTitle') || 'Ready to'} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('pricing.ctaTitle2') || 'Get Started'}</span>?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Start your free trial today and discover how D2 Group's AI chatbots can transform your customer conversations. No credit card required—cancel anytime.
+            {t('pricing.ctaSubtitle') || 'Start your free trial today and discover how D2 Group\'s AI chatbots can transform your customer conversations. No credit card required—cancel anytime.'}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
-              Start Your Free Trial
+              {t('pricing.startFreeTrial') || 'Start Your Free Trial'}
             </Button>
             <Button size="lg" variant="outline" onClick={handleContactClick} className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg">
-              Contact Sales
+              {t('pricing.contactSales') || 'Contact Sales'}
             </Button>
           </div>
           <div className="mt-6 text-sm text-gray-600">
-            Have questions? Our sales team is ready to help you choose the right plan.
+            {t('pricing.ctaNote') || 'Have questions? Our sales team is ready to help you choose the right plan.'}
           </div>
         </div>
       </Section>
