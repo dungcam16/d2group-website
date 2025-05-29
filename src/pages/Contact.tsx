@@ -241,8 +241,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg text-gray-900">Email</h3>
-                    <p className="text-gray-600">contact@d2group.com</p>
-                    <p className="text-gray-600">sales@d2group.com</p>
+                    <p className="text-gray-600">contact@d2group.co</p>
+                    <p className="text-gray-600">sales@d2group.co</p>
                   </div>
                 </div>
 
@@ -252,8 +252,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg text-gray-900">Phone</h3>
-                    <p className="text-gray-600">+84 28 1234 5678</p>
-                    <p className="text-gray-600">+1 (555) 123-4567</p>
+                    <p className="text-gray-600">+84 90909 9421</p>
+                    <p className="text-gray-600">+84 90909 9421</p>
                   </div>
                 </div>
 
@@ -264,8 +264,8 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-lg text-gray-900">Address</h3>
                     <p className="text-gray-600">
-                      Level 10, ABC Building<br />
-                      123 Tech Street, District 1<br />
+                      No. 3 Nguyễn Cơ Thạch Street<br />
+                      An Lợi Đông Ward, Thủ Đức City<br />
                       Ho Chi Minh City, Vietnam
                     </p>
                   </div>
