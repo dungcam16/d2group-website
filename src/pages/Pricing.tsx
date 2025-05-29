@@ -308,7 +308,7 @@ const Pricing = () => {
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Frequently Asked Questions <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Thường gặp</span>
+            Frequently Asked <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Questions</span>
           </h2>
           <p className="text-xl text-gray-600">
             Everything you need to know about our pricing and service packages.
