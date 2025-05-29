@@ -5,179 +5,181 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Check, X, MessageSquare, Brain, BarChart3, Shield, Zap, Globe, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Section from "@/components/ui/section";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Features = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const coreFeatures = [
     {
-      title: "Natural Language Processing",
-      description: "Advanced AI that understands context, intent, and sentiment",
+      title: t('features.nlp.title'),
+      description: t('features.nlp.description'),
       icon: <Brain className="w-8 h-8 text-blue-600" />,
       details: [
-        "Multi-language support with 95%+ accuracy",
-        "Contextual conversation flow management", 
-        "Sentiment analysis and emotion detection",
-        "Intent recognition and entity extraction"
+        t('features.nlp.details.accuracy'),
+        t('features.nlp.details.contextual'),
+        t('features.nlp.details.sentiment'),
+        t('features.nlp.details.intent')
       ]
     },
     {
-      title: "Omnichannel Deployment", 
-      description: "Deploy across website, WhatsApp, Facebook, and more",
+      title: t('features.omnichannel.title'),
+      description: t('features.omnichannel.description'),
       icon: <Globe className="w-8 h-8 text-blue-600" />,
       details: [
-        "Website chat widget with customizable UI",
-        "WhatsApp Business API integration",
-        "Facebook Messenger connectivity",
-        "SMS and voice channel support"
+        t('features.omnichannel.details.website'),
+        t('features.omnichannel.details.whatsapp'),
+        t('features.omnichannel.details.facebook'),
+        t('features.omnichannel.details.sms')
       ]
     },
     {
-      title: "Real-time Analytics",
-      description: "Comprehensive insights into customer interactions",
+      title: t('features.analytics.title'),
+      description: t('features.analytics.description'),
       icon: <BarChart3 className="w-8 h-8 text-blue-600" />,
       details: [
-        "Live conversation monitoring",
-        "Performance metrics and KPIs",
-        "Customer satisfaction scoring",
-        "ROI and conversion tracking"
+        t('features.analytics.details.monitoring'),
+        t('features.analytics.details.metrics'),
+        t('features.analytics.details.satisfaction'),
+        t('features.analytics.details.roi')
       ]
     },
     {
-      title: "Enterprise Security",
-      description: "Bank-grade security and compliance standards",
+      title: t('features.security.title'),
+      description: t('features.security.description'),
       icon: <Shield className="w-8 h-8 text-blue-600" />,
       details: [
-        "End-to-end encryption",
-        "SOC 2 Type II compliant",
-        "GDPR and data privacy compliance",
-        "Single sign-on (SSO) integration"
+        t('features.security.details.encryption'),
+        t('features.security.details.soc2'),
+        t('features.security.details.gdpr'),
+        t('features.security.details.sso')
       ]
     },
     {
-      title: "Instant Deployment",
-      description: "Go live in minutes with our no-code platform",
+      title: t('features.deployment.title'),
+      description: t('features.deployment.description'),
       icon: <Zap className="w-8 h-8 text-blue-600" />,
       details: [
-        "5-minute setup process",
-        "Pre-built templates and workflows",
-        "Drag-and-drop conversation builder",
-        "One-click integrations"
+        t('features.deployment.details.setup'),
+        t('features.deployment.details.templates'),
+        t('features.deployment.details.builder'),
+        t('features.deployment.details.integrations')
       ]
     },
     {
-      title: "Smart Conversations",
-      description: "Human-like interactions that convert and engage",
+      title: t('features.conversations.title'),
+      description: t('features.conversations.description'),
       icon: <MessageSquare className="w-8 h-8 text-blue-600" />,
       details: [
-        "Dynamic personalization",
-        "Lead qualification automation",
-        "Appointment booking and scheduling",
-        "Product recommendations"
+        t('features.conversations.details.personalization'),
+        t('features.conversations.details.qualification'),
+        t('features.conversations.details.booking'),
+        t('features.conversations.details.recommendations')
       ]
     }
   ];
 
   const comparisonTable = [
     {
-      feature: "Response Time",
-      traditional: "Hours to days",
-      aiChatbot: "< 2 seconds",
-      improvement: "99% faster"
+      feature: t('features.comparison.responseTime'),
+      traditional: t('features.comparison.hoursTodays'),
+      aiChatbot: t('features.comparison.underTwoSec'),
+      improvement: t('features.comparison.ninetyNineFaster')
     },
     {
-      feature: "Availability", 
-      traditional: "Business hours only",
-      aiChatbot: "24/7/365",
-      improvement: "Always on"
+      feature: t('features.comparison.availability'),
+      traditional: t('features.comparison.businessHours'),
+      aiChatbot: t('features.comparison.twentyFourSeven'),
+      improvement: t('features.comparison.alwaysOn')
     },
     {
-      feature: "Scalability",
-      traditional: "Limited by staff",
-      aiChatbot: "Unlimited conversations",
-      improvement: "Infinite scale"
+      feature: t('features.comparison.scalability'),
+      traditional: t('features.comparison.limitedByStaff'),
+      aiChatbot: t('features.comparison.unlimitedConversations'),
+      improvement: t('features.comparison.infiniteScale')
     },
     {
-      feature: "Consistency",
-      traditional: "Varies by agent",
-      aiChatbot: "Always consistent",
-      improvement: "100% reliable"
+      feature: t('features.comparison.consistency'),
+      traditional: t('features.comparison.variesByAgent'),
+      aiChatbot: t('features.comparison.alwaysConsistent'),
+      improvement: t('features.comparison.hundredReliable')
     },
     {
-      feature: "Cost per Interaction",
+      feature: t('features.comparison.costPerInteraction'),
       traditional: "$5-15",
       aiChatbot: "$0.10-0.50",
-      improvement: "95% cost reduction"
+      improvement: t('features.comparison.costReduction')
     },
     {
-      feature: "Language Support",
-      traditional: "1-2 languages",
-      aiChatbot: "50+ languages",
-      improvement: "Global reach"
+      feature: t('features.comparison.languageSupport'),
+      traditional: t('features.comparison.oneToTwoLang'),
+      aiChatbot: t('features.comparison.fiftyPlusLang'),
+      improvement: t('features.comparison.globalReach')
     }
   ];
 
   const advancedFeatures = [
     {
-      category: "AI & Machine Learning",
+      category: t('features.advanced.aiMl'),
       features: [
         {
-          name: "Conversation Flow Builder",
-          description: "Visual drag-and-drop interface to design complex conversation paths"
+          name: t('features.advanced.flowBuilder'),
+          description: t('features.advanced.flowBuilderDesc')
         },
         {
-          name: "Intent Training",
-          description: "Continuously improve AI understanding with custom training data"
+          name: t('features.advanced.intentTraining'),
+          description: t('features.advanced.intentTrainingDesc')
         },
         {
-          name: "Auto-Learning",
-          description: "Machine learning algorithms that improve responses over time"
+          name: t('features.advanced.autoLearning'),
+          description: t('features.advanced.autoLearningDesc')
         },
         {
-          name: "Fallback Handling", 
-          description: "Smart escalation to human agents when needed"
+          name: t('features.advanced.fallbackHandling'),
+          description: t('features.advanced.fallbackHandlingDesc')
         }
       ]
     },
     {
-      category: "Integration & APIs",
+      category: t('features.advanced.integrationApis'),
       features: [
         {
-          name: "CRM Integration",
-          description: "Connect with Salesforce, HubSpot, Pipedrive, and 50+ CRMs"
+          name: t('features.advanced.crmIntegration'),
+          description: t('features.advanced.crmIntegrationDesc')
         },
         {
-          name: "E-commerce Platforms",
-          description: "Native integration with Shopify, WooCommerce, Magento"
+          name: t('features.advanced.ecommerce'),
+          description: t('features.advanced.ecommerceDesc')
         },
         {
-          name: "Custom APIs",
-          description: "RESTful APIs for custom integrations and workflows"
+          name: t('features.advanced.customApis'),
+          description: t('features.advanced.customApisDesc')
         },
         {
-          name: "Webhook Support",
-          description: "Real-time data synchronization with external systems"
+          name: t('features.advanced.webhooks'),
+          description: t('features.advanced.webhooksDesc')
         }
       ]
     },
     {
-      category: "Analytics & Reporting",
+      category: t('features.advanced.analyticsReporting'),
       features: [
         {
-          name: "Conversation Analytics",
-          description: "Deep insights into customer behavior and conversation patterns"
+          name: t('features.advanced.conversationAnalytics'),
+          description: t('features.advanced.conversationAnalyticsDesc')
         },
         {
-          name: "Performance Metrics",
-          description: "Track resolution rate, satisfaction scores, and conversion metrics"
+          name: t('features.advanced.performanceMetrics'),
+          description: t('features.advanced.performanceMetricsDesc')
         },
         {
-          name: "Custom Dashboards",
-          description: "Build personalized reporting dashboards for stakeholders"
+          name: t('features.advanced.customDashboards'),
+          description: t('features.advanced.customDashboardsDesc')
         },
         {
-          name: "A/B Testing",
-          description: "Test different conversation flows and optimize performance"
+          name: t('features.advanced.abTesting'),
+          description: t('features.advanced.abTestingDesc')
         }
       ]
     }
@@ -197,14 +199,13 @@ const Features = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
-            Powerful <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Features</span> That Drive Results
+            {t('features.hero.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.hero.subtitle')}</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Discover the comprehensive suite of AI-powered features designed to transform your customer communication 
-            and drive measurable business growth.
+            {t('features.hero.description')}
           </p>
           <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
-            See Features in Action
+            {t('features.hero.cta')}
           </Button>
         </div>
       </Section>
@@ -213,10 +214,10 @@ const Features = () => {
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Core <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Capabilities</span>
+            {t('features.core.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.core.subtitle')}</span>
           </h2>
           <p className="text-xl text-gray-600">
-            Everything you need to deliver exceptional customer experiences
+            {t('features.core.description')}
           </p>
         </div>
 
@@ -245,10 +246,10 @@ const Features = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            AI Chatbots vs <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Traditional Live Chat</span>
+            {t('features.vsTraditional.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.vsTraditional.subtitle')}</span>
           </h2>
           <p className="text-xl text-gray-600">
-            See how AI-powered automation outperforms traditional customer service methods
+            {t('features.vsTraditional.description')}
           </p>
         </div>
 
@@ -257,10 +258,10 @@ const Features = () => {
             <table className="w-full">
               <thead className="bg-gradient-to-r from-blue-600 to-indigo-600">
                 <tr>
-                  <th className="text-left p-6 text-white font-semibold">Feature</th>
-                  <th className="text-center p-6 text-white font-semibold">Traditional Live Chat</th>
-                  <th className="text-center p-6 text-white font-semibold">AI Chatbot</th>
-                  <th className="text-center p-6 text-white font-semibold">Improvement</th>
+                  <th className="text-left p-6 text-white font-semibold">{t('features.comparison.feature')}</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('features.comparison.traditionalLiveChat')}</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('features.comparison.aiChatbot')}</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('features.comparison.improvement')}</th>
                 </tr>
               </thead>
               <tbody>
@@ -296,10 +297,10 @@ const Features = () => {
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Advanced <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Capabilities</span>
+            {t('features.advancedCapabilities.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.advancedCapabilities.subtitle')}</span>
           </h2>
           <p className="text-xl text-gray-600">
-            Explore the deep functionality that sets D2 Group apart
+            {t('features.advancedCapabilities.description')}
           </p>
         </div>
 
@@ -333,10 +334,10 @@ const Features = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            See Our Features <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">In Action</span>
+            {t('features.demo.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.demo.subtitle')}</span>
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Experience the power of D2 Group's AI chatbot platform with a personalized demo tailored to your business needs.
+            {t('features.demo.description')}
           </p>
           
           <div className="bg-white rounded-2xl shadow-2xl p-8 mb-8">
@@ -345,32 +346,32 @@ const Features = () => {
                 <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <MessageSquare className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Interactive Demo</h3>
-                <p className="text-gray-600">Click to experience our chatbot in action</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('features.demo.interactiveDemo')}</h3>
+                <p className="text-gray-600">{t('features.demo.clickToExperience')}</p>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
               <div className="flex items-center space-x-2">
                 <Check className="w-4 h-4 text-green-500" />
-                <span>Real-time conversation flow</span>
+                <span>{t('features.demo.realTime')}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Check className="w-4 h-4 text-green-500" />
-                <span>Multi-language support</span>
+                <span>{t('features.demo.multiLanguage')}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Check className="w-4 h-4 text-green-500" />
-                <span>Analytics dashboard</span>
+                <span>{t('features.demo.analyticsDashboard')}</span>
               </div>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
-              Book Live Demo
+              {t('features.demo.bookDemo')}
             </Button>
             <Button size="lg" variant="outline" onClick={handleCaseStudiesClick} className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg">
-              View Case Studies <ArrowRight className="ml-2 w-4 h-4" />
+              {t('features.demo.viewCaseStudies')} <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </div>
         </div>
