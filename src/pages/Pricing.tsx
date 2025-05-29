@@ -133,7 +133,7 @@ const Pricing = () => {
 
   return (
     <div className="pt-16">
-      {/* Hero Section */}
+      {/* Hero Section - NOT TRANSLATED (keep original English) */}
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
@@ -159,7 +159,7 @@ const Pricing = () => {
         </div>
       </Section>
 
-      {/* Pricing Cards */}
+      {/* Pricing Cards - TRANSLATED */}
       <Section background="white">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {pricingPlans.map((plan, index) => (
@@ -215,7 +215,7 @@ const Pricing = () => {
         </div>
       </Section>
 
-      {/* Feature Comparison Table */}
+      {/* Feature Comparison Table - NOT TRANSLATED (keep original English) */}
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
@@ -303,7 +303,7 @@ const Pricing = () => {
         </div>
       </Section>
 
-      {/* FAQ Section */}
+      {/* FAQ Section - NOT TRANSLATED (keep original English) */}
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
@@ -333,7 +333,7 @@ const Pricing = () => {
         </div>
       </Section>
 
-      {/* CTA Section */}
+      {/* CTA Section - NOT TRANSLATED (keep original English) */}
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
