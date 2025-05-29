@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -143,7 +144,7 @@ const Index = () => {
               <div className="text-gray-600">Conversion Increase</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">< 2s</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">&lt; 2s</div>
               <div className="text-gray-600">Response Time</div>
             </div>
             <div className="text-center">
