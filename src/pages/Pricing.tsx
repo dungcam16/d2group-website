@@ -88,17 +88,17 @@ const Pricing = () => {
 
   const comparisonFeatures = [
     {
-      category: "Tính năng cốt lõi",
+      category: "Core Features",
       features: [
-        { name: "Cuộc hội thoại hàng tháng", starter: "1,000", growth: "5,000", business: "15,000", enterprise: "Không giới hạn" },
-        { name: "Mẫu Chatbot", starter: "Cơ bản", growth: "Nâng cao", business: "Tùy chỉnh", enterprise: "Tùy chỉnh hoàn toàn" },
-        { name: "Thời gian phản hồi", starter: "Tiêu chuẩn", growth: "Ưu tiên", business: "Ưu tiên", enterprise: "Tức thì" },
-        { name: "Bảng điều khiển phân tích", starter: true, growth: true, business: true, enterprise: true },
-        { name: "Tích hợp Website", starter: true, growth: true, business: true, enterprise: true }
+        { name: "Monthly Chat Sessions", starter: "1,000", growth: "5,000", business: "15,000", enterprise: "Không giới hạn" },
+        { name: "Chatbot Template", starter: "Cơ bản", growth: "Nâng cao", business: "Tùy chỉnh", enterprise: "Tùy chỉnh hoàn toàn" },
+        { name: "Response Time SLA", starter: "Tiêu chuẩn", growth: "Ưu tiên", business: "Ưu tiên", enterprise: "Tức thì" },
+        { name: "Analytics Dashboard", starter: true, growth: true, business: true, enterprise: true },
+        { name: "Website Widget Integration", starter: true, growth: true, business: true, enterprise: true }
       ]
     },
     {
-      category: "Kênh & Tích hợp",
+      category: "Channels & Integrations",
       features: [
         { name: "Widget Website", starter: true, growth: true, business: true, enterprise: true },
         { name: "WhatsApp Business", starter: false, growth: true, business: true, enterprise: true },
@@ -220,10 +220,10 @@ const Pricing = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            So sánh tính năng <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Chi tiết</span>
+            Pricing Comparison <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Chi tiết</span>
           </h2>
           <p className="text-xl text-gray-600">
-            So sánh tất cả các tính năng trên các gói giá của chúng tôi
+            Compare all features across our pricing plans.
           </p>
         </div>
         
@@ -232,7 +232,7 @@ const Pricing = () => {
             <table className="w-full">
               <thead className="bg-gradient-to-r from-blue-600 to-indigo-600">
                 <tr>
-                  <th className="text-left p-6 text-white font-semibold">Tính năng</th>
+                  <th className="text-left p-6 text-white font-semibold">Features</th>
                   <th className="text-center p-6 text-white font-semibold">Starter</th>
                   <th className="text-center p-6 text-white font-semibold">Growth</th>
                   <th className="text-center p-6 text-white font-semibold">Business</th>
