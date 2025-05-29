@@ -84,18 +84,18 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
                 <span>
-                  Level 10, ABC Building<br />
-                  123 Tech Street, District 1<br />
+                  No. 3 Nguyễn Cơ Thạch Street<br />
+                  An Lợi Đông Ward, Thủ Đức City<br />
                   Ho Chi Minh City, Vietnam
                 </span>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 h-4 flex-shrink-0" />
-                <span>+84 28 1234 5678</span>
+                <span>+84 90909 9421</span>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 h-4 flex-shrink-0" />
-                <span>contact@d2group.com</span>
+                <span>contact@d2group.co</span>
               </div>
             </div>
           </div>
