@@ -4,113 +4,111 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, TrendingUp, Users, DollarSign, Clock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Section from "@/components/ui/section";
-import { useLanguage } from "@/contexts/LanguageContext";
 
 const CaseStudies = () => {
   const navigate = useNavigate();
-  const { t } = useLanguage();
 
   const caseStudies = [
     {
       id: 1,
-      title: t('caseStudies.ecommerce.title'),
+      title: "E-commerce Giant Increases Conversions by 45%",
       company: "TechMart Vietnam",
-      industry: t('caseStudies.ecommerce.industry'),
-      challenge: t('caseStudies.ecommerce.challenge'),
-      solution: t('caseStudies.ecommerce.solution'),
+      industry: "E-commerce",
+      challenge: "High cart abandonment rate and overwhelming customer inquiries during peak seasons",
+      solution: "Deployed AI chatbot for product recommendations, order tracking, and instant customer support",
       results: [
-        { metric: t('caseStudies.metrics.conversionRate'), improvement: "+45%", icon: <TrendingUp className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.cartAbandonment'), improvement: "-30%", icon: <DollarSign className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.responseTime'), improvement: "< 2 sec", icon: <Clock className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.customerSatisfaction'), improvement: "4.8/5", icon: <Users className="w-4 h-4" /> }
+        { metric: "Conversion Rate", improvement: "+45%", icon: <TrendingUp className="w-4 h-4" /> },
+        { metric: "Cart Abandonment", improvement: "-30%", icon: <DollarSign className="w-4 h-4" /> },
+        { metric: "Response Time", improvement: "< 2 sec", icon: <Clock className="w-4 h-4" /> },
+        { metric: "Customer Satisfaction", improvement: "4.8/5", icon: <Users className="w-4 h-4" /> }
       ],
       image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop",
-      testimonial: t('caseStudies.ecommerce.testimonial'),
+      testimonial: "The chatbot transformed our customer experience. We're seeing record-high conversion rates and our support team can focus on complex issues.",
       author: "Nguyễn Văn Minh, CEO TechMart Vietnam"
     },
     {
       id: 2,
-      title: t('caseStudies.healthcare.title'),
+      title: "Healthcare Provider Reduces Wait Times by 60%",
       company: "MedCare Plus",
-      industry: t('caseStudies.healthcare.industry'),
-      challenge: t('caseStudies.healthcare.challenge'),
-      solution: t('caseStudies.healthcare.solution'),
+      industry: "Healthcare",
+      challenge: "Long patient wait times for appointment booking and basic health inquiries",
+      solution: "Implemented appointment scheduling bot with symptom checker and health information system",
       results: [
-        { metric: t('caseStudies.metrics.waitTimes'), improvement: "-60%", icon: <Clock className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.appointmentBookings'), improvement: "+200%", icon: <TrendingUp className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.staffEfficiency'), improvement: "+40%", icon: <Users className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.patientSatisfaction'), improvement: "4.9/5", icon: <Users className="w-4 h-4" /> }
+        { metric: "Wait Times", improvement: "-60%", icon: <Clock className="w-4 h-4" /> },
+        { metric: "Appointment Bookings", improvement: "+200%", icon: <TrendingUp className="w-4 h-4" /> },
+        { metric: "Staff Efficiency", improvement: "+40%", icon: <Users className="w-4 h-4" /> },
+        { metric: "Patient Satisfaction", improvement: "4.9/5", icon: <Users className="w-4 h-4" /> }
       ],
       image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop",
-      testimonial: t('caseStudies.healthcare.testimonial'),
+      testimonial: "Our patients love the instant response for appointments and basic health questions. It's revolutionized our patient care workflow.",
       author: "Dr. Trần Thị Lan, Medical Director"
     },
     {
       id: 3,
-      title: t('caseStudies.finance.title'),
+      title: "Financial Services Improves Lead Quality by 80%",
       company: "VietFinance Solutions",
-      industry: t('caseStudies.finance.industry'),
-      challenge: t('caseStudies.finance.challenge'),
-      solution: t('caseStudies.finance.solution'),
+      industry: "Financial Services", 
+      challenge: "Poor lead qualification process and time-consuming customer onboarding",
+      solution: "Deployed intelligent lead qualification bot with document processing and KYC automation",
       results: [
-        { metric: t('caseStudies.metrics.leadQuality'), improvement: "+80%", icon: <TrendingUp className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.onboardingTime'), improvement: "-50%", icon: <Clock className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.conversionRate'), improvement: "+35%", icon: <DollarSign className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.processEfficiency'), improvement: "+65%", icon: <Users className="w-4 h-4" /> }
+        { metric: "Lead Quality", improvement: "+80%", icon: <TrendingUp className="w-4 h-4" /> },
+        { metric: "Onboarding Time", improvement: "-50%", icon: <Clock className="w-4 h-4" /> },
+        { metric: "Conversion Rate", improvement: "+35%", icon: <DollarSign className="w-4 h-4" /> },
+        { metric: "Process Efficiency", improvement: "+65%", icon: <Users className="w-4 h-4" /> }
       ],
       image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=400&h=300&fit=crop",
-      testimonial: t('caseStudies.finance.testimonial'),
+      testimonial: "The AI chatbot pre-qualifies leads so well that our sales team only speaks with serious prospects. Our conversion rates have never been higher.",
       author: "Lê Hoàng Nam, Sales Director"
     },
     {
       id: 4,
-      title: t('caseStudies.education.title'),
-      company: "EduTech Academy",
-      industry: t('caseStudies.education.industry'),
-      challenge: t('caseStudies.education.challenge'),
-      solution: t('caseStudies.education.solution'),
+      title: "Education Platform Boosts Student Engagement by 70%",
+      company: "EduTech Academy", 
+      industry: "Education",
+      challenge: "Low student engagement and high drop-out rates in online courses",
+      solution: "Created AI tutor bot for 24/7 student support, course recommendations, and progress tracking",
       results: [
-        { metric: t('caseStudies.metrics.studentEngagement'), improvement: "+70%", icon: <Users className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.courseCompletion'), improvement: "+55%", icon: <TrendingUp className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.supportQueries'), improvement: "24/7", icon: <Clock className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.studentSatisfaction'), improvement: "4.7/5", icon: <Users className="w-4 h-4" /> }
+        { metric: "Student Engagement", improvement: "+70%", icon: <Users className="w-4 h-4" /> },
+        { metric: "Course Completion", improvement: "+55%", icon: <TrendingUp className="w-4 h-4" /> },
+        { metric: "Support Queries", improvement: "24/7", icon: <Clock className="w-4 h-4" /> },
+        { metric: "Student Satisfaction", improvement: "4.7/5", icon: <Users className="w-4 h-4" /> }
       ],
       image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop",
-      testimonial: t('caseStudies.education.testimonial'),
+      testimonial: "Students have a personal AI tutor available 24/7. The improvement in engagement and completion rates has been remarkable.",
       author: "Phạm Thị Mai, Academic Director"
     },
     {
       id: 5,
-      title: t('caseStudies.realEstate.title'),
+      title: "Real Estate Agency Generates 3x More Qualified Leads",
       company: "PropertyPro Vietnam",
-      industry: t('caseStudies.realEstate.industry'),
-      challenge: t('caseStudies.realEstate.challenge'),
-      solution: t('caseStudies.realEstate.solution'),
+      industry: "Real Estate",
+      challenge: "Difficulty qualifying serious buyers and managing high volume of property inquiries",
+      solution: "Implemented property search bot with virtual tours and buyer qualification system",
       results: [
-        { metric: t('caseStudies.metrics.qualifiedLeads'), improvement: "+300%", icon: <TrendingUp className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.propertyViews'), improvement: "+150%", icon: <Users className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.salesCycle'), improvement: "-40%", icon: <Clock className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.agentProductivity'), improvement: "+60%", icon: <DollarSign className="w-4 h-4" /> }
+        { metric: "Qualified Leads", improvement: "+300%", icon: <TrendingUp className="w-4 h-4" /> },
+        { metric: "Property Views", improvement: "+150%", icon: <Users className="w-4 h-4" /> },
+        { metric: "Sales Cycle", improvement: "-40%", icon: <Clock className="w-4 h-4" /> },
+        { metric: "Agent Productivity", improvement: "+60%", icon: <DollarSign className="w-4 h-4" /> }
       ],
       image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop",
-      testimonial: t('caseStudies.realEstate.testimonial'),
+      testimonial: "The chatbot pre-qualifies buyers and schedules viewings automatically. Our agents now spend time with serious buyers only.",
       author: "Vũ Minh Tuấn, Managing Director"
     },
     {
       id: 6,
-      title: t('caseStudies.hospitality.title'),
+      title: "Hotel Chain Achieves 90% Booking Automation",
       company: "Luxury Resorts Group",
-      industry: t('caseStudies.hospitality.industry'),
-      challenge: t('caseStudies.hospitality.challenge'),
-      solution: t('caseStudies.hospitality.solution'),
+      industry: "Hospitality",
+      challenge: "Manual booking process overwhelming staff during peak tourism seasons",
+      solution: "Deployed booking automation bot with room recommendations and guest service features",
       results: [
-        { metric: t('caseStudies.metrics.bookingAutomation'), improvement: "90%", icon: <TrendingUp className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.staffWorkload'), improvement: "-70%", icon: <Users className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.bookingConversion'), improvement: "+40%", icon: <DollarSign className="w-4 h-4" /> },
-        { metric: t('caseStudies.metrics.guestSatisfaction'), improvement: "4.9/5", icon: <Users className="w-4 h-4" /> }
+        { metric: "Booking Automation", improvement: "90%", icon: <TrendingUp className="w-4 h-4" /> },
+        { metric: "Staff Workload", improvement: "-70%", icon: <Users className="w-4 h-4" /> },
+        { metric: "Booking Conversion", improvement: "+40%", icon: <DollarSign className="w-4 h-4" /> },
+        { metric: "Guest Satisfaction", improvement: "4.9/5", icon: <Users className="w-4 h-4" /> }
       ],
       image: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=400&h=300&fit=crop",
-      testimonial: t('caseStudies.hospitality.testimonial'),
+      testimonial: "Guests can book rooms, request services, and get recommendations instantly. Our occupancy rates have reached all-time highs.",
       author: "Nguyễn Thị Hoa, Operations Manager"
     }
   ];
@@ -129,27 +127,28 @@ const CaseStudies = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
-            {t('caseStudies.hero.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('caseStudies.hero.subtitle')}</span>
+            Real <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Success Stories</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            {t('caseStudies.hero.description')}
+            Discover how businesses across industries have transformed their customer experience 
+            and achieved remarkable results with D2 Group's AI chatbot solutions.
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
             <div className="text-center">
               <div className="text-4xl font-bold text-blue-600 mb-2">500+</div>
-              <div className="text-gray-600">{t('caseStudies.stats.deployments')}</div>
+              <div className="text-gray-600">Successful Deployments</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-blue-600 mb-2">45%</div>
-              <div className="text-gray-600">{t('caseStudies.stats.conversionIncrease')}</div>
+              <div className="text-gray-600">Average Conversion Increase</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-blue-600 mb-2">60%</div>
-              <div className="text-gray-600">{t('caseStudies.stats.costReduction')}</div>
+              <div className="text-gray-600">Average Cost Reduction</div>
             </div>
             <div className="text-center">
               <div className="text-4xl font-bold text-blue-600 mb-2">24/7</div>
-              <div className="text-gray-600">{t('caseStudies.stats.customerSupport')}</div>
+              <div className="text-gray-600">Customer Support</div>
             </div>
           </div>
         </div>
@@ -174,17 +173,17 @@ const CaseStudies = () => {
 
                 <div className="space-y-4">
                   <div>
-                    <h3 className="font-semibold text-lg mb-2 text-red-600">{t('caseStudies.challenge')}:</h3>
+                    <h3 className="font-semibold text-lg mb-2 text-red-600">Challenge:</h3>
                     <p className="text-gray-600 leading-relaxed">{study.challenge}</p>
                   </div>
 
                   <div>
-                    <h3 className="font-semibold text-lg mb-2 text-blue-600">{t('caseStudies.solution')}:</h3>
+                    <h3 className="font-semibold text-lg mb-2 text-blue-600">Solution:</h3>
                     <p className="text-gray-600 leading-relaxed">{study.solution}</p>
                   </div>
 
                   <div>
-                    <h3 className="font-semibold text-lg mb-3 text-green-600">{t('caseStudies.results')}:</h3>
+                    <h3 className="font-semibold text-lg mb-3 text-green-600">Results:</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                       {study.results.map((result, resultIndex) => (
                         <div key={resultIndex} className="flex items-center space-x-3 bg-green-50 p-3 rounded-lg">
@@ -240,27 +239,27 @@ const CaseStudies = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            {t('caseStudies.industries.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('caseStudies.industries.subtitle')}</span>
+            Industries We <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Serve</span>
           </h2>
           <p className="text-xl text-gray-600">
-            {t('caseStudies.industries.description')}
+            Proven success across diverse business sectors
           </p>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
           {[
-            { name: t('caseStudies.industries.ecommerce'), icon: "🛒", metric: "+45% Sales" },
-            { name: t('caseStudies.industries.healthcare'), icon: "🏥", metric: "-60% Wait Time" },
-            { name: t('caseStudies.industries.finance'), icon: "🏦", metric: "+80% Lead Quality" },
-            { name: t('caseStudies.industries.education'), icon: "🎓", metric: "+70% Engagement" },
-            { name: t('caseStudies.industries.realEstate'), icon: "🏠", metric: "+300% Leads" },
-            { name: t('caseStudies.industries.hospitality'), icon: "🏨", metric: "90% Automation" },
-            { name: t('caseStudies.industries.retail'), icon: "🏪", metric: "+35% Conversion" },
-            { name: t('caseStudies.industries.automotive'), icon: "🚗", metric: "+50% Efficiency" },
-            { name: t('caseStudies.industries.insurance'), icon: "🛡️", metric: "+25% Claims" },
-            { name: t('caseStudies.industries.manufacturing'), icon: "🏭", metric: "+40% Support" },
-            { name: t('caseStudies.industries.travel'), icon: "✈️", metric: "+55% Bookings" },
-            { name: t('caseStudies.industries.logistics'), icon: "📦", metric: "+30% Tracking" }
+            { name: "E-commerce", icon: "🛒", metric: "+45% Sales" },
+            { name: "Healthcare", icon: "🏥", metric: "-60% Wait Time" },
+            { name: "Finance", icon: "🏦", metric: "+80% Lead Quality" },
+            { name: "Education", icon: "🎓", metric: "+70% Engagement" },
+            { name: "Real Estate", icon: "🏠", metric: "+300% Leads" },
+            { name: "Hospitality", icon: "🏨", metric: "90% Automation" },
+            { name: "Retail", icon: "🏪", metric: "+35% Conversion" },
+            { name: "Automotive", icon: "🚗", metric: "+50% Efficiency" },
+            { name: "Insurance", icon: "🛡️", metric: "+25% Claims" },
+            { name: "Manufacturing", icon: "🏭", metric: "+40% Support" },
+            { name: "Travel", icon: "✈️", metric: "+55% Bookings" },
+            { name: "Logistics", icon: "📦", metric: "+30% Tracking" }
           ].map((industry, index) => (
             <Card key={index} className="text-center p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
               <CardContent className="p-0">
@@ -279,17 +278,18 @@ const CaseStudies = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            {t('caseStudies.cta.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('caseStudies.cta.subtitle')}</span>
+            Ready to Write Your <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Success Story</span>?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            {t('caseStudies.cta.description')}
+            Join hundreds of successful businesses that have transformed their customer experience with D2 Group. 
+            Let's discuss how we can deliver similar results for your organization.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
-              {t('caseStudies.cta.startStory')}
+              Start Your Success Story
             </Button>
             <Button size="lg" variant="outline" onClick={handlePricingClick} className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg">
-              {t('caseStudies.cta.viewPricing')} <ArrowRight className="ml-2 w-4 h-4" />
+              View Pricing <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </div>
         </div>
