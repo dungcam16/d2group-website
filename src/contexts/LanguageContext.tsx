@@ -1,3 +1,4 @@
+
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
 interface LanguageContextProps {
@@ -96,38 +97,38 @@ const translations = {
           ai: "AI Chatbot",
           improvement: "Improvement"
         },
-        responseTime: "Response Time",
-        availability: "Availability",
-        scalability: "Scalability",
-        consistency: "Consistency",
-        cost: "Cost per Interaction",
-        language: "Language Support",
         responseTime: {
+          label: "Response Time",
           traditional: "Hours to days",
           ai: "< 2 seconds",
           improvement: "99% faster"
         },
         availability: {
+          label: "Availability",
           traditional: "Business hours only",
           ai: "24/7/365",
           improvement: "Always on"
         },
         scalability: {
+          label: "Scalability",
           traditional: "Limited by staff",
           ai: "Unlimited conversations",
           improvement: "Infinite scale"
         },
         consistency: {
+          label: "Consistency",
           traditional: "Varies by agent",
           ai: "Always consistent",
           improvement: "100% reliable"
         },
         cost: {
+          label: "Cost per Interaction",
           traditional: "$5-15",
           ai: "$0.10-0.50",
           improvement: "95% cost reduction"
         },
         language: {
+          label: "Language Support",
           traditional: "1-2 languages",
           ai: "50+ languages",
           improvement: "Global reach"
@@ -445,6 +446,192 @@ const translations = {
         linkedin: "LinkedIn",
         email: "Email"
       }
+    },
+
+    // Pricing page translations
+    pricing: {
+      hero: {
+        title1: "Simple",
+        title2: "Transparent",
+        title3: "Pricing",
+        subtitle: "Choose the perfect plan for your business. All plans include our core features with no hidden fees.",
+        cta: "Start Free Trial"
+      },
+      plans: {
+        starter: {
+          name: "Starter",
+          price: "2,900,000",
+          period: "/month",
+          description: "Perfect for small businesses getting started with AI chatbots",
+          popular: false,
+          features: [
+            "1,000 conversations/month",
+            "Basic chatbot templates",
+            "Website integration",
+            "Email support",
+            "Basic analytics",
+            "5 workflows",
+            "Standard response time"
+          ]
+        },
+        growth: {
+          name: "Growth",
+          price: "3,900,000",
+          period: "/month",
+          description: "Ideal for growing businesses that need advanced features",
+          popular: true,
+          features: [
+            "5,000 conversations/month",
+            "Advanced templates",
+            "Multi-channel support",
+            "CRM integration",
+            "Advanced analytics",
+            "Unlimited workflows",
+            "Priority support",
+            "A/B testing",
+            "Lead qualification"
+          ]
+        },
+        business: {
+          name: "Business",
+          price: "7,900,000",
+          period: "/month",
+          description: "For established businesses requiring comprehensive automation",
+          popular: false,
+          features: [
+            "15,000 conversations/month",
+            "Custom design",
+            "Multi-channel support",
+            "CRM integration",
+            "Advanced analytics",
+            "Unlimited workflows",
+            "Priority support",
+            "A/B testing",
+            "Lead qualification",
+            "Custom branding",
+            "Priority response time"
+          ]
+        },
+        enterprise: {
+          name: "Enterprise",
+          price: "Contact for pricing",
+          period: "",
+          description: "Tailored solutions for large organizations with custom requirements",
+          popular: false,
+          features: [
+            "Unlimited conversations",
+            "Custom AI development",
+            "Dedicated account manager",
+            "On-premise deployment",
+            "Enterprise security",
+            "Custom integrations",
+            "Phone support",
+            "SLA guarantees",
+            "White-label solution",
+            "Advanced reporting"
+          ]
+        }
+      },
+      comparison: {
+        title1: "Feature",
+        title2: "Comparison",
+        subtitle: "Compare all features across our pricing plans",
+        table: {
+          features: "Features",
+          starter: "Starter",
+          growth: "Growth",
+          business: "Business",
+          enterprise: "Enterprise"
+        },
+        categories: {
+          core: "Core Features",
+          channels: "Channels & Integrations"
+        },
+        features: {
+          sessions: {
+            name: "Monthly Chat Sessions",
+            starter: "1,000",
+            growth: "5,000",
+            business: "15,000",
+            enterprise: "Unlimited"
+          },
+          template: {
+            name: "Chatbot Template",
+            starter: "Basic",
+            growth: "Advanced",
+            business: "Custom",
+            enterprise: "Fully Custom"
+          },
+          responseTime: {
+            name: "Response Time SLA",
+            starter: "Standard",
+            growth: "Priority",
+            business: "Priority",
+            enterprise: "Instant"
+          },
+          analytics: {
+            name: "Analytics Dashboard"
+          },
+          website: {
+            name: "Website Widget Integration"
+          },
+          widget: {
+            name: "Widget Website"
+          },
+          whatsapp: {
+            name: "WhatsApp Business"
+          },
+          facebook: {
+            name: "Facebook Messenger"
+          },
+          crm: {
+            name: "CRM Integration"
+          },
+          api: {
+            name: "Custom API Access"
+          }
+        }
+      },
+      faq: {
+        title1: "Frequently Asked",
+        title2: "Questions",
+        subtitle: "Everything you need to know about our pricing and service packages",
+        questions: {
+          q1: {
+            question: "How are chat sessions counted?",
+            answer: "A chat session is counted each time a unique user interacts with your chatbot within a 24-hour window, regardless of the number of messages exchanged."
+          },
+          q2: {
+            question: "Can I upgrade or downgrade my plan at any time?",
+            answer: "Yes—you can switch plans whenever you like. Upgrades take effect immediately; downgrades apply on your next billing cycle."
+          },
+          q3: {
+            question: "Is there a free trial available?",
+            answer: "Yes—we offer a 14-day free trial on all plans. No credit card required, and you can cancel at any time during the trial."
+          },
+          q4: {
+            question: "What happens if I exceed my chat session limit?",
+            answer: "If you go over your monthly quota, additional sessions are billed at VND 3,000 per session. We'll send you a notification as you approach your limit."
+          }
+        }
+      },
+      cta: {
+        title1: "Ready to Get",
+        title2: "Started?",
+        subtitle: "Join thousands of businesses already using our AI chatbot platform to transform their customer experience.",
+        button1: "Start Free Trial",
+        button2: "Contact Sales"
+      },
+      benefits: {
+        trial: "14-day free trial",
+        setup: "No setup fees",
+        cancel: "Cancel anytime"
+      },
+      buttons: {
+        getStarted: "Get Started",
+        contactForPricing: "Contact for Pricing",
+        mostPopular: "Most Popular"
+      }
     }
   },
   
@@ -531,38 +718,38 @@ const translations = {
           ai: "AI Chatbot",
           improvement: "Cải thiện"
         },
-        responseTime: "Thời gian Phản hồi",
-        availability: "Khả năng Sẵn sàng",
-        scalability: "Khả năng Mở rộng",
-        consistency: "Tính Nhất quán",
-        cost: "Chi phí mỗi Tương tác",
-        language: "Hỗ trợ Ngôn ngữ",
         responseTime: {
+          label: "Thời gian Phản hồi",
           traditional: "Hàng giờ đến hàng ngày",
           ai: "< 2 giây",
           improvement: "Nhanh hơn 99%"
         },
         availability: {
+          label: "Khả năng Sẵn sàng",
           traditional: "Chỉ giờ làm việc",
           ai: "24/7/365",
           improvement: "Luôn sẵn sàng"
         },
         scalability: {
+          label: "Khả năng Mở rộng",
           traditional: "Bị giới hạn bởi nhân viên",
           ai: "Hội thoại không giới hạn",
           improvement: "Mở rộng vô hạn"
         },
         consistency: {
+          label: "Tính Nhất quán",
           traditional: "Thay đổi theo đại lý",
           ai: "Luôn nhất quán",
           improvement: "Đáng tin cậy 100%"
         },
         cost: {
+          label: "Chi phí mỗi Tương tác",
           traditional: "$5-15",
           ai: "$0.10-0.50",
           improvement: "Giảm chi phí 95%"
         },
         language: {
+          label: "Hỗ trợ Ngôn ngữ",
           traditional: "1-2 ngôn ngữ",
           ai: "50+ ngôn ngữ",
           improvement: "Tiếp cận toàn cầu"
@@ -879,6 +1066,192 @@ const translations = {
         facebook: "Facebook",
         linkedin: "LinkedIn",
         email: "Email"
+      }
+    },
+
+    // Pricing page Vietnamese translations
+    pricing: {
+      hero: {
+        title1: "Bảng giá",
+        title2: "Đơn giản",
+        title3: "Minh bạch",
+        subtitle: "Chọn gói hoàn hảo cho doanh nghiệp của bạn. Tất cả các gói đều bao gồm các tính năng cốt lõi không có phí ẩn.",
+        cta: "Bắt đầu Dùng thử Miễn phí"
+      },
+      plans: {
+        starter: {
+          name: "Khởi đầu",
+          price: "2.900.000",
+          period: "/tháng",
+          description: "Hoàn hảo cho các doanh nghiệp nhỏ bắt đầu với AI chatbot",
+          popular: false,
+          features: [
+            "1.000 cuộc trò chuyện/tháng",
+            "Mẫu chatbot cơ bản",
+            "Tích hợp website",
+            "Hỗ trợ email",
+            "Phân tích cơ bản",
+            "5 quy trình làm việc",
+            "Thời gian phản hồi tiêu chuẩn"
+          ]
+        },
+        growth: {
+          name: "Phát triển",
+          price: "3.900.000",
+          period: "/tháng",
+          description: "Lý tưởng cho các doanh nghiệp đang phát triển cần các tính năng nâng cao",
+          popular: true,
+          features: [
+            "5.000 cuộc trò chuyện/tháng",
+            "Mẫu nâng cao",
+            "Hỗ trợ đa kênh",
+            "Tích hợp CRM",
+            "Phân tích nâng cao",
+            "Quy trình làm việc không giới hạn",
+            "Hỗ trợ ưu tiên",
+            "Kiểm tra A/B",
+            "Đánh giá khách hàng tiềm năng"
+          ]
+        },
+        business: {
+          name: "Doanh nghiệp",
+          price: "7.900.000",
+          period: "/tháng",
+          description: "Dành cho các doanh nghiệp thành lập cần tự động hóa toàn diện",
+          popular: false,
+          features: [
+            "15.000 cuộc trò chuyện/tháng",
+            "Thiết kế tùy chỉnh",
+            "Hỗ trợ đa kênh",
+            "Tích hợp CRM",
+            "Phân tích nâng cao",
+            "Quy trình làm việc không giới hạn",
+            "Hỗ trợ ưu tiên",
+            "Kiểm tra A/B",
+            "Đánh giá khách hàng tiềm năng",
+            "Thương hiệu tùy chỉnh",
+            "Thời gian phản hồi ưu tiên"
+          ]
+        },
+        enterprise: {
+          name: "Doanh nghiệp lớn",
+          price: "Liên hệ để biết giá",
+          period: "",
+          description: "Giải pháp tùy chỉnh cho các tổ chức lớn với yêu cầu tùy chỉnh",
+          popular: false,
+          features: [
+            "Cuộc trò chuyện không giới hạn",
+            "Phát triển AI tùy chỉnh",
+            "Quản lý tài khoản chuyên dụng",
+            "Triển khai tại chỗ",
+            "Bảo mật doanh nghiệp",
+            "Tích hợp tùy chỉnh",
+            "Hỗ trợ điện thoại",
+            "Đảm bảo SLA",
+            "Giải pháp nhãn trắng",
+            "Báo cáo nâng cao"
+          ]
+        }
+      },
+      comparison: {
+        title1: "So sánh",
+        title2: "Tính năng",
+        subtitle: "So sánh tất cả các tính năng trong các gói giá của chúng tôi",
+        table: {
+          features: "Tính năng",
+          starter: "Khởi đầu",
+          growth: "Phát triển",
+          business: "Doanh nghiệp",
+          enterprise: "Doanh nghiệp lớn"
+        },
+        categories: {
+          core: "Tính năng Cốt lõi",
+          channels: "Kênh & Tích hợp"
+        },
+        features: {
+          sessions: {
+            name: "Phiên Chat Hàng tháng",
+            starter: "1.000",
+            growth: "5.000",
+            business: "15.000",
+            enterprise: "Không giới hạn"
+          },
+          template: {
+            name: "Mẫu Chatbot",
+            starter: "Cơ bản",
+            growth: "Nâng cao",
+            business: "Tùy chỉnh",
+            enterprise: "Hoàn toàn Tùy chỉnh"
+          },
+          responseTime: {
+            name: "SLA Thời gian Phản hồi",
+            starter: "Tiêu chuẩn",
+            growth: "Ưu tiên",
+            business: "Ưu tiên",
+            enterprise: "Tức thì"
+          },
+          analytics: {
+            name: "Bảng điều khiển Phân tích"
+          },
+          website: {
+            name: "Tích hợp Widget Website"
+          },
+          widget: {
+            name: "Widget Website"
+          },
+          whatsapp: {
+            name: "WhatsApp Business"
+          },
+          facebook: {
+            name: "Facebook Messenger"
+          },
+          crm: {
+            name: "Tích hợp CRM"
+          },
+          api: {
+            name: "Truy cập API Tùy chỉnh"
+          }
+        }
+      },
+      faq: {
+        title1: "Câu hỏi",
+        title2: "Thường gặp",
+        subtitle: "Mọi thứ bạn cần biết về giá cả và gói dịch vụ của chúng tôi",
+        questions: {
+          q1: {
+            question: "Phiên chat được tính như thế nào?",
+            answer: "Một phiên chat được tính mỗi khi một người dùng duy nhất tương tác với chatbot của bạn trong khoảng thời gian 24 giờ, bất kể số lượng tin nhắn trao đổi."
+          },
+          q2: {
+            question: "Tôi có thể nâng cấp hoặc hạ cấp gói bất cứ lúc nào không?",
+            answer: "Có—bạn có thể chuyển đổi gói bất cứ khi nào bạn muốn. Nâng cấp có hiệu lực ngay lập tức; hạ cấp áp dụng vào chu kỳ thanh toán tiếp theo."
+          },
+          q3: {
+            question: "Có dùng thử miễn phí không?",
+            answer: "Có—chúng tôi cung cấp dùng thử miễn phí 14 ngày cho tất cả các gói. Không cần thẻ tín dụng và bạn có thể hủy bất cứ lúc nào trong thời gian dùng thử."
+          },
+          q4: {
+            question: "Điều gì xảy ra nếu tôi vượt quá giới hạn phiên chat?",
+            answer: "Nếu bạn vượt quá hạn ngạch hàng tháng, các phiên bổ sung sẽ được tính phí 3.000 VND mỗi phiên. Chúng tôi sẽ gửi thông báo khi bạn gần đạt giới hạn."
+          }
+        }
+      },
+      cta: {
+        title1: "Sẵn sàng",
+        title2: "Bắt đầu?",
+        subtitle: "Tham gia hàng nghìn doanh nghiệp đã sử dụng nền tảng AI chatbot của chúng tôi để chuyển đổi trải nghiệm khách hàng.",
+        button1: "Bắt đầu Dùng thử Miễn phí",
+        button2: "Liên hệ Bán hàng"
+      },
+      benefits: {
+        trial: "Dùng thử miễn phí 14 ngày",
+        setup: "Không phí thiết lập",
+        cancel: "Hủy bất cứ lúc nào"
+      },
+      buttons: {
+        getStarted: "Bắt đầu",
+        contactForPricing: "Liên hệ để biết Giá",
+        mostPopular: "Phổ biến nhất"
       }
     }
   }
