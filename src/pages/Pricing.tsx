@@ -90,9 +90,9 @@ const Pricing = () => {
     {
       category: "Core Features",
       features: [
-        { name: "Monthly Chat Sessions", starter: "1,000", growth: "5,000", business: "15,000", enterprise: "Không giới hạn" },
-        { name: "Chatbot Template", starter: "Cơ bản", growth: "Nâng cao", business: "Tùy chỉnh", enterprise: "Tùy chỉnh hoàn toàn" },
-        { name: "Response Time SLA", starter: "Tiêu chuẩn", growth: "Ưu tiên", business: "Ưu tiên", enterprise: "Tức thì" },
+        { name: "Monthly Chat Sessions", starter: "1,000", growth: "5,000", business: "15,000", enterprise: "Unlimited" },
+        { name: "Chatbot Template", starter: "Basic", growth: "Advanced", business: "Custom", enterprise: "Fully Custom" },
+        { name: "Response Time SLA", starter: "Standard", growth: "Priority", business: "Priority", enterprise: "Instant" },
         { name: "Analytics Dashboard", starter: true, growth: true, business: true, enterprise: true },
         { name: "Website Widget Integration", starter: true, growth: true, business: true, enterprise: true }
       ]
