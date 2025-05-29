@@ -14,28 +14,28 @@ const Index = () => {
   const pricingPlans = [
     {
       name: t('pricing.starter'),
-      price: language === 'vi' ? '2.900.000' : "$119",
+      price: language === 'vi' ? '2.900.000' : '$119',
       period: t('pricing.month'),
       description: t('pricing.starter.desc'),
       popular: false,
     },
     {
       name: t('pricing.growth'),
-      price: language === 'vi' ? '3.900.000' : "$199",
+      price: language === 'vi' ? '3.900.000' : '$199',
       period: t('pricing.month'),
       description: t('pricing.growth.desc'),
       popular: true,
     },
     {
       name: t('pricing.business'),
-      price: language === 'vi' ? '7.900.000' : "$299",
+      price: language === 'vi' ? '7.900.000' : '$299',
       period: t('pricing.month'),
       description: t('pricing.business.desc'),
       popular: false,
     },
     {
       name: t('pricing.enterprise'),
-      price: language === 'vi' ? 'Liên lạc' : "Contact",
+      price: language === 'vi' ? 'Liên lạc' : 'Contact',
       period: "",
       description: t('pricing.enterprise.desc'),
       popular: false,
