@@ -5,179 +5,181 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Check, X, MessageSquare, Brain, BarChart3, Shield, Zap, Globe, ArrowRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Section from "@/components/ui/section";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Features = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const coreFeatures = [
     {
-      title: "Natural Language Processing",
-      description: "Advanced AI that understands context, intent, and sentiment",
+      titleKey: "features.core.nlp.title",
+      descKey: "features.core.nlp.desc",
       icon: <Brain className="w-8 h-8 text-blue-600" />,
-      details: [
-        "Multi-language support with 95%+ accuracy",
-        "Contextual conversation flow management", 
-        "Sentiment analysis and emotion detection",
-        "Intent recognition and entity extraction"
+      detailsKeys: [
+        "features.core.nlp.detail1",
+        "features.core.nlp.detail2",
+        "features.core.nlp.detail3",
+        "features.core.nlp.detail4"
       ]
     },
     {
-      title: "Omnichannel Deployment", 
-      description: "Deploy across website, WhatsApp, Facebook, and more",
+      titleKey: "features.core.multiChannel.title",
+      descKey: "features.core.multiChannel.desc",
       icon: <Globe className="w-8 h-8 text-blue-600" />,
-      details: [
-        "Website chat widget with customizable UI",
-        "WhatsApp Business API integration",
-        "Facebook Messenger connectivity",
-        "SMS and voice channel support"
+      detailsKeys: [
+        "features.core.multiChannel.detail1",
+        "features.core.multiChannel.detail2",
+        "features.core.multiChannel.detail3",
+        "features.core.multiChannel.detail4"
       ]
     },
     {
-      title: "Real-time Analytics",
-      description: "Comprehensive insights into customer interactions",
+      titleKey: "features.core.realTime.title",
+      descKey: "features.core.realTime.desc",
       icon: <BarChart3 className="w-8 h-8 text-blue-600" />,
-      details: [
-        "Live conversation monitoring",
-        "Performance metrics and KPIs",
-        "Customer satisfaction scoring",
-        "ROI and conversion tracking"
+      detailsKeys: [
+        "features.core.realTime.detail1",
+        "features.core.realTime.detail2",
+        "features.core.realTime.detail3",
+        "features.core.realTime.detail4"
       ]
     },
     {
-      title: "Enterprise Security",
-      description: "Bank-grade security and compliance standards",
+      titleKey: "features.core.security.title",
+      descKey: "features.core.security.desc",
       icon: <Shield className="w-8 h-8 text-blue-600" />,
-      details: [
-        "End-to-end encryption",
-        "SOC 2 Type II compliant",
-        "GDPR and data privacy compliance",
-        "Single sign-on (SSO) integration"
+      detailsKeys: [
+        "features.core.security.detail1",
+        "features.core.security.detail2",
+        "features.core.security.detail3",
+        "features.core.security.detail4"
       ]
     },
     {
-      title: "Instant Deployment",
-      description: "Go live in minutes with our no-code platform",
+      titleKey: "features.core.deployment.title",
+      descKey: "features.core.deployment.desc",
       icon: <Zap className="w-8 h-8 text-blue-600" />,
-      details: [
-        "5-minute setup process",
-        "Pre-built templates and workflows",
-        "Drag-and-drop conversation builder",
-        "One-click integrations"
+      detailsKeys: [
+        "features.core.deployment.detail1",
+        "features.core.deployment.detail2",
+        "features.core.deployment.detail3",
+        "features.core.deployment.detail4"
       ]
     },
     {
-      title: "Smart Conversations",
-      description: "Human-like interactions that convert and engage",
+      titleKey: "features.core.conversations.title",
+      descKey: "features.core.conversations.desc",
       icon: <MessageSquare className="w-8 h-8 text-blue-600" />,
-      details: [
-        "Dynamic personalization",
-        "Lead qualification automation",
-        "Appointment booking and scheduling",
-        "Product recommendations"
+      detailsKeys: [
+        "features.core.conversations.detail1",
+        "features.core.conversations.detail2",
+        "features.core.conversations.detail3",
+        "features.core.conversations.detail4"
       ]
     }
   ];
 
   const comparisonTable = [
     {
-      feature: "Response Time",
-      traditional: "Hours to days",
-      aiChatbot: "< 2 seconds",
-      improvement: "99% faster"
+      featureKey: "features.comparison.responseTime",
+      traditionalKey: "features.comparison.traditional.responseTime",
+      aiChatbotKey: "features.comparison.ai.responseTime",
+      improvementKey: "features.comparison.improvement.responseTime"
     },
     {
-      feature: "Availability", 
-      traditional: "Business hours only",
-      aiChatbot: "24/7/365",
-      improvement: "Always on"
+      featureKey: "features.comparison.availability",
+      traditionalKey: "features.comparison.traditional.availability",
+      aiChatbotKey: "features.comparison.ai.availability",
+      improvementKey: "features.comparison.improvement.availability"
     },
     {
-      feature: "Scalability",
-      traditional: "Limited by staff",
-      aiChatbot: "Unlimited conversations",
-      improvement: "Infinite scale"
+      featureKey: "features.comparison.scalability",
+      traditionalKey: "features.comparison.traditional.scalability",
+      aiChatbotKey: "features.comparison.ai.scalability",
+      improvementKey: "features.comparison.improvement.scalability"
     },
     {
-      feature: "Consistency",
-      traditional: "Varies by agent",
-      aiChatbot: "Always consistent",
-      improvement: "100% reliable"
+      featureKey: "features.comparison.consistency",
+      traditionalKey: "features.comparison.traditional.consistency",
+      aiChatbotKey: "features.comparison.ai.consistency",
+      improvementKey: "features.comparison.improvement.consistency"
     },
     {
-      feature: "Cost per Interaction",
-      traditional: "$5-15",
-      aiChatbot: "$0.10-0.50",
-      improvement: "95% cost reduction"
+      featureKey: "features.comparison.costPerInteraction",
+      traditionalKey: "features.comparison.traditional.costPerInteraction",
+      aiChatbotKey: "features.comparison.ai.costPerInteraction",
+      improvementKey: "features.comparison.improvement.costPerInteraction"
     },
     {
-      feature: "Language Support",
-      traditional: "1-2 languages",
-      aiChatbot: "50+ languages",
-      improvement: "Global reach"
+      featureKey: "features.comparison.languageSupport",
+      traditionalKey: "features.comparison.traditional.languageSupport",
+      aiChatbotKey: "features.comparison.ai.languageSupport",
+      improvementKey: "features.comparison.improvement.languageSupport"
     }
   ];
 
   const advancedFeatures = [
     {
-      category: "AI & Machine Learning",
+      categoryKey: "features.advanced.ai.category",
       features: [
         {
-          name: "Conversation Flow Builder",
-          description: "Visual drag-and-drop interface to design complex conversation paths"
+          nameKey: "features.advanced.ai.conversationFlow.name",
+          descKey: "features.advanced.ai.conversationFlow.desc"
         },
         {
-          name: "Intent Training",
-          description: "Continuously improve AI understanding with custom training data"
+          nameKey: "features.advanced.ai.intentTraining.name",
+          descKey: "features.advanced.ai.intentTraining.desc"
         },
         {
-          name: "Auto-Learning",
-          description: "Machine learning algorithms that improve responses over time"
+          nameKey: "features.advanced.ai.autoLearning.name",
+          descKey: "features.advanced.ai.autoLearning.desc"
         },
         {
-          name: "Fallback Handling", 
-          description: "Smart escalation to human agents when needed"
+          nameKey: "features.advanced.ai.fallbackHandling.name",
+          descKey: "features.advanced.ai.fallbackHandling.desc"
         }
       ]
     },
     {
-      category: "Integration & APIs",
+      categoryKey: "features.advanced.integration.category",
       features: [
         {
-          name: "CRM Integration",
-          description: "Connect with Salesforce, HubSpot, Pipedrive, and 50+ CRMs"
+          nameKey: "features.advanced.integration.crm.name",
+          descKey: "features.advanced.integration.crm.desc"
         },
         {
-          name: "E-commerce Platforms",
-          description: "Native integration with Shopify, WooCommerce, Magento"
+          nameKey: "features.advanced.integration.ecommerce.name",
+          descKey: "features.advanced.integration.ecommerce.desc"
         },
         {
-          name: "Custom APIs",
-          description: "RESTful APIs for custom integrations and workflows"
+          nameKey: "features.advanced.integration.customApi.name",
+          descKey: "features.advanced.integration.customApi.desc"
         },
         {
-          name: "Webhook Support",
-          description: "Real-time data synchronization with external systems"
+          nameKey: "features.advanced.integration.webhook.name",
+          descKey: "features.advanced.integration.webhook.desc"
         }
       ]
     },
     {
-      category: "Analytics & Reporting",
+      categoryKey: "features.advanced.analytics.category",
       features: [
         {
-          name: "Conversation Analytics",
-          description: "Deep insights into customer behavior and conversation patterns"
+          nameKey: "features.advanced.analytics.conversation.name",
+          descKey: "features.advanced.analytics.conversation.desc"
         },
         {
-          name: "Performance Metrics",
-          description: "Track resolution rate, satisfaction scores, and conversion metrics"
+          nameKey: "features.advanced.analytics.performance.name",
+          descKey: "features.advanced.analytics.performance.desc"
         },
         {
-          name: "Custom Dashboards",
-          description: "Build personalized reporting dashboards for stakeholders"
+          nameKey: "features.advanced.analytics.dashboard.name",
+          descKey: "features.advanced.analytics.dashboard.desc"
         },
         {
-          name: "A/B Testing",
-          description: "Test different conversation flows and optimize performance"
+          nameKey: "features.advanced.analytics.abTesting.name",
+          descKey: "features.advanced.analytics.abTesting.desc"
         }
       ]
     }
@@ -197,14 +199,13 @@ const Features = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
-            Powerful <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Features</span> That Drive Results
+            {t('features.hero.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.hero.titleHighlight')}</span> {t('features.hero.titleEnd')}
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Discover the comprehensive suite of AI-powered features designed to transform your customer communication 
-            and drive measurable business growth.
+            {t('features.hero.description')}
           </p>
           <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
-            See Features in Action
+            {t('features.hero.cta')}
           </Button>
         </div>
       </Section>
@@ -213,10 +214,10 @@ const Features = () => {
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Core <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Capabilities</span>
+            {t('features.core.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.core.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600">
-            Everything you need to deliver exceptional customer experiences
+            {t('features.core.subtitle')}
           </p>
         </div>
 
@@ -225,13 +226,13 @@ const Features = () => {
             <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
               <CardContent className="p-8">
                 <div className="mb-6 group-hover:scale-110 transition-transform duration-300">{feature.icon}</div>
-                <h3 className="text-2xl font-bold mb-4 group-hover:text-blue-600 transition-colors">{feature.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{feature.description}</p>
+                <h3 className="text-2xl font-bold mb-4 group-hover:text-blue-600 transition-colors">{t(feature.titleKey)}</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">{t(feature.descKey)}</p>
                 <ul className="space-y-2">
-                  {feature.details.map((detail, detailIndex) => (
+                  {feature.detailsKeys.map((detailKey, detailIndex) => (
                     <li key={detailIndex} className="flex items-start space-x-3">
                       <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-600">{detail}</span>
+                      <span className="text-sm text-gray-600">{t(detailKey)}</span>
                     </li>
                   ))}
                 </ul>
@@ -245,10 +246,10 @@ const Features = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            AI Chatbots vs <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Traditional Live Chat</span>
+            {t('features.comparison.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.comparison.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600">
-            See how AI-powered automation outperforms traditional customer service methods
+            {t('features.comparison.subtitle')}
           </p>
         </div>
 
@@ -257,31 +258,31 @@ const Features = () => {
             <table className="w-full">
               <thead className="bg-gradient-to-r from-blue-600 to-indigo-600">
                 <tr>
-                  <th className="text-left p-6 text-white font-semibold">Feature</th>
-                  <th className="text-center p-6 text-white font-semibold">Traditional Live Chat</th>
-                  <th className="text-center p-6 text-white font-semibold">AI Chatbot</th>
-                  <th className="text-center p-6 text-white font-semibold">Improvement</th>
+                  <th className="text-left p-6 text-white font-semibold">{t('features.comparison.tableHeader.feature')}</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('features.comparison.tableHeader.traditional')}</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('features.comparison.tableHeader.aiChatbot')}</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('features.comparison.tableHeader.improvement')}</th>
                 </tr>
               </thead>
               <tbody>
                 {comparisonTable.map((row, index) => (
                   <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                    <td className="p-6 font-medium text-gray-900">{row.feature}</td>
+                    <td className="p-6 font-medium text-gray-900">{t(row.featureKey)}</td>
                     <td className="p-6 text-center">
                       <span className="inline-flex items-center space-x-2">
                         <X className="w-4 h-4 text-red-500" />
-                        <span className="text-gray-600">{row.traditional}</span>
+                        <span className="text-gray-600">{t(row.traditionalKey)}</span>
                       </span>
                     </td>
                     <td className="p-6 text-center">
                       <span className="inline-flex items-center space-x-2">
                         <Check className="w-4 h-4 text-green-500" />
-                        <span className="text-gray-900 font-semibold">{row.aiChatbot}</span>
+                        <span className="text-gray-900 font-semibold">{t(row.aiChatbotKey)}</span>
                       </span>
                     </td>
                     <td className="p-6 text-center">
                       <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                        {row.improvement}
+                        {t(row.improvementKey)}
                       </span>
                     </td>
                   </tr>
@@ -296,10 +297,10 @@ const Features = () => {
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Advanced <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Capabilities</span>
+            {t('features.advanced.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.advanced.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600">
-            Explore the deep functionality that sets D2 Group apart
+            {t('features.advanced.subtitle')}
           </p>
         </div>
 
@@ -310,15 +311,15 @@ const Features = () => {
                 <AccordionTrigger className="px-6 py-4 hover:no-underline">
                   <div className="flex items-center space-x-4">
                     <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
-                    <span className="text-xl font-semibold text-gray-900">{category.category}</span>
+                    <span className="text-xl font-semibold text-gray-900">{t(category.categoryKey)}</span>
                   </div>
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {category.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="border border-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow">
-                        <h4 className="font-semibold text-blue-600 mb-2">{feature.name}</h4>
-                        <p className="text-gray-600 text-sm leading-relaxed">{feature.description}</p>
+                        <h4 className="font-semibold text-blue-600 mb-2">{t(feature.nameKey)}</h4>
+                        <p className="text-gray-600 text-sm leading-relaxed">{t(feature.descKey)}</p>
                       </div>
                     ))}
                   </div>
@@ -333,10 +334,10 @@ const Features = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            See Our Features <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">In Action</span>
+            {t('features.demo.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.demo.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Experience the power of D2 Group's AI chatbot platform with a personalized demo tailored to your business needs.
+            {t('features.demo.description')}
           </p>
           
           <div className="bg-white rounded-2xl shadow-2xl p-8 mb-8">
@@ -345,32 +346,32 @@ const Features = () => {
                 <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
                   <MessageSquare className="w-10 h-10 text-white" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">Interactive Demo</h3>
-                <p className="text-gray-600">Click to experience our chatbot in action</p>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('features.demo.interactive.title')}</h3>
+                <p className="text-gray-600">{t('features.demo.interactive.description')}</p>
               </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
               <div className="flex items-center space-x-2">
                 <Check className="w-4 h-4 text-green-500" />
-                <span>Real-time conversation flow</span>
+                <span>{t('features.demo.feature1')}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Check className="w-4 h-4 text-green-500" />
-                <span>Multi-language support</span>
+                <span>{t('features.demo.feature2')}</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Check className="w-4 h-4 text-green-500" />
-                <span>Analytics dashboard</span>
+                <span>{t('features.demo.feature3')}</span>
               </div>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
-              Book Live Demo
+              {t('features.demo.bookDemo')}
             </Button>
             <Button size="lg" variant="outline" onClick={handleCaseStudiesClick} className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg">
-              View Case Studies <ArrowRight className="ml-2 w-4 h-4" />
+              {t('features.demo.viewCaseStudies')} <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </div>
         </div>
