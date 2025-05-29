@@ -477,7 +477,7 @@ const Index = () => {
       <Section background="gradient">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('home.useCases.title')}</span> Across Industries
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('home.useCases.title')}</span>
           </h2>
           <p className="text-xl text-gray-600">
             {t('home.useCases.subtitle')}
