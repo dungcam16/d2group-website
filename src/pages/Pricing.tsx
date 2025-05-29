@@ -90,9 +90,9 @@ const Pricing = () => {
     {
       category: "Core Features",
       features: [
-        { name: "Monthly Chat Sessions", starter: "1,000", growth: "5,000", business: "15,000", enterprise: "Không giới hạn" },
-        { name: "Chatbot Template", starter: "Cơ bản", growth: "Nâng cao", business: "Tùy chỉnh", enterprise: "Tùy chỉnh hoàn toàn" },
-        { name: "Response Time SLA", starter: "Tiêu chuẩn", growth: "Ưu tiên", business: "Ưu tiên", enterprise: "Tức thì" },
+        { name: "Monthly Chat Sessions", starter: "1,000", growth: "5,000", business: "15,000", enterprise: "Unlimited" },
+        { name: "Chatbot Template", starter: "Basic", growth: "Advanced", business: "Custom", enterprise: "Fully Custom" },
+        { name: "Response Time SLA", starter: "Standard", growth: "Priority", business: "Priority", enterprise: "Instant },
         { name: "Analytics Dashboard", starter: true, growth: true, business: true, enterprise: true },
         { name: "Website Widget Integration", starter: true, growth: true, business: true, enterprise: true }
       ]
@@ -220,7 +220,7 @@ const Pricing = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Pricing <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Comparison </span>
+            Pricing Comparison <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Chi tiết</span>
           </h2>
           <p className="text-xl text-gray-600">
             Compare all features across our pricing plans.
@@ -308,7 +308,7 @@ const Pricing = () => {
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Frequently Asked <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Questions</span>
+            Frequently Asked Questions <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Thường gặp</span>
           </h2>
           <p className="text-xl text-gray-600">
             Everything you need to know about our pricing and service packages.
@@ -338,21 +338,22 @@ const Pricing = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Ready to  <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Get Started?</span>?
+            Sẵn sàng <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Bắt đầu</span>?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Start your free trial today and discover how D2 Group’s AI chatbots can transform your customer conversations. No credit card required—cancel anytime.
+            Bắt đầu dùng thử miễn phí ngay hôm nay và xem D2 Group có thể chuyển đổi các cuộc hội thoại khách hàng của bạn như thế nào. 
+            Không cần thẻ tín dụng, hủy bất cứ lúc nào.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
-              Start Your Free Trial
+              Bắt đầu dùng thử miễn phí
             </Button>
             <Button size="lg" variant="outline" onClick={handleContactClick} className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg">
-              Contact Sales
+              Liên hệ bán hàng
             </Button>
           </div>
           <div className="mt-6 text-sm text-gray-600">
-            Have questions? Our sales team is ready to help you choose the right plan.
+            Có câu hỏi? Đội ngũ bán hàng của chúng tôi sẵn sàng giúp bạn chọn gói phù hợp.
           </div>
         </div>
       </Section>
