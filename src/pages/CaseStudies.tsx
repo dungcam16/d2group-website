@@ -4,9 +4,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, TrendingUp, Users, DollarSign, Clock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Section from "@/components/ui/section";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CaseStudies = () => {
   const navigate = useNavigate();
+  const { t } = useLanguage();
 
   const caseStudies = [
     {
@@ -127,11 +129,10 @@ const CaseStudies = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
-            Real <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Success Stories</span>
+            {t('caseStudies.hero.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Success Stories</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Discover how businesses across industries have transformed their customer experience 
-            and achieved remarkable results with D2 Group's AI chatbot solutions.
+            {t('caseStudies.hero.subtitle')}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
             <div className="text-center">
@@ -239,10 +240,10 @@ const CaseStudies = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Industries We <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Serve</span>
+            {t('caseStudies.industries.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">We Serve</span>
           </h2>
           <p className="text-xl text-gray-600">
-            Proven success across diverse business sectors
+            {t('caseStudies.industries.subtitle')}
           </p>
         </div>
 
@@ -278,11 +279,10 @@ const CaseStudies = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Ready to Write Your <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Success Story</span>?
+            {t('caseStudies.cta.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Success Story</span>?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Join hundreds of successful businesses that have transformed their customer experience with D2 Group. 
-            Let's discuss how we can deliver similar results for your organization.
+            {t('caseStudies.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">

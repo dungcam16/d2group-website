@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, X, Star, HelpCircle } from "lucide-react";
@@ -8,80 +7,80 @@ import Section from "@/components/ui/section";
 
 const Pricing = () => {
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const pricingPlans = [
     {
-      name: "Starter",
-      price: "$119",
-      period: "/month",
-      description: "Perfect for small businesses starting with AI chatbots",
+      name: t('pricing.starter'),
+      price: language === 'vi' ? t('pricing.starter.price') : "$119",
+      period: t('pricing.month'),
+      description: t('pricing.starter.desc'),
       popular: false,
       features: [
-        "1,000 conversations/month",
-        "Basic chatbot templates",
-        "Website integration",
-        "Email support",
-        "Basic analytics",
-        "5 automated workflows",
-        "Standard response time"
+        `1,000 ${t('feature.conversations')}`,
+        t('feature.basicTemplates'),
+        t('feature.websiteIntegration'),
+        t('feature.emailSupport'),
+        t('feature.basicAnalytics'),
+        `5 ${t('feature.workflows')}`,
+        t('feature.standardResponse')
       ]
     },
     {
-      name: "Growth", 
-      price: "$199",
-      period: "/month",
-      description: "Ideal for growing businesses that need more features",
+      name: t('pricing.growth'),
+      price: language === 'vi' ? t('pricing.growth.price') : "$199",
+      period: t('pricing.month'),
+      description: t('pricing.growth.desc'),
       popular: true,
       features: [
-        "5,000 conversations/month",
-        "Advanced chatbot templates",
-        "Multi-channel (Website, Facebook, WhatsApp)",
-        "CRM integration",
-        "Advanced analytics",
-        "Unlimited workflows",
-        "Priority support",
-        "A/B testing",
-        "Lead qualification"
+        `5,000 ${t('feature.conversations')}`,
+        t('feature.advancedTemplates'),
+        t('feature.multiChannel'),
+        t('feature.crmIntegration'),
+        t('feature.advancedAnalytics'),
+        t('feature.unlimitedWorkflows'),
+        t('feature.prioritySupport'),
+        t('feature.abTesting'),
+        t('feature.leadQualification')
       ]
     },
     {
-      name: "Business",
-      price: "$299",
-      period: "/month",
-      description: "Suitable for large businesses with high customization needs",
+      name: t('pricing.business'),
+      price: language === 'vi' ? t('pricing.business.price') : "$299",
+      period: t('pricing.month'),
+      description: t('pricing.business.desc'),
       popular: false,
       features: [
-        "15,000 conversations/month",
-        "Custom chatbot design",
-        "Multi-channel (Website, Facebook, WhatsApp)",
-        "CRM integration",
-        "Advanced analytics",
-        "Unlimited workflows",
-        "Priority support",
-        "A/B testing",
-        "Lead qualification",
-        "Custom branding",
+        `15,000 ${t('feature.conversations')}`,
+        t('feature.customDesign'),
+        t('feature.multiChannel'),
+        t('feature.crmIntegration'),
+        t('feature.advancedAnalytics'),
+        t('feature.unlimitedWorkflows'),
+        t('feature.prioritySupport'),
+        t('feature.abTesting'),
+        t('feature.leadQualification'),
+        t('feature.customBranding'),
         "Priority response"
       ]
     },
     {
-      name: "Enterprise",
-      price: "Contact",
+      name: t('pricing.enterprise'),
+      price: language === 'vi' ? t('pricing.enterprise.price') : "Contact",
       period: "",
-      description: "Enterprise solution with fully customizable features",
+      description: t('pricing.enterprise.desc'),
       popular: false,
       features: [
-        "Unlimited conversations",
-        "Fully custom AI",
-        "Dedicated account manager",
-        "On-premise deployment",
-        "Enterprise-grade security",
-        "Custom integrations",
-        "24/7 phone support",
-        "SLA commitment",
-        "White label",
-        "Advanced reporting"
+        `${t('feature.unlimited')} conversations`,
+        t('feature.customAI'),
+        t('feature.dedicatedManager'),
+        t('feature.onPremise'),
+        t('feature.security'),
+        t('feature.customIntegrations'),
+        t('feature.phoneSupport'),
+        t('feature.slaGuarantees'),
+        t('feature.whiteLabel'),
+        t('feature.advancedReporting')
       ]
     }
   ];
@@ -176,7 +175,7 @@ const Pricing = () => {
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                   <span className="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold flex items-center space-x-1">
                     <Star className="w-4 h-4" />
-                    <span>Most Popular</span>
+                    <span>{t('pricing.mostPopular')}</span>
                   </span>
                 </div>
               )}
@@ -208,7 +207,7 @@ const Pricing = () => {
                       : 'bg-gray-800 hover:bg-gray-900'
                   } text-white`}
                 >
-                  {plan.name === 'Enterprise' ? 'Contact Sales' : 'Get Started'}
+                  {plan.name === t('pricing.enterprise') ? t('pricing.contactForPricing') : t('pricing.getStarted')}
                 </Button>
               </CardContent>
             </Card>
@@ -233,10 +232,10 @@ const Pricing = () => {
               <thead className="bg-gradient-to-r from-blue-600 to-indigo-600">
                 <tr>
                   <th className="text-left p-6 text-white font-semibold">Features</th>
-                  <th className="text-center p-6 text-white font-semibold">Starter</th>
-                  <th className="text-center p-6 text-white font-semibold">Growth</th>
-                  <th className="text-center p-6 text-white font-semibold">Business</th>
-                  <th className="text-center p-6 text-white font-semibold">Enterprise</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('pricing.starter')}</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('pricing.growth')}</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('pricing.business')}</th>
+                  <th className="text-center p-6 text-white font-semibold">{t('pricing.enterprise')}</th>
                 </tr>
               </thead>
               <tbody>

@@ -271,13 +271,13 @@ export const viTranslations: Translations = {
   'home.finalCta.noCreditCard': 'Không cần thẻ tín dụng',
   'home.finalCta.setupIn5': 'Thiết lập trong 5 phút',
   
-  // Pricing
+  // Pricing - CẬP NHẬT GIÁ TIẾNG VIỆT
   'pricing.starter': 'Khởi đầu',
   'pricing.growth': 'Phát triển',
   'pricing.business': 'Doanh nghiệp',
   'pricing.enterprise': 'Tập đoàn',
   'pricing.month': '/tháng',
-  'pricing.contactPricing': 'Liên hệ',
+  'pricing.contactPricing': 'Liên lạc',
   'pricing.mostPopular': 'Phổ biến nhất',
   'pricing.getStarted': 'Bắt đầu',
   'pricing.contactForPricing': 'Liên hệ bán hàng',
@@ -285,6 +285,10 @@ export const viTranslations: Translations = {
   'pricing.growth.desc': 'Lý tưởng cho doanh nghiệp đang phát triển cần thêm tính năng',
   'pricing.business.desc': 'Phù hợp cho doanh nghiệp lớn với nhu cầu tùy chỉnh cao',
   'pricing.enterprise.desc': 'Giải pháp doanh nghiệp với các tính năng có thể tùy chỉnh hoàn toàn',
+  'pricing.starter.price': '2.900.000',
+  'pricing.growth.price': '3.900.000',
+  'pricing.business.price': '7.900.000',
+  'pricing.enterprise.price': 'Liên lạc',
   
   // Features
   'feature.conversations': 'cuộc trò chuyện/tháng',

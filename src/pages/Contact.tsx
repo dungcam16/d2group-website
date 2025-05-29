@@ -9,8 +9,10 @@ import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Phone, Mail, MapPin, Clock, MessageSquare, Calendar, Rocket, Facebook, Linkedin } from "lucide-react";
 import Section from "@/components/ui/section";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -82,11 +84,10 @@ const Contact = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
-            Get in <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Touch</span>
+            {t('contact.hero.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Touch</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Ready to transform your customer conversations? Let's discuss how D2 Group can help you 
-            achieve your automation goals. Our experts are standing by to provide personalized guidance.
+            {t('contact.hero.subtitle')}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
             <div className="text-center">
@@ -121,10 +122,10 @@ const Contact = () => {
             <Card className="border-none shadow-xl">
               <CardHeader>
                 <CardTitle className="text-3xl font-bold text-gray-900">
-                  Let's Start the <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Conversation</span>
+                  {t('contact.form.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Conversation</span>
                 </CardTitle>
                 <p className="text-gray-600">
-                  Fill out the form below and our team will reach out to you within 24 hours.
+                  {t('contact.form.subtitle')}
                 </p>
               </CardHeader>
               <CardContent>
@@ -231,7 +232,7 @@ const Contact = () => {
             <Card className="border-none shadow-xl">
               <CardHeader>
                 <CardTitle className="text-2xl font-bold text-gray-900">
-                  Contact <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Information</span>
+                  {t('contact.info.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Information</span>
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -290,7 +291,7 @@ const Contact = () => {
             <Card className="border-none shadow-xl">
               <CardHeader>
                 <CardTitle className="text-2xl font-bold text-gray-900">
-                  Find <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Us</span>
+                  {t('contact.map.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Us</span>
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -316,11 +317,10 @@ const Contact = () => {
       <Section background="gray">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Thank You for Your <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Interest</span>!
+            {t('contact.thanks.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Interest</span>!
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Your message has been received and our team will respond within 24 hours. 
-            In the meantime, feel free to connect with us on social media.
+            {t('contact.thanks.subtitle')}
           </p>
           <div className="flex justify-center space-x-6">
             <a 
