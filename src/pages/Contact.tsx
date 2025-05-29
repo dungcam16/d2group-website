@@ -16,24 +16,53 @@ const Contact = () => {
     need: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    toast({
-      title: "Cảm ơn bạn đã liên hệ!",
-      description: "Chúng tôi sẽ phản hồi trong vòng 24h. Hãy kiểm tra email nhé!",
-    });
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      company: "",
-      need: "",
-      message: ""
-    });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://automation.d2group.co/webhook/website', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toISOString(),
+          source: 'website_contact_form'
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Cảm ơn bạn đã liên hệ!",
+          description: "Chúng tôi sẽ phản hồi trong vòng 24h. Hãy kiểm tra email nhé!",
+        });
+        
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          need: "",
+          message: ""
+        });
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Có lỗi xảy ra",
+        description: "Không thể gửi form. Vui lòng thử lại sau hoặc liên hệ trực tiếp qua email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (field: string, value: string) => {
@@ -140,9 +169,10 @@ const Contact = () => {
 
                     <Button 
                       type="submit" 
+                      disabled={isSubmitting}
                       className="w-full bg-ai-orange hover:bg-ai-orange/90 text-white font-semibold py-3"
                     >
-                      Gửi yêu cầu tư vấn
+                      {isSubmitting ? "Đang gửi..." : "Gửi yêu cầu tư vấn"}
                     </Button>
                   </form>
                 </CardContent>

@@ -2,72 +2,33 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Pricing = () => {
+  const navigate = useNavigate();
+
   const pricingPlans = [
     {
       name: "Starter",
-      price: "2,990,000",
+      price: "2.900.000",
       period: "VNĐ/tháng",
       description: "Dành cho doanh nghiệp nhỏ mới bắt đầu",
-      features: [
-        { name: "100 cuộc trò chuyện/tháng", included: true },
-        { name: "FAQs tự động cơ bản", included: true },
-        { name: "Tích hợp website", included: true },
-        { name: "Dashboard báo cáo đơn giản", included: true },
-        { name: "Hỗ trợ 5 ngôn ngữ", included: true },
-        { name: "Email support", included: true },
-        { name: "Tích hợp CRM", included: false },
-        { name: "AI cá nhân hoá", included: false },
-        { name: "Multi-channel", included: false },
-        { name: "Custom integrations", included: false },
-        { name: "Priority support", included: false },
-        { name: "SLA 99.9%", included: false },
-      ],
       popular: false,
       color: "border-gray-200"
     },
     {
       name: "Growth",
-      price: "7,990,000", 
+      price: "3.900.000", 
       period: "VNĐ/tháng",
       description: "Cho doanh nghiệp đang phát triển",
-      features: [
-        { name: "1,000 cuộc trò chuyện/tháng", included: true },
-        { name: "FAQs tự động cơ bản", included: true },
-        { name: "Tích hợp website", included: true },
-        { name: "Dashboard báo cáo đơn giản", included: true },
-        { name: "Hỗ trợ 5 ngôn ngữ", included: true },
-        { name: "Email support", included: true },
-        { name: "Tích hợp CRM", included: true },
-        { name: "AI cá nhân hoá", included: true },
-        { name: "Multi-channel", included: false },
-        { name: "Custom integrations", included: false },
-        { name: "Priority support", included: true },
-        { name: "SLA 99.9%", included: false },
-      ],
       popular: true,
       color: "border-ai-orange"
     },
     {
       name: "Business",
-      price: "19,990,000",
+      price: "7.900.000",
       period: "VNĐ/tháng", 
       description: "Giải pháp toàn diện cho doanh nghiệp lớn",
-      features: [
-        { name: "5,000 cuộc trò chuyện/tháng", included: true },
-        { name: "FAQs tự động cơ bản", included: true },
-        { name: "Tích hợp website", included: true },
-        { name: "Dashboard báo cáo đơn giản", included: true },
-        { name: "Hỗ trợ 5 ngôn ngữ", included: true },
-        { name: "Email support", included: true },
-        { name: "Tích hợp CRM", included: true },
-        { name: "AI cá nhân hoá", included: true },
-        { name: "Multi-channel", included: true },
-        { name: "Custom integrations", included: true },
-        { name: "Priority support", included: true },
-        { name: "SLA 99.9%", included: false },
-      ],
       popular: false,
       color: "border-gray-200"
     },
@@ -76,24 +37,56 @@ const Pricing = () => {
       price: "Liên hệ",
       period: "tư vấn",
       description: "Tùy chỉnh theo yêu cầu đặc biệt",
-      features: [
-        { name: "Unlimited conversations", included: true },
-        { name: "FAQs tự động cơ bản", included: true },
-        { name: "Tích hợp website", included: true },
-        { name: "Dashboard báo cáo đơn giản", included: true },
-        { name: "Hỗ trợ 5 ngôn ngữ", included: true },
-        { name: "Email support", included: true },
-        { name: "Tích hợp CRM", included: true },
-        { name: "AI cá nhân hoá", included: true },
-        { name: "Multi-channel", included: true },
-        { name: "Custom integrations", included: true },
-        { name: "Priority support", included: true },
-        { name: "SLA 99.9%", included: true },
-      ],
       popular: false,
       color: "border-ai-blue"
     },
   ];
+
+  const comparisonFeatures = [
+    {
+      category: "Cơ bản",
+      features: [
+        { name: "Cuộc trò chuyện/tháng", starter: "100", growth: "1,000", business: "5,000", enterprise: "Unlimited" },
+        { name: "Tích hợp website", starter: true, growth: true, business: true, enterprise: true },
+        { name: "Dashboard báo cáo", starter: true, growth: true, business: true, enterprise: true },
+        { name: "Hỗ trợ đa ngôn ngữ", starter: true, growth: true, business: true, enterprise: true },
+        { name: "Email support", starter: true, growth: true, business: true, enterprise: true },
+      ]
+    },
+    {
+      category: "Nâng cao",
+      features: [
+        { name: "Tích hợp CRM", starter: false, growth: true, business: true, enterprise: true },
+        { name: "AI cá nhân hoá", starter: false, growth: true, business: true, enterprise: true },
+        { name: "Lead qualification", starter: false, growth: true, business: true, enterprise: true },
+        { name: "Live chat handover", starter: false, growth: true, business: true, enterprise: true },
+        { name: "Priority support", starter: false, growth: true, business: true, enterprise: true },
+      ]
+    },
+    {
+      category: "Chuyên nghiệp",
+      features: [
+        { name: "Multi-channel deployment", starter: false, growth: false, business: true, enterprise: true },
+        { name: "Advanced analytics", starter: false, growth: false, business: true, enterprise: true },
+        { name: "Custom integrations", starter: false, growth: false, business: true, enterprise: true },
+        { name: "24/7 dedicated support", starter: false, growth: false, business: true, enterprise: true },
+      ]
+    },
+    {
+      category: "Enterprise",
+      features: [
+        { name: "On-premise deployment", starter: false, growth: false, business: false, enterprise: true },
+        { name: "Custom AI model training", starter: false, growth: false, business: false, enterprise: true },
+        { name: "Dedicated account manager", starter: false, growth: false, business: false, enterprise: true },
+        { name: "SLA 99.9% uptime", starter: false, growth: false, business: false, enterprise: true },
+        { name: "Custom security & compliance", starter: false, growth: false, business: false, enterprise: true },
+      ]
+    }
+  ];
+
+  const handleCTAClick = () => {
+    navigate('/contact');
+  };
 
   return (
     <div className="pt-16">
@@ -155,22 +148,8 @@ const Pricing = () => {
                 </CardHeader>
 
                 <CardContent className="space-y-4">
-                  <ul className="space-y-3">
-                    {plan.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start space-x-3">
-                        {feature.included ? (
-                          <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                        ) : (
-                          <X className="w-5 h-5 text-gray-300 flex-shrink-0 mt-0.5" />
-                        )}
-                        <span className={`text-sm ${feature.included ? 'text-gray-600' : 'text-gray-400'}`}>
-                          {feature.name}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-
                   <Button 
+                    onClick={handleCTAClick}
                     className={`w-full mt-6 ${
                       plan.popular 
                         ? 'bg-ai-orange hover:bg-ai-orange/90' 
@@ -186,8 +165,93 @@ const Pricing = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Enhanced Comparison Table */}
       <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 gradient-text">
+            So sánh chi tiết tính năng
+          </h2>
+          
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-ai-gradient">
+                  <tr>
+                    <th className="text-left p-6 text-white font-semibold">Tính năng</th>
+                    <th className="text-center p-6 text-white font-semibold">Starter</th>
+                    <th className="text-center p-6 text-white font-semibold">Growth</th>
+                    <th className="text-center p-6 text-white font-semibold">Business</th>
+                    <th className="text-center p-6 text-white font-semibold">Enterprise</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonFeatures.map((category, categoryIndex) => (
+                    <>
+                      <tr key={`category-${categoryIndex}`} className="bg-gray-100">
+                        <td colSpan={5} className="p-4 font-bold text-ai-blue">
+                          {category.category}
+                        </td>
+                      </tr>
+                      {category.features.map((feature, featureIndex) => (
+                        <tr key={`${categoryIndex}-${featureIndex}`} className={featureIndex % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                          <td className="p-4 font-medium">{feature.name}</td>
+                          <td className="p-4 text-center">
+                            {typeof feature.starter === 'boolean' ? (
+                              feature.starter ? (
+                                <Check className="w-5 h-5 text-green-500 mx-auto" />
+                              ) : (
+                                <X className="w-5 h-5 text-gray-300 mx-auto" />
+                              )
+                            ) : (
+                              feature.starter
+                            )}
+                          </td>
+                          <td className="p-4 text-center">
+                            {typeof feature.growth === 'boolean' ? (
+                              feature.growth ? (
+                                <Check className="w-5 h-5 text-green-500 mx-auto" />
+                              ) : (
+                                <X className="w-5 h-5 text-gray-300 mx-auto" />
+                              )
+                            ) : (
+                              feature.growth
+                            )}
+                          </td>
+                          <td className="p-4 text-center">
+                            {typeof feature.business === 'boolean' ? (
+                              feature.business ? (
+                                <Check className="w-5 h-5 text-green-500 mx-auto" />
+                              ) : (
+                                <X className="w-5 h-5 text-gray-300 mx-auto" />
+                              )
+                            ) : (
+                              feature.business
+                            )}
+                          </td>
+                          <td className="p-4 text-center">
+                            {typeof feature.enterprise === 'boolean' ? (
+                              feature.enterprise ? (
+                                <Check className="w-5 h-5 text-green-500 mx-auto" />
+                              ) : (
+                                <X className="w-5 h-5 text-gray-300 mx-auto" />
+                              )
+                            ) : (
+                              feature.enterprise
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 gradient-text">
             Câu hỏi thường gặp
@@ -238,10 +302,10 @@ const Pricing = () => {
             setup trong 5 phút.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-ai-orange hover:bg-ai-orange/90 text-white font-semibold px-8 py-4 text-lg">
+            <Button size="lg" onClick={handleCTAClick} className="bg-ai-orange hover:bg-ai-orange/90 text-white font-semibold px-8 py-4 text-lg">
               Bắt đầu dùng thử miễn phí
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-ai-blue px-8 py-4 text-lg">
+            <Button size="lg" variant="outline" onClick={handleCTAClick} className="border-white text-white hover:bg-white hover:text-ai-blue px-8 py-4 text-lg">
               Tư vấn với chuyên gia
             </Button>
           </div>

@@ -2,8 +2,11 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Services = () => {
+  const navigate = useNavigate();
+
   const services = [
     {
       title: "Starter",
@@ -70,6 +73,10 @@ const Services = () => {
     }
   ];
 
+  const handleCTAClick = () => {
+    navigate('/contact');
+  };
+
   return (
     <div className="pt-16">
       {/* Hero Section */}
@@ -124,6 +131,7 @@ const Services = () => {
                   </ul>
 
                   <Button 
+                    onClick={handleCTAClick}
                     className={`w-full mt-6 ${
                       service.highlight 
                         ? 'bg-ai-orange hover:bg-ai-orange/90' 
@@ -139,7 +147,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* Features Comparison */}
+      {/* Enhanced Features Comparison */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12 gradient-text">
@@ -164,6 +172,12 @@ const Services = () => {
                     ["AI Training", "Cơ bản", "Nâng cao", "Cao cấp", "Custom"],
                     ["CRM Integration", "❌", "✅", "✅", "✅"],
                     ["Multi-channel", "❌", "❌", "✅", "✅"],
+                    ["Live Chat Handover", "❌", "✅", "✅", "✅"],
+                    ["Lead Qualification", "❌", "✅", "✅", "✅"],
+                    ["Advanced Analytics", "❌", "❌", "✅", "✅"],
+                    ["Custom Integrations", "❌", "❌", "✅", "✅"],
+                    ["On-premise Deployment", "❌", "❌", "❌", "✅"],
+                    ["Dedicated Manager", "❌", "❌", "❌", "✅"],
                     ["SLA Uptime", "99%", "99.5%", "99.8%", "99.9%"],
                     ["Support", "Email", "Priority", "24/7", "Dedicated"],
                   ].map((row, index) => (
@@ -191,7 +205,7 @@ const Services = () => {
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
             Tư vấn miễn phí từ chuyên gia của chúng tôi để tìm ra giải pháp phù hợp nhất
           </p>
-          <Button size="lg" className="bg-ai-orange hover:bg-ai-orange/90 text-white font-semibold px-8 py-4 text-lg">
+          <Button size="lg" onClick={handleCTAClick} className="bg-ai-orange hover:bg-ai-orange/90 text-white font-semibold px-8 py-4 text-lg">
             Đặt lịch tư vấn miễn phí
           </Button>
         </div>
