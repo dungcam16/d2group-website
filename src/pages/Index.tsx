@@ -234,11 +234,11 @@ const Index = () => {
     }
   ];
 
-  // Updated pricing plans to match the Pricing page
+  // Updated pricing plans with Vietnamese pricing
   const pricingPlans = [
     {
       name: t('pricing.starter'),
-      price: "119$",
+      price: "2.900.000",
       period: t('pricing.month'),
       description: t('pricing.starter.desc'),
       features: [
@@ -254,7 +254,7 @@ const Index = () => {
     },
     {
       name: t('pricing.growth'),
-      price: "149$",
+      price: "3.900.000",
       period: t('pricing.month'),
       description: t('pricing.growth.desc'),
       features: [
@@ -271,7 +271,7 @@ const Index = () => {
     },
     {
       name: t('pricing.business'),
-      price: "299$",
+      price: "7.900.000",
       period: t('pricing.month'),
       description: t('pricing.business.desc'),
       features: [

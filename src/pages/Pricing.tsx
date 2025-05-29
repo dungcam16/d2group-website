@@ -13,7 +13,7 @@ const Pricing = () => {
   const pricingPlans = [
     {
       nameKey: "pricing.plans.starter.name",
-      price: "119$",
+      price: "2.900.000đ",
       periodKey: "pricing.plans.starter.period",
       descriptionKey: "pricing.plans.starter.description",
       popular: false,
@@ -29,7 +29,7 @@ const Pricing = () => {
     },
     {
       nameKey: "pricing.plans.growth.name",
-      price: "199$",
+      price: "3.900.000đ",
       periodKey: "pricing.plans.growth.period",
       descriptionKey: "pricing.plans.growth.description",
       popular: true,
@@ -47,7 +47,7 @@ const Pricing = () => {
     },
     {
       nameKey: "pricing.plans.business.name",
-      price: "299$",
+      price: "7.900.000đ",
       periodKey: "pricing.plans.business.period",
       descriptionKey: "pricing.plans.business.description",
       popular: false,
