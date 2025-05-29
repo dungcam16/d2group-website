@@ -82,7 +82,7 @@ const Index = () => {
               <div className="space-y-3">
                 <div className="flex items-center justify-between p-3 bg-green-50 rounded-lg">
                   <span className="text-sm font-medium">Response Time</span>
-                  <span className="text-green-600 font-bold">< 2 sec</span>
+                  <span className="text-green-600 font-bold">&lt; 2 sec</span>
                 </div>
                 <div className="flex items-center justify-between p-3 bg-blue-50 rounded-lg">
                   <span className="text-sm font-medium">Conversion Rate</span>
