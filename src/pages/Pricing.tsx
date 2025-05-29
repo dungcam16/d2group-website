@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, X, Star, HelpCircle } from "lucide-react";
@@ -16,15 +15,15 @@ const Pricing = () => {
         case 'starter': return "2.900.000đ";
         case 'growth': return "3.900.000đ";
         case 'business': return "7.900.000đ";
-        case 'enterprise': return t('pricing.contactPricing');
+        case 'enterprise': return "Liên lạc";
         default: return "";
       }
     } else {
       switch (plan) {
-        case 'starter': return "119$";
-        case 'growth': return "149$";
-        case 'business': return "299$";
-        case 'enterprise': return t('pricing.contactPricing');
+        case 'starter': return "$119";
+        case 'growth': return "$149";
+        case 'business': return "$299";
+        case 'enterprise': return "Contact";
         default: return "";
       }
     }
@@ -34,7 +33,7 @@ const Pricing = () => {
     {
       name: t('pricing.starter'),
       price: getPricing('starter'),
-      period: language === 'vi' ? "" : " VND" + t('pricing.month'),
+      period: language === 'vi' ? "/tháng" : "/month",
       description: t('pricing.starter.desc'),
       popular: false,
       features: [
@@ -50,7 +49,7 @@ const Pricing = () => {
     {
       name: t('pricing.growth'), 
       price: getPricing('growth'),
-      period: language === 'vi' ? "" : " VND" + t('pricing.month'),
+      period: language === 'vi' ? "/tháng" : "/month",
       description: t('pricing.growth.desc'),
       popular: true,
       features: [
@@ -68,7 +67,7 @@ const Pricing = () => {
     {
       name: t('pricing.business'),
       price: getPricing('business'),
-      period: language === 'vi' ? "" : " VND" + t('pricing.month'),
+      period: language === 'vi' ? "/tháng" : "/month",
       description: t('pricing.business.desc'),
       popular: false,
       features: [
@@ -87,7 +86,7 @@ const Pricing = () => {
     },
     {
       name: t('pricing.enterprise'),
-      price: t('pricing.contactPricing'),
+      price: getPricing('enterprise'),
       period: "",
       description: t('pricing.enterprise.desc'),
       popular: false,
@@ -144,7 +143,7 @@ const Pricing = () => {
     },
     {
       question: "What happens if I exceed my chat session limit?",
-      answer: "If you go over your monthly quota, additional sessions are billed at VND 3,000 per session. We’ll send you a notification as you approach your limit."
+      answer: "If you go over your monthly quota, additional sessions are billed at VND 3,000 per session. We'll send you a notification as you approach your limit."
     }
   ];
 
@@ -361,7 +360,7 @@ const Pricing = () => {
             Ready to <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Get Started?</span>?
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Start your free trial today and discover how D2 Group’s AI chatbots can transform your customer conversations. No credit card required—cancel anytime.
+            Start your free trial today and discover how D2 Group's AI chatbots can transform your customer conversations. No credit card required—cancel anytime.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
