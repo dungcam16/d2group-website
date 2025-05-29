@@ -1,6 +1,7 @@
+
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-type Language = 'vi' | 'en';
+export type Language = 'en' | 'vi';
 
 interface LanguageContextType {
   language: Language;
@@ -8,1060 +9,1494 @@ interface LanguageContextType {
   t: (key: string) => string;
 }
 
+const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
+
 const translations = {
-  vi: {
-    // Navigation
-    'nav.home': 'Trang chủ',
-    'nav.about': 'Về chúng tôi',
-    'nav.features': 'Tính năng',
-    'nav.caseStudies': 'Nghiên cứu trường hợp',
-    'nav.pricing': 'Bảng giá',
-    'nav.contact': 'Liên hệ',
-    'nav.getDemo': 'Xem Demo',
-    'nav.contactUs': 'Liên hệ với chúng tôi',
-    
-    // Home Page
-    'home.hero.title': 'Tăng cường',
-    'home.hero.subtitle': 'tương tác với khách hàng',
-    'home.hero.subtitle2': 'bằng',
-    'home.hero.subtitle3': 'Chatbot AI',
-    'home.hero.description': 'Chuyển đổi hỗ trợ khách hàng thành động lực tăng doanh thu.\nTriển khai chatbot thông minh tương tác, chuyển đổi và làm hài lòng khách hàng 24/7.',
-    'home.hero.getDemo': 'Xem Demo Miễn Phí',
-    'home.hero.learnMore': 'Tìm hiểu thêm',
-    
-    // Why D2 Group
-    'home.why.title': 'Tại sao chọn',
-    'home.why.subtitle': 'Chúng tôi kết hợp công nghệ AI tiên tiến với chuyên môn kinh doanh sâu rộng để cung cấp chatbot thực sự hiểu khách hàng của bạn',
-    'home.why.ai.title': 'Trí tuệ AI',
-    'home.why.ai.desc': 'Xử lý ngôn ngữ tự nhiên tiên tiến hiểu ngữ cảnh và ý định',
-    'home.why.security.title': 'Bảo mật Doanh nghiệp',
-    'home.why.security.desc': 'Mã hóa cấp ngân hàng và tuân thủ các tiêu chuẩn bảo mật toàn cầu',
-    'home.why.results.title': 'Kết quả Đã được Chứng minh',
-    'home.why.results.desc': 'Trung bình tăng 40% chuyển đổi và giảm 60% chi phí hỗ trợ',
-    'home.why.learnMore': 'Tìm hiểu thêm về chúng tôi',
-    
-    // Key Features
-    'home.features.title': 'Tính năng',
-    'home.features.subtitle': 'Mọi thứ bạn cần để tự động hóa và nâng cao cuộc trò chuyện với khách hàng',
-    'home.features.smart.title': 'Cuộc trò chuyện thông minh',
-    'home.features.smart.desc': 'Đối thoại tự nhiên như con người',
-    'home.features.instant.title': 'Thiết lập tức thì',
-    'home.features.instant.desc': 'Triển khai trong vòng 5 phút',
-    'home.features.analytics.title': 'Phân tích thời gian thực',
-    'home.features.analytics.desc': 'Theo dõi hiệu suất và tối ưu hóa',
-    'home.features.multichannel.title': 'Đa kênh',
-    'home.features.multichannel.desc': 'Website, WhatsApp, Facebook',
-    'home.features.viewAll': 'Xem tất cả tính năng',
-    
-    // How It Works
-    'home.howItWorks.title': 'Cách thức',
-    'home.howItWorks.subtitle': 'Khởi động và vận hành trong 3 bước đơn giản',
-    'home.howItWorks.step1.title': 'Kết nối dữ liệu của bạn',
-    'home.howItWorks.step1.desc': 'Tải lên FAQ, thông tin sản phẩm và cơ sở kiến thức của bạn',
-    'home.howItWorks.step2.title': 'Đào tạo Bot của bạn',
-    'home.howItWorks.step2.desc': 'AI học hỏi doanh nghiệp và mô hình khách hàng của bạn',
-    'home.howItWorks.step3.title': 'Triển khai & Mở rộng',
-    'home.howItWorks.step3.desc': 'Khởi chạy trên các kênh và xem chuyển đổi tăng trưởng',
-    
-    // Use Cases
-    'home.useCases.title': 'Kết quả',
-    'home.useCases.subtitle': 'Xem cách các doanh nghiệp như bạn đang thắng lợi với chatbot AI',
-    'home.useCases.ecommerce': 'Thương mại điện tử',
-    'home.useCases.healthcare': 'Chăm sóc sức khỏe',
-    'home.useCases.education': 'Giáo dục',
-    'home.useCases.banking': 'Ngân hàng',
-    'home.useCases.realestate': 'Bất động sản',
-    'home.useCases.travel': 'Du lịch',
-    'home.useCases.viewCaseStudies': 'Xem nghiên cứu trường hợp',
-    
-    // Testimonials
-    'home.testimonials.title': 'Khách hàng',
-    'home.testimonials.subtitle': 'Tham gia cùng 500+ doanh nghiệp đã chuyển đổi trải nghiệm khách hàng',
-    'home.testimonials.1.content': 'Chatbot của D2 Group đã tăng chuyển đổi khách hàng tiềm năng của chúng tôi 45% chỉ trong 3 tháng. AI thực sự hiểu khách hàng của chúng tôi.',
-    'home.testimonials.2.content': 'Tự động hóa hỗ trợ khách hàng 24/7 đã cách mạng hóa chất lượng dịch vụ của chúng tôi. Khách hàng yêu thích phản hồi tức thì.',
-    'home.testimonials.3.content': 'Việc triển khai diễn ra suôn sẻ và ROI có thể thấy được trong vài tuần. Điểm hài lòng của sinh viên đạt mức cao nhất từ trước đến nay.',
-    
-    // Partners
-    'home.partners.title': 'Được tin tưởng bởi',
-    'home.partners.subtitle': 'Tham gia cùng những nhà lãnh đạo ngành này đã triển khai giải pháp của chúng tôi',
-    
-    // Home Pricing
-    'home.pricing.title': 'Bảng giá',
-    'home.pricing.subtitle': 'Chọn gói phù hợp với nhu cầu doanh nghiệp của bạn',
-    'home.pricing.seeFullPricing': 'Xem bảng giá đầy đủ',
-    
-    // FAQ
-    'home.faq.title': 'Câu hỏi',
-    'home.faq.subtitle': 'Câu trả lời nhanh cho những câu hỏi thường gặp',
-    'home.faq.q1': 'Chúng tôi có thể triển khai chatbot nhanh như thế nào?',
-    'home.faq.a1': 'Hầu hết khách hàng đều hoạt động trong vòng 24-48 giờ. Thiết lập cơ bản chỉ mất 5 phút.',
-    'home.faq.q2': 'Có tích hợp với CRM hiện tại của chúng tôi không?',
-    'home.faq.a2': 'Có, chúng tôi tích hợp với hơn 50 nền tảng bao gồm Salesforce, HubSpot và API tùy chỉnh.',
-    'home.faq.q3': 'ROI dự kiến là bao nhiêu?',
-    'home.faq.a3': 'Khách hàng thường thấy ROI 3-5 lần trong vòng 6 tháng thông qua tăng chuyển đổi và giảm chi phí hỗ trợ.',
-    'home.faq.viewFullFaq': 'Xem FAQ đầy đủ',
-    
-    // Final CTA
-    'home.finalCta.title': 'Sẵn sàng',
-    'home.finalCta.title2': 'Tự động hóa',
-    'home.finalCta.title3': 'Cuộc trò chuyện khách hàng của bạn?',
-    'home.finalCta.description': 'Tham gia cùng hàng trăm doanh nghiệp đã chuyển đổi trải nghiệm khách hàng với chatbot AI của D2 Group. Bắt đầu dùng thử miễn phí ngay hôm nay và xem kết quả trong vòng 48 giờ.',
-    'home.finalCta.startTrial': 'Bắt đầu dùng thử miễn phí',
-    'home.finalCta.bookDemo': 'Đặt lịch Demo',
-    'home.finalCta.freeTrial': 'Dùng thử 14 ngày miễn phí',
-    'home.finalCta.noCreditCard': 'Không cần thẻ tín dụng',
-    'home.finalCta.setupIn5': 'Thiết lập trong 5 phút',
-
-    // Features Page
-    'features.hero.title': 'Tính năng',
-    'features.hero.titleHighlight': 'mạnh mẽ',
-    'features.hero.titleEnd': 'mang lại kết quả',
-    'features.hero.description': 'Khám phá bộ công cụ AI toàn diện được thiết kế để chuyển đổi giao tiếp khách hàng và thúc đẩy tăng trưởng kinh doanh đo lường được.',
-    'features.hero.cta': 'Xem tính năng hoạt động',
-
-    // Core Features
-    'features.core.title': 'Khả năng',
-    'features.core.titleHighlight': 'cốt lõi',
-    'features.core.subtitle': 'Mọi thứ bạn cần để mang lại trải nghiệm khách hàng xuất sắc',
-
-    'features.core.nlp.title': 'Xử lý ngôn ngữ tự nhiên',
-    'features.core.nlp.desc': 'AI tiên tiến hiểu ngữ cảnh, ý định và cảm xúc',
-    'features.core.nlp.detail1': 'Hỗ trợ đa ngôn ngữ với độ chính xác 95%+',
-    'features.core.nlp.detail2': 'Quản lý luồng hội thoại theo ngữ cảnh',
-    'features.core.nlp.detail3': 'Phân tích cảm xúc và phát hiện emotion',
-    'features.core.nlp.detail4': 'Nhận dạng ý định và trích xuất thực thể',
-
-    'features.core.multiChannel.title': 'Triển khai đa kênh',
-    'features.core.multiChannel.desc': 'Triển khai trên website, WhatsApp, Facebook và nhiều kênh khác',
-    'features.core.multiChannel.detail1': 'Widget chat website với UI tùy chỉnh',
-    'features.core.multiChannel.detail2': 'Tích hợp WhatsApp Business API',
-    'features.core.multiChannel.detail3': 'Kết nối Facebook Messenger',
-    'features.core.multiChannel.detail4': 'Hỗ trợ kênh SMS và voice',
-
-    'features.core.realTime.title': 'Phân tích thời gian thực',
-    'features.core.realTime.desc': 'Thông tin chi tiết toàn diện về tương tác khách hàng',
-    'features.core.realTime.detail1': 'Giám sát hội thoại trực tiếp',
-    'features.core.realTime.detail2': 'Metrics hiệu suất và KPIs',
-    'features.core.realTime.detail3': 'Điểm hài lòng khách hàng',
-    'features.core.realTime.detail4': 'Theo dõi ROI và chuyển đổi',
-
-    'features.core.security.title': 'Bảo mật doanh nghiệp',
-    'features.core.security.desc': 'Bảo mật cấp ngân hàng và tiêu chuẩn tuân thủ',
-    'features.core.security.detail1': 'Mã hóa end-to-end',
-    'features.core.security.detail2': 'Tuân thủ SOC 2 Type II',
-    'features.core.security.detail3': 'Tuân thủ GDPR và bảo mật dữ liệu',
-    'features.core.security.detail4': 'Tích hợp single sign-on (SSO)',
-
-    'features.core.deployment.title': 'Triển khai tức thì',
-    'features.core.deployment.desc': 'Khởi chạy trong vài phút với nền tảng no-code của chúng tôi',
-    'features.core.deployment.detail1': 'Quy trình thiết lập 5 phút',
-    'features.core.deployment.detail2': 'Mẫu và workflow có sẵn',
-    'features.core.deployment.detail3': 'Trình tạo hội thoại drag-and-drop',
-    'features.core.deployment.detail4': 'Tích hợp một cú nhấp chuột',
-
-    'features.core.conversations.title': 'Cuộc trò chuyện thông minh',
-    'features.core.conversations.desc': 'Tương tác giống con người chuyển đổi và thu hút',
-    'features.core.conversations.detail1': 'Cá nhân hóa động',
-    'features.core.conversations.detail2': 'Tự động hóa qualification khách hàng tiềm năng',
-    'features.core.conversations.detail3': 'Đặt lịch hẹn và scheduling',
-    'features.core.conversations.detail4': 'Gợi ý sản phẩm',
-
-    // Comparison Table
-    'features.comparison.title': 'AI Chatbots vs',
-    'features.comparison.titleHighlight': 'Live Chat truyền thống',
-    'features.comparison.subtitle': 'Xem cách tự động hóa AI vượt trội hơn các phương pháp dịch vụ khách hàng truyền thống',
-
-    'features.comparison.tableHeader.feature': 'Tính năng',
-    'features.comparison.tableHeader.traditional': 'Live Chat truyền thống',
-    'features.comparison.tableHeader.aiChatbot': 'AI Chatbot',
-    'features.comparison.tableHeader.improvement': 'Cải thiện',
-
-    'features.comparison.responseTime': 'Thời gian phản hồi',
-    'features.comparison.traditional.responseTime': 'Hàng giờ đến hàng ngày',
-    'features.comparison.ai.responseTime': '< 2 giây',
-    'features.comparison.improvement.responseTime': 'Nhanh hơn 99%',
-
-    'features.comparison.availability': 'Khả năng sẵn sàng',
-    'features.comparison.traditional.availability': 'Chỉ trong giờ làm việc',
-    'features.comparison.ai.availability': '24/7/365',
-    'features.comparison.improvement.availability': 'Luôn hoạt động',
-
-    'features.comparison.scalability': 'Khả năng mở rộng',
-    'features.comparison.traditional.scalability': 'Bị giới hạn bởi nhân viên',
-    'features.comparison.ai.scalability': 'Hội thoại không giới hạn',
-    'features.comparison.improvement.scalability': 'Quy mô vô hạn',
-
-    'features.comparison.consistency': 'Tính nhất quán',
-    'features.comparison.traditional.consistency': 'Khác nhau theo agent',
-    'features.comparison.ai.consistency': 'Luôn nhất quán',
-    'features.comparison.improvement.consistency': '100% đáng tin cậy',
-
-    'features.comparison.costPerInteraction': 'Chi phí mỗi tương tác',
-    'features.comparison.traditional.costPerInteraction': '120.000-360.000 VND',
-    'features.comparison.ai.costPerInteraction': '2.500-12.000 VND',
-    'features.comparison.improvement.costPerInteraction': 'Giảm chi phí 95%',
-
-    'features.comparison.languageSupport': 'Hỗ trợ ngôn ngữ',
-    'features.comparison.traditional.languageSupport': '1-2 ngôn ngữ',
-    'features.comparison.ai.languageSupport': '50+ ngôn ngữ',
-    'features.comparison.improvement.languageSupport': 'Phạm vi toàn cầu',
-
-    // Advanced Features
-    'features.advanced.title': 'Khả năng',
-    'features.advanced.titleHighlight': 'nâng cao',
-    'features.advanced.subtitle': 'Khám phá chức năng sâu sắc làm nên sự khác biệt của D2 Group',
-
-    'features.advanced.ai.category': 'AI & Học máy',
-    'features.advanced.ai.conversationFlow.name': 'Trình tạo luồng hội thoại',
-    'features.advanced.ai.conversationFlow.desc': 'Giao diện kéo thả trực quan để thiết kế đường dẫn hội thoại phức tạp',
-    'features.advanced.ai.intentTraining.name': 'Đào tạo ý định',
-    'features.advanced.ai.intentTraining.desc': 'Liên tục cải thiện hiểu biết AI với dữ liệu đào tạo tùy chỉnh',
-    'features.advanced.ai.autoLearning.name': 'Tự học',
-    'features.advanced.ai.autoLearning.desc': 'Thuật toán học máy cải thiện phản hồi theo thời gian',
-    'features.advanced.ai.fallbackHandling.name': 'Xử lý dự phòng',
-    'features.advanced.ai.fallbackHandling.desc': 'Chuyển giao thông minh cho agent con người khi cần thiết',
-
-    'features.advanced.integration.category': 'Tích hợp & APIs',
-    'features.advanced.integration.crm.name': 'Tích hợp CRM',
-    'features.advanced.integration.crm.desc': 'Kết nối với Salesforce, HubSpot, Pipedrive và 50+ CRM',
-    'features.advanced.integration.ecommerce.name': 'Nền tảng thương mại điện tử',
-    'features.advanced.integration.ecommerce.desc': 'Tích hợp native với Shopify, WooCommerce, Magento',
-    'features.advanced.integration.customApi.name': 'APIs tùy chỉnh',
-    'features.advanced.integration.customApi.desc': 'RESTful APIs cho tích hợp và workflow tùy chỉnh',
-    'features.advanced.integration.webhook.name': 'Hỗ trợ Webhook',
-    'features.advanced.integration.webhook.desc': 'Đồng bộ dữ liệu thời gian thực với hệ thống bên ngoài',
-
-    'features.advanced.analytics.category': 'Phân tích & Báo cáo',
-    'features.advanced.analytics.conversation.name': 'Phân tích hội thoại',
-    'features.advanced.analytics.conversation.desc': 'Thông tin sâu sắc về hành vi khách hàng và mẫu hội thoại',
-    'features.advanced.analytics.performance.name': 'Metrics hiệu suất',
-    'features.advanced.analytics.performance.desc': 'Theo dõi tỷ lệ giải quyết, điểm hài lòng và metrics chuyển đổi',
-    'features.advanced.analytics.dashboard.name': 'Dashboard tùy chỉnh',
-    'features.advanced.analytics.dashboard.desc': 'Xây dựng dashboard báo cáo cá nhân hóa cho stakeholder',
-    'features.advanced.analytics.abTesting.name': 'A/B Testing',
-    'features.advanced.analytics.abTesting.desc': 'Kiểm tra các luồng hội thoại khác nhau và tối ưu hiệu suất',
-
-    // Demo Section
-    'features.demo.title': 'Xem tính năng của chúng tôi',
-    'features.demo.titleHighlight': 'hoạt động',
-    'features.demo.description': 'Trải nghiệm sức mạnh của nền tảng chatbot AI D2 Group với demo cá nhân hóa phù hợp với nhu cầu kinh doanh của bạn.',
-    'features.demo.interactive.title': 'Demo tương tác',
-    'features.demo.interactive.description': 'Nhấp để trải nghiệm chatbot của chúng tôi hoạt động',
-    'features.demo.feature1': 'Luồng hội thoại thời gian thực',
-    'features.demo.feature2': 'Hỗ trợ đa ngôn ngữ',
-    'features.demo.feature3': 'Dashboard phân tích',
-    'features.demo.bookDemo': 'Đặt lịch Demo trực tiếp',
-    'features.demo.viewCaseStudies': 'Xem nghiên cứu trường hợp',
-    
-    // About Page
-    'about.hero.title': 'Về D2 Group',
-    'about.hero.subtitle': 'Chúng tôi đang thực hiện sứ mệnh chuyển đổi cách thức doanh nghiệp giao tiếp với khách hàng thông qua tự động hóa thông minh.',
-    'about.hero.description': 'Từ năm 2019, chúng tôi đã tiên phong trong việc phát triển giải pháp chatbot AI mang lại kết quả thực tế.',
-    'about.stats.clients': 'Khách hàng hài lòng',
-    'about.stats.countries': 'Quốc gia phục vụ',
-    'about.stats.uptime': 'Thời gian hoạt động SLA',
-    'about.mission.title': 'Sứ mệnh của chúng tôi',
-    'about.mission.description': 'Dân chủ hóa công nghệ AI và làm cho giao tiếp khách hàng thông minh trở nên dễ tiếp cận với các doanh nghiệp thuộc mọi quy mô. Chúng tôi tin rằng mọi công ty đều xứng đáng có khả năng tự động hóa cấp doanh nghiệp mà không cần phức tạp.',
-    'about.mission.global.title': 'Phạm vi toàn cầu',
-    'about.mission.global.desc': 'Phục vụ khách hàng trên khắp châu Á-Thái Bình Dương với các giải pháp được bản địa hóa',
-    'about.mission.innovation.title': 'Đổi mới đi đầu',
-    'about.mission.innovation.desc': 'Liên tục vượt qua ranh giới của AI đối thoại',
-    'about.mission.security.title': 'Tin cậy & Bảo mật',
-    'about.mission.security.desc': 'Tiêu chuẩn bảo mật và tuân thủ cấp doanh nghiệp',
-    'about.vision.title': 'Tầm nhìn của chúng tôi',
-    'about.vision.description': '"Một thế giới nơi mọi cuộc trò chuyện kinh doanh đều thông minh, được cá nhân hóa và thú vị - được hỗ trợ bởi AI thực sự hiểu nhu cầu con người."',
-    'about.team.title': 'Gặp gỡ Đội ngũ của chúng tôi',
-    'about.team.subtitle': 'Một nhóm đa dạng gồm các chuyên gia AI, kỹ sư và chiến lược gia kinh doanh được kết nối bởi niềm đam mê đổi mới',
-    'about.journey.title': 'Hành trình của chúng tôi',
-    'about.journey.subtitle': 'Từ startup đến nhà lãnh đạo ngành - những cột mốc định hình chúng tôi',
-    'about.awards.title': 'Công nhận & Giải thưởng',
-    'about.awards.subtitle': 'Sự công nhận của ngành về sự đổi mới và xuất sắc của chúng tôi',
-    'about.cta.title': 'Sẵn sàng tham gia Câu chuyện thành công của chúng tôi?',
-    'about.cta.description': 'Hãy thảo luận về cách D2 Group có thể chuyển đổi chiến lược giao tiếp khách hàng của bạn. Đội ngũ của chúng tôi sẵn sàng thiết kế giải pháp phù hợp với nhu cầu riêng của bạn.',
-    'about.cta.getStarted': 'Bắt đầu ngay hôm nay',
-    'about.cta.scheduleCall': 'Đặt lịch gọi',
-    
-    // Case Studies Page
-    'caseStudies.hero.title': 'Nghiên cứu trường hợp',
-    'caseStudies.hero.subtitle': 'Kết quả thực tế từ các doanh nghiệp đã chuyển đổi thành công',
-    'caseStudies.hero.description': 'Khám phá cách các công ty như bạn đã đạt được kết quả đáng kể với giải pháp chatbot AI của chúng tôi.',
-    'caseStudies.filter.all': 'Tất cả ngành',
-    'caseStudies.filter.ecommerce': 'Thương mại điện tử',
-    'caseStudies.filter.healthcare': 'Chăm sóc sức khỏe',
-    'caseStudies.filter.education': 'Giáo dục',
-    'caseStudies.filter.banking': 'Ngân hàng',
-    'caseStudies.filter.realestate': 'Bất động sản',
-    'caseStudies.filter.travel': 'Du lịch',
-    
-    'caseStudies.metrics.conversion': 'Tăng chuyển đổi',
-    'caseStudies.metrics.satisfaction': 'Hài lòng khách hàng',
-    'caseStudies.metrics.reduction': 'Giảm chi phí hỗ trợ',
-    'caseStudies.metrics.response': 'Thời gian phản hồi',
-    'caseStudies.metrics.automation': 'Tự động hóa',
-    'caseStudies.readMore': 'Đọc thêm',
-    'caseStudies.viewDetails': 'Xem chi tiết',
-    'caseStudies.downloadPdf': 'Tải PDF',
-    
-    'caseStudies.ecommerce.title': 'Cửa hàng thời trang trực tuyến tăng 150% doanh số',
-    'caseStudies.ecommerce.company': 'FashionHub Vietnam',
-    'caseStudies.ecommerce.challenge': 'Tỷ lệ bỏ giỏ hàng cao và hỗ trợ khách hàng chậm trễ',
-    'caseStudies.ecommerce.solution': 'Triển khai chatbot AI để tư vấn sản phẩm và hỗ trợ thanh toán',
-    'caseStudies.ecommerce.result': 'Giảm 60% tỷ lệ bỏ giỏ hàng và tăng 150% doanh số trong 6 tháng',
-    
-    'caseStudies.healthcare.title': 'Bệnh viện cải thiện 90% hài lòng bệnh nhân',
-    'caseStudies.healthcare.company': 'Bệnh viện Đa khoa Sài Gòn',
-    'caseStudies.healthcare.challenge': 'Quá tải hotline và thời gian chờ đợi lâu',
-    'caseStudies.healthcare.solution': 'Chatbot hỗ trợ đặt lịch khám và tư vấn sức khỏe cơ bản',
-    'caseStudies.healthcare.result': 'Giảm 70% cuộc gọi hotline và tăng 90% điểm hài lòng bệnh nhân',
-    
-    'caseStudies.education.title': 'Trường đại học tăng 200% tương tác sinh viên',
-    'caseStudies.education.company': 'Đại học Công nghệ TP.HCM',
-    'caseStudies.education.challenge': 'Sinh viên khó tiếp cận thông tin và dịch vụ hỗ trợ',
-    'caseStudies.education.solution': 'Chatbot hỗ trợ tư vấn học tập và thủ tục hành chính',
-    'caseStudies.education.result': 'Tăng 200% tương tác và giảm 80% thời gian xử lý thủ tục',
-    
-    'caseStudies.cta.title': 'Sẵn sàng đạt được kết quả tương tự?',
-    'caseStudies.cta.description': 'Hãy để chúng tôi giúp bạn tạo ra câu chuyện thành công của riêng mình.',
-    'caseStudies.cta.getStarted': 'Bắt đầu ngay',
-    'caseStudies.cta.contactUs': 'Liên hệ tư vấn',
-    
-    // Pricing Page
-    'pricing.title': 'Bảng giá đơn giản và minh bạch',
-    'pricing.subtitle': 'Chọn gói phù hợp với nhu cầu doanh nghiệp của bạn. Tất cả các gói đều bao gồm thiết lập miễn phí, đào tạo và dùng thử 14 ngày không cam kết.',
-    'pricing.starter': 'Starter',
-    'pricing.growth': 'Growth', 
-    'pricing.business': 'Business',
-    'pricing.enterprise': 'Enterprise',
-    'pricing.month': '/tháng',
-    'pricing.contactPricing': 'Liên hệ để báo giá',
-    'pricing.getStarted': 'Bắt đầu',
-    'pricing.contactForPricing': 'Liên hệ để báo giá',
-    'pricing.freeTrial': 'Dùng thử 14 ngày miễn phí',
-    'pricing.noSetupFees': 'Không phí thiết lập',
-    'pricing.cancelAnytime': 'Hủy bất cứ lúc nào',
-    'pricing.mostPopular': 'Phổ biến nhất',
-    
-    // Plan descriptions
-    'pricing.starter.desc': 'Hoàn hảo cho các doanh nghiệp nhỏ mới bắt đầu với chatbot AI',
-    'pricing.growth.desc': 'Lý tưởng cho các công ty đang phát triển với nhu cầu tương tác cao hơn',
-    'pricing.business.desc': 'Giải pháp toàn diện cho các doanh nghiệp có yêu cầu chuyên nghiệp',
-    'pricing.enterprise.desc': 'Giải pháp tùy chỉnh cho các tổ chức lớn với yêu cầu cụ thể',
-    
-    // Pricing Features
-    'pricing.features.coreFeatures': 'Tính năng cốt lõi',
-    'pricing.features.channelsIntegrations': 'Kênh & Tích hợp',
-    'pricing.features.analyticsReporting': 'Phân tích & Báo cáo',
-    'pricing.features.securityCompliance': 'Bảo mật & Tuân thủ',
-    'pricing.features.supportServices': 'Hỗ trợ & Dịch vụ',
-    
-    'pricing.features.monthlyChatSessions': 'Phiên chat hàng tháng',
-    'pricing.features.chatbotTemplate': 'Mẫu chatbot',
-    'pricing.features.responseTimeSla': 'SLA thời gian phản hồi',
-    'pricing.features.analyticsDashboard': 'Bảng điều khiển phân tích',
-    'pricing.features.websiteWidget': 'Widget website',
-    'pricing.features.whatsappBusiness': 'WhatsApp Business',
-    'pricing.features.facebookMessenger': 'Facebook Messenger',
-    'pricing.features.crmIntegration': 'Tích hợp CRM',
-    'pricing.features.customApiAccess': 'Truy cập API tùy chỉnh',
-    
-    'pricing.comparison.title': 'So sánh chi tiết',
-    'pricing.comparison.subtitle': 'So sánh tất cả tính năng giữa các gói cước của chúng tôi.',
-    'pricing.comparison.features': 'Tính năng',
-    
-    'pricing.faq.title': 'Câu hỏi thường gặp',
-    'pricing.faq.subtitle': 'Mọi thứ bạn cần biết về bảng giá và gói dịch vụ của chúng tôi.',
-    'pricing.faq.q1': 'Phiên chat được tính như thế nào?',
-    'pricing.faq.a1': 'Một phiên chat được tính mỗi khi người dùng duy nhất tương tác với chatbot trong khung thời gian 24 giờ, bất kể số lượng tin nhắn trao đổi.',
-    'pricing.faq.q2': 'Tôi có thể nâng cấp hoặc hạ cấp gói bất cứ lúc nào không?',
-    'pricing.faq.a2': 'Có - bạn có thể chuyển đổi gói bất cứ lúc nào. Nâng cấp có hiệu lực ngay lập tức; hạ cấp áp dụng trong chu kỳ thanh toán tiếp theo.',
-    'pricing.faq.q3': 'Có dùng thử miễn phí không?',
-    'pricing.faq.a3': 'Có - chúng tôi cung cấp dùng thử 14 ngày miễn phí cho tất cả các gói. Không cần thẻ tín dụng và bạn có thể hủy bất cứ lúc nào trong thời gian dùng thử.',
-    'pricing.faq.q4': 'Điều gì xảy ra nếu tôi vượt quá giới hạn phiên chat?',
-    'pricing.faq.a4': 'Nếu bạn vượt quá hạn ngạch hàng tháng, các phiên bổ sung sẽ được tính phí 3.000 VND mỗi phiên. Chúng tôi sẽ gửi thông báo khi bạn gần đạt giới hạn.',
-    
-    'pricing.cta.title': 'Sẵn sàng bắt đầu?',
-    'pricing.cta.description': 'Tham gia cùng hàng trăm doanh nghiệp đã chuyển đổi trải nghiệm khách hàng với D2 Group. Bắt đầu dùng thử miễn phí ngay hôm nay.',
-    'pricing.cta.startTrial': 'Bắt đầu dùng thử miễn phí',
-    'pricing.cta.contactSales': 'Liên hệ bán hàng',
-    
-    // Contact Page
-    'contact.hero.title': 'Liên hệ với chúng tôi',
-    'contact.hero.subtitle': 'Sẵn sàng chuyển đổi trải nghiệm khách hàng của bạn?',
-    'contact.hero.description': 'Hãy bắt đầu cuộc trò chuyện. Đội ngũ chuyên gia của chúng tôi sẵn sàng thảo luận về nhu cầu của bạn và thiết kế giải pháp phù hợp.',
-    
-    'contact.form.title': 'Gửi tin nhắn cho chúng tôi',
-    'contact.form.subtitle': 'Điền thông tin bên dưới và chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ',
-    'contact.form.name': 'Họ và tên',
-    'contact.form.name.placeholder': 'Nhập họ và tên của bạn',
-    'contact.form.email': 'Email',
-    'contact.form.email.placeholder': 'Nhập địa chỉ email của bạn',
-    'contact.form.company': 'Công ty',
-    'contact.form.company.placeholder': 'Nhập tên công ty của bạn',
-    'contact.form.phone': 'Số điện thoại',
-    'contact.form.phone.placeholder': 'Nhập số điện thoại của bạn',
-    'contact.form.subject': 'Chủ đề',
-    'contact.form.subject.placeholder': 'Chọn chủ đề quan tâm',
-    'contact.form.subject.demo': 'Đặt lịch Demo',
-    'contact.form.subject.pricing': 'Tư vấn giá cả',
-    'contact.form.subject.support': 'Hỗ trợ kỹ thuật',
-    'contact.form.subject.partnership': 'Hợp tác kinh doanh',
-    'contact.form.subject.other': 'Khác',
-    'contact.form.message': 'Tin nhắn',
-    'contact.form.message.placeholder': 'Chia sẻ chi tiết về nhu cầu hoặc dự án của bạn...',
-    'contact.form.send': 'Gửi tin nhắn',
-    'contact.form.sending': 'Đang gửi...',
-    'contact.form.success': 'Tin nhắn đã được gửi thành công! Chúng tôi sẽ liên hệ với bạn sớm.',
-    'contact.form.error': 'Có lỗi xảy ra. Vui lòng thử lại sau.',
-    
-    'contact.info.title': 'Thông tin liên hệ',
-    'contact.info.subtitle': 'Nhiều cách để kết nối với chúng tôi',
-    'contact.info.address': 'Địa chỉ',
-    'contact.info.address.detail': 'Số 3 Nguyễn Cơ Thạch, Phường An Lợi Đông, Thành phố Thủ Đức, TP.HCM',
-    'contact.info.phone': 'Điện thoại',
-    'contact.info.email': 'Email',
-    'contact.info.hours': 'Giờ làm việc',
-    'contact.info.hours.detail': 'Thứ 2 - Thứ 6: 8:00 - 18:00',
-    'contact.info.weekend': 'Thứ 7 - Chủ nhật: 9:00 - 17:00',
-    'contact.info.response': 'Thời gian phản hồi',
-    'contact.info.response.detail': 'Trung bình dưới 2 giờ trong giờ làm việc',
-    
-    'contact.demo.title': 'Đặt lịch Demo',
-    'contact.demo.subtitle': 'Xem D2 Group hoạt động trong demo cá nhân hóa',
-    'contact.demo.description': 'Đặt lịch demo 30 phút để khám phá cách chatbot AI có thể chuyển đổi doanh nghiệp của bạn.',
-    'contact.demo.book': 'Đặt lịch Demo',
-    'contact.demo.features': 'Demo bao gồm:',
-    'contact.demo.feature1': 'Tổng quan về nền tảng và tính năng',
-    'contact.demo.feature2': 'Thiết lập chatbot mẫu cho ngành của bạn',
-    'contact.demo.feature3': 'Q&A với chuyên gia giải pháp',
-    'contact.demo.feature4': 'Tư vấn chiến lược và lộ trình triển khai',
-    
-    'contact.support.title': 'Hỗ trợ khách hàng',
-    'contact.support.subtitle': 'Chúng tôi luôn sẵn sàng hỗ trợ bạn',
-    'contact.support.technical': 'Hỗ trợ kỹ thuật',
-    'contact.support.technical.desc': 'Giải đáp thắc mắc về tính năng và sử dụng',
-    'contact.support.billing': 'Hỗ trợ thanh toán',
-    'contact.support.billing.desc': 'Thắc mắc về hóa đơn và gói dịch vụ',
-    'contact.support.training': 'Đào tạo và hướng dẫn',
-    'contact.support.training.desc': 'Học cách sử dụng nền tảng hiệu quả',
-    
-    'contact.social.title': 'Kết nối với chúng tôi',
-    'contact.social.subtitle': 'Theo dõi cập nhật mới nhất và chia sẻ kinh nghiệm',
-    
-    // Footer
-    'footer.company': 'Công ty',
-    'footer.product': 'Sản phẩm',
-    'footer.resources': 'Tài nguyên',
-    'footer.support': 'Hỗ trợ',
-    'footer.legal': 'Pháp lý',
-    'footer.blog': 'Blog',
-    'footer.documentation': 'Tài liệu',
-    'footer.apiDocs': 'Tài liệu API',
-    'footer.helpCenter': 'Trung tâm trợ giúp',
-    'footer.privacy': 'Chính sách bảo mật',
-    'footer.terms': 'Điều khoản dịch vụ',
-    'footer.security': 'Bảo mật',
-    'footer.status': 'Trạng thái hệ thống',
-    'footer.followUs': 'Theo dõi chúng tôi',
-    'footer.newsletter.title': 'Đăng ký nhận tin',
-    'footer.newsletter.description': 'Nhận cập nhật mới nhất về sản phẩm và tin tức ngành',
-    'footer.newsletter.placeholder': 'Nhập email của bạn',
-    'footer.newsletter.subscribe': 'Đăng ký',
-    'footer.copyright': '© 2024 D2 Group. Tất cả quyền được bảo lưu.',
-    
-    // 404 Page
-    'notFound.title': 'Không tìm thấy trang',
-    'notFound.description': 'Xin lỗi, trang bạn đang tìm kiếm không tồn tại hoặc đã bị di chuyển.',
-    'notFound.backHome': 'Về trang chủ',
-    'notFound.contactSupport': 'Liên hệ hỗ trợ',
-    'notFound.errorCode': 'Mã lỗi:',
-    
-    // Form Validation
-    'validation.required': 'Trường này là bắt buộc',
-    'validation.email': 'Vui lòng nhập email hợp lệ',
-    'validation.phone': 'Vui lòng nhập số điện thoại hợp lệ',
-    'validation.minLength': 'Tối thiểu {min} ký tự',
-    'validation.maxLength': 'Tối đa {max} ký tự',
-    
-    // System Messages
-    'system.loading': 'Đang tải...',
-    'system.error': 'Đã xảy ra lỗi',
-    'system.success': 'Thành công!',
-    'system.tryAgain': 'Thử lại',
-    'system.cancel': 'Hủy',
-    'system.confirm': 'Xác nhận',
-    'system.save': 'Lưu',
-    'system.edit': 'Chỉnh sửa',
-    'system.delete': 'Xóa',
-    'system.view': 'Xem',
-    'system.download': 'Tải xuống',
-    'system.upload': 'Tải lên',
-    'system.search': 'Tìm kiếm',
-    'system.filter': 'Lọc',
-    'system.sort': 'Sắp xếp',
-    'system.next': 'Tiếp theo',
-    'system.previous': 'Trước',
-    'system.close': 'Đóng',
-    'system.open': 'Mở',
-    'system.expand': 'Mở rộng',
-    'system.collapse': 'Thu gọn',
-    
-    // Common terms
-    'common.worksWith': 'Hoạt động với',
-    'common.includes': 'Bao gồm',
-    'common.plus': 'Cộng',
-    'common.per': 'mỗi',
-    'common.up': 'Lên đến',
-    'common.from': 'Từ',
-    'common.to': 'Đến',
-    'common.and': 'và',
-    'common.or': 'hoặc',
-    'common.all': 'Tất cả',
-    'common.more': 'Thêm',
-    'common.less': 'Ít hơn',
-    'common.new': 'Mới',
-    'common.popular': 'Phổ biến',
-    'common.recommended': 'Đề xuất',
-    'common.featured': 'Nổi bật',
-    'common.free': 'Miễn phí',
-    'common.premium': 'Cao cấp',
-    'common.pro': 'Chuyên nghiệp',
-    'common.basic': 'Cơ bản',
-    'common.advanced': 'Nâng cao',
-    'common.custom': 'Tùy chỉnh',
-    'common.standard': 'Tiêu chuẩn',
-    'common.enterprise': 'Doanh nghiệp',
-  },
   en: {
     // Navigation
-    'nav.home': 'Home',
-    'nav.about': 'About Us',
-    'nav.features': 'Features', 
-    'nav.caseStudies': 'Case Studies',
-    'nav.pricing': 'Pricing',
-    'nav.contact': 'Contact',
-    'nav.getDemo': 'Get Demo',
-    'nav.contactUs': 'Contact Us',
+    nav: {
+      home: "Home",
+      about: "About",
+      features: "Features",
+      services: "Services",
+      useCases: "Use Cases",
+      caseStudies: "Case Studies",
+      pricing: "Pricing",
+      contact: "Contact"
+    },
     
-    // Home Page
-    'home.hero.title': 'Supercharge',
-    'home.hero.subtitle': 'Customer Conversations',
-    'home.hero.subtitle2': 'with',
-    'home.hero.subtitle3': 'AI-Driven Chatbots',
-    'home.hero.description': 'Transform customer support into a revenue driver.\nDeploy intelligent chatbots that engage, convert, and delight customers 24/7.',
-    'home.hero.getDemo': 'Get Free Demo',
-    'home.hero.learnMore': 'Learn More',
-    
-    // Why D2 Group
-    'home.why.title': 'Why Choose',
-    'home.why.subtitle': 'We combine cutting-edge AI technology with deep business expertise to deliver chatbots that truly understand your customers',
-    'home.why.ai.title': 'AI-Powered Intelligence',
-    'home.why.ai.desc': 'Advanced natural language processing that understands context and intent',
-    'home.why.security.title': 'Enterprise Security',
-    'home.why.security.desc': 'Bank-grade encryption and compliance with global security standards',
-    'home.why.results.title': 'Proven Results',
-    'home.why.results.desc': 'Average 40% increase in conversions and 60% reduction in support costs',
-    'home.why.learnMore': 'Learn More About Us',
-    
-    // Key Features
-    'home.features.title': 'Key Features',
-    'home.features.subtitle': 'Everything you need to automate and enhance customer conversations',
-    'home.features.smart.title': 'Smart Conversations',
-    'home.features.smart.desc': 'Natural dialogue that feels human',
-    'home.features.instant.title': 'Instant Setup',
-    'home.features.instant.desc': 'Deploy in under 5 minutes',
-    'home.features.analytics.title': 'Real-time Analytics',
-    'home.features.analytics.desc': 'Track performance and optimize',
-    'home.features.multichannel.title': 'Multi-channel',
-    'home.features.multichannel.desc': 'Website, WhatsApp, Facebook',
-    'home.features.viewAll': 'View All Features',
-    
-    // How It Works
-    'home.howItWorks.title': 'How It Works',
-    'home.howItWorks.subtitle': 'Get up and running in 3 simple steps',
-    'home.howItWorks.step1.title': 'Connect Your Data',
-    'home.howItWorks.step1.desc': 'Upload your FAQs, product info, and knowledge base',
-    'home.howItWorks.step2.title': 'Train Your Bot',
-    'home.howItWorks.step2.desc': 'AI learns your business and customer patterns',
-    'home.howItWorks.step3.title': 'Deploy & Scale',
-    'home.howItWorks.step3.desc': 'Launch across channels and watch conversions grow',
-    
-    // Use Cases
-    'home.useCases.title': 'Proven Results',
-    'home.useCases.subtitle': 'See how businesses like yours are winning with AI chatbots',
-    'home.useCases.ecommerce': 'E-commerce',
-    'home.useCases.healthcare': 'Healthcare',
-    'home.useCases.education': 'Education',
-    'home.useCases.banking': 'Banking',
-    'home.useCases.realestate': 'Real Estate',
-    'home.useCases.travel': 'Travel',
-    'home.useCases.viewCaseStudies': 'View Case Studies',
-    
-    // Testimonials
-    'home.testimonials.title': 'What Our Customers Say',
-    'home.testimonials.subtitle': 'Join 500+ businesses already transforming their customer experience',
-    'home.testimonials.1.content': 'D2 Group\'s chatbot increased our lead conversion by 45% in just 3 months. The AI truly understands our customers.',
-    'home.testimonials.2.content': 'The 24/7 customer support automation has revolutionized our service quality. Customers love the instant responses.',
-    'home.testimonials.3.content': 'Implementation was seamless and ROI was visible within weeks. Our student satisfaction scores hit an all-time high.',
-    
-    // Partners
-    'home.partners.title': 'Trusted by Leading Organizations',
-    'home.partners.subtitle': 'Join these industry leaders who have deployed our solutions',
-    
-    // Home Pricing
-    'home.pricing.title': 'Simple, Transparent Pricing',
-    'home.pricing.subtitle': 'Choose the plan that fits your business needs',
-    'home.pricing.seeFullPricing': 'See Full Pricing',
-    
-    // FAQ
-    'home.faq.title': 'Frequently Asked Questions',
-    'home.faq.subtitle': 'Quick answers to common questions',
-    'home.faq.q1': 'How quickly can we deploy the chatbot?',
-    'home.faq.a1': 'Most clients are live within 24-48 hours. Basic setup takes just 5 minutes.',
-    'home.faq.q2': 'Does it integrate with our existing CRM?',
-    'home.faq.a2': 'Yes, we integrate with 50+ platforms including Salesforce, HubSpot, and custom APIs.',
-    'home.faq.q3': 'What\'s the expected ROI?',
-    'home.faq.a3': 'Clients typically see 3-5x ROI within 6 months through increased conversions and reduced support costs.',
-    'home.faq.viewFullFaq': 'View Full FAQ',
-    
-    // Final CTA
-    'home.finalCta.title': 'Ready to',
-    'home.finalCta.title2': 'Automate',
-    'home.finalCta.title3': 'Your Customer Conversations?',
-    'home.finalCta.description': 'Join hundreds of businesses that have already transformed their customer experience with D2 Group\'s AI chatbots. Start your free trial today and see results within 48 hours.',
-    'home.finalCta.startTrial': 'Start Free Trial',
-    'home.finalCta.bookDemo': 'Book a Demo',
-    'home.finalCta.freeTrial': 'Free 14-day trial',
-    'home.finalCta.noCreditCard': 'No credit card required',
-    'home.finalCta.setupIn5': 'Setup in 5 minutes',
+    // Home page translations
+    home: {
+      hero: {
+        title: "Transform Customer Conversations",
+        titleHighlight: "AI-Powered",
+        subtitle: "Boost engagement by 10x with intelligent chatbots",
+        description: "Deploy advanced AI chatbots in under 5 minutes. Automate support, capture leads, and delight customers 24/7 with D2 Group's cutting-edge conversational AI platform.",
+        cta: "Start Free Trial",
+        watchDemo: "Watch Demo"
+      },
+      stats: {
+        conversations: "Monthly Conversations",
+        responseTime: "Average Response Time",
+        satisfaction: "Customer Satisfaction",
+        integration: "Integration Time"
+      },
+      features: {
+        title: "Why Choose",
+        titleHighlight: "D2 Group",
+        subtitle: "Experience the next generation of customer interaction",
+        aiPowered: {
+          title: "AI-Powered Intelligence",
+          description: "Advanced NLP understands context and intent for human-like conversations"
+        },
+        multiChannel: {
+          title: "Multi-Channel Support",
+          description: "Seamlessly integrate across website, WhatsApp, Messenger, and more"
+        },
+        realTime: {
+          title: "Real-Time Analytics",
+          description: "Track performance, optimize conversations, and measure ROI instantly"
+        },
+        easySetup: {
+          title: "5-Minute Setup",
+          description: "Get up and running fast with our intuitive drag-and-drop interface"
+        },
+        security: {
+          title: "Enterprise Security",
+          description: "Bank-grade encryption and compliance with global data protection standards"
+        },
+        support: {
+          title: "24/7 Expert Support",
+          description: "Dedicated customer success team ensures your chatbot performs optimally"
+        }
+      },
+      howItWorks: {
+        title: "How It",
+        titleHighlight: "Works",
+        subtitle: "Get your AI chatbot up and running in minutes",
+        step1: {
+          title: "Choose Your Template",
+          description: "Select from industry-specific templates or start from scratch"
+        },
+        step2: {
+          title: "Customize Conversations",
+          description: "Train your bot with your brand voice and business logic"
+        },
+        step3: {
+          title: "Deploy Everywhere",
+          description: "Launch across all your channels with one-click deployment"
+        },
+        step4: {
+          title: "Monitor & Optimize",
+          description: "Track performance and continuously improve with AI insights"
+        }
+      },
+      useCases: {
+        title: "Perfect for Every",
+        titleHighlight: "Industry",
+        subtitle: "Tailored solutions that deliver real results",
+        ecommerce: {
+          title: "E-commerce",
+          description: "Boost sales with product recommendations and cart recovery"
+        },
+        healthcare: {
+          title: "Healthcare",
+          description: "Streamline appointments and provide instant health information"
+        },
+        finance: {
+          title: "Financial Services",
+          description: "Automate customer service and improve lead qualification"
+        },
+        education: {
+          title: "Education",
+          description: "Support students with 24/7 academic assistance"
+        },
+        realEstate: {
+          title: "Real Estate",
+          description: "Qualify leads and schedule property viewings automatically"
+        },
+        hospitality: {
+          title: "Hospitality",
+          description: "Enhance guest experience with instant booking and support"
+        }
+      },
+      testimonials: {
+        title: "Trusted by",
+        titleHighlight: "Industry Leaders",
+        subtitle: "See what our customers are saying about D2 Group",
+        testimonial1: {
+          text: "D2 Group's chatbot increased our conversion rate by 45% and reduced support costs by 60%. The setup was incredibly easy and the results were immediate.",
+          author: "Sarah Chen, CEO of TechMart"
+        },
+        testimonial2: {
+          text: "The AI understands our customers' needs perfectly. We've seen a 300% increase in qualified leads since implementing D2 Group's solution.",
+          author: "Michael Rodriguez, Head of Sales at PropertyPro"
+        },
+        testimonial3: {
+          text: "Outstanding customer support and a product that actually works as advertised. Our patient satisfaction scores have never been higher.",
+          author: "Dr. Emily Watson, Medical Director"
+        }
+      },
+      cta: {
+        title: "Ready to Transform Your",
+        titleHighlight: "Customer Experience",
+        description: "Join thousands of businesses that trust D2 Group to power their customer conversations.",
+        startButton: "Start Free Trial",
+        contactButton: "Contact Sales"
+      }
+    },
 
-    // Features Page
-    'features.hero.title': 'Powerful',
-    'features.hero.titleHighlight': 'Features',
-    'features.hero.titleEnd': 'That Drive Results',
-    'features.hero.description': 'Discover the comprehensive suite of AI-powered features designed to transform your customer communication and drive measurable business growth.',
-    'features.hero.cta': 'See Features in Action',
+    // About page translations
+    about: {
+      hero: {
+        title: "Pioneering the Future of Conversational AI",
+        subtitle: "Founded in 2019, D2 Group has been at the forefront of AI innovation.",
+        description: "We believe every business deserves intelligent, efficient customer conversations that drive growth and satisfaction."
+      },
+      stats: {
+        clients: "Happy Clients",
+        countries: "Countries Served",
+        uptime: "Platform Uptime"
+      },
+      mission: {
+        title: "Our Mission & Vision",
+        description: "We're on a mission to democratize AI and make intelligent customer conversations accessible to businesses of all sizes. Our vision is to create a world where every customer interaction is meaningful, efficient, and delightful.",
+        global: {
+          title: "Global Reach",
+          desc: "Serving businesses across 12 countries with localized solutions"
+        },
+        innovation: {
+          title: "Continuous Innovation",
+          desc: "Investing 40% of revenue in R&D to stay ahead of AI trends"
+        },
+        security: {
+          title: "Security First",
+          desc: "Enterprise-grade security with 99.9% uptime guarantee"
+        }
+      },
+      vision: {
+        title: "Our Vision",
+        description: "To be the global leader in conversational AI, empowering every business to deliver exceptional customer experiences."
+      },
+      team: {
+        title: "Meet Our Expert Team",
+        subtitle: "A diverse group of AI researchers, engineers, and customer success experts dedicated to your success."
+      },
+      journey: {
+        title: "Our Journey",
+        subtitle: "From startup to industry leader - here's how we've grown"
+      },
+      awards: {
+        title: "Recognition & Awards",
+        subtitle: "Industry recognition for our innovation and excellence"
+      },
+      cta: {
+        title: "Ready to Join Our Success Story?",
+        description: "Let's discuss how D2 Group can help transform your customer conversations and drive business growth.",
+        getStarted: "Get Started Today",
+        scheduleCall: "Schedule a Call"
+      }
+    },
 
-    // Core Features
-    'features.core.title': 'Core',
-    'features.core.titleHighlight': 'Capabilities',
-    'features.core.subtitle': 'Everything you need to deliver exceptional customer experiences',
+    // Features page translations
+    features: {
+      hero: {
+        title: "Powerful",
+        titleHighlight: "Features",
+        titleEnd: "for Modern Businesses",
+        description: "Discover the comprehensive suite of AI-powered tools designed to transform your customer interactions and drive business growth.",
+        cta: "Start Free Trial"
+      },
+      core: {
+        title: "Core",
+        titleHighlight: "Features",
+        subtitle: "Everything you need to create intelligent customer conversations",
+        nlp: {
+          title: "Advanced Natural Language Processing",
+          desc: "State-of-the-art AI that understands context, intent, and sentiment",
+          detail1: "Multi-language support with 99% accuracy",
+          detail2: "Context-aware conversation handling",
+          detail3: "Intent recognition and entity extraction",
+          detail4: "Sentiment analysis for better responses"
+        },
+        multiChannel: {
+          title: "Multi-Channel Integration",
+          desc: "Seamlessly connect across all your communication channels",
+          detail1: "Website widget with customizable design",
+          detail2: "WhatsApp Business API integration",
+          detail3: "Facebook Messenger connectivity",
+          detail4: "Custom API for any platform"
+        },
+        realTime: {
+          title: "Real-Time Analytics",
+          desc: "Comprehensive insights to optimize your chatbot performance",
+          detail1: "Conversation flow analytics",
+          detail2: "User engagement metrics",
+          detail3: "Performance dashboards",
+          detail4: "ROI tracking and reporting"
+        },
+        security: {
+          title: "Enterprise Security",
+          desc: "Bank-grade security with global compliance standards",
+          detail1: "End-to-end encryption",
+          detail2: "GDPR and CCPA compliance",
+          detail3: "SOC 2 Type II certified",
+          detail4: "Regular security audits"
+        },
+        deployment: {
+          title: "Rapid Deployment",
+          desc: "Get your chatbot live in minutes, not months",
+          detail1: "5-minute setup process",
+          detail2: "Pre-built industry templates",
+          detail3: "Drag-and-drop conversation builder",
+          detail4: "One-click deployment"
+        },
+        conversations: {
+          title: "Intelligent Conversations",
+          desc: "Human-like interactions that understand and respond naturally",
+          detail1: "Dynamic response generation",
+          detail2: "Conversation memory and context",
+          detail3: "Handoff to human agents",
+          detail4: "Personalized user experiences"
+        }
+      },
+      comparison: {
+        title: "AI Chatbots vs",
+        titleHighlight: "Traditional Live Chat",
+        subtitle: "See how our AI-powered solution outperforms traditional approaches",
+        tableHeader: {
+          feature: "Feature",
+          traditional: "Traditional Live Chat",
+          aiChatbot: "AI Chatbot",
+          improvement: "Improvement"
+        },
+        responseTime: "Response Time",
+        availability: "Availability",
+        scalability: "Scalability",
+        consistency: "Response Consistency",
+        costPerInteraction: "Cost per Interaction",
+        languageSupport: "Language Support",
+        traditional: {
+          responseTime: "Minutes to hours",
+          availability: "Business hours only",
+          scalability: "Limited by staff",
+          consistency: "Varies by agent",
+          costPerInteraction: "$2-5 per chat",
+          languageSupport: "Agent dependent"
+        },
+        ai: {
+          responseTime: "Instant",
+          availability: "24/7",
+          scalability: "Unlimited",
+          consistency: "Always consistent",
+          costPerInteraction: "$0.10 per chat",
+          languageSupport: "50+ languages"
+        },
+        improvement: {
+          responseTime: "99% faster",
+          availability: "3x more coverage",
+          scalability: "Unlimited scale",
+          consistency: "100% consistent",
+          costPerInteraction: "95% cost reduction",
+          languageSupport: "50x more languages"
+        }
+      },
+      advanced: {
+        title: "Advanced",
+        titleHighlight: "Capabilities",
+        subtitle: "Professional features for enterprise-grade implementations",
+        ai: {
+          category: "AI & Machine Learning",
+          conversationFlow: {
+            name: "Dynamic Conversation Flow",
+            desc: "AI-powered conversation paths that adapt based on user responses"
+          },
+          intentTraining: {
+            name: "Intent Training",
+            desc: "Continuously improve bot understanding with machine learning"
+          },
+          autoLearning: {
+            name: "Auto-Learning",
+            desc: "Bot automatically learns from successful conversations"
+          },
+          fallbackHandling: {
+            name: "Smart Fallback Handling",
+            desc: "Graceful handling of unrecognized queries with human handoff"
+          }
+        },
+        integration: {
+          category: "Integrations & APIs",
+          crm: {
+            name: "CRM Integration",
+            desc: "Seamlessly sync with Salesforce, HubSpot, and other CRMs"
+          },
+          ecommerce: {
+            name: "E-commerce Platforms",
+            desc: "Connect with Shopify, WooCommerce, and major e-commerce systems"
+          },
+          customApi: {
+            name: "Custom API Access",
+            desc: "Full REST API access for custom integrations and workflows"
+          },
+          webhook: {
+            name: "Webhook Support",
+            desc: "Real-time event notifications and data synchronization"
+          }
+        },
+        analytics: {
+          category: "Analytics & Insights",
+          conversation: {
+            name: "Conversation Analytics",
+            desc: "Deep insights into user behavior and conversation patterns"
+          },
+          performance: {
+            name: "Performance Metrics",
+            desc: "Track response times, resolution rates, and user satisfaction"
+          },
+          dashboard: {
+            name: "Executive Dashboard",
+            desc: "High-level metrics and KPIs for business stakeholders"
+          },
+          abTesting: {
+            name: "A/B Testing",
+            desc: "Test different conversation flows to optimize performance"
+          }
+        }
+      },
+      demo: {
+        title: "Experience Our",
+        titleHighlight: "Technology",
+        description: "See our AI chatbot in action with an interactive demonstration",
+        interactive: {
+          title: "Interactive Demo",
+          description: "Try our chatbot technology yourself"
+        },
+        feature1: "Real-time conversation",
+        feature2: "Natural language understanding",
+        feature3: "Context-aware responses",
+        bookDemo: "Book a Demo",
+        viewCaseStudies: "View Case Studies"
+      }
+    },
 
-    'features.core.nlp.title': 'Natural Language Processing',
-    'features.core.nlp.desc': 'Advanced AI that understands context, intent, and sentiment',
-    'features.core.nlp.detail1': 'Multi-language support with 95%+ accuracy',
-    'features.core.nlp.detail2': 'Contextual conversation flow management',
-    'features.core.nlp.detail3': 'Sentiment analysis and emotion detection',
-    'features.core.nlp.detail4': 'Intent recognition and entity extraction',
+    // Case Studies page translations
+    caseStudies: {
+      hero: {
+        title: "Real",
+        titleHighlight: "Success Stories",
+        description: "Discover how businesses across industries have transformed their customer experience and achieved remarkable results with D2 Group's AI chatbot solutions."
+      },
+      stats: {
+        deployments: "Successful Deployments",
+        conversionIncrease: "Average Conversion Increase",
+        costReduction: "Average Cost Reduction",
+        support: "Customer Support"
+      },
+      labels: {
+        challenge: "Challenge",
+        solution: "Solution",
+        results: "Results"
+      },
+      studies: {
+        techmart: {
+          title: "E-commerce Giant Increases Conversions by 45%",
+          company: "TechMart Vietnam",
+          industry: "E-commerce",
+          challenge: "High cart abandonment rate and overwhelming customer inquiries during peak seasons",
+          solution: "Deployed AI chatbot for product recommendations, order tracking, and instant customer support",
+          testimonial: "The chatbot transformed our customer experience. We're seeing record-high conversion rates and our support team can focus on complex issues.",
+          author: "Nguyễn Văn Minh, CEO TechMart Vietnam"
+        },
+        medcare: {
+          title: "Healthcare Provider Reduces Wait Times by 60%",
+          company: "MedCare Plus",
+          industry: "Healthcare",
+          challenge: "Long patient wait times for appointment booking and basic health inquiries",
+          solution: "Implemented appointment scheduling bot with symptom checker and health information system",
+          testimonial: "Our patients love the instant response for appointments and basic health questions. It's revolutionized our patient care workflow.",
+          author: "Dr. Trần Thị Lan, Medical Director"
+        },
+        vietfinance: {
+          title: "Financial Services Improves Lead Quality by 80%",
+          company: "VietFinance Solutions",
+          industry: "Financial Services",
+          challenge: "Poor lead qualification process and time-consuming customer onboarding",
+          solution: "Deployed intelligent lead qualification bot with document processing and KYC automation",
+          testimonial: "The AI chatbot pre-qualifies leads so well that our sales team only speaks with serious prospects. Our conversion rates have never been higher.",
+          author: "Lê Hoàng Nam, Sales Director"
+        },
+        edutech: {
+          title: "Education Platform Boosts Student Engagement by 70%",
+          company: "EduTech Academy",
+          industry: "Education",
+          challenge: "Low student engagement and high drop-out rates in online courses",
+          solution: "Created AI tutor bot for 24/7 student support, course recommendations, and progress tracking",
+          testimonial: "Students have a personal AI tutor available 24/7. The improvement in engagement and completion rates has been remarkable.",
+          author: "Phạm Thị Mai, Academic Director"
+        },
+        propertypro: {
+          title: "Real Estate Agency Generates 3x More Qualified Leads",
+          company: "PropertyPro Vietnam",
+          industry: "Real Estate",
+          challenge: "Difficulty qualifying serious buyers and managing high volume of property inquiries",
+          solution: "Implemented property search bot with virtual tours and buyer qualification system",
+          testimonial: "The chatbot pre-qualifies buyers and schedules viewings automatically. Our agents now spend time with serious buyers only.",
+          author: "Vũ Minh Tuấn, Managing Director"
+        },
+        luxuryresorts: {
+          title: "Hotel Chain Achieves 90% Booking Automation",
+          company: "Luxury Resorts Group",
+          industry: "Hospitality",
+          challenge: "Manual booking process overwhelming staff during peak tourism seasons",
+          solution: "Deployed booking automation bot with room recommendations and guest service features",
+          testimonial: "Guests can book rooms, request services, and get recommendations instantly. Our occupancy rates have reached all-time highs.",
+          author: "Nguyễn Thị Hoa, Operations Manager"
+        }
+      },
+      metrics: {
+        conversionRate: "Conversion Rate",
+        cartAbandonment: "Cart Abandonment",
+        responseTime: "Response Time",
+        customerSatisfaction: "Customer Satisfaction",
+        waitTimes: "Wait Times",
+        appointmentBookings: "Appointment Bookings",
+        staffEfficiency: "Staff Efficiency",
+        patientSatisfaction: "Patient Satisfaction",
+        leadQuality: "Lead Quality",
+        onboardingTime: "Onboarding Time",
+        processEfficiency: "Process Efficiency",
+        studentEngagement: "Student Engagement",
+        courseCompletion: "Course Completion",
+        supportQueries: "Support Queries",
+        studentSatisfaction: "Student Satisfaction",
+        qualifiedLeads: "Qualified Leads",
+        propertyViews: "Property Views",
+        salesCycle: "Sales Cycle",
+        agentProductivity: "Agent Productivity",
+        bookingAutomation: "Booking Automation",
+        staffWorkload: "Staff Workload",
+        bookingConversion: "Booking Conversion",
+        guestSatisfaction: "Guest Satisfaction"
+      },
+      industries: {
+        title: "Industries We",
+        titleHighlight: "Serve",
+        subtitle: "Proven success across diverse business sectors",
+        list: {
+          ecommerce: "E-commerce",
+          healthcare: "Healthcare",
+          finance: "Finance",
+          education: "Education",
+          realEstate: "Real Estate",
+          hospitality: "Hospitality",
+          retail: "Retail",
+          automotive: "Automotive",
+          insurance: "Insurance",
+          manufacturing: "Manufacturing",
+          travel: "Travel",
+          logistics: "Logistics"
+        },
+        metrics: {
+          ecommerce: "+45% Sales",
+          healthcare: "-60% Wait Time",
+          finance: "+80% Lead Quality",
+          education: "+70% Engagement",
+          realEstate: "+300% Leads",
+          hospitality: "90% Automation",
+          retail: "+35% Conversion",
+          automotive: "+50% Efficiency",
+          insurance: "+25% Claims",
+          manufacturing: "+40% Support",
+          travel: "+55% Bookings",
+          logistics: "+30% Tracking"
+        }
+      },
+      cta: {
+        title: "Ready to Write Your",
+        titleHighlight: "Success Story",
+        description: "Join hundreds of successful businesses that have transformed their customer experience with D2 Group. Let's discuss how we can deliver similar results for your organization.",
+        startButton: "Start Your Success Story",
+        pricingButton: "View Pricing"
+      }
+    },
 
-    'features.core.multiChannel.title': 'Omnichannel Deployment',
-    'features.core.multiChannel.desc': 'Deploy across website, WhatsApp, Facebook, and more',
-    'features.core.multiChannel.detail1': 'Website chat widget with customizable UI',
-    'features.core.multiChannel.detail2': 'WhatsApp Business API integration',
-    'features.core.multiChannel.detail3': 'Facebook Messenger connectivity',
-    'features.core.multiChannel.detail4': 'SMS and voice channel support',
+    // Contact page translations
+    contact: {
+      hero: {
+        title: "Get in",
+        titleHighlight: "Touch",
+        description: "Ready to transform your customer conversations? Let's discuss how D2 Group can help you achieve your automation goals. Our experts are standing by to provide personalized guidance."
+      },
+      features: {
+        consultation: {
+          title: "Free Consultation",
+          description: "Expert guidance tailored to your needs"
+        },
+        response: {
+          title: "24-Hour Response",
+          description: "Quick turnaround on all inquiries"
+        },
+        implementation: {
+          title: "Fast Implementation",
+          description: "Go live in as little as 48 hours"
+        }
+      },
+      form: {
+        title: "Let's Start the",
+        titleHighlight: "Conversation",
+        subtitle: "Fill out the form below and our team will reach out to you within 24 hours.",
+        fields: {
+          name: "Full Name",
+          email: "Email Address",
+          phone: "Phone Number",
+          company: "Company Name",
+          interest: "Area of Interest",
+          message: "Message"
+        },
+        placeholders: {
+          name: "John Smith",
+          email: "john@company.com",
+          phone: "+1 (555) 123-4567",
+          company: "Acme Corporation",
+          interest: "What can we help you with?",
+          message: "Tell us about your business needs, current challenges, or any specific questions you have..."
+        },
+        interests: {
+          demo: "Schedule a Product Demo",
+          pricing: "Get Pricing Information",
+          integration: "Discuss Integration Options",
+          enterprise: "Enterprise Solutions",
+          support: "Technical Support",
+          partnership: "Partnership Opportunities",
+          other: "Other"
+        },
+        submit: "Send Message",
+        sending: "Sending...",
+        privacy: "By submitting this form, you agree to our Privacy Policy and Terms of Service.",
+        success: {
+          title: "Thank you for your inquiry!",
+          description: "We'll get back to you within 24 hours. Check your email for confirmation."
+        },
+        error: {
+          title: "Oops! Something went wrong",
+          description: "Unable to submit form. Please try again or contact us directly via email."
+        }
+      },
+      info: {
+        title: "Contact",
+        titleHighlight: "Information",
+        email: {
+          title: "Email"
+        },
+        phone: {
+          title: "Phone"
+        },
+        address: {
+          title: "Address",
+          line1: "No. 3 Nguyễn Cơ Thạch Street",
+          line2: "An Lợi Đông Ward, Thủ Đức City",
+          line3: "Ho Chi Minh City, Vietnam"
+        },
+        hours: {
+          title: "Business Hours",
+          weekdays: "Monday - Friday: 9:00 AM - 6:00 PM (GMT+7)",
+          saturday: "Saturday: 10:00 AM - 2:00 PM (GMT+7)",
+          emergency: "Emergency support: 24/7"
+        }
+      },
+      map: {
+        title: "Find",
+        titleHighlight: "Us"
+      },
+      thanks: {
+        title: "Thank You for Your",
+        titleHighlight: "Interest",
+        description: "Your message has been received and our team will respond within 24 hours. In the meantime, feel free to connect with us on social media."
+      }
+    },
 
-    'features.core.realTime.title': 'Real-time Analytics',
-    'features.core.realTime.desc': 'Comprehensive insights into customer interactions',
-    'features.core.realTime.detail1': 'Live conversation monitoring',
-    'features.core.realTime.detail2': 'Performance metrics and KPIs',
-    'features.core.realTime.detail3': 'Customer satisfaction scoring',
-    'features.core.realTime.detail4': 'ROI and conversion tracking',
+    // Pricing page translations
+    pricing: {
+      hero: {
+        title: "Simple, Transparent",
+        titleHighlight: "Pricing",
+        description: "Choose the perfect plan for your business needs. All plans include our core AI features with no hidden fees.",
+        features: {
+          trial: "14-day free trial",
+          noSetup: "No setup fees",
+          cancel: "Cancel anytime"
+        }
+      },
+      mostPopular: "Most Popular",
+      plans: {
+        starter: {
+          name: "Starter",
+          period: " VND/month",
+          description: "Perfect for small businesses getting started with AI chatbots"
+        },
+        growth: {
+          name: "Growth",
+          period: " VND/month",
+          description: "Ideal for growing businesses with moderate chat volume"
+        },
+        business: {
+          name: "Business",
+          period: " VND/month",
+          description: "Advanced features for established businesses with high volume"
+        },
+        enterprise: {
+          name: "Enterprise",
+          price: "Contact for Pricing",
+          description: "Custom solutions for large organizations with complex needs"
+        }
+      },
+      features: {
+        conversations1000: "1,000 Conversations",
+        conversations5000: "5,000 Conversations",
+        conversations15000: "15,000 Conversations",
+        unlimitedConversations: "Unlimited Conversations",
+        basicTemplates: "Basic Templates",
+        advancedTemplates: "Advanced Templates",
+        customDesign: "Custom Design",
+        customAI: "Custom AI Training",
+        websiteIntegration: "Website Integration",
+        multiChannel: "Multi-Channel Support",
+        crmIntegration: "CRM Integration",
+        customIntegrations: "Custom Integrations",
+        emailSupport: "Email Support",
+        prioritySupport: "Priority Support",
+        phoneSupport: "Phone Support",
+        basicAnalytics: "Basic Analytics",
+        advancedAnalytics: "Advanced Analytics",
+        advancedReporting: "Advanced Reporting",
+        workflows5: "5 Workflows",
+        unlimitedWorkflows: "Unlimited Workflows",
+        standardResponse: "Standard Response Time",
+        priorityResponse: "Priority Response Time",
+        abTesting: "A/B Testing",
+        leadQualification: "Lead Qualification",
+        customBranding: "Custom Branding",
+        dedicatedManager: "Dedicated Account Manager",
+        onPremise: "On-Premise Deployment",
+        security: "Enterprise Security",
+        slaGuarantees: "SLA Guarantees",
+        whiteLabel: "White-Label Solution"
+      },
+      buttons: {
+        getStarted: "Get Started",
+        contact: "Contact for Pricing"
+      },
+      comparison: {
+        title: "Pricing",
+        titleHighlight: "Comparison",
+        subtitle: "Compare all features across our pricing plans.",
+        table: {
+          features: "Features",
+          starter: "Starter",
+          growth: "Growth",
+          business: "Business",
+          enterprise: "Enterprise"
+        },
+        categories: {
+          core: "Core Features",
+          channels: "Channels & Integrations"
+        },
+        features: {
+          monthlySessions: "Monthly Chat Sessions",
+          template: "Chatbot Template",
+          responseTime: "Response Time SLA",
+          analytics: "Analytics Dashboard",
+          websiteWidget: "Website Widget Integration",
+          website: "Website Widget",
+          whatsapp: "WhatsApp Business",
+          messenger: "Facebook Messenger",
+          crm: "CRM Integration",
+          api: "Custom API Access"
+        }
+      },
+      faq: {
+        title: "Frequently Asked",
+        titleHighlight: "Questions",
+        subtitle: "Everything you need to know about our pricing and service packages.",
+        counting: {
+          question: "How are chat sessions counted?",
+          answer: "A chat session is counted each time a unique user interacts with your chatbot within a 24-hour window, regardless of the number of messages exchanged."
+        },
+        upgrade: {
+          question: "Can I upgrade or downgrade my plan at any time?",
+          answer: "Yes—you can switch plans whenever you like. Upgrades take effect immediately; downgrades apply on your next billing cycle."
+        },
+        trial: {
+          question: "Is there a free trial available?",
+          answer: "Yes—we offer a 14-day free trial on all plans. No credit card required, and you can cancel at any time during the trial."
+        },
+        exceed: {
+          question: "What happens if I exceed my chat session limit?",
+          answer: "If you go over your monthly quota, additional sessions are billed at VND 3,000 per session. We'll send you a notification as you approach your limit."
+        }
+      },
+      cta: {
+        title: "Ready to",
+        titleHighlight: "Get Started",
+        description: "Start your free trial today and discover how D2 Group's AI chatbots can transform your customer conversations. No credit card required—cancel anytime.",
+        buttons: {
+          trial: "Start Your Free Trial",
+          contact: "Contact Sales"
+        },
+        help: "Have questions? Our sales team is ready to help you choose the right plan."
+      }
+    }
+  },
+  
+  vi: {
+    // Navigation
+    nav: {
+      home: "Trang chủ",
+      about: "Về chúng tôi",
+      features: "Tính năng",
+      services: "Dịch vụ",
+      useCases: "Ứng dụng",
+      caseStudies: "Nghiên cứu trường hợp",
+      pricing: "Bảng giá",
+      contact: "Liên hệ"
+    },
 
-    'features.core.security.title': 'Enterprise Security',
-    'features.core.security.desc': 'Bank-grade security and compliance standards',
-    'features.core.security.detail1': 'End-to-end encryption',
-    'features.core.security.detail2': 'SOC 2 Type II compliant',
-    'features.core.security.detail3': 'GDPR and data privacy compliance',
-    'features.core.security.detail4': 'Single sign-on (SSO) integration',
+    // Home page translations
+    home: {
+      hero: {
+        title: "Biến đổi cuộc trò chuyện khách hàng",
+        titleHighlight: "Công nghệ AI",
+        subtitle: "Tăng tương tác lên 10 lần với chatbot thông minh",
+        description: "Triển khai chatbot AI tiên tiến chỉ trong 5 phút. Tự động hóa hỗ trợ, thu hút khách hàng tiềm năng và làm hài lòng khách hàng 24/7 với nền tảng AI đối thoại tiên tiến của D2 Group.",
+        cta: "Dùng thử miễn phí",
+        watchDemo: "Xem Demo"
+      },
+      stats: {
+        conversations: "Cuộc trò chuyện hàng tháng",
+        responseTime: "Thời gian phản hồi trung bình",
+        satisfaction: "Độ hài lòng khách hàng",
+        integration: "Thời gian tích hợp"
+      },
+      features: {
+        title: "Tại sao chọn",
+        titleHighlight: "D2 Group",
+        subtitle: "Trải nghiệm thế hệ tiếp theo của tương tác khách hàng",
+        aiPowered: {
+          title: "Trí tuệ nhân tạo tiên tiến",
+          description: "NLP tiên tiến hiểu ngữ cảnh và ý định cho cuộc trò chuyện tự nhiên như con người"
+        },
+        multiChannel: {
+          title: "Hỗ trợ đa kênh",
+          description: "Tích hợp liền mạch trên website, WhatsApp, Messenger và nhiều hơn nữa"
+        },
+        realTime: {
+          title: "Phân tích thời gian thực",
+          description: "Theo dõi hiệu suất, tối ưu hóa cuộc trò chuyện và đo lường ROI ngay lập tức"
+        },
+        easySetup: {
+          title: "Cài đặt 5 phút",
+          description: "Khởi động nhanh chóng với giao diện kéo thả trực quan của chúng tôi"
+        },
+        security: {
+          title: "Bảo mật doanh nghiệp",
+          description: "Mã hóa cấp ngân hàng và tuân thủ tiêu chuẩn bảo vệ dữ liệu toàn cầu"
+        },
+        support: {
+          title: "Hỗ trợ chuyên gia 24/7",
+          description: "Đội ngũ chăm sóc khách hàng tận tâm đảm bảo chatbot hoạt động tối ưu"
+        }
+      },
+      howItWorks: {
+        title: "Cách thức",
+        titleHighlight: "Hoạt động",
+        subtitle: "Khởi chạy chatbot AI chỉ trong vài phút",
+        step1: {
+          title: "Chọn mẫu của bạn",
+          description: "Chọn từ các mẫu chuyên ngành hoặc bắt đầu từ đầu"
+        },
+        step2: {
+          title: "Tùy chỉnh cuộc trò chuyện",
+          description: "Huấn luyện bot với giọng điệu thương hiệu và logic kinh doanh của bạn"
+        },
+        step3: {
+          title: "Triển khai mọi nơi",
+          description: "Khởi chạy trên tất cả các kênh với triển khai một cú nhấp chuột"
+        },
+        step4: {
+          title: "Theo dõi & Tối ưu",
+          description: "Theo dõi hiệu suất và liên tục cải thiện với thông tin chi tiết AI"
+        }
+      },
+      useCases: {
+        title: "Hoàn hảo cho mọi",
+        titleHighlight: "Ngành nghề",
+        subtitle: "Giải pháp tùy chỉnh mang lại kết quả thực tế",
+        ecommerce: {
+          title: "Thương mại điện tử",
+          description: "Tăng doanh số với đề xuất sản phẩm và phục hồi giỏ hàng"
+        },
+        healthcare: {
+          title: "Y tế",
+          description: "Sắp xếp lịch hẹn và cung cấp thông tin sức khỏe ngay lập tức"
+        },
+        finance: {
+          title: "Dịch vụ tài chính",
+          description: "Tự động hóa dịch vụ khách hàng và cải thiện chất lượng khách hàng tiềm năng"
+        },
+        education: {
+          title: "Giáo dục",
+          description: "Hỗ trợ học sinh với trợ giúp học tập 24/7"
+        },
+        realEstate: {
+          title: "Bất động sản",
+          description: "Đánh giá khách hàng tiềm năng và lên lịch xem nhà tự động"
+        },
+        hospitality: {
+          title: "Khách sạn",
+          description: "Nâng cao trải nghiệm khách với đặt phòng và hỗ trợ ngay lập tức"
+        }
+      },
+      testimonials: {
+        title: "Được tin tưởng bởi",
+        titleHighlight: "Các nhà lãnh đạo ngành",
+        subtitle: "Xem khách hàng nói gì về D2 Group",
+        testimonial1: {
+          text: "Chatbot của D2 Group đã tăng tỷ lệ chuyển đổi của chúng tôi lên 45% và giảm chi phí hỗ trợ 60%. Việc cài đặt cực kỳ dễ dàng và kết quả ngay lập tức.",
+          author: "Sarah Chen, CEO của TechMart"
+        },
+        testimonial2: {
+          text: "AI hiểu hoàn hảo nhu cầu khách hàng của chúng tôi. Chúng tôi đã thấy tăng 300% khách hàng tiềm năng chất lượng kể từ khi triển khai giải pháp của D2 Group.",
+          author: "Michael Rodriguez, Trưởng phòng Kinh doanh tại PropertyPro"
+        },
+        testimonial3: {
+          text: "Hỗ trợ khách hàng xuất sắc và sản phẩm thực sự hoạt động như quảng cáo. Điểm hài lòng bệnh nhân của chúng tôi chưa bao giờ cao hơn.",
+          author: "Dr. Emily Watson, Giám đốc Y khoa"
+        }
+      },
+      cta: {
+        title: "Sẵn sàng biến đổi",
+        titleHighlight: "Trải nghiệm khách hàng",
+        description: "Tham gia hàng nghìn doanh nghiệp tin tưởng D2 Group để cung cấp năng lượng cho cuộc trò chuyện khách hàng của họ.",
+        startButton: "Dùng thử miễn phí",
+        contactButton: "Liên hệ bán hàng"
+      }
+    },
 
-    'features.core.deployment.title': 'Instant Deployment',
-    'features.core.deployment.desc': 'Go live in minutes with our no-code platform',
-    'features.core.deployment.detail1': '5-minute setup process',
-    'features.core.deployment.detail2': 'Pre-built templates and workflows',
-    'features.core.deployment.detail3': 'Drag-and-drop conversation builder',
-    'features.core.deployment.detail4': 'One-click integrations',
+    // About page translations
+    about: {
+      hero: {
+        title: "Tiên phong tương lai của AI đối thoại",
+        subtitle: "Được thành lập năm 2019, D2 Group đã đi đầu trong đổi mới AI.",
+        description: "Chúng tôi tin rằng mọi doanh nghiệp đều xứng đáng có những cuộc trò chuyện khách hàng thông minh, hiệu quả thúc đẩy tăng trưởng và sự hài lòng."
+      },
+      stats: {
+        clients: "Khách hàng hài lòng",
+        countries: "Quốc gia được phục vụ",
+        uptime: "Thời gian hoạt động nền tảng"
+      },
+      mission: {
+        title: "Sứ mệnh & Tầm nhìn",
+        description: "Chúng tôi có sứ mệnh dân chủ hóa AI và làm cho các cuộc trò chuyện khách hàng thông minh có thể tiếp cận được với các doanh nghiệp thuộc mọi quy mô. Tầm nhìn của chúng tôi là tạo ra một thế giới nơi mọi tương tác khách hàng đều có ý nghĩa, hiệu quả và thú vị.",
+        global: {
+          title: "Phạm vi toàn cầu",
+          desc: "Phục vụ doanh nghiệp trên 12 quốc gia với giải pháp địa phương hóa"
+        },
+        innovation: {
+          title: "Đổi mới liên tục",
+          desc: "Đầu tư 40% doanh thu vào R&D để đi trước xu hướng AI"
+        },
+        security: {
+          title: "Bảo mật hàng đầu",
+          desc: "Bảo mật cấp doanh nghiệp với đảm bảo hoạt động 99.9%"
+        }
+      },
+      vision: {
+        title: "Tầm nhìn của chúng tôi",
+        description: "Trở thành nhà lãnh đạo toàn cầu trong AI đối thoại, trao quyền cho mọi doanh nghiệp để mang lại trải nghiệm khách hàng đặc biệt."
+      },
+      team: {
+        title: "Gặp gỡ đội ngũ chuyên gia",
+        subtitle: "Một nhóm đa dạng các nhà nghiên cứu AI, kỹ sư và chuyên gia chăm sóc khách hàng tận tâm cho thành công của bạn."
+      },
+      journey: {
+        title: "Hành trình của chúng tôi",
+        subtitle: "Từ startup đến nhà lãnh đạo ngành - đây là cách chúng tôi phát triển"
+      },
+      awards: {
+        title: "Công nhận & Giải thưởng",
+        subtitle: "Sự công nhận của ngành về đổi mới và xuất sắc của chúng tôi"
+      },
+      cta: {
+        title: "Sẵn sàng tham gia câu chuyện thành công của chúng tôi?",
+        description: "Hãy thảo luận về cách D2 Group có thể giúp biến đổi cuộc trò chuyện khách hàng và thúc đẩy tăng trưởng kinh doanh của bạn.",
+        getStarted: "Bắt đầu hôm nay",
+        scheduleCall: "Đặt lịch cuộc gọi"
+      }
+    },
 
-    'features.core.conversations.title': 'Smart Conversations',
-    'features.core.conversations.desc': 'Human-like interactions that convert and engage',
-    'features.core.conversations.detail1': 'Dynamic personalization',
-    'features.core.conversations.detail2': 'Lead qualification automation',
-    'features.core.conversations.detail3': 'Appointment booking and scheduling',
-    'features.core.conversations.detail4': 'Product recommendations',
+    // Features page translations
+    features: {
+      hero: {
+        title: "Tính năng",
+        titleHighlight: "Mạnh mẽ",
+        titleEnd: "cho doanh nghiệp hiện đại",
+        description: "Khám phá bộ công cụ toàn diện được hỗ trợ bởi AI được thiết kế để biến đổi tương tác khách hàng và thúc đẩy tăng trưởng kinh doanh.",
+        cta: "Dùng thử miễn phí"
+      },
+      core: {
+        title: "Tính năng",
+        titleHighlight: "Cốt lõi",
+        subtitle: "Mọi thứ bạn cần để tạo ra cuộc trò chuyện khách hàng thông minh",
+        nlp: {
+          title: "Xử lý ngôn ngữ tự nhiên tiên tiến",
+          desc: "AI hiện đại hiểu ngữ cảnh, ý định và cảm xúc",
+          detail1: "Hỗ trợ đa ngôn ngữ với độ chính xác 99%",
+          detail2: "Xử lý cuộc trò chuyện nhận biết ngữ cảnh",
+          detail3: "Nhận dạng ý định và trích xuất thực thể",
+          detail4: "Phân tích cảm xúc để có phản hồi tốt hơn"
+        },
+        multiChannel: {
+          title: "Tích hợp đa kênh",
+          desc: "Kết nối liền mạch trên tất cả các kênh giao tiếp của bạn",
+          detail1: "Widget website với thiết kế có thể tùy chỉnh",
+          detail2: "Tích hợp WhatsApp Business API",
+          detail3: "Kết nối Facebook Messenger",
+          detail4: "API tùy chỉnh cho bất kỳ nền tảng nào"
+        },
+        realTime: {
+          title: "Phân tích thời gian thực",
+          desc: "Thông tin chi tiết toàn diện để tối ưu hóa hiệu suất chatbot",
+          detail1: "Phân tích luồng cuộc trò chuyện",
+          detail2: "Số liệu tương tác người dùng",
+          detail3: "Bảng điều khiển hiệu suất",
+          detail4: "Theo dõi và báo cáo ROI"
+        },
+        security: {
+          title: "Bảo mật doanh nghiệp",
+          desc: "Bảo mật cấp ngân hàng với tiêu chuẩn tuân thủ toàn cầu",
+          detail1: "Mã hóa đầu cuối",
+          detail2: "Tuân thủ GDPR và CCPA",
+          detail3: "Chứng nhận SOC 2 Type II",
+          detail4: "Kiểm tra bảo mật thường xuyên"
+        },
+        deployment: {
+          title: "Triển khai nhanh chóng",
+          desc: "Khởi chạy chatbot chỉ trong vài phút, không phải vài tháng",
+          detail1: "Quy trình cài đặt 5 phút",
+          detail2: "Mẫu ngành được xây dựng sẵn",
+          detail3: "Trình tạo cuộc trò chuyện kéo thả",
+          detail4: "Triển khai một cú nhấp chuột"
+        },
+        conversations: {
+          title: "Cuộc trò chuyện thông minh",
+          desc: "Tương tác giống con người hiểu và phản hồi tự nhiên",
+          detail1: "Tạo phản hồi động",
+          detail2: "Bộ nhớ và ngữ cảnh cuộc trò chuyện",
+          detail3: "Chuyển giao cho nhân viên",
+          detail4: "Trải nghiệm người dùng được cá nhân hóa"
+        }
+      },
+      comparison: {
+        title: "Chatbot AI so với",
+        titleHighlight: "Live Chat truyền thống",
+        subtitle: "Xem giải pháp được hỗ trợ AI của chúng tôi vượt trội hơn các phương pháp truyền thống như thế nào",
+        tableHeader: {
+          feature: "Tính năng",
+          traditional: "Live Chat truyền thống",
+          aiChatbot: "Chatbot AI",
+          improvement: "Cải thiện"
+        },
+        responseTime: "Thời gian phản hồi",
+        availability: "Tình trạng sẵn có",
+        scalability: "Khả năng mở rộng",
+        consistency: "Tính nhất quán phản hồi",
+        costPerInteraction: "Chi phí mỗi tương tác",
+        languageSupport: "Hỗ trợ ngôn ngữ",
+        traditional: {
+          responseTime: "Vài phút đến vài giờ",
+          availability: "Chỉ giờ làm việc",
+          scalability: "Bị giới hạn bởi nhân viên",
+          consistency: "Thay đổi theo nhân viên",
+          costPerInteraction: "$2-5 mỗi cuộc trò chuyện",
+          languageSupport: "Phụ thuộc vào nhân viên"
+        },
+        ai: {
+          responseTime: "Ngay lập tức",
+          availability: "24/7",
+          scalability: "Không giới hạn",
+          consistency: "Luôn nhất quán",
+          costPerInteraction: "$0.10 mỗi cuộc trò chuyện",
+          languageSupport: "Hơn 50 ngôn ngữ"
+        },
+        improvement: {
+          responseTime: "Nhanh hơn 99%",
+          availability: "Phủ sóng gấp 3 lần",
+          scalability: "Mở rộng không giới hạn",
+          consistency: "Nhất quán 100%",
+          costPerInteraction: "Giảm chi phí 95%",
+          languageSupport: "Nhiều hơn 50 lần ngôn ngữ"
+        }
+      },
+      advanced: {
+        title: "Khả năng",
+        titleHighlight: "Tiên tiến",
+        subtitle: "Tính năng chuyên nghiệp cho triển khai cấp doanh nghiệp",
+        ai: {
+          category: "AI & Machine Learning",
+          conversationFlow: {
+            name: "Luồng cuộc trò chuyện động",
+            desc: "Đường dẫn cuộc trò chuyện được hỗ trợ AI thích ứng dựa trên phản hồi của người dùng"
+          },
+          intentTraining: {
+            name: "Huấn luyện ý định",
+            desc: "Liên tục cải thiện hiểu biết bot với machine learning"
+          },
+          autoLearning: {
+            name: "Tự động học",
+            desc: "Bot tự động học từ các cuộc trò chuyện thành công"
+          },
+          fallbackHandling: {
+            name: "Xử lý dự phòng thông minh",
+            desc: "Xử lý các truy vấn không được nhận dạng một cách khéo léo với chuyển giao con người"
+          }
+        },
+        integration: {
+          category: "Tích hợp & APIs",
+          crm: {
+            name: "Tích hợp CRM",
+            desc: "Đồng bộ liền mạch với Salesforce, HubSpot và các CRM khác"
+          },
+          ecommerce: {
+            name: "Nền tảng thương mại điện tử",
+            desc: "Kết nối với Shopify, WooCommerce và các hệ thống thương mại điện tử lớn"
+          },
+          customApi: {
+            name: "Truy cập API tùy chỉnh",
+            desc: "Truy cập REST API đầy đủ cho tích hợp và quy trình làm việc tùy chỉnh"
+          },
+          webhook: {
+            name: "Hỗ trợ Webhook",
+            desc: "Thông báo sự kiện thời gian thực và đồng bộ hóa dữ liệu"
+          }
+        },
+        analytics: {
+          category: "Phân tích & Thông tin chi tiết",
+          conversation: {
+            name: "Phân tích cuộc trò chuyện",
+            desc: "Thông tin chi tiết sâu sắc về hành vi người dùng và mẫu cuộc trò chuyện"
+          },
+          performance: {
+            name: "Số liệu hiệu suất",
+            desc: "Theo dõi thời gian phản hồi, tỷ lệ giải quyết và sự hài lòng của người dùng"
+          },
+          dashboard: {
+            name: "Bảng điều khiển điều hành",
+            desc: "Số liệu và KPI cấp cao cho các bên liên quan kinh doanh"
+          },
+          abTesting: {
+            name: "Kiểm tra A/B",
+            desc: "Kiểm tra các luồng cuộc trò chuyện khác nhau để tối ưu hóa hiệu suất"
+          }
+        }
+      },
+      demo: {
+        title: "Trải nghiệm",
+        titleHighlight: "Công nghệ",
+        description: "Xem chatbot AI của chúng tôi hoạt động với một cuộc biểu diễn tương tác",
+        interactive: {
+          title: "Demo tương tác",
+          description: "Tự mình thử công nghệ chatbot của chúng tôi"
+        },
+        feature1: "Cuộc trò chuyện thời gian thực",
+        feature2: "Hiểu ngôn ngữ tự nhiên",
+        feature3: "Phản hồi nhận biết ngữ cảnh",
+        bookDemo: "Đặt lịch Demo",
+        viewCaseStudies: "Xem nghiên cứu trường hợp"
+      }
+    },
 
-    // Comparison Table
-    'features.comparison.title': 'AI Chatbots vs',
-    'features.comparison.titleHighlight': 'Traditional Live Chat',
-    'features.comparison.subtitle': 'See how AI-powered automation outperforms traditional customer service methods',
+    // Case Studies page translations
+    caseStudies: {
+      hero: {
+        title: "Câu chuyện",
+        titleHighlight: "Thành công thực tế",
+        description: "Khám phá cách các doanh nghiệp thuộc nhiều ngành đã biến đổi trải nghiệm khách hàng và đạt được kết quả đáng kể với giải pháp chatbot AI của D2 Group."
+      },
+      stats: {
+        deployments: "Triển khai thành công",
+        conversionIncrease: "Tăng chuyển đổi trung bình",
+        costReduction: "Giảm chi phí trung bình",
+        support: "Hỗ trợ khách hàng"
+      },
+      labels: {
+        challenge: "Thách thức",
+        solution: "Giải pháp",
+        results: "Kết quả"
+      },
+      studies: {
+        techmart: {
+          title: "Gã khổng lồ thương mại điện tử tăng chuyển đổi 45%",
+          company: "TechMart Vietnam",
+          industry: "Thương mại điện tử",
+          challenge: "Tỷ lệ bỏ giỏ hàng cao và quá tải yêu cầu khách hàng trong mùa cao điểm",
+          solution: "Triển khai chatbot AI cho đề xuất sản phẩm, theo dõi đơn hàng và hỗ trợ khách hàng ngay lập tức",
+          testimonial: "Chatbot đã biến đổi trải nghiệm khách hàng của chúng tôi. Chúng tôi đang thấy tỷ lệ chuyển đổi cao kỷ lục và đội hỗ trợ có thể tập trung vào các vấn đề phức tạp.",
+          author: "Nguyễn Văn Minh, CEO TechMart Vietnam"
+        },
+        medcare: {
+          title: "Nhà cung cấp y tế giảm thời gian chờ 60%",
+          company: "MedCare Plus",
+          industry: "Y tế",
+          challenge: "Thời gian chờ bệnh nhân dài để đặt lịch hẹn và yêu cầu sức khỏe cơ bản",
+          solution: "Triển khai bot lập lịch hẹn với kiểm tra triệu chứng và hệ thống thông tin sức khỏe",
+          testimonial: "Bệnh nhân của chúng tôi thích phản hồi ngay lập tức cho lịch hẹn và câu hỏi sức khỏe cơ bản. Nó đã cách mạng hóa quy trình chăm sóc bệnh nhân của chúng tôi.",
+          author: "BS. Trần Thị Lan, Giám đốc Y khoa"
+        },
+        vietfinance: {
+          title: "Dịch vụ tài chính cải thiện chất lượng khách hàng tiềm năng 80%",
+          company: "VietFinance Solutions",
+          industry: "Dịch vụ tài chính",
+          challenge: "Quy trình đánh giá khách hàng tiềm năng kém và quá trình tuyển dụng khách hàng tốn thời gian",
+          solution: "Triển khai bot đánh giá khách hàng tiềm năng thông minh với xử lý tài liệu và tự động hóa KYC",
+          testimonial: "Chatbot AI đánh giá khách hàng tiềm năng tốt đến mức đội bán hàng của chúng tôi chỉ nói chuyện với những khách hàng tiềm năng nghiêm túc. Tỷ lệ chuyển đổi của chúng tôi chưa bao giờ cao hơn.",
+          author: "Lê Hoàng Nam, Giám đốc Bán hàng"
+        },
+        edutech: {
+          title: "Nền tảng giáo dục tăng sự tham gia của học sinh 70%",
+          company: "EduTech Academy",
+          industry: "Giáo dục",
+          challenge: "Sự tham gia của học sinh thấp và tỷ lệ bỏ học cao trong các khóa học trực tuyến",
+          solution: "Tạo bot gia sư AI cho hỗ trợ học sinh 24/7, đề xuất khóa học và theo dõi tiến độ",
+          testimonial: "Học sinh có gia sư AI cá nhân có sẵn 24/7. Sự cải thiện trong sự tham gia và tỷ lệ hoàn thành thật đáng chú ý.",
+          author: "Phạm Thị Mai, Giám đốc Học thuật"
+        },
+        propertypro: {
+          title: "Đại lý bất động sản tạo ra gấp 3 lần khách hàng tiềm năng chất lượng",
+          company: "PropertyPro Vietnam",
+          industry: "Bất động sản",
+          challenge: "Khó khăn trong việc đánh giá người mua nghiêm túc và quản lý khối lượng lớn yêu cầu bất động sản",
+          solution: "Triển khai bot tìm kiếm bất động sản với tour ảo và hệ thống đánh giá người mua",
+          testimonial: "Chatbot đánh giá trước người mua và lên lịch xem nhà tự động. Đại lý của chúng tôi bây giờ chỉ dành thời gian với những người mua nghiêm túc.",
+          author: "Vũ Minh Tuấn, Giám đốc Điều hành"
+        },
+        luxuryresorts: {
+          title: "Chuỗi khách sạn đạt được 90% tự động hóa đặt phòng",
+          company: "Luxury Resorts Group",
+          industry: "Khách sạn",
+          challenge: "Quy trình đặt phòng thủ công áp đảo nhân viên trong mùa du lịch cao điểm",
+          solution: "Triển khai bot tự động hóa đặt phòng với đề xuất phòng và tính năng dịch vụ khách",
+          testimonial: "Khách có thể đặt phòng, yêu cầu dịch vụ và nhận đề xuất ngay lập tức. Tỷ lệ lấp đầy của chúng tôi đã đạt mức cao nhất mọi thời đại.",
+          author: "Nguyễn Thị Hoa, Quản lý Vận hành"
+        }
+      },
+      metrics: {
+        conversionRate: "Tỷ lệ chuyển đổi",
+        cartAbandonment: "Bỏ giỏ hàng",
+        responseTime: "Thời gian phản hồi",
+        customerSatisfaction: "Sự hài lòng của khách hàng",
+        waitTimes: "Thời gian chờ",
+        appointmentBookings: "Đặt lịch hẹn",
+        staffEfficiency: "Hiệu quả nhân viên",
+        patientSatisfaction: "Sự hài lòng của bệnh nhân",
+        leadQuality: "Chất lượng khách hàng tiềm năng",
+        onboardingTime: "Thời gian tuyển dụng",
+        processEfficiency: "Hiệu quả quy trình",
+        studentEngagement: "Sự tham gia của học sinh",
+        courseCompletion: "Hoàn thành khóa học",
+        supportQueries: "Truy vấn hỗ trợ",
+        studentSatisfaction: "Sự hài lòng của học sinh",
+        qualifiedLeads: "Khách hàng tiềm năng đủ điều kiện",
+        propertyViews: "Lượt xem bất động sản",
+        salesCycle: "Chu kỳ bán hàng",
+        agentProductivity: "Năng suất đại lý",
+        bookingAutomation: "Tự động hóa đặt phòng",
+        staffWorkload: "Khối lượng công việc nhân viên",
+        bookingConversion: "Chuyển đổi đặt phòng",
+        guestSatisfaction: "Sự hài lòng của khách"
+      },
+      industries: {
+        title: "Các ngành chúng tôi",
+        titleHighlight: "Phục vụ",
+        subtitle: "Thành công đã được chứng minh trên nhiều lĩnh vực kinh doanh đa dạng",
+        list: {
+          ecommerce: "Thương mại điện tử",
+          healthcare: "Y tế",
+          finance: "Tài chính",
+          education: "Giáo dục",
+          realEstate: "Bất động sản",
+          hospitality: "Khách sạn",
+          retail: "Bán lẻ",
+          automotive: "Ô tô",
+          insurance: "Bảo hiểm",
+          manufacturing: "Sản xuất",
+          travel: "Du lịch",
+          logistics: "Logistics"
+        },
+        metrics: {
+          ecommerce: "+45% Doanh số",
+          healthcare: "-60% Thời gian chờ",
+          finance: "+80% Chất lượng khách hàng tiềm năng",
+          education: "+70% Sự tham gia",
+          realEstate: "+300% Khách hàng tiềm năng",
+          hospitality: "90% Tự động hóa",
+          retail: "+35% Chuyển đổi",
+          automotive: "+50% Hiệu quả",
+          insurance: "+25% Khiếu nại",
+          manufacturing: "+40% Hỗ trợ",
+          travel: "+55% Đặt chỗ",
+          logistics: "+30% Theo dõi"
+        }
+      },
+      cta: {
+        title: "Sẵn sàng viết",
+        titleHighlight: "Câu chuyện thành công",
+        description: "Tham gia hàng trăm doanh nghiệp thành công đã biến đổi trải nghiệm khách hàng với D2 Group. Hãy thảo luận cách chúng tôi có thể mang lại kết quả tương tự cho tổ chức của bạn.",
+        startButton: "Bắt đầu câu chuyện thành công của bạn",
+        pricingButton: "Xem bảng giá"
+      }
+    },
 
-    'features.comparison.tableHeader.feature': 'Feature',
-    'features.comparison.tableHeader.traditional': 'Traditional Live Chat',
-    'features.comparison.tableHeader.aiChatbot': 'AI Chatbot',
-    'features.comparison.tableHeader.improvement': 'Improvement',
+    // Contact page translations
+    contact: {
+      hero: {
+        title: "Liên hệ",
+        titleHighlight: "với chúng tôi",
+        description: "Sẵn sàng biến đổi cuộc trò chuyện khách hàng của bạn? Hãy thảo luận cách D2 Group có thể giúp bạn đạt được mục tiêu tự động hóa. Các chuyên gia của chúng tôi đang sẵn sàng cung cấp hướng dẫn cá nhân hóa."
+      },
+      features: {
+        consultation: {
+          title: "Tư vấn miễn phí",
+          description: "Hướng dẫn chuyên gia phù hợp với nhu cầu của bạn"
+        },
+        response: {
+          title: "Phản hồi trong 24 giờ",
+          description: "Xử lý nhanh chóng tất cả các yêu cầu"
+        },
+        implementation: {
+          title: "Triển khai nhanh",
+          description: "Khởi chạy chỉ trong 48 giờ"
+        }
+      },
+      form: {
+        title: "Hãy bắt đầu",
+        titleHighlight: "Cuộc trò chuyện",
+        subtitle: "Điền vào biểu mẫu dưới đây và đội ngũ của chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ.",
+        fields: {
+          name: "Họ và tên",
+          email: "Địa chỉ email",
+          phone: "Số điện thoại",
+          company: "Tên công ty",
+          interest: "Lĩnh vực quan tâm",
+          message: "Tin nhắn"
+        },
+        placeholders: {
+          name: "Nguyễn Văn A",
+          email: "nguyen@congty.com",
+          phone: "+84 909 123 456",
+          company: "Công ty ABC",
+          interest: "Chúng tôi có thể giúp gì cho bạn?",
+          message: "Hãy cho chúng tôi biết về nhu cầu kinh doanh, thách thức hiện tại hoặc bất kỳ câu hỏi cụ thể nào bạn có..."
+        },
+        interests: {
+          demo: "Lên lịch demo sản phẩm",
+          pricing: "Nhận thông tin giá",
+          integration: "Thảo luận tùy chọn tích hợp",
+          enterprise: "Giải pháp doanh nghiệp",
+          support: "Hỗ trợ kỹ thuật",
+          partnership: "Cơ hội đối tác",
+          other: "Khác"
+        },
+        submit: "Gửi tin nhắn",
+        sending: "Đang gửi...",
+        privacy: "Bằng cách gửi biểu mẫu này, bạn đồng ý với Chính sách bảo mật và Điều khoản dịch vụ của chúng tôi.",
+        success: {
+          title: "Cảm ơn bạn đã quan tâm!",
+          description: "Chúng tôi sẽ liên hệ lại với bạn trong vòng 24 giờ. Hãy kiểm tra email để xác nhận."
+        },
+        error: {
+          title: "Oops! Đã xảy ra lỗi",
+          description: "Không thể gửi biểu mẫu. Vui lòng thử lại hoặc liên hệ chúng tôi trực tiếp qua email."
+        }
+      },
+      info: {
+        title: "Thông tin",
+        titleHighlight: "Liên hệ",
+        email: {
+          title: "Email"
+        },
+        phone: {
+          title: "Điện thoại"
+        },
+        address: {
+          title: "Địa chỉ",
+          line1: "Số 3 đường Nguyễn Cơ Thạch",
+          line2: "Phường An Lợi Đông, Thành phố Thủ Đức",
+          line3: "Thành phố Hồ Chí Minh, Việt Nam"
+        },
+        hours: {
+          title: "Giờ làm việc",
+          weekdays: "Thứ 2 - Thứ 6: 9:00 AM - 6:00 PM (GMT+7)",
+          saturday: "Thứ 7: 10:00 AM - 2:00 PM (GMT+7)",
+          emergency: "Hỗ trợ khẩn cấp: 24/7"
+        }
+      },
+      map: {
+        title: "Tìm",
+        titleHighlight: "chúng tôi"
+      },
+      thanks: {
+        title: "Cảm ơn bạn đã",
+        titleHighlight: "Quan tâm",
+        description: "Tin nhắn của bạn đã được nhận và đội ngũ của chúng tôi sẽ phản hồi trong vòng 24 giờ. Trong thời gian chờ đợi, hãy kết nối với chúng tôi trên mạng xã hội."
+      }
+    },
 
-    'features.comparison.responseTime': 'Response Time',
-    'features.comparison.traditional.responseTime': 'Hours to days',
-    'features.comparison.ai.responseTime': '< 2 seconds',
-    'features.comparison.improvement.responseTime': '99% faster',
-
-    'features.comparison.availability': 'Availability',
-    'features.comparison.traditional.availability': 'Business hours only',
-    'features.comparison.ai.availability': '24/7/365',
-    'features.comparison.improvement.availability': 'Always on',
-
-    'features.comparison.scalability': 'Scalability',
-    'features.comparison.traditional.scalability': 'Limited by staff',
-    'features.comparison.ai.scalability': 'Unlimited conversations',
-    'features.comparison.improvement.scalability': 'Infinite scale',
-
-    'features.comparison.consistency': 'Consistency',
-    'features.comparison.traditional.consistency': 'Varies by agent',
-    'features.comparison.ai.consistency': 'Always consistent',
-    'features.comparison.improvement.consistency': '100% reliable',
-
-    'features.comparison.costPerInteraction': 'Cost per Interaction',
-    'features.comparison.traditional.costPerInteraction': '$5-15',
-    'features.comparison.ai.costPerInteraction': '$0.10-0.50',
-    'features.comparison.improvement.costPerInteraction': '95% cost reduction',
-
-    'features.comparison.languageSupport': 'Language Support',
-    'features.comparison.traditional.languageSupport': '1-2 languages',
-    'features.comparison.ai.languageSupport': '50+ languages',
-    'features.comparison.improvement.languageSupport': 'Global reach',
-
-    // Advanced Features
-    'features.advanced.title': 'Advanced',
-    'features.advanced.titleHighlight': 'Capabilities',
-    'features.advanced.subtitle': 'Explore the deep functionality that sets D2 Group apart',
-
-    'features.advanced.ai.category': 'AI & Machine Learning',
-    'features.advanced.ai.conversationFlow.name': 'Conversation Flow Builder',
-    'features.advanced.ai.conversationFlow.desc': 'Visual drag-and-drop interface to design complex conversation paths',
-    'features.advanced.ai.intentTraining.name': 'Intent Training',
-    'features.advanced.ai.intentTraining.desc': 'Continuously improve AI understanding with custom training data',
-    'features.advanced.ai.autoLearning.name': 'Auto-Learning',
-    'features.advanced.ai.autoLearning.desc': 'Machine learning algorithms that improve responses over time',
-    'features.advanced.ai.fallbackHandling.name': 'Fallback Handling',
-    'features.advanced.ai.fallbackHandling.desc': 'Smart escalation to human agents when needed',
-
-    'features.advanced.integration.category': 'Integration & APIs',
-    'features.advanced.integration.crm.name': 'CRM Integration',
-    'features.advanced.integration.crm.desc': 'Connect with Salesforce, HubSpot, Pipedrive, and 50+ CRMs',
-    'features.advanced.integration.ecommerce.name': 'E-commerce Platforms',
-    'features.advanced.integration.ecommerce.desc': 'Native integration with Shopify, WooCommerce, Magento',
-    'features.advanced.integration.customApi.name': 'Custom APIs',
-    'features.advanced.integration.customApi.desc': 'RESTful APIs for custom integrations and workflows',
-    'features.advanced.integration.webhook.name': 'Webhook Support',
-    'features.advanced.integration.webhook.desc': 'Real-time data synchronization with external systems',
-
-    'features.advanced.analytics.category': 'Analytics & Reporting',
-    'features.advanced.analytics.conversation.name': 'Conversation Analytics',
-    'features.advanced.analytics.conversation.desc': 'Deep insights into customer behavior and conversation patterns',
-    'features.advanced.analytics.performance.name': 'Performance Metrics',
-    'features.advanced.analytics.performance.desc': 'Track resolution rate, satisfaction scores, and conversion metrics',
-    'features.advanced.analytics.dashboard.name': 'Custom Dashboards',
-    'features.advanced.analytics.dashboard.desc': 'Build personalized reporting dashboards for stakeholders',
-    'features.advanced.analytics.abTesting.name': 'A/B Testing',
-    'features.advanced.analytics.abTesting.desc': 'Test different conversation flows and optimize performance',
-
-    // Demo Section
-    'features.demo.title': 'See Our Features',
-    'features.demo.titleHighlight': 'In Action',
-    'features.demo.description': 'Experience the power of D2 Group\'s AI chatbot platform with a personalized demo tailored to your business needs.',
-    'features.demo.interactive.title': 'Interactive Demo',
-    'features.demo.interactive.description': 'Click to experience our chatbot in action',
-    'features.demo.feature1': 'Real-time conversation flow',
-    'features.demo.feature2': 'Multi-language support',
-    'features.demo.feature3': 'Analytics dashboard',
-    'features.demo.bookDemo': 'Book Live Demo',
-    'features.demo.viewCaseStudies': 'View Case Studies',
-    
-    // About Page
-    'about.hero.title': 'About D2 Group',
-    'about.hero.subtitle': 'We\'re on a mission to transform how businesses communicate with their customers through intelligent automation.',
-    'about.hero.description': 'Since 2019, we\'ve been pioneering AI-driven chatbot solutions that deliver real results.',
-    'about.stats.clients': 'Happy Clients',
-    'about.stats.countries': 'Countries Served',
-    'about.stats.uptime': 'Uptime SLA',
-    'about.mission.title': 'Our Mission',
-    'about.mission.description': 'To democratize AI technology and make intelligent customer communication accessible to businesses of all sizes. We believe every company deserves enterprise-grade automation capabilities without the complexity.',
-    'about.mission.global.title': 'Global Reach',
-    'about.mission.global.desc': 'Serving clients across Asia-Pacific with localized solutions',
-    'about.mission.innovation.title': 'Innovation First',
-    'about.mission.innovation.desc': 'Constantly pushing the boundaries of conversational AI',
-    'about.mission.security.title': 'Trust & Security',
-    'about.mission.security.desc': 'Enterprise-grade security and compliance standards',
-    'about.vision.title': 'Our Vision',
-    'about.vision.description': '"A world where every business conversation is intelligent, personalized, and delightful - powered by AI that truly understands human needs."',
-    'about.team.title': 'Meet Our Team',
-    'about.team.subtitle': 'A diverse group of AI experts, engineers, and business strategists united by our passion for innovation',
-    'about.journey.title': 'Our Journey',
-    'about.journey.subtitle': 'From startup to industry leader - the milestones that define us',
-    'about.awards.title': 'Recognition & Awards',
-    'about.awards.subtitle': 'Industry recognition for our innovation and excellence',
-    'about.cta.title': 'Ready to Join Our Success Story?',
-    'about.cta.description': 'Let\'s discuss how D2 Group can transform your customer communication strategy. Our team is ready to design a solution that fits your unique needs.',
-    'about.cta.getStarted': 'Get Started Today',
-    'about.cta.scheduleCall': 'Schedule a Call',
-    
-    // Case Studies Page
-    'caseStudies.hero.title': 'Case Studies',
-    'caseStudies.hero.subtitle': 'Real results from businesses that have successfully transformed',
-    'caseStudies.hero.description': 'Discover how companies like yours have achieved remarkable results with our AI chatbot solutions.',
-    'caseStudies.filter.all': 'All Industries',
-    'caseStudies.filter.ecommerce': 'E-commerce',
-    'caseStudies.filter.healthcare': 'Healthcare',
-    'caseStudies.filter.education': 'Education',
-    'caseStudies.filter.banking': 'Banking',
-    'caseStudies.filter.realestate': 'Real Estate',
-    'caseStudies.filter.travel': 'Travel',
-    
-    'caseStudies.metrics.conversion': 'Increase in conversions',
-    'caseStudies.metrics.satisfaction': 'Customer satisfaction',
-    'caseStudies.metrics.reduction': 'Support cost reduction',
-    'caseStudies.metrics.response': 'Response time',
-    'caseStudies.metrics.automation': 'Automation',
-    'caseStudies.readMore': 'Read More',
-    'caseStudies.viewDetails': 'View Details',
-    'caseStudies.downloadPdf': 'Download PDF',
-    
-    'caseStudies.ecommerce.title': 'Fashion retailer increases sales by 150%',
-    'caseStudies.ecommerce.company': 'FashionHub Vietnam',
-    'caseStudies.ecommerce.challenge': 'High cart abandonment rates and slow customer support',
-    'caseStudies.ecommerce.solution': 'Deployed AI chatbot for product advice and checkout assistance',
-    'caseStudies.ecommerce.result': '60% reduction in cart abandonment and 150% increase in sales within 6 months',
-    
-    'caseStudies.healthcare.title': 'Hospital improves patient satisfaction by 90%',
-    'caseStudies.healthcare.company': 'Saigon General Hospital',
-    'caseStudies.healthcare.challenge': 'Overloaded hotlines and long waiting times',
-    'caseStudies.healthcare.solution': 'Chatbot supporting appointment booking and basic health consultation',
-    'caseStudies.healthcare.result': '70% reduction in hotline calls and 90% increase in patient satisfaction scores',
-    
-    'caseStudies.education.title': 'University increases student engagement by 200%',
-    'caseStudies.education.company': 'Ho Chi Minh City University of Technology',
-    'caseStudies.education.challenge': 'Students struggling to access information and support services',
-    'caseStudies.education.solution': 'Chatbot supporting academic advice and administrative procedures',
-    'caseStudies.education.result': '200% increase in engagement and 80% reduction in procedure processing time',
-    
-    'caseStudies.cta.title': 'Ready to achieve similar results?',
-    'caseStudies.cta.description': 'Let us help you create your own success story.',
-    'caseStudies.cta.getStarted': 'Get Started',
-    'caseStudies.cta.contactUs': 'Contact for Consultation',
-    
-    // Pricing Page
-    'pricing.title': 'Simple, Transparent Pricing',
-    'pricing.subtitle': 'Choose the plan that fits your business needs. All plans include free setup, training, and a 14-day free trial with no commitments.',
-    'pricing.starter': 'Starter',
-    'pricing.growth': 'Growth',
-    'pricing.business': 'Business', 
-    'pricing.enterprise': 'Enterprise',
-    'pricing.month': '/month',
-    'pricing.contactPricing': 'Contact for pricing',
-    'pricing.getStarted': 'Get Started',
-    'pricing.contactForPricing': 'Contact for Pricing',
-    'pricing.freeTrial': 'Free 14-day trial',
-    'pricing.noSetupFees': 'No setup fees',
-    'pricing.cancelAnytime': 'Cancel anytime',
-    'pricing.mostPopular': 'Most Popular',
-    
-    // Plan descriptions
-    'pricing.starter.desc': 'Perfect for small businesses getting started with AI chatbots',
-    'pricing.growth.desc': 'Ideal for growing companies with higher volume needs',
-    'pricing.business.desc': 'Comprehensive solution for businesses with professional requirements',
-    'pricing.enterprise.desc': 'Tailored solutions for large organizations with specific requirements',
-    
-    // Pricing Features
-    'pricing.features.coreFeatures': 'Core Features',
-    'pricing.features.channelsIntegrations': 'Channels & Integrations',
-    'pricing.features.analyticsReporting': 'Analytics & Reporting',
-    'pricing.features.securityCompliance': 'Security & Compliance',
-    'pricing.features.supportServices': 'Support & Services',
-    
-    'pricing.features.monthlyChatSessions': 'Monthly chat sessions',
-    'pricing.features.chatbotTemplate': 'Chatbot templates',
-    'pricing.features.responseTimeSla': 'Response time SLA',
-    'pricing.features.analyticsDashboard': 'Analytics dashboard',
-    'pricing.features.websiteWidget': 'Website widget',
-    'pricing.features.whatsappBusiness': 'WhatsApp Business',
-    'pricing.features.facebookMessenger': 'Facebook Messenger',
-    'pricing.features.crmIntegration': 'CRM integrations',
-    'pricing.features.customApiAccess': 'Custom API access',
-    
-    'pricing.comparison.title': 'Detailed Comparison',
-    'pricing.comparison.subtitle': 'Compare all features across our pricing plans.',
-    'pricing.comparison.features': 'Features',
-    
-    'pricing.faq.title': 'Frequently Asked Questions',
-    'pricing.faq.subtitle': 'Everything you need to know about our pricing and plans.',
-    'pricing.faq.q1': 'How are chat sessions calculated?',
-    'pricing.faq.a1': 'A chat session is counted each time a unique user interacts with the chatbot within a 24-hour period, regardless of the number of messages exchanged.',
-    'pricing.faq.q2': 'Can I upgrade or downgrade my plan anytime?',
-    'pricing.faq.a2': 'Yes - you can switch plans at any time. Upgrades take effect immediately; downgrades apply at the next billing cycle.',
-    'pricing.faq.q3': 'Is there a free trial?',
-    'pricing.faq.a3': 'Yes - we offer a 14-day free trial for all plans. No credit card required and you can cancel anytime during the trial.',
-    'pricing.faq.q4': 'What happens if I exceed my chat session limit?',
-    'pricing.faq.a4': 'If you exceed your monthly quota, additional sessions are billed at $0.10 per session. We\'ll notify you when you\'re approaching your limit.',
-    
-    'pricing.cta.title': 'Ready to get started?',
-    'pricing.cta.description': 'Join hundreds of businesses that have already transformed their customer experience with D2 Group. Start your free trial today.',
-    'pricing.cta.startTrial': 'Start Free Trial',
-    'pricing.cta.contactSales': 'Contact Sales',
-    
-    // Contact Page
-    'contact.hero.title': 'Contact Us',
-    'contact.hero.subtitle': 'Ready to transform your customer experience?',
-    'contact.hero.description': 'Let\'s start the conversation. Our team of experts is ready to discuss your needs and design the perfect solution.',
-    
-    'contact.form.title': 'Send us a message',
-    'contact.form.subtitle': 'Fill out the information below and we\'ll get back to you within 24 hours',
-    'contact.form.name': 'Full Name',
-    'contact.form.name.placeholder': 'Enter your full name',
-    'contact.form.email': 'Email',
-    'contact.form.email.placeholder': 'Enter your email address',
-    'contact.form.company': 'Company',
-    'contact.form.company.placeholder': 'Enter your company name',
-    'contact.form.phone': 'Phone Number',
-    'contact.form.phone.placeholder': 'Enter your phone number',
-    'contact.form.subject': 'Subject',
-    'contact.form.subject.placeholder': 'Select a topic of interest',
-    'contact.form.subject.demo': 'Schedule Demo',
-    'contact.form.subject.pricing': 'Pricing Consultation',
-    'contact.form.subject.support': 'Technical Support',
-    'contact.form.subject.partnership': 'Business Partnership',
-    'contact.form.subject.other': 'Other',
-    'contact.form.message': 'Message',
-    'contact.form.message.placeholder': 'Share details about your needs or project...',
-    'contact.form.send': 'Send Message',
-    'contact.form.sending': 'Sending...',
-    'contact.form.success': 'Message sent successfully! We\'ll get back to you soon.',
-    'contact.form.error': 'An error occurred. Please try again later.',
-    
-    'contact.info.title': 'Contact Information',
-    'contact.info.subtitle': 'Multiple ways to connect with us',
-    'contact.info.address': 'Address',
-    'contact.info.address.detail': '3 Nguyen Co Thach Street, An Loi Dong Ward, Thu Duc City, Ho Chi Minh City',
-    'contact.info.phone': 'Phone',
-    'contact.info.email': 'Email',
-    'contact.info.hours': 'Business Hours',
-    'contact.info.hours.detail': 'Monday - Friday: 8:00 AM - 6:00 PM',
-    'contact.info.weekend': 'Saturday - Sunday: 9:00 AM - 5:00 PM',
-    'contact.info.response': 'Response Time',
-    'contact.info.response.detail': 'Average under 2 hours during business hours',
-    
-    'contact.demo.title': 'Book a Demo',
-    'contact.demo.subtitle': 'See D2 Group in action with a personalized demo',
-    'contact.demo.description': 'Schedule a 30-minute demo to explore how AI chatbots can transform your business.',
-    'contact.demo.book': 'Book Demo',
-    'contact.demo.features': 'Demo includes:',
-    'contact.demo.feature1': 'Platform and feature overview',
-    'contact.demo.feature2': 'Sample chatbot setup for your industry',
-    'contact.demo.feature3': 'Q&A with solution expert',
-    'contact.demo.feature4': 'Strategy consultation and implementation roadmap',
-    
-    'contact.support.title': 'Customer Support',
-    'contact.support.subtitle': 'We\'re always here to help you',
-    'contact.support.technical': 'Technical Support',
-    'contact.support.technical.desc': 'Questions about features and usage',
-    'contact.support.billing': 'Billing Support',
-    'contact.support.billing.desc': 'Questions about invoices and service plans',
-    'contact.support.training': 'Training and Guidance',
-    'contact.support.training.desc': 'Learn how to use the platform effectively',
-    
-    'contact.social.title': 'Connect with us',
-    'contact.social.subtitle': 'Follow the latest updates and share experiences',
-    
-    // Footer
-    'footer.company': 'Company',
-    'footer.product': 'Product',
-    'footer.resources': 'Resources',
-    'footer.support': 'Support',
-    'footer.legal': 'Legal',
-    'footer.blog': 'Blog',
-    'footer.documentation': 'Documentation',
-    'footer.apiDocs': 'API Docs',
-    'footer.helpCenter': 'Help Center',
-    'footer.privacy': 'Privacy Policy',
-    'footer.terms': 'Terms of Service',
-    'footer.security': 'Security',
-    'footer.status': 'Status',
-    'footer.followUs': 'Follow Us',
-    'footer.newsletter.title': 'Subscribe to Newsletter',
-    'footer.newsletter.description': 'Get the latest product updates and industry news',
-    'footer.newsletter.placeholder': 'Enter your email',
-    'footer.newsletter.subscribe': 'Subscribe',
-    'footer.copyright': '© 2024 D2 Group. All rights reserved.',
-    
-    // 404 Page
-    'notFound.title': 'Page Not Found',
-    'notFound.description': 'Sorry, the page you are looking for does not exist or has been moved.',
-    'notFound.backHome': 'Back to Home',
-    'notFound.contactSupport': 'Contact Support',
-    'notFound.errorCode': 'Error code:',
-    
-    // Form Validation
-    'validation.required': 'This field is required',
-    'validation.email': 'Please enter a valid email',
-    'validation.phone': 'Please enter a valid phone number',
-    'validation.minLength': 'Minimum {min} characters',
-    'validation.maxLength': 'Maximum {max} characters',
-    
-    // System Messages
-    'system.loading': 'Loading...',
-    'system.error': 'An error occurred',
-    'system.success': 'Success!',
-    'system.tryAgain': 'Try Again',
-    'system.cancel': 'Cancel',
-    'system.confirm': 'Confirm',
-    'system.save': 'Save',
-    'system.edit': 'Edit',
-    'system.delete': 'Delete',
-    'system.view': 'View',
-    'system.download': 'Download',
-    'system.upload': 'Upload',
-    'system.search': 'Search',
-    'system.filter': 'Filter',
-    'system.sort': 'Sort',
-    'system.next': 'Next',
-    'system.previous': 'Previous',
-    'system.close': 'Close',
-    'system.open': 'Open',
-    'system.expand': 'Expand',
-    'system.collapse': 'Collapse',
-    
-    // Common terms
-    'common.worksWith': 'Works with',
-    'common.includes': 'Includes',
-    'common.plus': 'Plus',
-    'common.per': 'per',
-    'common.up': 'Up to',
-    'common.from': 'From',
-    'common.to': 'To',
-    'common.and': 'and',
-    'common.or': 'or',
-    'common.all': 'All',
-    'common.more': 'More',
-    'common.less': 'Less',
-    'common.new': 'New',
-    'common.popular': 'Popular',
-    'common.recommended': 'Recommended',
-    'common.featured': 'Featured',
-    'common.free': 'Free',
-    'common.premium': 'Premium',
-    'common.pro': 'Pro',
-    'common.basic': 'Basic',
-    'common.advanced': 'Advanced',
-    'common.custom': 'Custom',
-    'common.standard': 'Standard',
-    'common.enterprise': 'Enterprise',
+    // Pricing page translations
+    pricing: {
+      hero: {
+        title: "Giá cả đơn giản,",
+        titleHighlight: "Minh bạch",
+        description: "Chọn gói hoàn hảo cho nhu cầu kinh doanh của bạn. Tất cả các gói bao gồm các tính năng AI cốt lõi của chúng tôi mà không có phí ẩn.",
+        features: {
+          trial: "Dùng thử miễn phí 14 ngày",
+          noSetup: "Không phí thiết lập",
+          cancel: "Hủy bất cứ lúc nào"
+        }
+      },
+      mostPopular: "Phổ biến nhất",
+      plans: {
+        starter: {
+          name: "Khởi đầu",
+          period: " VND/tháng",
+          description: "Hoàn hảo cho các doanh nghiệp nhỏ bắt đầu với chatbot AI"
+        },
+        growth: {
+          name: "Tăng trưởng",
+          period: " VND/tháng",
+          description: "Lý tưởng cho các doanh nghiệp đang phát triển với khối lượng trò chuyện vừa phải"
+        },
+        business: {
+          name: "Doanh nghiệp",
+          period: " VND/tháng",
+          description: "Tính năng nâng cao cho các doanh nghiệp thành lập với khối lượng cao"
+        },
+        enterprise: {
+          name: "Doanh nghiệp lớn",
+          price: "Liên hệ để biết giá",
+          description: "Giải pháp tùy chỉnh cho các tổ chức lớn có nhu cầu phức tạp"
+        }
+      },
+      features: {
+        conversations1000: "1.000 Cuộc trò chuyện",
+        conversations5000: "5.000 Cuộc trò chuyện",
+        conversations15000: "15.000 Cuộc trò chuyện",
+        unlimitedConversations: "Cuộc trò chuyện không giới hạn",
+        basicTemplates: "Mẫu cơ bản",
+        advancedTemplates: "Mẫu nâng cao",
+        customDesign: "Thiết kế tùy chỉnh",
+        customAI: "Huấn luyện AI tùy chỉnh",
+        websiteIntegration: "Tích hợp website",
+        multiChannel: "Hỗ trợ đa kênh",
+        crmIntegration: "Tích hợp CRM",
+        customIntegrations: "Tích hợp tùy chỉnh",
+        emailSupport: "Hỗ trợ email",
+        prioritySupport: "Hỗ trợ ưu tiên",
+        phoneSupport: "Hỗ trợ điện thoại",
+        basicAnalytics: "Phân tích cơ bản",
+        advancedAnalytics: "Phân tích nâng cao",
+        advancedReporting: "Báo cáo nâng cao",
+        workflows5: "5 Quy trình làm việc",
+        unlimitedWorkflows: "Quy trình làm việc không giới hạn",
+        standardResponse: "Thời gian phản hồi tiêu chuẩn",
+        priorityResponse: "Thời gian phản hồi ưu tiên",
+        abTesting: "Kiểm tra A/B",
+        leadQualification: "Đánh giá khách hàng tiềm năng",
+        customBranding: "Thương hiệu tùy chỉnh",
+        dedicatedManager: "Quản lý tài khoản chuyên dụng",
+        onPremise: "Triển khai tại chỗ",
+        security: "Bảo mật doanh nghiệp",
+        slaGuarantees: "Đảm bảo SLA",
+        whiteLabel: "Giải pháp nhãn trắng"
+      },
+      buttons: {
+        getStarted: "Bắt đầu",
+        contact: "Liên hệ để biết giá"
+      },
+      comparison: {
+        title: "So sánh",
+        titleHighlight: "Giá cả",
+        subtitle: "So sánh tất cả tính năng trên các gói giá của chúng tôi.",
+        table: {
+          features: "Tính năng",
+          starter: "Khởi đầu",
+          growth: "Tăng trưởng",
+          business: "Doanh nghiệp",
+          enterprise: "Doanh nghiệp lớn"
+        },
+        categories: {
+          core: "Tính năng cốt lõi",
+          channels: "Kênh & Tích hợp"
+        },
+        features: {
+          monthlySessions: "Phiên trò chuyện hàng tháng",
+          template: "Mẫu chatbot",
+          responseTime: "SLA thời gian phản hồi",
+          analytics: "Bảng điều khiển phân tích",
+          websiteWidget: "Tích hợp widget website",
+          website: "Widget website",
+          whatsapp: "WhatsApp Business",
+          messenger: "Facebook Messenger",
+          crm: "Tích hợp CRM",
+          api: "Truy cập API tùy chỉnh"
+        }
+      },
+      faq: {
+        title: "Câu hỏi",
+        titleHighlight: "Thường gặp",
+        subtitle: "Mọi thứ bạn cần biết về giá cả và gói dịch vụ của chúng tôi.",
+        counting: {
+          question: "Phiên trò chuyện được tính như thế nào?",
+          answer: "Một phiên trò chuyện được tính mỗi khi người dùng duy nhất tương tác với chatbot của bạn trong khung thời gian 24 giờ, bất kể số lượng tin nhắn được trao đổi."
+        },
+        upgrade: {
+          question: "Tôi có thể nâng cấp hoặc hạ cấp gói bất cứ lúc nào không?",
+          answer: "Có—bạn có thể chuyển đổi gói bất cứ khi nào bạn muốn. Nâng cấp có hiệu lực ngay lập tức; hạ cấp áp dụng vào chu kỳ thanh toán tiếp theo của bạn."
+        },
+        trial: {
+          question: "Có bản dùng thử miễn phí không?",
+          answer: "Có—chúng tôi cung cấp bản dùng thử miễn phí 14 ngày cho tất cả các gói. Không cần thẻ tín dụng và bạn có thể hủy bất cứ lúc nào trong thời gian dùng thử."
+        },
+        exceed: {
+          question: "Điều gì xảy ra nếu tôi vượt quá giới hạn phiên trò chuyện?",
+          answer: "Nếu bạn vượt quá hạn ngạch hàng tháng, các phiên bổ sung sẽ được tính phí 3.000 VND mỗi phiên. Chúng tôi sẽ gửi thông báo khi bạn gần đạt giới hạn."
+        }
+      },
+      cta: {
+        title: "Sẵn sàng",
+        titleHighlight: "Bắt đầu",
+        description: "Bắt đầu dùng thử miễn phí ngay hôm nay và khám phá cách chatbot AI của D2 Group có thể biến đổi cuộc trò chuyện khách hàng của bạn. Không cần thẻ tín dụng—hủy bất cứ lúc nào.",
+        buttons: {
+          trial: "Bắt đầu dùng thử miễn phí",
+          contact: "Liên hệ bán hàng"
+        },
+        help: "Có câu hỏi? Đội bán hàng của chúng tôi sẵn sàng giúp bạn chọn gói phù hợp."
+      }
+    }
   }
 };
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
-
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('vi');
+  const [language, setLanguage] = useState<Language>('en');
 
   const t = (key: string): string => {
-    return translations[language][key] || key;
+    const keys = key.split('.');
+    let value: any = translations[language];
+    
+    for (const k of keys) {
+      value = value?.[k];
+    }
+    
+    return value || key;
   };
 
   return (
