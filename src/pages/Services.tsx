@@ -12,6 +12,8 @@ const Services = () => {
       title: "Starter",
       subtitle: "Chatbot cơ bản",
       description: "Giải pháp hoàn hảo cho doanh nghiệp nhỏ vừa bắt đầu",
+      price: "2.900.000",
+      period: "VNĐ/tháng",
       icon: "🚀",
       features: [
         "FAQs tự động 24/7",
@@ -27,6 +29,8 @@ const Services = () => {
       title: "Growth", 
       subtitle: "Tích hợp CRM",
       description: "Phù hợp cho doanh nghiệp đang mở rộng quy mô",
+      price: "3.900.000",
+      period: "VNĐ/tháng",
       icon: "📈",
       features: [
         "Tất cả tính năng Starter",
@@ -43,6 +47,8 @@ const Services = () => {
       title: "Business",
       subtitle: "AI nâng cao", 
       description: "Giải pháp toàn diện cho doanh nghiệp lớn",
+      price: "7.900.000",
+      period: "VNĐ/tháng",
       icon: "🏢",
       features: [
         "Tất cả tính năng Growth",
@@ -59,6 +65,8 @@ const Services = () => {
       title: "Enterprise",
       subtitle: "Giải pháp custom",
       description: "Thiết kế riêng cho nhu cầu đặc biệt của tổ chức",
+      price: "Liên hệ",
+      period: "tư vấn",
       icon: "🏗️", 
       features: [
         "Tất cả tính năng Business",
@@ -83,16 +91,30 @@ const Services = () => {
       <section className="py-20 bg-ai-gradient-soft">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-6 gradient-text">
-            Gói dịch vụ AI Chatbot
+            Gói dịch vụ & Bảng giá AI Chatbot
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
             Lựa chọn gói phù hợp với quy mô và nhu cầu của doanh nghiệp. 
             Tất cả gói đều bao gồm setup miễn phí và đào tạo sử dụng.
           </p>
+          <div className="flex items-center justify-center space-x-4 text-sm text-gray-600">
+            <span className="flex items-center space-x-2">
+              <Check className="w-4 h-4 text-green-500" />
+              <span>Setup miễn phí</span>
+            </span>
+            <span className="flex items-center space-x-2">
+              <Check className="w-4 h-4 text-green-500" />
+              <span>Dùng thử 14 ngày</span>
+            </span>
+            <span className="flex items-center space-x-2">
+              <Check className="w-4 h-4 text-green-500" />
+              <span>Không ràng buộc</span>
+            </span>
+          </div>
         </div>
       </section>
 
-      {/* Services Grid */}
+      {/* Services & Pricing Grid */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -117,7 +139,11 @@ const Services = () => {
                   <div className="text-4xl mb-4">{service.icon}</div>
                   <CardTitle className="text-2xl font-bold mb-2">{service.title}</CardTitle>
                   <p className="text-ai-blue font-semibold">{service.subtitle}</p>
-                  <p className="text-gray-600 text-sm mt-2">{service.description}</p>
+                  <div className="my-4">
+                    <span className="text-3xl font-bold gradient-text">{service.price}</span>
+                    <span className="text-gray-600 ml-2">{service.period}</span>
+                  </div>
+                  <p className="text-gray-600 text-sm">{service.description}</p>
                 </CardHeader>
 
                 <CardContent className="space-y-4">
@@ -196,18 +222,61 @@ const Services = () => {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl font-bold text-center mb-12 gradient-text">
+            Câu hỏi thường gặp
+          </h2>
+          
+          <div className="max-w-4xl mx-auto space-y-6">
+            {[
+              {
+                question: "Chi phí setup và đào tạo có tính thêm không?",
+                answer: "Không, tất cả các gói đều bao gồm setup miễn phí và đào tạo sử dụng cơ bản. Chúng tôi sẽ hỗ trợ bạn từ A-Z để chatbot hoạt động hiệu quả."
+              },
+              {
+                question: "Tôi có thể thay đổi gói dịch vụ trong quá trình sử dụng không?",
+                answer: "Có, bạn có thể nâng cấp hoặc hạ cấp gói bất cứ lúc nào. Phí sẽ được tính theo tỷ lệ thời gian sử dụng thực tế."
+              },
+              {
+                question: "14 ngày dùng thử có giới hạn tính năng gì không?",
+                answer: "Không, bạn được trải nghiệm đầy đủ tính năng của gói đã chọn trong 14 ngày. Không cần thẻ tín dụng để đăng ký."
+              },
+              {
+                question: "Dữ liệu khách hàng có được bảo mật an toàn không?",
+                answer: "Tuyệt đối. Chúng tôi tuân thủ các tiêu chuẩn bảo mật quốc tế và có chứng chỉ ISO 27001. Dữ liệu được mã hóa end-to-end."
+              }
+            ].map((faq, index) => (
+              <Card key={index} className="border-none shadow-md hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <h3 className="font-semibold text-lg mb-3 text-ai-blue">{faq.question}</h3>
+                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-20 bg-ai-gradient">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
-            Không chắc chọn gói nào?
+            Sẵn sàng bắt đầu với AI Chatbot?
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Tư vấn miễn phí từ chuyên gia của chúng tôi để tìm ra giải pháp phù hợp nhất
+            Đăng ký dùng thử 14 ngày miễn phí ngay hôm nay. Không cần thẻ tín dụng, 
+            setup trong 5 phút.
           </p>
-          <Button size="lg" onClick={handleCTAClick} className="bg-ai-orange hover:bg-ai-orange/90 text-white font-semibold px-8 py-4 text-lg">
-            Đặt lịch tư vấn miễn phí
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" onClick={handleCTAClick} className="bg-ai-orange hover:bg-ai-orange/90 text-white font-semibold px-8 py-4 text-lg">
+              Bắt đầu dùng thử miễn phí
+            </Button>
+            <Button size="lg" variant="outline" onClick={handleCTAClick} className="border-white text-white hover:bg-white hover:text-ai-blue px-8 py-4 text-lg">
+              Tư vấn với chuyên gia
+            </Button>
+          </div>
         </div>
       </section>
     </div>

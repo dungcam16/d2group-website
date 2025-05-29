@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import TestimonialAvatar from "@/components/TestimonialAvatar";
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -126,25 +127,28 @@ const Index = () => {
 
   const testimonials = [
     {
-      name: "Nguyễn Văn A",
+      name: "Nguyễn Văn Quang",
       company: "CEO, TechStore Vietnam",
       content: "D2 Group đã giúp chúng tôi tăng 40% tỷ lệ chốt đơn chỉ sau 2 tháng triển khai chatbot. Rất ấn tượng!",
       rating: 5,
-      avatar: "👨‍💼"
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      fallback: "NQ"
     },
     {
-      name: "Trần Thị B", 
+      name: "Trần Thị Hồng", 
       company: "Marketing Director, EduTech",
       content: "Chatbot AI của D2 Group đã cách mạng hóa cách chúng tôi tương tác với học viên. Tiết kiệm 60% thời gian hỗ trợ.",
       rating: 5,
-      avatar: "👩‍💼"
+      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b5ab?w=150&h=150&fit=crop&crop=face",
+      fallback: "TH"
     },
     {
-      name: "Lê Minh C",
+      name: "Lê Minh Cường",
       company: "Founder, HealthCare Plus", 
       content: "Dịch vụ tận tâm, công nghệ hiện đại. Chatbot hiểu được cả những câu hỏi phức tạp về y tế.",
       rating: 5,
-      avatar: "👨‍⚕️"
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      fallback: "LC"
     }
   ];
 
@@ -169,13 +173,13 @@ const Index = () => {
     }
   ];
 
-  const partners = [
-    { name: "Microsoft", logo: "🔷" },
-    { name: "Google", logo: "🔴" },
-    { name: "AWS", logo: "🟠" },
-    { name: "Salesforce", logo: "🔵" },
-    { name: "HubSpot", logo: "🟡" },
-    { name: "Shopify", logo: "🟢" }
+  const deploymentPartners = [
+    { name: "Vingroup", logo: "🏢" },
+    { name: "FPT Corporation", logo: "💼" },
+    { name: "Vietcombank", logo: "🏦" },
+    { name: "Saigon Co.op", logo: "🛒" },
+    { name: "Vinamilk", logo: "🥛" },
+    { name: "VNG Corporation", logo: "📱" }
   ];
 
   const faqs = [
@@ -341,8 +345,12 @@ const Index = () => {
                   <Quote className="w-8 h-8 text-ai-blue mb-4" />
                   <p className="text-gray-600 mb-6 leading-relaxed">{testimonial.content}</p>
                   <div className="flex items-center">
-                    <div className="text-3xl mr-4">{testimonial.avatar}</div>
-                    <div>
+                    <TestimonialAvatar 
+                      src={testimonial.avatar}
+                      alt={testimonial.name}
+                      fallback={testimonial.fallback}
+                    />
+                    <div className="ml-4">
                       <h4 className="font-bold">{testimonial.name}</h4>
                       <p className="text-gray-500 text-sm">{testimonial.company}</p>
                     </div>
@@ -354,20 +362,20 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Partner Logos Section */}
+      {/* Deployment Partners Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 gradient-text">
-              Đối tác công nghệ
+              Khách hàng triển khai
             </h2>
             <p className="text-gray-600">
-              Tích hợp với các nền tảng hàng đầu thế giới
+              Các tổ chức hàng đầu đã tin tưởng triển khai giải pháp của chúng tôi
             </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-6 gap-8 items-center">
-            {partners.map((partner, index) => (
+            {deploymentPartners.map((partner, index) => (
               <div key={index} className="text-center group">
                 <div className="text-4xl mb-2 group-hover:scale-110 transition-transform">
                   {partner.logo}

@@ -54,6 +54,57 @@ const UseCases = () => {
       author: "PGS.TS Lê Văn Nam - Hiệu trưởng",
       image: "🎓",
       color: "bg-purple-500"
+    },
+    {
+      industry: "Ngân hàng & Tài chính",
+      company: "VietBank Digital",
+      title: "50% giảm thời gian xử lý giao dịch",
+      challenge: "Khách hàng phải chờ đợi lâu để được tư vấn các sản phẩm tài chính và xử lý giao dịch",
+      solution: "Chatbot tư vấn sản phẩm tài chính, hỗ trợ mở tài khoản và xử lý giao dịch cơ bản tự động",
+      results: [
+        "Thời gian xử lý giảm 50%",
+        "Customer satisfaction tăng 40%",
+        "Tỉ lệ chuyển đổi sản phẩm tăng 35%",
+        "Giảm 60% tải công việc cho nhân viên"
+      ],
+      quote: "Khách hàng có thể thực hiện hầu hết giao dịch mà không cần đến ngân hàng",
+      author: "Phạm Văn Đức - Giám đốc Digital Banking",
+      image: "🏦",
+      color: "bg-indigo-500"
+    },
+    {
+      industry: "Y tế & Sức khỏe",
+      company: "HealthCare Plus",
+      title: "45% tăng hiệu quả đặt lịch khám",
+      challenge: "Hệ thống đặt lịch khám bệnh phức tạp, bệnh nhân thường gọi điện nhiều lần để được tư vấn",
+      solution: "AI Assistant hỗ trợ đặt lịch khám, tư vấn triệu chứng cơ bản và nhắc nhở lịch hẹn",
+      results: [
+        "Hiệu quả đặt lịch tăng 45%",
+        "Giảm 70% cuộc gọi tư vấn trùng lặp",
+        "Tỉ lệ no-show giảm 30%",
+        "Patient satisfaction: 4.7/5"
+      ],
+      quote: "Bệnh nhân được tư vấn sơ bộ ngay lập tức, giúp họ chuẩn bị tốt hơn cho buổi khám",
+      author: "BS. Nguyễn Thị Lan - Phó Giám đốc",
+      image: "🏥",
+      color: "bg-red-500"
+    },
+    {
+      industry: "Bất động sản",
+      company: "PropTech Vietnam",
+      title: "60% tăng lead quality",
+      challenge: "Nhiều inquiry không chất lượng, sales team mất thời gian filter và qualify lead",
+      solution: "Chatbot pre-qualify lead, thu thập thông tin chi tiết về nhu cầu và ngân sách khách hàng",
+      results: [
+        "Lead quality tăng 60%",
+        "Conversion rate tăng từ 12% lên 28%",
+        "Sales cycle rút ngắn 35%",
+        "ROI marketing tăng 80%"
+      ],
+      quote: "Chatbot giúp chúng tôi tập trung vào những khách hàng thực sự có nhu cầu mua",
+      author: "Lê Hoàng Nam - Sales Director",
+      image: "🏠",
+      color: "bg-yellow-500"
     }
   ];
 
@@ -63,10 +114,10 @@ const UseCases = () => {
       <section className="py-20 bg-ai-gradient-soft">
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-6 gradient-text">
-            Case Studies Thành Công
+            Ứng dụng thực tế
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Khám phá cách AI Chatbot của D2 Group đã giúp các doanh nghiệp Việt Nam 
+            Khám phá 6 ví dụ thực tế về cách AI Chatbot của D2 Group đã giúp các doanh nghiệp Việt Nam 
             tối ưu hóa trải nghiệm khách hàng và tăng trưởng doanh thu
           </p>
         </div>
