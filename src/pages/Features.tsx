@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -6,6 +5,7 @@ import { Check, X, MessageSquare, Brain, BarChart3, Shield, Zap, Globe, ArrowRig
 import { useNavigate } from "react-router-dom";
 import Section from "@/components/ui/section";
 import { useLanguage } from "@/contexts/LanguageContext";
+import ChatbotDemoCarousel from "@/components/ChatbotDemoCarousel";
 
 const Features = () => {
   const navigate = useNavigate();
@@ -330,41 +330,20 @@ const Features = () => {
         </div>
       </Section>
 
-      {/* See It in Action Section */}
+      {/* See It in Action Section with Carousel */}
       <Section background="gray">
-        <div className="text-center max-w-4xl mx-auto">
+        <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-2">
             Xem <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Thực Tế</span>
           </h2>
           <p className="text-xl text-gray-600 mb-12">
             Trải nghiệm tính năng chatbot AI qua bản demo tương tác
           </p>
-          
-          <div className="bg-white rounded-3xl shadow-2xl p-12 mb-8 max-w-2xl mx-auto">
-            <div className="text-center mb-8">
-              <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                <MessageSquare className="w-10 h-10 text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">Demo Tương Tác Có Sẵn</h3>
-              <p className="text-gray-600 text-lg">Thử chatbot trong môi trường trực tiếp</p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div className="flex items-center space-x-3">
-                <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                <span className="text-gray-700">Phản hồi thời gian thực</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                <span className="text-gray-700">Hỗ trợ đa ngôn ngữ</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
-                <span className="text-gray-700">Gọi ý thông minh</span>
-              </div>
-            </div>
-          </div>
-
+        </div>
+        
+        <ChatbotDemoCarousel />
+        
+        <div className="text-center mt-16">
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
               Đặt Demo Cá Nhân
