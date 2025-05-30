@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -99,7 +100,7 @@ const Index = () => {
       <Section background="gradient">
         <div className="text-center max-w-6xl mx-auto">
           <Badge variant="secondary" className="mb-6 px-4 py-2 bg-blue-100 text-blue-700 border-blue-200">
-            ✨ {t('home.hero.subtitle3')} AI-Powered Customer Conversations
+            ✨ <span className="text-green-600">{t('home.hero.subtitle3')}</span> AI-Powered Customer Conversations
           </Badge>
           
           <h1 className="text-6xl font-bold mb-6 text-gray-900 leading-tight">
@@ -107,7 +108,7 @@ const Index = () => {
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               {t('home.hero.subtitle')}
             </span> <br />
-            {t('home.hero.subtitle2')} <span className="text-green-600">{t('home.hero.subtitle3')}</span>
+            {t('home.hero.subtitle2')}
           </h1>
           
           <p className="text-xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
