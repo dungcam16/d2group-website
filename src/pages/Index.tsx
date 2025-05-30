@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -95,12 +96,12 @@ const Index = () => {
   ];
 
   const smePartners = [
-    { name: "TechStart Vietnam", logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=200&h=100&fit=crop" },
-    { name: "Green Coffee Co.", logo: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=200&h=100&fit=crop" },
-    { name: "Digital Solutions", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&h=100&fit=crop" },
-    { name: "Smart Retail Hub", logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=200&h=100&fit=crop" },
-    { name: "EduTech Plus", logo: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=200&h=100&fit=crop" },
-    { name: "HealthCare Link", logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=200&h=100&fit=crop" }
+    { name: "Being Digital", logo: "https://beingdigital.vn/wp-content/uploads/2021/03/logo-being-digital.png" },
+    { name: "Tiki", logo: "https://salt.tikicdn.com/ts/upload/e4/49/6c/70e95b4f7d5d8702b10e747f39945654.png" },
+    { name: "Sapo", logo: "https://www.sapo.vn/static/images/logo-sapo.svg" },
+    { name: "Haravan", logo: "https://hrv-assets.s3-ap-southeast-1.amazonaws.com/assets/images/landing-pages/logo-haravan.svg" },
+    { name: "Base.vn", logo: "https://file.hstatic.net/1000140506/file/base-logo-blue_bf227b0f98684b5f99ef36a8f7ce675b.svg" },
+    { name: "Sendo", logo: "https://media.sendo.vn/media/website/logo-sendo.svg" }
   ];
 
   return (
@@ -454,11 +455,14 @@ const Index = () => {
           {smePartners.map((partner, index) => (
             <div key={index} className="text-center">
               <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-                <AspectRatio ratio={2/1} className="mb-3">
+                <AspectRatio ratio={16/9} className="mb-3">
                   <img 
                     src={partner.logo} 
                     alt={partner.name}
-                    className="w-full h-full object-cover rounded grayscale hover:grayscale-0 transition-all duration-300"
+                    className="w-full h-full object-contain p-2 grayscale hover:grayscale-0 transition-all duration-300"
+                    onError={(e) => {
+                      e.currentTarget.src = "/placeholder.svg";
+                    }}
                   />
                 </AspectRatio>
                 <div className="text-sm font-medium text-gray-700">{partner.name}</div>
