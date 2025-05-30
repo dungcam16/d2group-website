@@ -1,5 +1,5 @@
 
-import { MessageCircle, MessageSquare, Phone, Send, Users } from "lucide-react";
+import { MessageCircle, Phone, Send, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -9,14 +9,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const ChatbotButton = () => {
-  // Xử lý click cho từng platform riêng biệt
-  const handleChatWebsite = () => {
-    console.log('Opening Chatwoot widget');
-    if (window.chatwootSDK) {
-      window.chatwootSDK.toggle();
-    }
-  };
-
   const handleMessenger = () => {
     console.log('Opening Messenger');
     window.open("https://m.me/d2groupmarketing", "_blank");
@@ -58,19 +50,6 @@ const ChatbotButton = () => {
           <div className="p-2 border-b border-gray-100">
             <span className="text-sm font-semibold text-gray-700">Chọn platform chat</span>
           </div>
-          
-          <DropdownMenuItem 
-            onClick={handleChatWebsite} 
-            className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
-          >
-            <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-              <MessageSquare className="h-4 w-4 text-blue-600" />
-            </div>
-            <div>
-              <span className="font-medium text-gray-900">Chat Website</span>
-              <p className="text-xs text-gray-500">Chatwoot widget</p>
-            </div>
-          </DropdownMenuItem>
           
           <DropdownMenuItem 
             onClick={handleMessenger} 
