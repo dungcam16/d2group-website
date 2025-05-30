@@ -159,44 +159,41 @@ const ChatbotDemoCarousel = () => {
 
   const currentScenario = scenarios[currentGif];
 
-  // GIF animation với timing cố định
+  // Improved GIF animation với timing ổn định
   useEffect(() => {
     if (!isAnimating) return;
 
     const totalMessages = currentScenario.messages.length;
-    const animationDuration = 5000; // 5 giây cho mỗi loop
-    const messageInterval = animationDuration / (totalMessages + 1); // Chia đều thời gian
+    const cycleDuration = 5000; // 5 giây cho mỗi cycle
+    const messageInterval = cycleDuration / totalMessages; // Thời gian hiển thị mỗi tin nhắn
+    const pauseBetweenCycles = 1000; // Nghỉ 1 giây giữa các cycle
 
-    let animationTimer: NodeJS.Timeout;
-    let messageIndex = 0;
+    let timeoutId: NodeJS.Timeout;
+    let currentMessageIndex = 0;
 
-    const startAnimation = () => {
-      setVisibleMessages(0); // Reset về 0
-      
-      const showMessages = () => {
-        if (messageIndex <= totalMessages) {
-          setVisibleMessages(messageIndex);
-          messageIndex++;
-          
-          if (messageIndex <= totalMessages) {
-            setTimeout(showMessages, messageInterval);
-          } else {
-            // Sau khi hiển thị hết, chờ 1 giây rồi restart
-            setTimeout(() => {
-              messageIndex = 0;
-              startAnimation();
-            }, 1000);
-          }
-        }
-      };
-
-      setTimeout(showMessages, 500); // Delay ban đầu
+    const showNextMessage = () => {
+      if (currentMessageIndex < totalMessages) {
+        setVisibleMessages(currentMessageIndex + 1);
+        currentMessageIndex++;
+        timeoutId = setTimeout(showNextMessage, messageInterval);
+      } else {
+        // Kết thúc cycle, nghỉ rồi bắt đầu lại
+        timeoutId = setTimeout(() => {
+          setVisibleMessages(0);
+          currentMessageIndex = 0;
+          timeoutId = setTimeout(showNextMessage, 300); // Delay nhỏ trước khi bắt đầu
+        }, pauseBetweenCycles);
+      }
     };
 
-    startAnimation();
+    // Bắt đầu animation
+    setVisibleMessages(0);
+    timeoutId = setTimeout(showNextMessage, 500); // Delay ban đầu
 
     return () => {
-      if (animationTimer) clearTimeout(animationTimer);
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
     };
   }, [currentGif, isAnimating, currentScenario.messages.length]);
 
@@ -245,13 +242,17 @@ const ChatbotDemoCarousel = () => {
                   </div>
                 </div>
                 
-                {/* Chat Messages - GIF Animation */}
+                {/* Chat Messages - Video-like Animation */}
                 <div className="flex-1 p-4 space-y-3 h-[400px] overflow-y-auto bg-gray-50">
                   {currentScenario.messages.slice(0, visibleMessages).map((message, msgIndex) => (
                     <div
-                      key={msgIndex}
+                      key={`${currentGif}-${msgIndex}`}
                       className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} 
-                        animate-fade-in`}
+                        opacity-0 animate-fade-in`}
+                      style={{
+                        animation: `fade-in 0.5s ease-out forwards`,
+                        animationDelay: '0.1s'
+                      }}
                     >
                       <div
                         className={`max-w-xs px-4 py-2 rounded-2xl ${
@@ -270,9 +271,9 @@ const ChatbotDemoCarousel = () => {
                     </div>
                   ))}
                   
-                  {/* Typing indicator */}
-                  {visibleMessages > 0 && visibleMessages < currentScenario.messages.length && (
-                    <div className="flex justify-start">
+                  {/* Typing indicator chỉ hiển thị khi đang trong quá trình animation */}
+                  {isAnimating && visibleMessages > 0 && visibleMessages < currentScenario.messages.length && (
+                    <div className="flex justify-start animate-fade-in">
                       <div className="bg-white text-gray-800 rounded-2xl rounded-bl-md shadow-sm px-4 py-2">
                         <div className="flex space-x-1">
                           <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
@@ -322,7 +323,7 @@ const ChatbotDemoCarousel = () => {
             ))}
           </div>
           
-          {/* GIF Navigation Controls */}
+          {/* Navigation Controls */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <Button
@@ -350,7 +351,7 @@ const ChatbotDemoCarousel = () => {
               </Button>
             </div>
             
-            {/* GIF Selector Dots */}
+            {/* Selector Dots */}
             <div className="flex justify-center space-x-2">
               {scenarios.map((_, index) => (
                 <button
