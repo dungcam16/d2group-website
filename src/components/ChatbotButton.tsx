@@ -1,6 +1,7 @@
 
 import { MessageCircle, Phone, Send, Users, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,6 +10,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const ChatbotButton = () => {
+  const [isChatwootLoaded, setIsChatwootLoaded] = useState(false);
+
   const handleMessenger = () => {
     console.log('Opening Messenger');
     window.open("https://m.me/d2groupmarketing", "_blank");
@@ -32,13 +35,11 @@ const ChatbotButton = () => {
   const handleWebsite = () => {
     console.log('Loading Chatwoot widget');
     
-    // Set up Chatwoot settings - ẩn bubble của Chatwoot
+    // Set up Chatwoot settings
     (window as any).chatwootSettings = {
       "position": "right",
       "type": "standard",
-      "launcherTitle": "Chat with us",
-      "hideMessageBubble": true,
-      "showPopoutButton": false
+      "launcherTitle": "Chat with us"
     };
 
     // Load Chatwoot script dynamically
@@ -54,16 +55,17 @@ const ChatbotButton = () => {
         baseUrl: BASE_URL
       });
       
-      // Mở Chatwoot widget ngay lập tức
-      setTimeout(() => {
-        if ((window as any).chatwootSDK) {
-          (window as any).chatwootSDK.toggle('open');
-        }
-      }, 1000);
+      // Ẩn button gốc sau khi Chatwoot đã load
+      setIsChatwootLoaded(true);
     };
     
     document.head.appendChild(script);
   };
+
+  // Ẩn button nếu Chatwoot đã được load
+  if (isChatwootLoaded) {
+    return null;
+  }
 
   return (
     <div className="fixed bottom-6 right-6 z-[9999]">
