@@ -10,8 +10,8 @@ const FinalCTA = () => {
 
   const handleChatwootToggle = () => {
     // Toggle Chatwoot widget if available
-    if (window.$chatwoot) {
-      window.$chatwoot.toggle();
+    if ((window as any).$chatwoot) {
+      (window as any).$chatwoot.toggle();
     }
   };
 
