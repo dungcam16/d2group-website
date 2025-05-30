@@ -108,7 +108,7 @@ const Index = () => {
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
               {t('home.hero.subtitle')}
             </span> <br />
-            {t('home.hero.subtitle2')} {t('home.hero.subtitle3')}
+            {t('home.hero.subtitle2')} <span className="text-green-600">{t('home.hero.subtitle3')}</span>
           </h1>
           
           <p className="text-xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
