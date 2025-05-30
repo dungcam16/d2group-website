@@ -545,4 +545,16 @@ export const enTranslations: Translations = {
   'notFound.backHome': 'Back to Home',
   'notFound.contactSupport': 'Contact Support',
   'notFound.errorCode': 'Error code:',
+
+  // Blog Page
+  'blog.title': 'D2 Group Blog',
+  'blog.subtitle': 'Discover the latest trends in AI and automation, as well as advanced technology solutions for businesses',
+  'blog.loading': 'Loading articles...',
+  'blog.noPosts': 'No articles have been published yet. Please check back later!',
+  'blog.readMore': 'Read more →',
+  'blog.backToBlog': 'Back to blog',
+  'blog.viewMorePosts': 'View more articles',
+  'blog.notFound.title': 'Article Not Found',
+  'blog.notFound.description': 'The article you are looking for does not exist or has been deleted.',
+  'blog.notFound.backToBlog': 'Back to blog',
 };

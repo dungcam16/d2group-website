@@ -5,6 +5,7 @@ import { supabase } from "@/integrations/supabase/client";
 import Section from "@/components/ui/section";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, CalendarDays, User } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface BlogPost {
   id: string;
@@ -25,6 +26,7 @@ const BlogPost = () => {
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     if (slug) {
@@ -56,7 +58,8 @@ const BlogPost = () => {
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('vi-VN', {
+    const locale = language === 'en' ? 'en-US' : 'vi-VN';
+    return new Date(dateString).toLocaleDateString(locale, {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -68,7 +71,7 @@ const BlogPost = () => {
       <Section className="pt-24">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Đang tải bài viết...</p>
+          <p className="mt-4 text-gray-600">{t('blog.loading')}</p>
         </div>
       </Section>
     );
@@ -79,14 +82,14 @@ const BlogPost = () => {
       <Section className="pt-24">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Không tìm thấy bài viết
+            {t('blog.notFound.title')}
           </h1>
           <p className="text-gray-600 mb-8">
-            Bài viết bạn đang tìm kiếm không tồn tại hoặc đã bị xóa.
+            {t('blog.notFound.description')}
           </p>
           <Button onClick={() => navigate('/blog')} className="bg-blue-600 hover:bg-blue-700">
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Quay lại blog
+            {t('blog.notFound.backToBlog')}
           </Button>
         </div>
       </Section>
@@ -103,7 +106,7 @@ const BlogPost = () => {
           className="mb-8 text-gray-600 hover:text-gray-900"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
-          Quay lại blog
+          {t('blog.backToBlog')}
         </Button>
 
         {/* Featured Image */}
@@ -158,7 +161,7 @@ const BlogPost = () => {
             className="bg-blue-600 hover:bg-blue-700"
           >
             <ArrowLeft className="w-4 h-4 mr-2" />
-            Xem thêm bài viết khác
+            {t('blog.viewMorePosts')}
           </Button>
         </div>
       </div>

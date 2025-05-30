@@ -545,4 +545,16 @@ export const viTranslations: Translations = {
   'notFound.backHome': 'Quay về trang chủ',
   'notFound.contactSupport': 'Liên hệ hỗ trợ',
   'notFound.errorCode': 'Mã lỗi:',
+
+  // Blog Page
+  'blog.title': 'Blog D2 Group',
+  'blog.subtitle': 'Khám phá những xu hướng mới nhất về AI và tự động hóa, cũng như các giải pháp công nghệ tiên tiến cho doanh nghiệp',
+  'blog.loading': 'Đang tải bài viết...',
+  'blog.noPosts': 'Chưa có bài viết nào được đăng. Hãy quay lại sau nhé!',
+  'blog.readMore': 'Đọc thêm →',
+  'blog.backToBlog': 'Quay lại blog',
+  'blog.viewMorePosts': 'Xem thêm bài viết khác',
+  'blog.notFound.title': 'Không tìm thấy bài viết',
+  'blog.notFound.description': 'Bài viết bạn đang tìm kiếm không tồn tại hoặc đã bị xóa.',
+  'blog.notFound.backToBlog': 'Quay lại blog',
 };

@@ -24,7 +24,7 @@ const Blog = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   useEffect(() => {
     fetchPosts();
@@ -55,7 +55,8 @@ const Blog = () => {
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('vi-VN', {
+    const locale = language === 'en' ? 'en-US' : 'vi-VN';
+    return new Date(dateString).toLocaleDateString(locale, {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -67,7 +68,7 @@ const Blog = () => {
       <Section className="pt-24">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Đang tải bài viết...</p>
+          <p className="mt-4 text-gray-600">{t('blog.loading')}</p>
         </div>
       </Section>
     );
@@ -79,11 +80,10 @@ const Blog = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Blog D2 Group
+            {t('blog.title')}
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Khám phá những xu hướng mới nhất về AI và tự động hóa, 
-            cũng như các giải pháp công nghệ tiên tiến cho doanh nghiệp
+            {t('blog.subtitle')}
           </p>
         </div>
 
@@ -91,7 +91,7 @@ const Blog = () => {
         {posts.length === 0 ? (
           <div className="text-center py-12">
             <p className="text-gray-600 text-lg">
-              Chưa có bài viết nào được đăng. Hãy quay lại sau nhé!
+              {t('blog.noPosts')}
             </p>
           </div>
         ) : (
@@ -134,7 +134,7 @@ const Blog = () => {
                       </CardDescription>
                       <div className="mt-4">
                         <span className="text-blue-600 hover:text-blue-700 font-medium">
-                          Đọc thêm →
+                          {t('blog.readMore')}
                         </span>
                       </div>
                     </CardContent>
