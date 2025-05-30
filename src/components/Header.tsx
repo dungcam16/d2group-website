@@ -9,16 +9,17 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const { language, setLanguage } = useLanguage();
+  const { language, setLanguage, t } = useLanguage();
 
   const navigationItems = [
-    { name: "Home", path: "/" },
-    { name: "About", path: "/about" },
-    { name: "Features", path: "/features" },
-    { name: "Case Studies", path: "/case-studies" },
-    { name: "Blog", path: "/blog" },
-    { name: "Pricing", path: "/pricing" },
-    { name: "Contact", path: "/contact" },
+    { name: t("nav.home"), path: "/" },
+    { name: t("nav.about"), path: "/about" },
+    { name: t("nav.features"), path: "/features" },
+    { name: t("nav.marketing"), path: "/marketing-services" },
+    { name: t("nav.caseStudies"), path: "/case-studies" },
+    { name: t("nav.blog"), path: "/blog" },
+    { name: t("nav.pricing"), path: "/pricing" },
+    { name: t("nav.contact"), path: "/contact" },
   ];
 
   const handleNavigation = (path: string) => {
@@ -87,13 +88,13 @@ const Header = () => {
               onClick={handleContactClick}
               className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
             >
-              Get a Demo
+              {t("nav.getDemo")}
             </Button>
             <Button 
               onClick={handleContactClick}
               className="bg-blue-600 hover:bg-blue-700 text-white"
             >
-              Contact Us
+              {t("nav.contactUs")}
             </Button>
           </div>
 
@@ -141,13 +142,13 @@ const Header = () => {
                   onClick={handleContactClick}
                   className="w-full border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
                 >
-                  Get a Demo
+                  {t("nav.getDemo")}
                 </Button>
                 <Button 
                   onClick={handleContactClick}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white"
                 >
-                  Contact Us
+                  {t("nav.contactUs")}
                 </Button>
               </div>
             </nav>

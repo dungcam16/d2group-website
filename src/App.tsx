@@ -4,7 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useState, lazy, Suspense } from "react";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -22,6 +22,9 @@ import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
+
+// Lazy load Marketing Services
+const MarketingServices = lazy(() => import("./pages/MarketingServices"));
 
 const queryClient = new QueryClient();
 
@@ -55,6 +58,14 @@ const App = () => {
                   <Route path="/" element={<Index />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/features" element={<Features />} />
+                  <Route 
+                    path="/marketing-services" 
+                    element={
+                      <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Loading...</div>}>
+                        <MarketingServices />
+                      </Suspense>
+                    } 
+                  />
                   <Route path="/case-studies" element={<CaseStudies />} />
                   <Route path="/pricing" element={<Pricing />} />
                   <Route path="/contact" element={<Contact />} />

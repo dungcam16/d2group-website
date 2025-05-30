@@ -5,6 +5,7 @@ export const enTranslations: Translations = {
   'nav.home': 'Home',
   'nav.about': 'About',
   'nav.features': 'Features',
+  'nav.marketing': 'Marketing Services',
   'nav.caseStudies': 'Case Studies',
   'nav.pricing': 'Pricing',
   'nav.contact': 'Contact',
@@ -36,7 +37,7 @@ export const enTranslations: Translations = {
   'about.mission.security.title': 'Security & Privacy',
   'about.mission.security.desc': 'Enterprise-grade security with full data protection and compliance',
   'about.vision.title': 'Our Vision',
-  'about.vision.description': 'To become Southeast Asia\'s leading AI-chatbot platform, empowering every business to deliver exceptional, AI-driven customer experiences.',
+  'about.vision.description': "To become Southeast Asia's leading AI-chatbot platform, empowering every business to deliver exceptional, AI-driven customer experiences.",
   'about.team.title': 'Meet Our Team',
   'about.team.subtitle': 'Passionate experts dedicated to revolutionizing customer engagement through AI innovation',
   'about.journey.title': 'Our Journey',
@@ -68,7 +69,7 @@ export const enTranslations: Translations = {
   'features.core.nlp.detail4': 'Sentiment analysis for emotional intelligence',
 
   'features.core.multiChannel.title': 'Multi-Channel Deployment',
-  'features.core.multiChannel.desc': 'Deploy effortlessly across today\'s most popular communication channels',
+  'features.core.multiChannel.desc': "Deploy effortlessly across today's most popular communication channels",
   'features.core.multiChannel.detail1': 'Website chat widget with customizable design',
   'features.core.multiChannel.detail2': 'WhatsApp Business API integration',
   'features.core.multiChannel.detail3': 'Facebook Messenger and Instagram support',
@@ -290,7 +291,7 @@ export const enTranslations: Translations = {
   // Home Testimonials
   'home.testimonials.title': 'Customer Success Stories',
   'home.testimonials.subtitle': 'Hear what our clients have to say',
-  'home.testimonials.1.content': 'D2 Group\'s AI chatbot lifted our customer-satisfaction score by 45% and brought response times under a minute. Outstanding!',
+  'home.testimonials.1.content': "D2 Group's AI chatbot lifted our customer-satisfaction score by 45% and brought response times under a minute. Outstanding!",
   'home.testimonials.2.content': 'Implementation was seamless, and ROI was immediate – our conversion rate jumped 35% in the first month.',
   'home.testimonials.3.content': 'The chatbot now resolves 80% of student questions automatically, freeing our team for deeper academic support.',
 
@@ -385,7 +386,7 @@ export const enTranslations: Translations = {
   'pricing.faq.q3': 'Is there a free trial?',
   'pricing.faq.a3': 'Yes. Enjoy a 14-day free trial on any plan – no credit card required.',
   'pricing.faq.q4': 'What if I exceed my chat-session limit?',
-  'pricing.faq.a4': 'Excess sessions are billed at US $3 per session. We\'ll notify you as you approach your limit.',
+  'pricing.faq.a4': "Excess sessions are billed at US $3 per session. We'll notify you as you approach your limit.",
 
   // Pricing CTA
   'pricing.cta.title': 'Ready to',
@@ -427,13 +428,13 @@ export const enTranslations: Translations = {
 
   // Contact Page
   'contact.hero.title': 'Get in Touch',
-  'contact.hero.subtitle': 'Ready to transform your customer conversations? Let\'s discuss how D2 Group can help achieve your automation goals.',
-  'contact.form.title': 'Let\'s Start the Conversation',
+  'contact.hero.subtitle': "Ready to transform your customer conversations? Let's discuss how D2 Group can help achieve your automation goals.",
+  'contact.form.title': "Let's Start the Conversation",
   'contact.form.subtitle': 'Fill out the form below and our team will reach out within 24 hours.',
   'contact.info.title': 'Contact Information',
   'contact.map.title': 'Find Us',
   'contact.thanks.title': 'Thank You!',
-  'contact.thanks.subtitle': 'Your message has been received. We\'ll respond within 24 hours – meanwhile, connect with us on social media.',
+  'contact.thanks.subtitle': "Your message has been received. We'll respond within 24 hours – meanwhile, connect with us on social media.",
 
   // Case Studies Hero
   'caseStudies.hero.title': 'Real Success Stories',
@@ -450,8 +451,8 @@ export const enTranslations: Translations = {
   'caseStudies.content.case1.company': 'VietStore - Leading Online Marketplace',
   'caseStudies.content.case1.industry': 'E-commerce',
   'caseStudies.content.case1.challenge': 'VietStore faced increasing customer support costs and slow response times during peak shopping seasons, leading to cart abandonment and customer dissatisfaction.',
-  'caseStudies.content.case1.solution': 'Implemented D2 Group\'s AI chatbot to handle instant product inquiries, order tracking, and customer support 24/7 across website and WhatsApp channels.',
-  'caseStudies.content.case1.testimonial': 'The AI chatbot from D2 Group has revolutionized our customer service. We now respond to customer inquiries in seconds instead of hours, and our conversion rates have never been higher.',
+  'caseStudies.content.case1.solution': "Implemented D2 Group's AI chatbot to handle instant product inquiries, order tracking, and customer support 24/7 across website and WhatsApp channels.",
+  'caseStudies.content.case1.testimonial': "The AI chatbot from D2 Group has revolutionized our customer service. We now respond to customer inquiries in seconds instead of hours, and our conversion rates have never been higher.",
   'caseStudies.content.case1.author': 'Nguyen Van Duc, CEO of VietStore',
 
   'caseStudies.content.case2.title': 'Healthcare Patient Engagement Revolution',
@@ -459,7 +460,7 @@ export const enTranslations: Translations = {
   'caseStudies.content.case2.industry': 'Healthcare',
   'caseStudies.content.case2.challenge': 'Long wait times for appointment bookings and patient inquiries were overwhelming staff and creating patient dissatisfaction.',
   'caseStudies.content.case2.solution': 'Deployed AI chatbot for appointment scheduling, symptom pre-screening, and instant patient support with seamless integration to existing hospital systems.',
-  'caseStudies.content.case2.testimonial': 'D2 Group\'s chatbot has transformed our patient experience. Appointment bookings are now instant, and our staff can focus on providing better healthcare instead of answering repetitive questions.',
+  'caseStudies.content.case2.testimonial': "D2 Group's chatbot has transformed our patient experience. Appointment bookings are now instant, and our staff can focus on providing better healthcare instead of answering repetitive questions.",
   'caseStudies.content.case2.author': 'Dr. Tran Thi Mai, Director of MediCare Plus',
 
   'caseStudies.content.case3.title': 'Financial Services Lead Qualification Automation',
@@ -467,7 +468,7 @@ export const enTranslations: Translations = {
   'caseStudies.content.case3.industry': 'Financial Services',
   'caseStudies.content.case3.challenge': 'Manual lead qualification processes were slow and inconsistent, resulting in lost opportunities and inefficient sales team allocation.',
   'caseStudies.content.case3.solution': 'Implemented intelligent lead qualification chatbot that pre-screens prospects, gathers financial requirements, and routes qualified leads to appropriate specialists.',
-  'caseStudies.content.case3.testimonial': 'Our conversion rates have skyrocketed since implementing D2 Group\'s AI solution. The chatbot qualifies leads better than our human staff and works around the clock.',
+  'caseStudies.content.case3.testimonial': "Our conversion rates have skyrocketed since implementing D2 Group's AI solution. The chatbot qualifies leads better than our human staff and works around the clock.",
   'caseStudies.content.case3.author': 'Le Minh Hoang, Sales Director at FinanceViet',
 
   'caseStudies.content.case4.title': 'Educational Platform Student Support System',
@@ -483,7 +484,7 @@ export const enTranslations: Translations = {
   'caseStudies.content.case5.industry': 'Real Estate',
   'caseStudies.content.case5.challenge': 'Difficulty capturing and qualifying property leads, plus time-consuming manual matching of clients with suitable properties.',
   'caseStudies.content.case5.solution': 'Implemented AI chatbot to capture lead information, qualify prospects based on budget and preferences, and automatically match them with available properties.',
-  'caseStudies.content.case5.testimonial': 'D2 Group\'s AI has transformed our business. We now capture 3x more qualified leads and our agents spend time closing deals instead of answering basic questions.',
+  'caseStudies.content.case5.testimonial': "D2 Group's AI has transformed our business. We now capture 3x more qualified leads and our agents spend time closing deals instead of answering basic questions.",
   'caseStudies.content.case5.author': 'Vo Thanh Son, Managing Director at PropertyHub Vietnam',
 
   'caseStudies.content.case6.title': 'Hotel Booking and Guest Service Automation',
@@ -541,7 +542,7 @@ export const enTranslations: Translations = {
 
   // Not-found Page
   'notFound.title': 'Page Not Found',
-  'notFound.description': 'The page you\'re looking for doesn\'t exist or has been moved.',
+  'notFound.description': "The page you're looking for doesn't exist or has been moved.",
   'notFound.backHome': 'Back to Home',
   'notFound.contactSupport': 'Contact Support',
   'notFound.errorCode': 'Error code:',
@@ -557,4 +558,133 @@ export const enTranslations: Translations = {
   'blog.notFound.title': 'Article Not Found',
   'blog.notFound.description': 'The article you are looking for does not exist or has been deleted.',
   'blog.notFound.backToBlog': 'Back to blog',
+
+  // Marketing Services
+  'services.hero.badge': 'Full-Service Digital Marketing',
+  'services.hero.title': 'Scale Your Business with',
+  'services.hero.titleHighlight': 'Strategic Marketing',
+  'services.hero.description': 'Comprehensive marketing solutions that drive growth, boost engagement, and maximize ROI. From performance advertising to content creation, we handle it all.',
+  'services.hero.cta': 'Start Your Campaign',
+  'services.hero.learnMore': 'Explore Services',
+  'services.hero.stat1.title': '300% Average ROI',
+  'services.hero.stat1.desc': 'Proven results across campaigns',
+  'services.hero.stat2.title': '50+ Successful Campaigns',
+  'services.hero.stat2.desc': 'Delivered for growing businesses',
+  'services.hero.stat3.title': '24/7 Campaign Monitoring',
+  'services.hero.stat3.desc': 'Continuous optimization',
+
+  // Service Grid
+  'services.grid.title': 'Our Marketing',
+  'services.grid.titleHighlight': 'Services',
+  'services.grid.subtitle': 'Comprehensive solutions to accelerate your business growth',
+
+  'services.grid.performanceads.title': 'Performance Ads',
+  'services.grid.performanceads.hook': 'ROI-Focused',
+  'services.grid.performanceads.description': 'Data-driven advertising campaigns across Google, Facebook, and TikTok that maximize your return on investment.',
+
+  'services.grid.contentperformance.title': 'Content Performance',
+  'services.grid.contentperformance.hook': 'Engaging Content',
+  'services.grid.contentperformance.description': 'High-converting content creation and optimization that resonates with your audience and drives action.',
+
+  'services.grid.livestreamcommerce.title': 'Livestream Commerce',
+  'services.grid.livestreamcommerce.hook': 'Live Selling',
+  'services.grid.livestreamcommerce.description': 'Interactive livestream shopping experiences that boost engagement and drive immediate sales.',
+
+  'services.grid.marketingautomation.title': 'Marketing Automation',
+  'services.grid.marketingautomation.hook': 'Smart Automation',
+  'services.grid.marketingautomation.description': 'Automated workflows that nurture leads and customers throughout their journey.',
+
+  'services.grid.growthplanner.title': 'Growth Planner',
+  'services.grid.growthplanner.hook': 'Strategic Growth',
+  'services.grid.growthplanner.description': 'Data-backed growth strategies and planning to scale your business effectively.',
+
+  'services.grid.seo.title': 'SEO',
+  'services.grid.seo.hook': 'Organic Growth',
+  'services.grid.seo.description': 'Search engine optimization that increases your visibility and drives organic traffic.',
+
+  'services.grid.fullstackstrategy.title': 'Full-Stack Strategy',
+  'services.grid.fullstackstrategy.hook': 'Complete Solution',
+  'services.grid.fullstackstrategy.description': 'End-to-end marketing strategy that aligns all channels for maximum impact.',
+
+  // Service Details
+  'services.details.title': 'Service',
+  'services.details.titleHighlight': 'Details',
+  'services.details.subtitle': 'Deep dive into our comprehensive marketing solutions',
+  'services.details.deliverables': 'What You Get',
+  'services.details.features': 'Key Features',
+
+  // Performance Ads Details
+  'services.details.performance-ads.overview': 'ROI-focused advertising campaigns that deliver measurable results across all major platforms.',
+  'services.details.performance-ads.deliverables': 'Campaign setup & optimization|Ad creative development|Landing page optimization|Performance analytics & reporting|A/B testing & iterations|Monthly strategy reviews',
+  'services.details.performance-ads.feature1.title': 'Multi-Platform Management',
+  'services.details.performance-ads.feature1.desc': 'Manage campaigns across Google, Facebook, Instagram, TikTok, and LinkedIn from one dashboard.',
+  'services.details.performance-ads.feature2.title': 'Advanced Targeting',
+  'services.details.performance-ads.feature2.desc': 'Precision targeting using AI-powered audience insights and behavioral data.',
+  'services.details.performance-ads.timeline': '2-4 weeks setup',
+
+  // Content Performance Details
+  'services.details.content-performance.overview': 'High-converting content that engages your audience and drives meaningful action.',
+  'services.details.content-performance.deliverables': 'Content strategy development|Blog posts & articles|Social media content|Video scripts & production|Email campaigns|Content calendar management',
+  'services.details.content-performance.feature1.title': 'Performance-Driven Content',
+  'services.details.content-performance.feature1.desc': 'Every piece of content is optimized for engagement and conversion metrics.',
+  'services.details.content-performance.feature2.title': 'Multi-Format Creation',
+  'services.details.content-performance.feature2.desc': 'Video, written, visual, and interactive content tailored to each platform.',
+  'services.details.content-performance.timeline': '1-2 weeks delivery',
+
+  // Livestream Commerce Details
+  'services.details.livestream-commerce.overview': 'Interactive livestream shopping experiences that engage audiences and drive sales in real-time.',
+  'services.details.livestream-commerce.deliverables': 'Livestream setup & management|Host training & scripts|Audience engagement strategies|Real-time analytics|Sales tracking & reporting|Post-event follow-up',
+  'services.details.livestream-commerce.feature1.title': 'Engaging Live Content',
+  'services.details.livestream-commerce.feature1.desc': 'Create compelling live shows that captivate and convert viewers.',
+  'services.details.livestream-commerce.feature2.title': 'Seamless Integration',
+  'services.details.livestream-commerce.feature2.desc': 'Connect with e-commerce platforms for smooth transactions.',
+  'services.details.livestream-commerce.timeline': '3-5 weeks launch',
+
+  // Marketing Automation Details
+  'services.details.marketing-automation.overview': 'Automated workflows that nurture leads and customers, improving efficiency and conversion rates.',
+  'services.details.marketing-automation.deliverables': 'Workflow design & implementation|Lead scoring & segmentation|Email & SMS automation|CRM integration|Performance monitoring|Ongoing optimization',
+  'services.details.marketing-automation.feature1.title': 'Smart Lead Nurturing',
+  'services.details.marketing-automation.feature1.desc': 'Automate personalized communication based on user behavior.',
+  'services.details.marketing-automation.feature2.title': 'Cross-Channel Automation',
+  'services.details.marketing-automation.feature2.desc': 'Coordinate campaigns across email, SMS, and social media.',
+  'services.details.marketing-automation.timeline': '4-6 weeks deployment',
+
+  // Growth Planner Details
+  'services.details.growth-planner.overview': 'Data-driven growth strategies and planning to help scale your business effectively.',
+  'services.details.growth-planner.deliverables': 'Market analysis|Growth roadmap|KPI setting & tracking|Resource allocation|Risk assessment|Quarterly reviews',
+  'services.details.growth-planner.feature1.title': 'Strategic Planning',
+  'services.details.growth-planner.feature1.desc': 'Develop actionable plans aligned with business goals.',
+  'services.details.growth-planner.feature2.title': 'Data-Backed Insights',
+  'services.details.growth-planner.feature2.desc': 'Leverage analytics to inform growth decisions.',
+  'services.details.growth-planner.timeline': '2-3 weeks planning',
+
+  // SEO Details
+  'services.details.seo.overview': 'Search engine optimization services that increase your online visibility and drive organic traffic.',
+  'services.details.seo.deliverables': 'Keyword research|On-page optimization|Technical SEO audit|Content optimization|Link building|Performance reporting',
+  'services.details.seo.feature1.title': 'Comprehensive SEO Audit',
+  'services.details.seo.feature1.desc': 'Identify and fix issues affecting search rankings.',
+  'services.details.seo.feature2.title': 'Content Strategy',
+  'services.details.seo.feature2.desc': 'Optimize content to target relevant keywords and audiences.',
+  'services.details.seo.timeline': '3-6 months ongoing',
+
+  // Full-Stack Strategy Details
+  'services.details.full-stack-strategy.overview': 'End-to-end marketing strategy that aligns all channels for maximum impact and ROI.',
+  'services.details.full-stack-strategy.deliverables': 'Channel integration|Campaign coordination|Performance analytics|Budget optimization|Team training|Continuous improvement',
+  'services.details.full-stack-strategy.feature1.title': 'Holistic Approach',
+  'services.details.full-stack-strategy.feature1.desc': 'Unify marketing efforts across platforms and teams.',
+  'services.details.full-stack-strategy.feature2.title': 'Maximized ROI',
+  'services.details.full-stack-strategy.feature2.desc': 'Optimize spend and performance for best results.',
+  'services.details.full-stack-strategy.timeline': 'Ongoing partnership',
+
+  // Synergy Banner
+  'services.synergy.title': 'Marketing + AI Chatbots = Unstoppable Growth',
+  'services.synergy.description': "Combine our marketing expertise with D2 Group's AI chatbot technology for the ultimate customer acquisition and retention system.",
+  'services.synergy.exploreChatbots': 'Explore AI Chatbots',
+  'services.synergy.getIntegration': 'Get Integration Quote',
+  'services.synergy.benefit1.title': 'Lead Qualification',
+  'services.synergy.benefit1.desc': 'AI chatbots qualify leads generated from marketing campaigns',
+  'services.synergy.benefit2.title': 'Customer Support',
+  'services.synergy.benefit2.desc': 'Instant support for customers acquired through marketing',
+  'services.synergy.benefit3.title': 'Data Integration',
+  'services.synergy.benefit3.desc': 'Unified customer data across marketing and support channels',
 };
