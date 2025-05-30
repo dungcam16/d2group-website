@@ -24,6 +24,7 @@ interface DemoScenario {
 const ChatbotDemoCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [animatingMessages, setAnimatingMessages] = useState<{[key: string]: number}>({});
+  const [isPlaying, setIsPlaying] = useState(true);
 
   const scenarios: DemoScenario[] = [
     {
@@ -140,29 +141,39 @@ const ChatbotDemoCarousel = () => {
     }
   ];
 
-  // Auto-scroll every 6 seconds
+  // Auto-scroll every 10 seconds (increased from 6)
   useEffect(() => {
+    if (!isPlaying) return;
+    
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % scenarios.length);
-    }, 6000);
+    }, 10000);
 
     return () => clearInterval(timer);
-  }, [scenarios.length]);
+  }, [scenarios.length, isPlaying]);
 
-  // Animate messages for current scenario
+  // Animate messages for current scenario with improved timing
   useEffect(() => {
     const currentScenario = scenarios[currentSlide];
     if (currentScenario) {
       setAnimatingMessages({});
       
-      currentScenario.messages.forEach((_, index) => {
-        setTimeout(() => {
-          setAnimatingMessages(prev => ({
-            ...prev,
-            [`${currentScenario.id}-${index}`]: index
-          }));
-        }, index * 800);
-      });
+      // Reset and start new animation sequence
+      const animationSequence = async () => {
+        for (let index = 0; index < currentScenario.messages.length; index++) {
+          await new Promise(resolve => {
+            setTimeout(() => {
+              setAnimatingMessages(prev => ({
+                ...prev,
+                [`${currentScenario.id}-${index}`]: index
+              }));
+              resolve(undefined);
+            }, index * 1500); // Increased timing between messages
+          });
+        }
+      };
+      
+      animationSequence();
     }
   }, [currentSlide, scenarios]);
 
@@ -204,31 +215,34 @@ const ChatbotDemoCarousel = () => {
                         
                         {/* Chat Messages */}
                         <div className="flex-1 p-4 space-y-3 h-[400px] overflow-y-auto bg-gray-50">
-                          {scenario.messages.map((message, msgIndex) => (
-                            <div
-                              key={msgIndex}
-                              className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} ${
-                                animatingMessages[`${scenario.id}-${msgIndex}`] !== undefined 
-                                  ? 'animate-fade-in' 
-                                  : 'opacity-0'
-                              }`}
-                            >
+                          {scenario.messages.map((message, msgIndex) => {
+                            const isVisible = animatingMessages[`${scenario.id}-${msgIndex}`] !== undefined;
+                            return (
                               <div
-                                className={`max-w-xs px-4 py-2 rounded-2xl ${
-                                  message.sender === 'user'
-                                    ? 'bg-blue-500 text-white rounded-br-md'
-                                    : 'bg-white text-gray-800 rounded-bl-md shadow-sm'
+                                key={msgIndex}
+                                className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} transition-all duration-500 ${
+                                  isVisible 
+                                    ? 'opacity-100 translate-y-0' 
+                                    : 'opacity-0 translate-y-4'
                                 }`}
                               >
-                                <div className="text-sm whitespace-pre-line">{message.message}</div>
-                                <div className={`text-xs mt-1 ${
-                                  message.sender === 'user' ? 'text-blue-100' : 'text-gray-500'
-                                }`}>
-                                  {message.time}
+                                <div
+                                  className={`max-w-xs px-4 py-2 rounded-2xl ${
+                                    message.sender === 'user'
+                                      ? 'bg-blue-500 text-white rounded-br-md'
+                                      : 'bg-white text-gray-800 rounded-bl-md shadow-sm'
+                                  }`}
+                                >
+                                  <div className="text-sm whitespace-pre-line">{message.message}</div>
+                                  <div className={`text-xs mt-1 ${
+                                    message.sender === 'user' ? 'text-blue-100' : 'text-gray-500'
+                                  }`}>
+                                    {message.time}
+                                  </div>
                                 </div>
                               </div>
-                            </div>
-                          ))}
+                            );
+                          })}
                         </div>
                         
                         {/* Input Area */}
@@ -274,9 +288,14 @@ const ChatbotDemoCarousel = () => {
                     {scenarios.map((_, dotIndex) => (
                       <div
                         key={dotIndex}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                        className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${
                           dotIndex === currentSlide ? scenario.color : 'bg-gray-300'
                         }`}
+                        onClick={() => {
+                          setCurrentSlide(dotIndex);
+                          setIsPlaying(false);
+                          setTimeout(() => setIsPlaying(true), 2000);
+                        }}
                       />
                     ))}
                   </div>
@@ -285,8 +304,22 @@ const ChatbotDemoCarousel = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="left-4" onClick={() => setCurrentSlide((prev) => (prev - 1 + scenarios.length) % scenarios.length)} />
-        <CarouselNext className="right-4" onClick={() => setCurrentSlide((prev) => (prev + 1) % scenarios.length)} />
+        <CarouselPrevious 
+          className="left-4" 
+          onClick={() => {
+            setCurrentSlide((prev) => (prev - 1 + scenarios.length) % scenarios.length);
+            setIsPlaying(false);
+            setTimeout(() => setIsPlaying(true), 2000);
+          }} 
+        />
+        <CarouselNext 
+          className="right-4" 
+          onClick={() => {
+            setCurrentSlide((prev) => (prev + 1) % scenarios.length);
+            setIsPlaying(false);
+            setTimeout(() => setIsPlaying(true), 2000);
+          }} 
+        />
       </Carousel>
     </div>
   );
