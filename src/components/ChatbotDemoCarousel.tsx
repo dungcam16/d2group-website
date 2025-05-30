@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -25,6 +24,7 @@ const ChatbotDemoCarousel = () => {
   const [currentGif, setCurrentGif] = useState(0);
   const [visibleMessages, setVisibleMessages] = useState<number>(0);
   const [isAnimating, setIsAnimating] = useState(true);
+  const [animationKey, setAnimationKey] = useState(0);
 
   const scenarios: DemoScenario[] = [
     {
@@ -159,63 +159,59 @@ const ChatbotDemoCarousel = () => {
 
   const currentScenario = scenarios[currentGif];
 
-  // Improved GIF animation với timing ổn định
+  // Smooth video-like animation
   useEffect(() => {
     if (!isAnimating) return;
 
     const totalMessages = currentScenario.messages.length;
-    const cycleDuration = 5000; // 5 giây cho mỗi cycle
-    const messageInterval = cycleDuration / totalMessages; // Thời gian hiển thị mỗi tin nhắn
-    const pauseBetweenCycles = 1000; // Nghỉ 1 giây giữa các cycle
-
+    const messageDisplayTime = 800; // 0.8 giây cho mỗi tin nhắn
+    const pauseBetweenCycles = 1500; // 1.5 giây nghỉ giữa các cycle
+    
     let timeoutId: NodeJS.Timeout;
-    let currentMessageIndex = 0;
+    let currentIndex = 0;
 
-    const showNextMessage = () => {
-      if (currentMessageIndex < totalMessages) {
-        setVisibleMessages(currentMessageIndex + 1);
-        currentMessageIndex++;
-        timeoutId = setTimeout(showNextMessage, messageInterval);
+    const displayNextMessage = () => {
+      if (currentIndex < totalMessages) {
+        setVisibleMessages(currentIndex + 1);
+        currentIndex++;
+        timeoutId = setTimeout(displayNextMessage, messageDisplayTime);
       } else {
-        // Kết thúc cycle, nghỉ rồi bắt đầu lại
+        // Cycle complete, pause then restart
         timeoutId = setTimeout(() => {
           setVisibleMessages(0);
-          currentMessageIndex = 0;
-          timeoutId = setTimeout(showNextMessage, 300); // Delay nhỏ trước khi bắt đầu
+          setAnimationKey(prev => prev + 1); // Force re-render for smooth restart
+          currentIndex = 0;
+          timeoutId = setTimeout(displayNextMessage, 400);
         }, pauseBetweenCycles);
       }
     };
 
-    // Bắt đầu animation
+    // Start the animation
     setVisibleMessages(0);
-    timeoutId = setTimeout(showNextMessage, 500); // Delay ban đầu
+    setAnimationKey(prev => prev + 1);
+    timeoutId = setTimeout(displayNextMessage, 600);
 
     return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId);
-      }
+      if (timeoutId) clearTimeout(timeoutId);
     };
   }, [currentGif, isAnimating, currentScenario.messages.length]);
 
   const nextGif = () => {
     setCurrentGif((prev) => (prev + 1) % scenarios.length);
-    setVisibleMessages(0);
   };
 
   const prevGif = () => {
     setCurrentGif((prev) => (prev - 1 + scenarios.length) % scenarios.length);
-    setVisibleMessages(0);
   };
 
   const selectGif = (index: number) => {
     setCurrentGif(index);
-    setVisibleMessages(0);
   };
 
   return (
     <div className="max-w-6xl mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        {/* iPhone Mockup - GIF Area */}
+        {/* iPhone Mockup */}
         <div className="flex justify-center">
           <div className="relative">
             {/* iPhone Frame */}
@@ -242,16 +238,16 @@ const ChatbotDemoCarousel = () => {
                   </div>
                 </div>
                 
-                {/* Chat Messages - Video-like Animation */}
-                <div className="flex-1 p-4 space-y-3 h-[400px] overflow-y-auto bg-gray-50">
+                {/* Chat Messages - Smooth Animation */}
+                <div key={animationKey} className="flex-1 p-4 space-y-3 h-[400px] overflow-y-auto bg-gray-50">
                   {currentScenario.messages.slice(0, visibleMessages).map((message, msgIndex) => (
                     <div
-                      key={`${currentGif}-${msgIndex}`}
+                      key={`message-${msgIndex}`}
                       className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} 
-                        opacity-0 animate-fade-in`}
+                        transform transition-all duration-500 ease-out`}
                       style={{
-                        animation: `fade-in 0.5s ease-out forwards`,
-                        animationDelay: '0.1s'
+                        opacity: 1,
+                        transform: 'translateY(0px)'
                       }}
                     >
                       <div
@@ -271,9 +267,9 @@ const ChatbotDemoCarousel = () => {
                     </div>
                   ))}
                   
-                  {/* Typing indicator chỉ hiển thị khi đang trong quá trình animation */}
+                  {/* Typing indicator */}
                   {isAnimating && visibleMessages > 0 && visibleMessages < currentScenario.messages.length && (
-                    <div className="flex justify-start animate-fade-in">
+                    <div className="flex justify-start">
                       <div className="bg-white text-gray-800 rounded-2xl rounded-bl-md shadow-sm px-4 py-2">
                         <div className="flex space-x-1">
                           <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
