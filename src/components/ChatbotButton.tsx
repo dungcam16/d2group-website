@@ -55,9 +55,8 @@ const ChatbotButton = () => {
         </DropdownMenuTrigger>
         <DropdownMenuContent 
           align="end" 
-          className="mb-4 w-48 bg-white border border-gray-200 shadow-lg z-[9999]"
+          className="mb-4 w-48 bg-white border border-gray-200 shadow-lg z-[100]"
           sideOffset={8}
-          onOpenAutoFocus={(e) => e.preventDefault()}
         >
           <DropdownMenuItem 
             onClick={handleChatWebsite} 
