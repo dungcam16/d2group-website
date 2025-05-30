@@ -219,7 +219,7 @@ const Index = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            {t('home.features.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Features</span>
+            {t('home.features.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('home.features.subtitle')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {t('home.features.subtitle')}
@@ -282,7 +282,7 @@ const Index = () => {
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            {t('home.howItWorks.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">It Works</span>
+            {t('home.howItWorks.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('home.howItWorks.subtitle')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {t('home.howItWorks.subtitle')}
@@ -320,7 +320,7 @@ const Index = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            {t('home.useCases.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Solutions</span>
+            {t('home.useCases.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('home.useCases.subtitle')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {t('home.useCases.subtitle')}
@@ -360,7 +360,7 @@ const Index = () => {
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            {t('home.testimonials.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Stories</span>
+            {t('home.testimonials.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('home.testimonials.subtitle')}</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {t('home.testimonials.subtitle')}
@@ -434,7 +434,7 @@ const Index = () => {
       <Section background="gray">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold mb-4 text-gray-900">
-            {t('home.partners.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Partners</span>
+            {t('home.partners.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('home.partners.subtitle')}</span>
           </h2>
           <p className="text-lg text-gray-600">
             {t('home.partners.subtitle')}
@@ -458,7 +458,7 @@ const Index = () => {
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            {t('home.pricing.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Pricing</span>
+            {t('home.pricing.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('home.pricing.subtitle')}</span>
           </h2>
           <p className="text-xl text-gray-600">
             {t('home.pricing.subtitle')}
@@ -518,7 +518,7 @@ const Index = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            {t('home.faq.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Asked Questions</span>
+            {t('home.faq.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('home.faq.subtitle')}</span>
           </h2>
           <p className="text-xl text-gray-600">
             {t('home.faq.subtitle')}
