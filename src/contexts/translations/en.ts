@@ -1,3 +1,4 @@
+
 import { Translations } from '../types';
 
 export const enTranslations: Translations = {
@@ -40,7 +41,7 @@ export const enTranslations: Translations = {
   'about.mission.security.desc': 'Enterprise-grade security with full data protection and compliance',
   'about.vision.title': 'Our Vision',
   'about.vision.description':
-    'To become Southeast Asia’s leading AI-chatbot platform, empowering every business to deliver exceptional, AI-driven customer experiences.',
+    'To become Southeast Asia's leading AI-chatbot platform, empowering every business to deliver exceptional, AI-driven customer experiences.',
   'about.team.title': 'Meet Our Team',
   'about.team.subtitle':
     'Passionate experts dedicated to revolutionizing customer engagement through AI innovation',
@@ -78,7 +79,7 @@ export const enTranslations: Translations = {
 
   'features.core.multiChannel.title': 'Multi-Channel Deployment',
   'features.core.multiChannel.desc':
-    'Deploy effortlessly across today’s most popular communication channels',
+    'Deploy effortlessly across today's most popular communication channels',
   'features.core.multiChannel.detail1': 'Website chat widget with customizable design',
   'features.core.multiChannel.detail2': 'WhatsApp Business API integration',
   'features.core.multiChannel.detail3': 'Facebook Messenger and Instagram support',
@@ -270,7 +271,7 @@ export const enTranslations: Translations = {
   'home.testimonials.title': 'Customer Success Stories',
   'home.testimonials.subtitle': 'Hear what our clients have to say',
   'home.testimonials.1.content':
-    'D2 Group’s AI chatbot lifted our customer-satisfaction score by 45% and brought response times under a minute. Outstanding!',
+    'D2 Group's AI chatbot lifted our customer-satisfaction score by 45% and brought response times under a minute. Outstanding!',
   'home.testimonials.2.content':
     'Implementation was seamless, and ROI was immediate – our conversion rate jumped 35% in the first month.',
   'home.testimonials.3.content':
@@ -376,7 +377,7 @@ export const enTranslations: Translations = {
     'Yes. Enjoy a 14-day free trial on any plan – no credit card required.',
   'pricing.faq.q4': 'What if I exceed my chat-session limit?',
   'pricing.faq.a4':
-    'Excess sessions are billed at US $3 per session. We’ll notify you as you approach your limit.',
+    'Excess sessions are billed at US $3 per session. We'll notify you as you approach your limit.',
 
   // Pricing CTA
   'pricing.cta.title': 'Ready to',
@@ -421,15 +422,19 @@ export const enTranslations: Translations = {
   // Contact Page
   'contact.hero.title': 'Get in Touch',
   'contact.hero.subtitle':
-    'Ready to transform your customer conversations? Let’s discuss how D2 Group can help achieve your automation goals.',
-  'contact.form.title': 'Let’s Start the Conversation',
+    'Ready to transform your customer conversations? Let's discuss how D2 Group can help achieve your automation goals.',
+  'contact.form.title': 'Let's Start the Conversation',
   'contact.form.subtitle':
     'Fill out the form below and our team will reach out within 24 hours.',
   'contact.info.title': 'Contact Information',
   'contact.map.title': 'Find Us',
   'contact.thanks.title': 'Thank You!',
   'contact.thanks.subtitle':
-    'Your message has been received. We’ll respond within 24 hours – meanwhile, connect with us on social media.',
+    'Your message has been received. We'll respond within 24 hours – meanwhile, connect with us on social media.',
+
+  // Case Studies Hero
+  'caseStudies.hero.title': 'Real Success Stories',
+  'caseStudies.hero.subtitle': 'Discover how leading businesses across Southeast Asia transformed their customer engagement with D2 Group AI chatbots.',
 
   // Case Studies – Stats
   'caseStudies.content.stats.deployments': 'Successful Deployments',
@@ -437,11 +442,103 @@ export const enTranslations: Translations = {
   'caseStudies.content.stats.costReduction': 'Cost Reduction',
   'caseStudies.content.stats.support': 'AI-Powered Support',
 
-  // … (all subsequent Case-Study entries remain unchanged – wording already correct)
+  // Case Studies Content
+  'caseStudies.content.case1.title': 'E-commerce Transformation with AI Customer Support',
+  'caseStudies.content.case1.company': 'VietStore - Leading Online Marketplace',
+  'caseStudies.content.case1.industry': 'E-commerce',
+  'caseStudies.content.case1.challenge': 'VietStore faced increasing customer support costs and slow response times during peak shopping seasons, leading to cart abandonment and customer dissatisfaction.',
+  'caseStudies.content.case1.solution': 'Implemented D2 Group\'s AI chatbot to handle instant product inquiries, order tracking, and customer support 24/7 across website and WhatsApp channels.',
+  'caseStudies.content.case1.testimonial': 'The AI chatbot from D2 Group has revolutionized our customer service. We now respond to customer inquiries in seconds instead of hours, and our conversion rates have never been higher.',
+  'caseStudies.content.case1.author': 'Nguyen Van Duc, CEO of VietStore',
+
+  'caseStudies.content.case2.title': 'Healthcare Patient Engagement Revolution',
+  'caseStudies.content.case2.company': 'MediCare Plus - Healthcare Network',
+  'caseStudies.content.case2.industry': 'Healthcare',
+  'caseStudies.content.case2.challenge': 'Long wait times for appointment bookings and patient inquiries were overwhelming staff and creating patient dissatisfaction.',
+  'caseStudies.content.case2.solution': 'Deployed AI chatbot for appointment scheduling, symptom pre-screening, and instant patient support with seamless integration to existing hospital systems.',
+  'caseStudies.content.case2.testimonial': 'D2 Group\'s chatbot has transformed our patient experience. Appointment bookings are now instant, and our staff can focus on providing better healthcare instead of answering repetitive questions.',
+  'caseStudies.content.case2.author': 'Dr. Tran Thi Mai, Director of MediCare Plus',
+
+  'caseStudies.content.case3.title': 'Financial Services Lead Qualification Automation',
+  'caseStudies.content.case3.company': 'FinanceViet - Digital Banking Solutions',
+  'caseStudies.content.case3.industry': 'Financial Services',
+  'caseStudies.content.case3.challenge': 'Manual lead qualification processes were slow and inconsistent, resulting in lost opportunities and inefficient sales team allocation.',
+  'caseStudies.content.case3.solution': 'Implemented intelligent lead qualification chatbot that pre-screens prospects, gathers financial requirements, and routes qualified leads to appropriate specialists.',
+  'caseStudies.content.case3.testimonial': 'Our conversion rates have skyrocketed since implementing D2 Group\'s AI solution. The chatbot qualifies leads better than our human staff and works around the clock.',
+  'caseStudies.content.case3.author': 'Le Minh Hoang, Sales Director at FinanceViet',
+
+  'caseStudies.content.case4.title': 'Educational Platform Student Support System',
+  'caseStudies.content.case4.company': 'EduVietnam - Online Learning Platform',
+  'caseStudies.content.case4.industry': 'Education',
+  'caseStudies.content.case4.challenge': 'Growing student base overwhelmed support team with repetitive questions about courses, enrollment, and technical issues.',
+  'caseStudies.content.case4.solution': 'Deployed AI-powered educational assistant to handle course inquiries, enrollment processes, and provide 24/7 technical support to students.',
+  'caseStudies.content.case4.testimonial': 'The AI assistant has become an integral part of our platform. Students get instant help anytime, and our completion rates have improved significantly.',
+  'caseStudies.content.case4.author': 'Pham Thi Lan, Head of Student Success at EduVietnam',
+
+  'caseStudies.content.case5.title': 'Real Estate Lead Generation and Property Matching',
+  'caseStudies.content.case5.company': 'PropertyHub Vietnam - Real Estate Agency',
+  'caseStudies.content.case5.industry': 'Real Estate',
+  'caseStudies.content.case5.challenge': 'Difficulty capturing and qualifying property leads, plus time-consuming manual matching of clients with suitable properties.',
+  'caseStudies.content.case5.solution': 'Implemented AI chatbot to capture lead information, qualify prospects based on budget and preferences, and automatically match them with available properties.',
+  'caseStudies.content.case5.testimonial': 'D2 Group\'s AI has transformed our business. We now capture 3x more qualified leads and our agents spend time closing deals instead of answering basic questions.',
+  'caseStudies.content.case5.author': 'Vo Thanh Son, Managing Director at PropertyHub Vietnam',
+
+  'caseStudies.content.case6.title': 'Hotel Booking and Guest Service Automation',
+  'caseStudies.content.case6.company': 'SaigonStay Hotels - Hospitality Chain',
+  'caseStudies.content.case6.industry': 'Hospitality',
+  'caseStudies.content.case6.challenge': 'Manual booking processes and repetitive guest inquiries were overwhelming front desk staff, especially during peak tourist seasons.',
+  'caseStudies.content.case6.solution': 'Deployed comprehensive AI booking assistant that handles reservations, room service orders, local recommendations, and guest support across multiple channels.',
+  'caseStudies.content.case6.testimonial': 'Our guests love the instant response time, and our staff can now focus on creating memorable experiences rather than handling routine bookings.',
+  'caseStudies.content.case6.author': 'Nguyen Thi Hong, Operations Manager at SaigonStay Hotels',
+
+  // Case Studies Metrics
+  'caseStudies.metrics.conversionRate': 'Conversion Rate',
+  'caseStudies.metrics.cartAbandonment': 'Cart Abandonment',
+  'caseStudies.metrics.responseTime': 'Response Time',
+  'caseStudies.metrics.customerSatisfaction': 'Customer Satisfaction',
+  'caseStudies.metrics.waitTimes': 'Wait Times',
+  'caseStudies.metrics.appointmentBookings': 'Appointment Bookings',
+  'caseStudies.metrics.staffEfficiency': 'Staff Efficiency',
+  'caseStudies.metrics.leadQuality': 'Lead Quality',
+  'caseStudies.metrics.onboardingTime': 'Onboarding Time',
+  'caseStudies.metrics.processEfficiency': 'Process Efficiency',
+  'caseStudies.metrics.studentEngagement': 'Student Engagement',
+  'caseStudies.metrics.courseCompletion': 'Course Completion',
+  'caseStudies.metrics.supportQueries': 'Support Queries',
+  'caseStudies.metrics.qualifiedLeads': 'Qualified Leads',
+  'caseStudies.metrics.propertyViews': 'Property Views',
+  'caseStudies.metrics.salesCycle': 'Sales Cycle',
+  'caseStudies.metrics.agentProductivity': 'Agent Productivity',
+  'caseStudies.metrics.bookingAutomation': 'Booking Automation',
+  'caseStudies.metrics.staffWorkload': 'Staff Workload',
+  'caseStudies.metrics.bookingConversion': 'Booking Conversion',
+  'caseStudies.metrics.guestSatisfaction': 'Guest Satisfaction',
+
+  // Case Studies Industries
+  'caseStudies.industries.title': 'Industries',
+  'caseStudies.industries.subtitle': 'Transforming businesses across all major sectors',
+  'caseStudies.industries.ecommerce': 'E-commerce',
+  'caseStudies.industries.healthcare': 'Healthcare',
+  'caseStudies.industries.finance': 'Finance',
+  'caseStudies.industries.education': 'Education',
+  'caseStudies.industries.realestate': 'Real Estate',
+  'caseStudies.industries.hospitality': 'Hospitality',
+  'caseStudies.industries.retail': 'Retail',
+  'caseStudies.industries.automotive': 'Automotive',
+  'caseStudies.industries.insurance': 'Insurance',
+  'caseStudies.industries.manufacturing': 'Manufacturing',
+  'caseStudies.industries.travel': 'Travel',
+  'caseStudies.industries.logistics': 'Logistics',
+
+  // Case Studies CTA
+  'caseStudies.cta.title': 'Ready to Create Your Next',
+  'caseStudies.cta.subtitle': 'Join hundreds of successful businesses using D2 Group AI chatbots to transform their customer engagement and drive growth.',
+  'caseStudies.cta.startStory': 'Start Your Story',
+  'caseStudies.cta.viewPricing': 'View Pricing',
 
   // Not-found Page
   'notFound.title': 'Page Not Found',
-  'notFound.description': 'The page you’re looking for doesn’t exist or has been moved.',
+  'notFound.description': 'The page you're looking for doesn't exist or has been moved.',
   'notFound.backHome': 'Back to Home',
   'notFound.contactSupport': 'Contact Support',
   'notFound.errorCode': 'Error code:',

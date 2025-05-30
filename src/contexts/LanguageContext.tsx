@@ -7,7 +7,7 @@ import { viTranslations } from './translations/vi';
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<'en' | 'vi'>('vi');
+  const [language, setLanguage] = useState<'en' | 'vi'>('vi'); // Default to Vietnamese
 
   const translations = {
     en: enTranslations,
@@ -15,7 +15,13 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   };
 
   const t = (key: string) => {
-    return translations[language][key] || key;
+    const translation = translations[language][key];
+    if (!translation) {
+      console.warn(`Missing translation for key: ${key} in language: ${language}`);
+      // Fallback to Vietnamese if English translation is missing
+      return translations['vi'][key] || key;
+    }
+    return translation;
   };
 
   return (
