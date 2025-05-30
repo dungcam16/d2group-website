@@ -87,43 +87,43 @@ const Pricing = () => {
 
   const comparisonFeatures = [
     {
-      category: "Core Features",
+      category: t('pricing.comparison.coreFeatures'),
       features: [
-        { name: "Monthly Chat Sessions", starter: "1,000", growth: "5,000", business: "15,000", enterprise: "Unlimited" },
-        { name: "Chatbot Template", starter: "Basic", growth: "Advanced", business: "Custom", enterprise: "Fully Custom" },
-        { name: "Response Time SLA", starter: "Standard", growth: "Priority", business: "Priority", enterprise: "Instant" },
-        { name: "Analytics Dashboard", starter: true, growth: true, business: true, enterprise: true },
-        { name: "Website Widget Integration", starter: true, growth: true, business: true, enterprise: true }
+        { name: t('pricing.comparison.monthlyChatSessions'), starter: "1,000", growth: "5,000", business: "15,000", enterprise: t('pricing.comparison.unlimited') },
+        { name: t('pricing.comparison.chatbotTemplate'), starter: t('pricing.comparison.basic'), growth: t('pricing.comparison.advanced'), business: t('pricing.comparison.custom'), enterprise: t('pricing.comparison.fullyCustom') },
+        { name: t('pricing.comparison.responseTimeSLA'), starter: t('pricing.comparison.standard'), growth: t('pricing.comparison.priority'), business: t('pricing.comparison.priority'), enterprise: t('pricing.comparison.instant') },
+        { name: t('pricing.comparison.analyticsDashboard'), starter: true, growth: true, business: true, enterprise: true },
+        { name: t('pricing.comparison.websiteWidgetIntegration'), starter: true, growth: true, business: true, enterprise: true }
       ]
     },
     {
-      category: "Channels & Integrations",
+      category: t('pricing.comparison.channelsIntegrations'),
       features: [
-        { name: "Website Widget", starter: true, growth: true, business: true, enterprise: true },
-        { name: "WhatsApp Business", starter: false, growth: true, business: true, enterprise: true },
-        { name: "Facebook Messenger", starter: false, growth: true, business: true, enterprise: true },
-        { name: "CRM Integration", starter: false, growth: true, business: true, enterprise: true },
-        { name: "Custom API Access", starter: false, growth: false, business: false, enterprise: true }
+        { name: t('pricing.comparison.websiteWidget'), starter: true, growth: true, business: true, enterprise: true },
+        { name: t('pricing.comparison.whatsappBusiness'), starter: false, growth: true, business: true, enterprise: true },
+        { name: t('pricing.comparison.facebookMessenger'), starter: false, growth: true, business: true, enterprise: true },
+        { name: t('pricing.comparison.crmIntegration'), starter: false, growth: true, business: true, enterprise: true },
+        { name: t('pricing.comparison.customApiAccess'), starter: false, growth: false, business: false, enterprise: true }
       ]
     }
   ];
 
   const faqs = [
     {
-      question: "How are chat sessions counted?",
-      answer: "A chat session is counted each time a unique user interacts with your chatbot within a 24-hour window, regardless of the number of messages exchanged."
+      question: t('pricing.faq.q1'),
+      answer: t('pricing.faq.a1')
     },
     {
-      question: "Can I upgrade or downgrade my plan at any time?",
-      answer: "Yes—you can switch plans whenever you like. Upgrades take effect immediately; downgrades apply on your next billing cycle."
+      question: t('pricing.faq.q2'),
+      answer: t('pricing.faq.a2')
     },
     {
-      question: "Is there a free trial available?",
-      answer: "Yes—we offer a 14-day free trial on all plans. No credit card required, and you can cancel at any time during the trial."
+      question: t('pricing.faq.q3'),
+      answer: t('pricing.faq.a3')
     },
     {
-      question: "What happens if I exceed my chat session limit?",
-      answer: "If you go over your monthly quota, additional sessions are billed at $3 per session. We'll send you a notification as you approach your limit."
+      question: t('pricing.faq.q4'),
+      answer: t('pricing.faq.a4')
     }
   ];
 
@@ -133,33 +133,33 @@ const Pricing = () => {
 
   return (
     <div className="pt-16">
-      {/* Hero Section - NOT TRANSLATED (keep original English) */}
+      {/* Hero Section - NOW TRANSLATED */}
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
-            Transparent <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Pricing</span>
+            {t('pricing.hero.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('pricing.hero.titleHighlight')}</span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            Choose the plan that fits your business needs. All plans include a 14-day free trial.
+            {t('pricing.hero.description')}
           </p>
           <div className="flex items-center justify-center space-x-6 text-sm text-gray-600">
             <span className="flex items-center space-x-2">
               <Check className="w-4 h-4 text-green-500" />
-              <span>14-day free trial</span>
+              <span>{t('pricing.hero.freeTrial')}</span>
             </span>
             <span className="flex items-center space-x-2">
               <Check className="w-4 h-4 text-green-500" />
-              <span>No setup fees</span>
+              <span>{t('pricing.hero.noSetupFees')}</span>
             </span>
             <span className="flex items-center space-x-2">
               <Check className="w-4 h-4 text-green-500" />
-              <span>Cancel anytime</span>
+              <span>{t('pricing.hero.cancelAnytime')}</span>
             </span>
           </div>
         </div>
       </Section>
 
-      {/* Pricing Cards - TRANSLATED */}
+      {/* Pricing Cards - ALREADY TRANSLATED */}
       <Section background="white">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {pricingPlans.map((plan, index) => (
@@ -215,14 +215,14 @@ const Pricing = () => {
         </div>
       </Section>
 
-      {/* Feature Comparison Table - NOT TRANSLATED (keep original English) */}
+      {/* Feature Comparison Table - NOW TRANSLATED */}
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Feature <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Comparison</span>
+            {t('pricing.comparison.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('pricing.comparison.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600">
-            Compare all features across our pricing plans.
+            {t('pricing.comparison.subtitle')}
           </p>
         </div>
         
@@ -231,7 +231,7 @@ const Pricing = () => {
             <table className="w-full">
               <thead className="bg-gradient-to-r from-blue-600 to-indigo-600">
                 <tr>
-                  <th className="text-left p-6 text-white font-semibold">Features</th>
+                  <th className="text-left p-6 text-white font-semibold">{t('pricing.comparison.features')}</th>
                   <th className="text-center p-6 text-white font-semibold">{t('pricing.starter')}</th>
                   <th className="text-center p-6 text-white font-semibold">{t('pricing.growth')}</th>
                   <th className="text-center p-6 text-white font-semibold">{t('pricing.business')}</th>
@@ -303,14 +303,14 @@ const Pricing = () => {
         </div>
       </Section>
 
-      {/* FAQ Section - NOT TRANSLATED (keep original English) */}
+      {/* FAQ Section - NOW TRANSLATED */}
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Frequently Asked <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Questions</span>
+            {t('pricing.faq.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('pricing.faq.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600">
-            Everything you need to know about our pricing and service packages.
+            {t('pricing.faq.subtitle')}
           </p>
         </div>
         
@@ -333,25 +333,25 @@ const Pricing = () => {
         </div>
       </Section>
 
-      {/* CTA Section - NOT TRANSLATED (keep original English) */}
+      {/* CTA Section - NOW TRANSLATED */}
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            Ready to <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Get Started</span>?
+            {t('pricing.cta.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('pricing.cta.titleHighlight')}</span>{t('pricing.cta.question')}
           </h2>
           <p className="text-xl text-gray-600 mb-8">
-            Start your free trial today and discover how D2 Group's AI chatbots can transform your customer conversations. No credit card required—cancel anytime.
+            {t('pricing.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
-              Start Your Free Trial
+              {t('pricing.cta.startFreeTrial')}
             </Button>
             <Button size="lg" variant="outline" onClick={handleContactClick} className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg">
-              Contact Sales
+              {t('pricing.cta.contactSales')}
             </Button>
           </div>
           <div className="mt-6 text-sm text-gray-600">
-            Have questions? Our sales team is ready to help you choose the right plan.
+            {t('pricing.cta.questionsText')}
           </div>
         </div>
       </Section>
