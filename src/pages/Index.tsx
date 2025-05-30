@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -105,10 +104,8 @@ const Index = () => {
           
           <h1 className="text-6xl font-bold mb-6 text-gray-900 leading-tight">
             {t('home.hero.title')} <br />
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              {t('home.hero.subtitle')}
-            </span> <br />
-            {t('home.hero.subtitle2')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('home.hero.subtitle3')}
+            {t('home.hero.subtitle')} <br />
+            {t('home.hero.subtitle2')} {t('home.hero.subtitle3')}
           </h1>
           
           <p className="text-xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
@@ -159,7 +156,7 @@ const Index = () => {
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            {t('home.why.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">D2 Group</span>?
+            {t('home.why.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {t('home.why.subtitle')}
