@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -7,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Section from "@/components/ui/section";
 import TestimonialAvatar from "@/components/TestimonialAvatar";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -92,6 +92,15 @@ const Index = () => {
       question: t('home.faq.q3'),
       answer: t('home.faq.a3')
     }
+  ];
+
+  const smePartners = [
+    { name: "TechStart Vietnam", logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=200&h=100&fit=crop" },
+    { name: "Green Coffee Co.", logo: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=200&h=100&fit=crop" },
+    { name: "Digital Solutions", logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=200&h=100&fit=crop" },
+    { name: "Smart Retail Hub", logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=200&h=100&fit=crop" },
+    { name: "EduTech Plus", logo: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?w=200&h=100&fit=crop" },
+    { name: "HealthCare Link", logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=200&h=100&fit=crop" }
   ];
 
   return (
@@ -441,13 +450,18 @@ const Index = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-70">
-          {[
-            "VietcomBank", "FPT Corporation", "Vingroup", "BIDV", "Techcombank", "MB Bank"
-          ].map((partner, index) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
+          {smePartners.map((partner, index) => (
             <div key={index} className="text-center">
-              <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-2xl font-bold text-gray-400">{partner}</div>
+              <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                <AspectRatio ratio={2/1} className="mb-3">
+                  <img 
+                    src={partner.logo} 
+                    alt={partner.name}
+                    className="w-full h-full object-cover rounded grayscale hover:grayscale-0 transition-all duration-300"
+                  />
+                </AspectRatio>
+                <div className="text-sm font-medium text-gray-700">{partner.name}</div>
               </div>
             </div>
           ))}
