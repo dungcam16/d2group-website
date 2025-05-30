@@ -1,8 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { MessageSquare, ShoppingCart, Calendar, HeadphonesIcon, HelpCircle, Globe, CreditCard, Target, Package, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 interface ChatMessage {
   sender: 'user' | 'bot';
@@ -12,15 +14,16 @@ interface ChatMessage {
 
 interface DemoScenario {
   id: string;
-  title: string;
-  subtitle: string;
+  titleKey: string;
+  subtitleKey: string;
   icon: React.ReactNode;
   color: string;
   messages: ChatMessage[];
-  features: string[];
+  featuresKeys: string[];
 }
 
 const ChatbotDemoCarousel = () => {
+  const { t } = useLanguage();
   const [currentGif, setCurrentGif] = useState(0);
   const [visibleMessages, setVisibleMessages] = useState<number>(0);
   const [isAnimating, setIsAnimating] = useState(true);
@@ -29,8 +32,8 @@ const ChatbotDemoCarousel = () => {
   const scenarios: DemoScenario[] = [
     {
       id: 'ecommerce',
-      title: 'E-commerce Support',
-      subtitle: 'Hỗ trợ mua sắm trực tuyến',
+      titleKey: 'demo.scenarios.ecommerce.title',
+      subtitleKey: 'demo.scenarios.ecommerce.subtitle',
       icon: <ShoppingCart className="w-6 h-6" />,
       color: 'bg-green-500',
       messages: [
@@ -41,12 +44,16 @@ const ChatbotDemoCarousel = () => {
         { sender: 'user', message: 'Có, cho tôi xem', time: '14:32' },
         { sender: 'bot', message: 'Đây là 3 sản phẩm được yêu thích:\n1. Áo thun polo đen - 250k\n2. Áo thun basic trắng - 180k\n3. Áo thun họa tiết đen - 320k', time: '14:32' }
       ],
-      features: ['Tìm kiếm sản phẩm thông minh', 'Gợi ý dựa trên sở thích', 'So sánh giá tự động']
+      featuresKeys: [
+        'demo.scenarios.ecommerce.feature1',
+        'demo.scenarios.ecommerce.feature2',
+        'demo.scenarios.ecommerce.feature3'
+      ]
     },
     {
       id: 'booking',
-      title: 'Booking & Scheduling',
-      subtitle: 'Đặt lịch hẹn tự động',
+      titleKey: 'demo.scenarios.booking.title',
+      subtitleKey: 'demo.scenarios.booking.subtitle',
       icon: <Calendar className="w-6 h-6" />,
       color: 'bg-blue-500',
       messages: [
@@ -57,12 +64,16 @@ const ChatbotDemoCarousel = () => {
         { sender: 'user', message: 'Lúc 14:30 được không?', time: '09:17' },
         { sender: 'bot', message: 'Đã đặt lịch thành công!\n📅 Thứ 7, 23/12\n⏰ 14:30\n✂️ Cắt tóc nam\nChúng tôi sẽ gửi nhắc nhở qua SMS trước 1 tiếng.', time: '09:17' }
       ],
-      features: ['Kiểm tra lịch real-time', 'Đặt lịch tự động', 'Nhắc nhở qua SMS/Email']
+      featuresKeys: [
+        'demo.scenarios.booking.feature1',
+        'demo.scenarios.booking.feature2',
+        'demo.scenarios.booking.feature3'
+      ]
     },
     {
       id: 'support',
-      title: 'Customer Support',
-      subtitle: 'Hỗ trợ khách hàng 24/7',
+      titleKey: 'demo.scenarios.support.title',
+      subtitleKey: 'demo.scenarios.support.subtitle',
       icon: <HeadphonesIcon className="w-6 h-6" />,
       color: 'bg-purple-500',
       messages: [
@@ -73,12 +84,16 @@ const ChatbotDemoCarousel = () => {
         { sender: 'user', message: 'Cảm ơn bạn', time: '22:47' },
         { sender: 'bot', message: 'Rất vui được hỗ trợ! Nếu có thắc mắc gì khác, đừng ngần ngại liên hệ nhé. Chúc bạn một ngày tốt lành! 😊', time: '22:47' }
       ],
-      features: ['Tra cứu đơn hàng', 'Xử lý khiếu nại', 'Chuyển tiếp nhân viên']
+      featuresKeys: [
+        'demo.scenarios.support.feature1',
+        'demo.scenarios.support.feature2',
+        'demo.scenarios.support.feature3'
+      ]
     },
     {
       id: 'faq',
-      title: 'FAQ & Information',
-      subtitle: 'Trả lời câu hỏi thường gặp',
+      titleKey: 'demo.scenarios.faq.title',
+      subtitleKey: 'demo.scenarios.faq.subtitle',
       icon: <HelpCircle className="w-6 h-6" />,
       color: 'bg-orange-500',
       messages: [
@@ -89,12 +104,16 @@ const ChatbotDemoCarousel = () => {
         { sender: 'user', message: 'Tôi có thể đổi size được không?', time: '16:22' },
         { sender: 'bot', message: 'Có thể đổi size miễn phí trong 7 ngày. Bạn chỉ cần mang sản phẩm và hóa đơn đến cửa hàng gần nhất.', time: '16:22' }
       ],
-      features: ['Knowledge Base thông minh', 'Cập nhật thông tin real-time', 'Liên kết tài liệu']
+      featuresKeys: [
+        'demo.scenarios.faq.feature1',
+        'demo.scenarios.faq.feature2',
+        'demo.scenarios.faq.feature3'
+      ]
     },
     {
       id: 'multilingual',
-      title: 'Multilingual Support',
-      subtitle: 'Hỗ trợ đa ngôn ngữ',
+      titleKey: 'demo.scenarios.multilingual.title',
+      subtitleKey: 'demo.scenarios.multilingual.subtitle',
       icon: <Globe className="w-6 h-6" />,
       color: 'bg-indigo-500',
       messages: [
@@ -105,12 +124,16 @@ const ChatbotDemoCarousel = () => {
         { sender: 'user', message: 'Tôi muốn hủy đơn hàng', time: '11:32' },
         { sender: 'bot', message: 'Tôi sẽ giúp bạn hủy đơn hàng. Cho tôi biết mã đơn hàng để tôi kiểm tra trạng thái nhé.', time: '11:32' }
       ],
-      features: ['Nhận diện ngôn ngữ tự động', 'Hỗ trợ 50+ ngôn ngữ', 'Dịch thuật real-time']
+      featuresKeys: [
+        'demo.scenarios.multilingual.feature1',
+        'demo.scenarios.multilingual.feature2',
+        'demo.scenarios.multilingual.feature3'
+      ]
     },
     {
       id: 'payment',
-      title: 'Payment Processing',
-      subtitle: 'Xử lý thanh toán thông minh',
+      titleKey: 'demo.scenarios.payment.title',
+      subtitleKey: 'demo.scenarios.payment.subtitle',
       icon: <CreditCard className="w-6 h-6" />,
       color: 'bg-red-500',
       messages: [
@@ -121,12 +144,16 @@ const ChatbotDemoCarousel = () => {
         { sender: 'user', message: 'Đã chuyển xong', time: '13:18' },
         { sender: 'bot', message: '✅ Đã nhận được thanh toán 450,000 VNĐ\n📦 Đơn hàng đang được chuẩn bị\n🚚 Dự kiến giao hàng: 2-3 ngày\nCảm ơn bạn!', time: '13:19' }
       ],
-      features: ['Tích hợp gateway thanh toán', 'Xác nhận tự động', 'Bảo mật cao']
+      featuresKeys: [
+        'demo.scenarios.payment.feature1',
+        'demo.scenarios.payment.feature2',
+        'demo.scenarios.payment.feature3'
+      ]
     },
     {
       id: 'leadgen',
-      title: 'Lead Generation',
-      subtitle: 'Tạo leads tự động',
+      titleKey: 'demo.scenarios.leadgen.title',
+      subtitleKey: 'demo.scenarios.leadgen.subtitle',
       icon: <Target className="w-6 h-6" />,
       color: 'bg-pink-500',
       messages: [
@@ -137,12 +164,16 @@ const ChatbotDemoCarousel = () => {
         { sender: 'user', message: 'AI Chatbot cho website bán hàng', time: '10:32' },
         { sender: 'bot', message: 'Tuyệt vời! Tôi đã ghi nhận thông tin. Sales sẽ liên hệ trong 30 phút để tư vấn chi tiết về AI Chatbot. Cảm ơn anh Minh!', time: '10:32' }
       ],
-      features: ['Thu thập thông tin khách hàng', 'Phân loại leads tự động', 'Tích hợp CRM']
+      featuresKeys: [
+        'demo.scenarios.leadgen.feature1',
+        'demo.scenarios.leadgen.feature2',
+        'demo.scenarios.leadgen.feature3'
+      ]
     },
     {
       id: 'recommendations',
-      title: 'Product Recommendations',
-      subtitle: 'Gợi ý sản phẩm thông minh',
+      titleKey: 'demo.scenarios.recommendations.title',
+      subtitleKey: 'demo.scenarios.recommendations.subtitle',
       icon: <Package className="w-6 h-6" />,
       color: 'bg-teal-500',
       messages: [
@@ -153,7 +184,11 @@ const ChatbotDemoCarousel = () => {
         { sender: 'user', message: 'Túi xách nghe hay đấy', time: '19:22' },
         { sender: 'bot', message: 'Tuyệt! Túi xách da cao cấp hiện có 3 màu: đen, nâu, be. Tôi có thể show ảnh và đặt hàng ngay cho bạn không?', time: '19:22' }
       ],
-      features: ['AI phân tích sở thích', 'Gợi ý cá nhân hóa', 'Cross-selling thông minh']
+      featuresKeys: [
+        'demo.scenarios.recommendations.feature1',
+        'demo.scenarios.recommendations.feature2',
+        'demo.scenarios.recommendations.feature3'
+      ]
     }
   ];
 
@@ -234,7 +269,7 @@ const ChatbotDemoCarousel = () => {
                   </div>
                   <div className="text-white">
                     <div className="font-semibold">AI Assistant</div>
-                    <div className="text-xs opacity-90">Đang hoạt động</div>
+                    <div className="text-xs opacity-90">{t('demo.status.active')}</div>
                   </div>
                 </div>
                 
@@ -284,7 +319,7 @@ const ChatbotDemoCarousel = () => {
                 {/* Input Area */}
                 <div className="bg-white border-t p-4 flex items-center space-x-3">
                   <div className="flex-1 bg-gray-100 rounded-full px-4 py-2">
-                    <div className="text-gray-500 text-sm">Nhập tin nhắn...</div>
+                    <div className="text-gray-500 text-sm">{t('demo.input.placeholder')}</div>
                   </div>
                   <div className={`w-8 h-8 ${currentScenario.color} rounded-full flex items-center justify-center`}>
                     <MessageSquare className="w-4 h-4 text-white" />
@@ -299,22 +334,22 @@ const ChatbotDemoCarousel = () => {
         <div className="space-y-6">
           <div>
             <Badge className={`${currentScenario.color} text-white mb-4`}>
-              {currentScenario.title}
+              {t(currentScenario.titleKey)}
             </Badge>
             <h3 className="text-3xl font-bold text-gray-900 mb-2">
-              {currentScenario.subtitle}
+              {t(currentScenario.subtitleKey)}
             </h3>
             <p className="text-gray-600">
-              Xem cách AI Chatbot xử lý {currentScenario.title.toLowerCase()} một cách thông minh và hiệu quả
+              {t('demo.description', { scenario: t(currentScenario.titleKey).toLowerCase() })}
             </p>
           </div>
           
           <div className="space-y-3">
-            <h4 className="text-lg font-semibold text-gray-900">Tính năng nổi bật:</h4>
-            {currentScenario.features.map((feature, featureIndex) => (
+            <h4 className="text-lg font-semibold text-gray-900">{t('demo.featuresTitle')}</h4>
+            {currentScenario.featuresKeys.map((featureKey, featureIndex) => (
               <div key={featureIndex} className="flex items-center space-x-3">
                 <div className={`w-2 h-2 ${currentScenario.color} rounded-full`}></div>
-                <span className="text-gray-700">{feature}</span>
+                <span className="text-gray-700">{t(featureKey)}</span>
               </div>
             ))}
           </div>
@@ -329,7 +364,7 @@ const ChatbotDemoCarousel = () => {
                 className="flex items-center space-x-2"
               >
                 <ChevronLeft className="w-4 h-4" />
-                <span>Trước</span>
+                <span>{t('demo.controls.previous')}</span>
               </Button>
               
               <span className="text-sm text-gray-500">
@@ -342,7 +377,7 @@ const ChatbotDemoCarousel = () => {
                 onClick={nextGif}
                 className="flex items-center space-x-2"
               >
-                <span>Tiếp</span>
+                <span>{t('demo.controls.next')}</span>
                 <ChevronRight className="w-4 h-4" />
               </Button>
             </div>
@@ -370,7 +405,7 @@ const ChatbotDemoCarousel = () => {
               onClick={() => setIsAnimating(!isAnimating)}
               className="text-sm"
             >
-              {isAnimating ? '⏸️ Tạm dừng' : '▶️ Phát'}
+              {isAnimating ? t('demo.controls.pause') : t('demo.controls.play')}
             </Button>
           </div>
         </div>

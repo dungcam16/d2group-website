@@ -183,6 +183,65 @@ export const enTranslations: Translations = {
   'features.demo.bookDemo': 'Book Personal Demo',
   'features.demo.viewCaseStudies': 'View Case Studies',
 
+  // Demo Carousel
+  'demo.status.active': 'Online',
+  'demo.input.placeholder': 'Type a message...',
+  'demo.description': 'See how AI Chatbot handles {scenario} smartly and efficiently',
+  'demo.featuresTitle': 'Key Features:',
+  'demo.controls.previous': 'Previous',
+  'demo.controls.next': 'Next',
+  'demo.controls.pause': '⏸️ Pause',
+  'demo.controls.play': '▶️ Play',
+
+  // Demo Scenarios
+  'demo.scenarios.ecommerce.title': 'E-commerce Support',
+  'demo.scenarios.ecommerce.subtitle': 'Online Shopping Support',
+  'demo.scenarios.ecommerce.feature1': 'Smart product search',
+  'demo.scenarios.ecommerce.feature2': 'Preference-based recommendations',
+  'demo.scenarios.ecommerce.feature3': 'Automatic price comparison',
+
+  'demo.scenarios.booking.title': 'Booking & Scheduling',
+  'demo.scenarios.booking.subtitle': 'Automated Appointment Booking',
+  'demo.scenarios.booking.feature1': 'Real-time availability check',
+  'demo.scenarios.booking.feature2': 'Automatic booking',
+  'demo.scenarios.booking.feature3': 'SMS/Email reminders',
+
+  'demo.scenarios.support.title': 'Customer Support',
+  'demo.scenarios.support.subtitle': '24/7 Customer Support',
+  'demo.scenarios.support.feature1': 'Order tracking',
+  'demo.scenarios.support.feature2': 'Complaint handling',
+  'demo.scenarios.support.feature3': 'Agent escalation',
+
+  'demo.scenarios.faq.title': 'FAQ & Information',
+  'demo.scenarios.faq.subtitle': 'Frequently Asked Questions',
+  'demo.scenarios.faq.feature1': 'Smart knowledge base',
+  'demo.scenarios.faq.feature2': 'Real-time information updates',
+  'demo.scenarios.faq.feature3': 'Document linking',
+
+  'demo.scenarios.multilingual.title': 'Multilingual Support',
+  'demo.scenarios.multilingual.subtitle': 'Multi-language Support',
+  'demo.scenarios.multilingual.feature1': 'Automatic language detection',
+  'demo.scenarios.multilingual.feature2': '50+ language support',
+  'demo.scenarios.multilingual.feature3': 'Real-time translation',
+
+  'demo.scenarios.payment.title': 'Payment Processing',
+  'demo.scenarios.payment.subtitle': 'Smart Payment Processing',
+  'demo.scenarios.payment.feature1': 'Payment gateway integration',
+  'demo.scenarios.payment.feature2': 'Automatic confirmation',
+  'demo.scenarios.payment.feature3': 'High security',
+
+  'demo.scenarios.leadgen.title': 'Lead Generation',
+  'demo.scenarios.leadgen.subtitle': 'Automated Lead Generation',
+  'demo.scenarios.leadgen.feature1': 'Customer information collection',
+  'demo.scenarios.leadgen.feature2': 'Automatic lead classification',
+  'demo.scenarios.leadgen.feature3': 'CRM integration',
+
+  'demo.scenarios.recommendations.title': 'Product Recommendations',
+  'demo.scenarios.recommendations.subtitle': 'Smart Product Recommendations',
+  'demo.scenarios.recommendations.feature1': 'AI preference analysis',
+  'demo.scenarios.recommendations.feature2': 'Personalized suggestions',
+  'demo.scenarios.recommendations.feature3': 'Smart cross-selling',
+
   // Home Why
   'home.why.title': 'Why Choose',
   'home.why.subtitle': 'Forward-thinking brands trust D2 Group for AI-driven customer experiences that deliver measurable results.',
