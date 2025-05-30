@@ -1,6 +1,6 @@
 import { MessageCircle, Phone, Send, Users, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -9,67 +9,44 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const ChatbotButton = () => {
-  const [isChatwootLoaded, setIsChatwootLoaded] = useState(false);
+  const [sdkReady, setSdkReady] = useState(false);
   const BASE_URL = "https://chatwoot.d2group.co";
+  const WEBSITE_TOKEN = "SDf9hw3hrgQP5Sd3brUkQ6ua";
 
-  const handleMessenger = () => {
-    console.log("Opening Messenger");
-    window.open("https://m.me/d2groupmarketing", "_blank");
-  };
-
-  const handleZalo = () => {
-    console.log("Opening Zalo");
-    window.open("https://zalo.me/0909099421", "_blank");
-  };
-
-  const handleTelegram = () => {
-    console.log("Opening Telegram");
-    window.open("https://t.me/nguyendung16", "_blank");
-  };
-
-  const handleWhatsApp = () => {
-    console.log("Opening WhatsApp");
-    window.open("https://wa.me/84909099421", "_blank");
-  };
-
-  const handleWebsite = () => {
-    console.log(isChatwootLoaded ? "Toggling Chatwoot" : "Loading Chatwoot widget");
-
-    // Thiết lập chatwootSettings
+  // Preload Chatwoot SDK on mount
+  useEffect(() => {
+    // thiết lập trước
     (window as any).chatwootSettings = {
       position: "right",
       type: "expanded_bubble",
       launcherTitle: "Chat with us",
+      hideBranding: true, // nếu bạn đã bật biến ENV HIDE_BRANDING=true
     };
 
-    if (!isChatwootLoaded) {
-      // Load script lần đầu
-      const script = document.createElement("script");
-      script.src = `${BASE_URL}/packs/js/sdk.js`;
-      script.defer = true;
-      script.async = true;
+    const script = document.createElement("script");
+    script.src = `${BASE_URL}/packs/js/sdk.js`;
+    script.async = true;
+    script.defer = true;
+    script.onload = () => {
+      // khởi chạy SDK
+      (window as any).chatwootSDK.run({
+        websiteToken: WEBSITE_TOKEN,
+        baseUrl: BASE_URL,
+      });
+      setSdkReady(true);
+    };
+    document.head.appendChild(script);
+  }, []);
 
-      script.onload = () => {
-        (window as any).chatwootSDK.run({
-          websiteToken: "SDf9hw3hrgQP5Sd3brUkQ6ua",
-          baseUrl: BASE_URL,
-        });
-        // Ngay lập tức mở khung chat và ẩn nút gốc
-        (window as any).chatwootSDK.toggle();
-        setIsChatwootLoaded(true);
-      };
-
-      document.head.appendChild(script);
-    } else {
-      // Toggle chat mở/đóng
-      (window as any).chatwootSDK.toggle();
-    }
+  const handleWebsite = () => {
+    if (!sdkReady) return;          // chờ SDK
+    (window as any).chatwootSDK.toggle(); 
   };
 
-  // Ẩn nút nếu Chatwoot đã load
-  if (isChatwootLoaded) {
-    return null;
-  }
+  const handleMessenger = () => window.open("https://m.me/d2groupmarketing", "_blank");
+  const handleZalo      = () => window.open("https://zalo.me/0909099421", "_blank");
+  const handleTelegram  = () => window.open("https://t.me/nguyendung16", "_blank");
+  const handleWhatsApp  = () => window.open("https://wa.me/84909099421", "_blank");
 
   return (
     <div className="fixed bottom-6 right-6 z-[9999]">
@@ -83,7 +60,6 @@ const ChatbotButton = () => {
             <MessageCircle className="h-6 w-6 text-white" />
           </Button>
         </DropdownMenuTrigger>
-
         <DropdownMenuContent
           align="end"
           sideOffset={8}
@@ -92,11 +68,7 @@ const ChatbotButton = () => {
           <div className="p-2 border-b border-gray-100">
             <span className="text-sm font-semibold text-gray-700">Chọn platform chat</span>
           </div>
-
-          <DropdownMenuItem
-            onClick={handleWebsite}
-            className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
-          >
+          <DropdownMenuItem onClick={handleWebsite} className="flex items-center gap-3 px-4 py-3 hover:bg-blue-50">
             <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
               <Globe className="h-4 w-4 text-blue-600" />
             </div>
@@ -105,11 +77,7 @@ const ChatbotButton = () => {
               <p className="text-xs text-gray-500">Chat trực tiếp</p>
             </div>
           </DropdownMenuItem>
-
-          <DropdownMenuItem
-            onClick={handleMessenger}
-            className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
-          >
+          <DropdownMenuItem onClick={handleMessenger} className="flex items-center gap-3 px-4 py-3 hover:bg-blue-50">
             <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
               <Users className="h-4 w-4 text-blue-600" />
             </div>
@@ -118,11 +86,7 @@ const ChatbotButton = () => {
               <p className="text-xs text-gray-500">Facebook Messenger</p>
             </div>
           </DropdownMenuItem>
-
-          <DropdownMenuItem
-            onClick={handleZalo}
-            className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
-          >
+          <DropdownMenuItem onClick={handleZalo} className="flex items-center gap-3 px-4 py-3 hover:bg-blue-50">
             <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
               <Phone className="h-4 w-4 text-blue-600" />
             </div>
@@ -131,11 +95,7 @@ const ChatbotButton = () => {
               <p className="text-xs text-gray-500">Zalo chat</p>
             </div>
           </DropdownMenuItem>
-
-          <DropdownMenuItem
-            onClick={handleTelegram}
-            className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
-          >
+          <DropdownMenuItem onClick={handleTelegram} className="flex items-center gap-3 px-4 py-3 hover:bg-blue-50">
             <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
               <Send className="h-4 w-4 text-blue-600" />
             </div>
@@ -144,11 +104,7 @@ const ChatbotButton = () => {
               <p className="text-xs text-gray-500">Telegram chat</p>
             </div>
           </DropdownMenuItem>
-
-          <DropdownMenuItem
-            onClick={handleWhatsApp}
-            className="cursor-pointer hover:bg-green-50 px-4 py-3 flex items-center gap-3"
-          >
+          <DropdownMenuItem onClick={handleWhatsApp} className="flex items-center gap-3 px-4 py-3 hover:bg-green-50">
             <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
               <MessageCircle className="h-4 w-4 text-green-600" />
             </div>
