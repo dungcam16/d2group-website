@@ -46,7 +46,7 @@ const Header = () => {
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => handleNavigation('/')}>
             <img 
               src="/lovable-uploads/e2a562a2-0da7-4581-a153-4d44091323a9.png" 
-              alt="D2 Group" 
+              alt="D2 Group - AI & Automation" 
               className="h-10 w-auto"
               loading="eager"
             />
