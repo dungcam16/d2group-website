@@ -64,7 +64,7 @@ const Footer = () => {
                 className="h-10 w-auto"
                 loading="lazy"
               />
-              <span className="text-xl font-bold">D2 Group</span>
+              <span className="text-xl font-bold">D2 Group - AI & Automation</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               Transforming customer conversations with AI-driven chatbot solutions. 
