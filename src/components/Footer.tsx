@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
 
@@ -59,7 +58,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <img 
-                src="/lovable-uploads/1077a81a-0fe3-49aa-9fd3-1305b6e0342f.png" 
+                src="/lovable-uploads/cd22248c-b4b2-4ca2-8246-5f8ac4a1d98d.png" 
                 alt="D2 Group - AI & Automation" 
                 className="h-10 w-auto"
                 loading="lazy"
