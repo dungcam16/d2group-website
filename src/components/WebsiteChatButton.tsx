@@ -44,12 +44,11 @@ const WebsiteChatButton = () => {
   const handleWebsiteChat = () => {
     console.log('Loading Chatwoot widget');
     
-    // Set up Chatwoot settings
+    // Set up Chatwoot settings với expanded_bubble
     (window as any).chatwootSettings = {
       "position": "right",
-      "type": "standard",
-      "launcherTitle": "Chat with us",
-      "hideMessageBubble": true
+      "type": "expanded_bubble",
+      "launcherTitle": "Chat with us"
     };
 
     // Load Chatwoot script dynamically
@@ -65,15 +64,8 @@ const WebsiteChatButton = () => {
         baseUrl: BASE_URL
       });
       
-      // Ẩn button gốc và mở chat ngay lập tức
+      // Ẩn button gốc sau khi load
       setIsChatwootLoaded(true);
-      
-      // Mở chat widget ngay
-      setTimeout(() => {
-        if ((window as any).chatwootSDK && (window as any).chatwootSDK.toggle) {
-          (window as any).chatwootSDK.toggle();
-        }
-      }, 1000);
     };
     
     document.head.appendChild(script);
