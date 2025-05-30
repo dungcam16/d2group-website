@@ -9,9 +9,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const ChatbotButton = () => {
+  // Xử lý click cho từng platform riêng biệt
   const handleChatWebsite = () => {
     console.log('Opening Chatwoot widget');
-    // Trigger Chatwoot widget
     if (window.chatwootSDK) {
       window.chatwootSDK.toggle();
     }
@@ -44,54 +44,84 @@ const ChatbotButton = () => {
           <Button
             className="h-14 w-14 rounded-full bg-blue-600 hover:bg-blue-700 shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-110"
             size="icon"
-            aria-label="Chat with us"
-            onClick={(e) => {
-              console.log('Chat button clicked');
-              e.stopPropagation();
-            }}
+            aria-label="Chọn platform chat"
           >
             <MessageCircle className="h-6 w-6 text-white" />
           </Button>
         </DropdownMenuTrigger>
+        
         <DropdownMenuContent 
           align="end" 
-          className="mb-4 w-48 bg-white border border-gray-200 shadow-lg z-[100]"
+          className="mb-4 w-56 bg-white border border-gray-200 shadow-lg rounded-lg z-[100]"
           sideOffset={8}
         >
+          <div className="p-2 border-b border-gray-100">
+            <span className="text-sm font-semibold text-gray-700">Chọn platform chat</span>
+          </div>
+          
           <DropdownMenuItem 
             onClick={handleChatWebsite} 
-            className="cursor-pointer hover:bg-gray-100 px-3 py-2"
+            className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
           >
-            <MessageSquare className="mr-2 h-4 w-4 text-blue-600" />
-            <span className="font-medium">Chat Website</span>
+            <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+              <MessageSquare className="h-4 w-4 text-blue-600" />
+            </div>
+            <div>
+              <span className="font-medium text-gray-900">Chat Website</span>
+              <p className="text-xs text-gray-500">Chatwoot widget</p>
+            </div>
           </DropdownMenuItem>
+          
           <DropdownMenuItem 
             onClick={handleMessenger} 
-            className="cursor-pointer hover:bg-gray-100 px-3 py-2"
+            className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
           >
-            <Users className="mr-2 h-4 w-4 text-blue-600" />
-            <span className="font-medium">Chat Messenger</span>
+            <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+              <Users className="h-4 w-4 text-blue-600" />
+            </div>
+            <div>
+              <span className="font-medium text-gray-900">Messenger</span>
+              <p className="text-xs text-gray-500">Facebook Messenger</p>
+            </div>
           </DropdownMenuItem>
+          
           <DropdownMenuItem 
             onClick={handleZalo} 
-            className="cursor-pointer hover:bg-gray-100 px-3 py-2"
+            className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
           >
-            <Phone className="mr-2 h-4 w-4 text-blue-600" />
-            <span className="font-medium">Chat Zalo</span>
+            <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+              <Phone className="h-4 w-4 text-blue-600" />
+            </div>
+            <div>
+              <span className="font-medium text-gray-900">Zalo</span>
+              <p className="text-xs text-gray-500">Zalo chat</p>
+            </div>
           </DropdownMenuItem>
+          
           <DropdownMenuItem 
             onClick={handleTelegram} 
-            className="cursor-pointer hover:bg-gray-100 px-3 py-2"
+            className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
           >
-            <Send className="mr-2 h-4 w-4 text-blue-600" />
-            <span className="font-medium">Chat Telegram</span>
+            <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+              <Send className="h-4 w-4 text-blue-600" />
+            </div>
+            <div>
+              <span className="font-medium text-gray-900">Telegram</span>
+              <p className="text-xs text-gray-500">Telegram chat</p>
+            </div>
           </DropdownMenuItem>
+          
           <DropdownMenuItem 
             onClick={handleWhatsApp} 
-            className="cursor-pointer hover:bg-gray-100 px-3 py-2"
+            className="cursor-pointer hover:bg-green-50 px-4 py-3 flex items-center gap-3"
           >
-            <MessageCircle className="mr-2 h-4 w-4 text-green-600" />
-            <span className="font-medium">Chat WhatsApp</span>
+            <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+              <MessageCircle className="h-4 w-4 text-green-600" />
+            </div>
+            <div>
+              <span className="font-medium text-gray-900">WhatsApp</span>
+              <p className="text-xs text-gray-500">WhatsApp chat</p>
+            </div>
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
