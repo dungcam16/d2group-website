@@ -45,7 +45,7 @@ const ChatbotButton = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent 
         align="end" 
-        className="mb-4 w-48 bg-white border border-gray-200 shadow-lg z-[60]"
+        className="mb-4 w-48 bg-white border border-gray-200 shadow-lg z-[100]"
         sideOffset={8}
       >
         <DropdownMenuItem 
