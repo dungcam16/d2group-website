@@ -1,238 +1,178 @@
-
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Check, X, MessageSquare, Brain, BarChart3, Shield, Zap, Globe, ArrowRight } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { 
+  MessageCircle, 
+  Zap, 
+  BarChart3, 
+  Users, 
+  Globe, 
+  Shield, 
+  TrendingUp, 
+  ArrowRight,
+  CheckCircle,
+  Clock,
+  Brain,
+  Settings,
+  Smartphone,
+  Headphones,
+  ShoppingCart,
+  Calendar
+} from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import Section from "@/components/ui/section";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Section from "@/components/ui/section";
+import ChatbotDemoCarousel from "@/components/ChatbotDemoCarousel";
 
 const Features = () => {
   const navigate = useNavigate();
   const { t } = useLanguage();
 
-  const coreFeatures = [
+  const features = [
     {
-      titleKey: "features.core.nlp.title",
-      descKey: "features.core.nlp.desc",
+      title: t('features.smart.title'),
+      description: t('features.smart.desc'),
       icon: <Brain className="w-8 h-8 text-blue-600" />,
-      detailsKeys: [
-        "features.core.nlp.detail1",
-        "features.core.nlp.detail2",
-        "features.core.nlp.detail3",
-        "features.core.nlp.detail4"
-      ]
+      benefits: [
+        t('features.smart.benefit1'),
+        t('features.smart.benefit2'),
+        t('features.smart.benefit3'),
+      ],
     },
     {
-      titleKey: "features.core.multiChannel.title",
-      descKey: "features.core.multiChannel.desc",
-      icon: <Globe className="w-8 h-8 text-blue-600" />,
-      detailsKeys: [
-        "features.core.multiChannel.detail1",
-        "features.core.multiChannel.detail2",
-        "features.core.multiChannel.detail3",
-        "features.core.multiChannel.detail4"
-      ]
+      title: t('features.instant.title'),
+      description: t('features.instant.desc'),
+      icon: <Clock className="w-8 h-8 text-yellow-600" />,
+      benefits: [
+        t('features.instant.benefit1'),
+        t('features.instant.benefit2'),
+        t('features.instant.benefit3'),
+      ],
     },
     {
-      titleKey: "features.core.realTime.title",
-      descKey: "features.core.realTime.desc",
-      icon: <BarChart3 className="w-8 h-8 text-blue-600" />,
-      detailsKeys: [
-        "features.core.realTime.detail1",
-        "features.core.realTime.detail2",
-        "features.core.realTime.detail3",
-        "features.core.realTime.detail4"
-      ]
+      title: t('features.customizable.title'),
+      description: t('features.customizable.desc'),
+      icon: <Settings className="w-8 h-8 text-green-600" />,
+      benefits: [
+        t('features.customizable.benefit1'),
+        t('features.customizable.benefit2'),
+        t('features.customizable.benefit3'),
+      ],
     },
     {
-      titleKey: "features.core.security.title",
-      descKey: "features.core.security.desc",
-      icon: <Shield className="w-8 h-8 text-blue-600" />,
-      detailsKeys: [
-        "features.core.security.detail1",
-        "features.core.security.detail2",
-        "features.core.security.detail3",
-        "features.core.security.detail4"
-      ]
+      title: t('features.multichannel.title'),
+      description: t('features.multichannel.desc'),
+      icon: <Smartphone className="w-8 h-8 text-purple-600" />,
+      benefits: [
+        t('features.multichannel.benefit1'),
+        t('features.multichannel.benefit2'),
+        t('features.multichannel.benefit3'),
+      ],
     },
-    {
-      titleKey: "features.core.deployment.title",
-      descKey: "features.core.deployment.desc",
-      icon: <Zap className="w-8 h-8 text-blue-600" />,
-      detailsKeys: [
-        "features.core.deployment.detail1",
-        "features.core.deployment.detail2",
-        "features.core.deployment.detail3",
-        "features.core.deployment.detail4"
-      ]
-    },
-    {
-      titleKey: "features.core.conversations.title",
-      descKey: "features.core.conversations.desc",
-      icon: <MessageSquare className="w-8 h-8 text-blue-600" />,
-      detailsKeys: [
-        "features.core.conversations.detail1",
-        "features.core.conversations.detail2",
-        "features.core.conversations.detail3",
-        "features.core.conversations.detail4"
-      ]
-    }
   ];
 
-  const comparisonTable = [
+  const benefits = [
     {
-      featureKey: "features.comparison.responseTime",
-      traditionalKey: "features.comparison.traditional.responseTime",
-      aiChatbotKey: "features.comparison.ai.responseTime",
-      improvementKey: "features.comparison.improvement.responseTime"
+      title: t('features.benefits.increaseSales.title'),
+      description: t('features.benefits.increaseSales.desc'),
+      icon: <TrendingUp className="w-6 h-6 text-green-600" />,
     },
     {
-      featureKey: "features.comparison.availability",
-      traditionalKey: "features.comparison.traditional.availability",
-      aiChatbotKey: "features.comparison.ai.availability",
-      improvementKey: "features.comparison.improvement.availability"
+      title: t('features.benefits.improveEfficiency.title'),
+      description: t('features.benefits.improveEfficiency.desc'),
+      icon: <Zap className="w-6 h-6 text-yellow-600" />,
     },
     {
-      featureKey: "features.comparison.scalability",
-      traditionalKey: "features.comparison.traditional.scalability",
-      aiChatbotKey: "features.comparison.ai.scalability",
-      improvementKey: "features.comparison.improvement.scalability"
+      title: t('features.benefits.reduceCosts.title'),
+      description: t('features.benefits.reduceCosts.desc'),
+      icon: <BarChart3 className="w-6 h-6 text-blue-600" />,
     },
     {
-      featureKey: "features.comparison.consistency",
-      traditionalKey: "features.comparison.traditional.consistency",
-      aiChatbotKey: "features.comparison.ai.consistency",
-      improvementKey: "features.comparison.improvement.consistency"
+      title: t('features.benefits.enhanceCustomer.title'),
+      description: t('features.benefits.enhanceCustomer.desc'),
+      icon: <Users className="w-6 h-6 text-purple-600" />,
     },
-    {
-      featureKey: "features.comparison.costPerInteraction",
-      traditionalKey: "features.comparison.traditional.costPerInteraction",
-      aiChatbotKey: "features.comparison.ai.costPerInteraction",
-      improvementKey: "features.comparison.improvement.costPerInteraction"
-    },
-    {
-      featureKey: "features.comparison.languageSupport",
-      traditionalKey: "features.comparison.traditional.languageSupport",
-      aiChatbotKey: "features.comparison.ai.languageSupport",
-      improvementKey: "features.comparison.improvement.languageSupport"
-    }
   ];
-
-  const advancedFeatures = [
-    {
-      categoryKey: "features.advanced.ai.category",
-      features: [
-        {
-          nameKey: "features.advanced.ai.conversationFlow.name",
-          descKey: "features.advanced.ai.conversationFlow.desc"
-        },
-        {
-          nameKey: "features.advanced.ai.intentTraining.name",
-          descKey: "features.advanced.ai.intentTraining.desc"
-        },
-        {
-          nameKey: "features.advanced.ai.autoLearning.name",
-          descKey: "features.advanced.ai.autoLearning.desc"
-        },
-        {
-          nameKey: "features.advanced.ai.fallbackHandling.name",
-          descKey: "features.advanced.ai.fallbackHandling.desc"
-        }
-      ]
-    },
-    {
-      categoryKey: "features.advanced.integration.category",
-      features: [
-        {
-          nameKey: "features.advanced.integration.crm.name",
-          descKey: "features.advanced.integration.crm.desc"
-        },
-        {
-          nameKey: "features.advanced.integration.ecommerce.name",
-          descKey: "features.advanced.integration.ecommerce.desc"
-        },
-        {
-          nameKey: "features.advanced.integration.customApi.name",
-          descKey: "features.advanced.integration.customApi.desc"
-        },
-        {
-          nameKey: "features.advanced.integration.webhook.name",
-          descKey: "features.advanced.integration.webhook.desc"
-        }
-      ]
-    },
-    {
-      categoryKey: "features.advanced.analytics.category",
-      features: [
-        {
-          nameKey: "features.advanced.analytics.conversation.name",
-          descKey: "features.advanced.analytics.conversation.desc"
-        },
-        {
-          nameKey: "features.advanced.analytics.performance.name",
-          descKey: "features.advanced.analytics.performance.desc"
-        },
-        {
-          nameKey: "features.advanced.analytics.dashboard.name",
-          descKey: "features.advanced.analytics.dashboard.desc"
-        },
-        {
-          nameKey: "features.advanced.analytics.abTesting.name",
-          descKey: "features.advanced.analytics.abTesting.desc"
-        }
-      ]
-    }
-  ];
-
-  const handleContactClick = () => {
-    navigate('/contact');
-  };
-
-  const handleCaseStudiesClick = () => {
-    navigate('/case-studies');
-  };
 
   return (
     <div className="pt-16">
       {/* Hero Section */}
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
-          <h1 className="text-5xl font-bold mb-6 text-gray-900">
-            {t('features.hero.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.hero.titleHighlight')}</span> {t('features.hero.titleEnd')}
+          <Badge variant="secondary" className="mb-6 px-4 py-2 bg-blue-100 text-blue-700 border-blue-200">
+            ✨ Advanced AI Technology
+          </Badge>
+          
+          <h1 className="text-5xl font-bold mb-6 text-gray-900 leading-tight">
+            Powerful AI Chatbot <br />
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              Features & Capabilities
+            </span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-            {t('features.hero.description')}
+          
+          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+            Discover how our advanced AI chatbot transforms customer interactions with intelligent responses, seamless integrations, and powerful automation features.
           </p>
-          <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
-            {t('features.hero.cta')}
-          </Button>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button 
+              size="lg" 
+              onClick={() => navigate('/contact')}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg"
+            >
+              Start Free Trial <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              onClick={() => navigate('/pricing')}
+              className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg"
+            >
+              View Pricing
+            </Button>
+          </div>
         </div>
       </Section>
 
-      {/* Core Features */}
+      {/* See It in Action - Carousel */}
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            {t('features.core.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.core.titleHighlight')}</span>
+            See It in <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Action</span>
           </h2>
-          <p className="text-xl text-gray-600">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Experience our AI chatbot capabilities with interactive demos showcasing real-world scenarios
+          </p>
+        </div>
+
+        <ChatbotDemoCarousel />
+      </Section>
+
+      {/* Core Features */}
+      <Section background="gray">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">
+            {t('features.core.title')}
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {t('features.core.subtitle')}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {coreFeatures.map((feature, index) => (
-            <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
-              <CardContent className="p-8">
-                <div className="mb-6 group-hover:scale-110 transition-transform duration-300">{feature.icon}</div>
-                <h3 className="text-2xl font-bold mb-4 group-hover:text-blue-600 transition-colors">{t(feature.titleKey)}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{t(feature.descKey)}</p>
-                <ul className="space-y-2">
-                  {feature.detailsKeys.map((detailKey, detailIndex) => (
-                    <li key={detailIndex} className="flex items-start space-x-3">
-                      <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-gray-600">{t(detailKey)}</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          {features.map((feature, index) => (
+            <Card key={index} className="text-center border-none shadow-md hover:shadow-lg transition-all duration-300">
+              <CardHeader>
+                {feature.icon}
+                <CardTitle className="text-lg mt-4">{feature.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 text-sm">{feature.description}</p>
+                <ul className="mt-4 text-left">
+                  {feature.benefits.map((benefit, i) => (
+                    <li key={i} className="flex items-center space-x-2 text-gray-600 text-sm">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>{benefit}</span>
                     </li>
                   ))}
                 </ul>
@@ -242,137 +182,127 @@ const Features = () => {
         </div>
       </Section>
 
-      {/* Comparison with Traditional Live Chat */}
-      <Section background="gray">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            {t('features.comparison.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.comparison.titleHighlight')}</span>
-          </h2>
-          <p className="text-xl text-gray-600">
-            {t('features.comparison.subtitle')}
-          </p>
-        </div>
-
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full">
-              <thead className="bg-gradient-to-r from-blue-600 to-indigo-600">
-                <tr>
-                  <th className="text-left p-6 text-white font-semibold">{t('features.comparison.tableHeader.feature')}</th>
-                  <th className="text-center p-6 text-white font-semibold">{t('features.comparison.tableHeader.traditional')}</th>
-                  <th className="text-center p-6 text-white font-semibold">{t('features.comparison.tableHeader.aiChatbot')}</th>
-                  <th className="text-center p-6 text-white font-semibold">{t('features.comparison.tableHeader.improvement')}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {comparisonTable.map((row, index) => (
-                  <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
-                    <td className="p-6 font-medium text-gray-900">{t(row.featureKey)}</td>
-                    <td className="p-6 text-center">
-                      <span className="inline-flex items-center space-x-2">
-                        <X className="w-4 h-4 text-red-500" />
-                        <span className="text-gray-600">{t(row.traditionalKey)}</span>
-                      </span>
-                    </td>
-                    <td className="p-6 text-center">
-                      <span className="inline-flex items-center space-x-2">
-                        <Check className="w-4 h-4 text-green-500" />
-                        <span className="text-gray-900 font-semibold">{t(row.aiChatbotKey)}</span>
-                      </span>
-                    </td>
-                    <td className="p-6 text-center">
-                      <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
-                        {t(row.improvementKey)}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </Section>
-
-      {/* Advanced Features with Accordion */}
+      {/* Benefits Section */}
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            {t('features.advanced.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.advanced.titleHighlight')}</span>
+            {t('features.benefits.title')}
           </h2>
-          <p className="text-xl text-gray-600">
-            {t('features.advanced.subtitle')}
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            {t('features.benefits.subtitle')}
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
-            {advancedFeatures.map((category, categoryIndex) => (
-              <AccordionItem key={categoryIndex} value={`item-${categoryIndex}`} className="border border-gray-200 rounded-lg">
-                <AccordionTrigger className="px-6 py-4 hover:no-underline">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
-                    <span className="text-xl font-semibold text-gray-900">{t(category.categoryKey)}</span>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {benefits.map((benefit, index) => (
+            <Card key={index} className="border-none shadow-md hover:shadow-lg transition-all duration-300">
+              <CardContent className="p-6">
+                <div className="flex items-center mb-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                    {benefit.icon}
                   </div>
-                </AccordionTrigger>
-                <AccordionContent className="px-6 pb-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {category.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} className="border border-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow">
-                        <h4 className="font-semibold text-blue-600 mb-2">{t(feature.nameKey)}</h4>
-                        <p className="text-gray-600 text-sm leading-relaxed">{t(feature.descKey)}</p>
-                      </div>
-                    ))}
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+                  <h3 className="text-xl font-bold text-gray-900">{benefit.title}</h3>
+                </div>
+                <p className="text-gray-600">{benefit.description}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
       </Section>
 
-      {/* Interactive Demo Preview */}
+      {/* Technical Specifications */}
+      <Section background="gray">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">
+            {t('features.specs.title')}
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            {t('features.specs.subtitle')}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <Card className="border-none shadow-md">
+            <CardContent className="p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{t('features.specs.languageSupport')}</h3>
+              <p className="text-gray-600">{t('features.specs.languageSupportDesc')}</p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-none shadow-md">
+            <CardContent className="p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{t('features.specs.integration')}</h3>
+              <p className="text-gray-600">{t('features.specs.integrationDesc')}</p>
+            </CardContent>
+          </Card>
+
+          <Card className="border-none shadow-md">
+            <CardContent className="p-6">
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{t('features.specs.security')}</h3>
+              <p className="text-gray-600">{t('features.specs.securityDesc')}</p>
+            </CardContent>
+          </Card>
+        </div>
+      </Section>
+
+      {/* Integration Partners */}
+      <Section background="white">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">
+            {t('features.partners.title')}
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            {t('features.partners.subtitle')}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+          {[...Array(6)].map((_, i) => (
+            <div key={i} className="flex items-center justify-center p-4 border rounded-md shadow-sm">
+              <Globe className="w-8 h-8 text-gray-500" />
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Final CTA */}
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            {t('features.demo.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.demo.titleHighlight')}</span>
+          <h2 className="text-5xl font-bold mb-6 text-gray-900">
+            {t('features.finalCta.title')} <br />
+            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+              {t('features.finalCta.title2')}
+            </span>
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            {t('features.demo.description')}
+          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            {t('features.finalCta.description')}
           </p>
-          
-          <div className="bg-white rounded-2xl shadow-2xl p-8 mb-8">
-            <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center mb-6">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MessageSquare className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('features.demo.interactive.title')}</h3>
-                <p className="text-gray-600">{t('features.demo.interactive.description')}</p>
-              </div>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-              <div className="flex items-center space-x-2">
-                <Check className="w-4 h-4 text-green-500" />
-                <span>{t('features.demo.feature1')}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Check className="w-4 h-4 text-green-500" />
-                <span>{t('features.demo.feature2')}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Check className="w-4 h-4 text-green-500" />
-                <span>{t('features.demo.feature3')}</span>
-              </div>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            <Button 
+              size="lg" 
+              onClick={() => navigate('/contact')}
+              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg"
+            >
+              {t('features.finalCta.startTrial')} <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline" 
+              onClick={() => navigate('/contact')}
+              className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg"
+            >
+              {t('features.finalCta.bookDemo')}
+            </Button>
           </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
-              {t('features.demo.bookDemo')}
-            </Button>
-            <Button size="lg" variant="outline" onClick={handleCaseStudiesClick} className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg">
-              {t('features.demo.viewCaseStudies')} <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center text-sm text-gray-600">
+            <span className="flex items-center justify-center space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-500" />
+              <span>{t('features.finalCta.easySetup')}</span>
+            </span>
+            <span className="flex items-center justify-center space-x-2">
+              <CheckCircle className="w-4 h-4 text-green-500" />
+              <span>{t('features.finalCta.noCreditCard')}</span>
+            </span>
           </div>
         </div>
       </Section>
