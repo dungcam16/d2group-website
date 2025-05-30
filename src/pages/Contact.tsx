@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Mail, MapPin, Clock, MessageSquare, Calendar, Rocket, Facebook, Linkedin } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, MessageSquare, Calendar, Rocket } from "lucide-react";
 import Section from "@/components/ui/section";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -77,6 +77,39 @@ const Contact = () => {
       [field]: value
     }));
   };
+
+  const socialLinks = [
+    {
+      name: "Facebook",
+      url: "https://www.facebook.com/d2groupmarketing",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png"
+    },
+    {
+      name: "Instagram", 
+      url: "https://www.instagram.com/d2group.co",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+    },
+    {
+      name: "Threads",
+      url: "https://www.threads.com/@d2group.co", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/d/db/Threads_%28app%29_logo.svg"
+    },
+    {
+      name: "Telegram",
+      url: "https://t.me/d2group",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+    },
+    {
+      name: "WhatsApp",
+      url: "https://wa.me/84909099421",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+    },
+    {
+      name: "Zalo",
+      url: "https://zalo.me/d2group",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg"
+    }
+  ];
 
   return (
     <div className="pt-16">
@@ -322,28 +355,23 @@ const Contact = () => {
           <p className="text-xl text-gray-600 mb-8">
             {t('contact.thanks.subtitle')}
           </p>
-          <div className="flex justify-center space-x-6">
-            <a 
-              href="#" 
-              className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors"
-              aria-label="Facebook"
-            >
-              <Facebook className="w-6 h-6" />
-            </a>
-            <a 
-              href="#" 
-              className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors"
-              aria-label="LinkedIn"
-            >
-              <Linkedin className="w-6 h-6" />
-            </a>
-            <a 
-              href="#" 
-              className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors"
-              aria-label="Email"
-            >
-              <Mail className="w-6 h-6" />
-            </a>
+          <div className="flex justify-center space-x-4">
+            {socialLinks.map((social) => (
+              <a 
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors overflow-hidden"
+                aria-label={social.name}
+              >
+                <img 
+                  src={social.logo} 
+                  alt={social.name}
+                  className="w-6 h-6 object-contain filter brightness-0 invert"
+                />
+              </a>
+            ))}
           </div>
         </div>
       </Section>

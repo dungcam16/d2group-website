@@ -1,6 +1,6 @@
 
 import { useNavigate } from "react-router-dom";
-import { Facebook, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin } from "lucide-react";
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -17,6 +17,39 @@ const Footer = () => {
   const handleNavigation = (path: string) => {
     navigate(path);
   };
+
+  const socialLinks = [
+    {
+      name: "Facebook",
+      url: "https://www.facebook.com/d2groupmarketing",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png"
+    },
+    {
+      name: "Instagram", 
+      url: "https://www.instagram.com/d2group.co",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+    },
+    {
+      name: "Threads",
+      url: "https://www.threads.com/@d2group.co", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/d/db/Threads_%28app%29_logo.svg"
+    },
+    {
+      name: "Telegram",
+      url: "https://t.me/d2group",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+    },
+    {
+      name: "WhatsApp",
+      url: "https://wa.me/84909099421",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+    },
+    {
+      name: "Zalo",
+      url: "https://zalo.me/d2group",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg"
+    }
+  ];
 
   return (
     <footer className="bg-gray-900 text-white">
@@ -37,13 +70,23 @@ const Footer = () => {
               Transforming customer conversations with AI-driven chatbot solutions. 
               Trusted by 500+ businesses worldwide.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors" aria-label="LinkedIn">
-                <Linkedin className="w-5 h-5" />
-              </a>
+            <div className="flex flex-wrap gap-3">
+              {socialLinks.map((social) => (
+                <a 
+                  key={social.name}
+                  href={social.url} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden bg-gray-800 hover:bg-gray-700 transition-colors" 
+                  aria-label={social.name}
+                >
+                  <img 
+                    src={social.logo} 
+                    alt={social.name}
+                    className="w-5 h-5 object-contain"
+                  />
+                </a>
+              ))}
             </div>
           </div>
 
