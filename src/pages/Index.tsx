@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -76,7 +75,12 @@ const Index = () => {
   ];
 
   const partners = [
-    "VietcomBank", "FPT Corporation", "Vingroup", "BIDV", "Techcombank", "MB Bank"
+    { name: "Khánh & Vân", logo: "/lovable-uploads/a7db9dff-ef1e-4883-88f4-52f93f6d92a7.png" },
+    { name: "Luật Minh Tâm", logo: "/lovable-uploads/f95a2914-ae30-4fa8-9051-e102f6f73a8a.png" },
+    { name: "Hannah Beauty Studio", logo: "/lovable-uploads/5f3bb211-f617-4a6c-9c48-253cf2dcedbd.png" },
+    { name: "Golden Sun Travel", logo: "/lovable-uploads/a3ebde84-cb4e-4b4a-bce1-55943b504a5b.png" },
+    { name: "Ziara Clothing", logo: "/lovable-uploads/97e01d1e-106c-42c6-9b4b-c11f99cb4b35.png" },
+    { name: "Thynk Media", logo: "/lovable-uploads/7d5dfd9a-f744-478d-bf9c-24b9b9c779ef.png" }
   ];
 
   const faqs = [
@@ -441,13 +445,16 @@ const Index = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-70">
-          {[
-            "VietcomBank", "FPT Corporation", "Vingroup", "BIDV", "Techcombank", "MB Bank"
-          ].map((partner, index) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
+          {partners.map((partner, index) => (
             <div key={index} className="text-center">
-              <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <div className="text-2xl font-bold text-gray-400">{partner}</div>
+              <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow h-32 flex flex-col items-center justify-center">
+                <img 
+                  src={partner.logo} 
+                  alt={partner.name}
+                  className="max-h-16 max-w-full object-contain mb-2"
+                />
+                <div className="text-sm font-medium text-gray-700">{partner.name}</div>
               </div>
             </div>
           ))}
