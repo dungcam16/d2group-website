@@ -77,15 +77,13 @@ const Footer = () => {
                   href={social.url} 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden bg-gray-800 hover:bg-gray-700 transition-colors" 
+                  className="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden bg-white hover:bg-gray-100 transition-colors" 
                   aria-label={social.name}
                 >
                   <img 
                     src={social.logo} 
                     alt={social.name}
-                    className={`w-5 h-5 object-contain ${
-                      social.name === 'Threads' ? '' : 'filter brightness-0 invert'
-                    }`}
+                    className="w-5 h-5 object-contain"
                   />
                 </a>
               ))}
