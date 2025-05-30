@@ -44,10 +44,10 @@ const WebsiteChatButton = () => {
   const handleWebsiteChat = () => {
     console.log('Loading Chatwoot widget');
     
-    // Set up Chatwoot settings với expanded_bubble
+    // Set up Chatwoot settings với standard type
     (window as any).chatwootSettings = {
       "position": "right",
-      "type": "expanded_bubble",
+      "type": "standard",
       "launcherTitle": "Chat with us"
     };
 
