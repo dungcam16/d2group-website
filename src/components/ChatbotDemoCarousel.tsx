@@ -340,7 +340,7 @@ const ChatbotDemoCarousel = () => {
               {t(currentScenario.subtitleKey)}
             </h3>
             <p className="text-gray-600">
-              {t('demo.description', { scenario: t(currentScenario.titleKey).toLowerCase() })}
+              {t('demo.description')}
             </p>
           </div>
           
