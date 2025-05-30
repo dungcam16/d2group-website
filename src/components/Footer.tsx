@@ -1,3 +1,4 @@
+
 import { useNavigate } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
 
@@ -31,7 +32,7 @@ const Footer = () => {
     {
       name: "Threads",
       url: "https://www.threads.com/@d2group.co", 
-      logo: "/lovable-uploads/7bc80539-3bea-479f-9923-94b3fb7fad87.png"
+      logo: "/lovable-uploads/049840e3-a2b1-469f-9858-ab4c8c496ca6.png"
     },
     {
       name: "Telegram",
