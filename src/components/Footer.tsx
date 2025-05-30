@@ -58,7 +58,7 @@ const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center space-x-3">
               <img 
-                src="/lovable-uploads/cd22248c-b4b2-4ca2-8246-5f8ac4a1d98d.png" 
+                src="/lovable-uploads/b10b8a70-e57a-4e20-9232-34a4f5c4e8fb.png" 
                 alt="D2 Group - AI & Automation" 
                 className="h-10 w-auto"
                 loading="lazy"
@@ -89,7 +89,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
             <ul className="space-y-2">
