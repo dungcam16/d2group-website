@@ -12,7 +12,7 @@ const Pricing = () => {
   const pricingPlans = [
     {
       name: t('pricing.starter'),
-      price: language === 'vi' ? t('pricing.starter.price') : "$119",
+      price: language === 'vi' ? "2.900.000 VNĐ" : "$119",
       period: t('pricing.month'),
       description: t('pricing.starter.desc'),
       popular: false,
@@ -28,7 +28,7 @@ const Pricing = () => {
     },
     {
       name: t('pricing.growth'),
-      price: language === 'vi' ? t('pricing.growth.price') : "$199",
+      price: language === 'vi' ? "3.900.000 VNĐ" : "$199",
       period: t('pricing.month'),
       description: t('pricing.growth.desc'),
       popular: true,
@@ -46,7 +46,7 @@ const Pricing = () => {
     },
     {
       name: t('pricing.business'),
-      price: language === 'vi' ? t('pricing.business.price') : "$299",
+      price: language === 'vi' ? "7.900.000 VNĐ" : "$299",
       period: t('pricing.month'),
       description: t('pricing.business.desc'),
       popular: false,
@@ -66,7 +66,7 @@ const Pricing = () => {
     },
     {
       name: t('pricing.enterprise'),
-      price: language === 'vi' ? t('pricing.enterprise.price') : "Contact",
+      price: language === 'vi' ? "Liên hệ" : "Contact",
       period: "",
       description: t('pricing.enterprise.desc'),
       popular: false,
