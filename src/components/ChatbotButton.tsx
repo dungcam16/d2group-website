@@ -1,3 +1,4 @@
+
 import { MessageCircle, Phone, Send, Users, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -105,8 +106,12 @@ const ChatbotButton = () => {
             onClick={handleMessenger} 
             className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
           >
-            <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-              <Users className="h-4 w-4 text-blue-600" />
+            <div className="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden bg-gray-100">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/b/be/Facebook_Messenger_logo_2020.svg" 
+                alt="Messenger" 
+                className="w-6 h-6 object-contain"
+              />
             </div>
             <div>
               <span className="font-medium text-gray-900">Messenger</span>
@@ -118,8 +123,12 @@ const ChatbotButton = () => {
             onClick={handleZalo} 
             className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
           >
-            <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-              <Phone className="h-4 w-4 text-blue-600" />
+            <div className="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden bg-gray-100">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg" 
+                alt="Zalo" 
+                className="w-6 h-6 object-contain"
+              />
             </div>
             <div>
               <span className="font-medium text-gray-900">Zalo</span>
@@ -131,8 +140,12 @@ const ChatbotButton = () => {
             onClick={handleTelegram} 
             className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
           >
-            <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
-              <Send className="h-4 w-4 text-blue-600" />
+            <div className="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden bg-gray-100">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" 
+                alt="Telegram" 
+                className="w-6 h-6 object-contain"
+              />
             </div>
             <div>
               <span className="font-medium text-gray-900">Telegram</span>
@@ -144,8 +157,12 @@ const ChatbotButton = () => {
             onClick={handleWhatsApp} 
             className="cursor-pointer hover:bg-green-50 px-4 py-3 flex items-center gap-3"
           >
-            <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
-              <MessageCircle className="h-4 w-4 text-green-600" />
+            <div className="w-8 h-8 rounded-full flex items-center justify-center overflow-hidden bg-gray-100">
+              <img 
+                src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" 
+                alt="WhatsApp" 
+                className="w-6 h-6 object-contain"
+              />
             </div>
             <div>
               <span className="font-medium text-gray-900">WhatsApp</span>
