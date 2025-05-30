@@ -45,27 +45,43 @@ const ChatbotButton = () => {
       </DropdownMenuTrigger>
       <DropdownMenuContent 
         align="end" 
-        className="mb-4 w-48 bg-white border border-gray-200 shadow-lg"
+        className="mb-4 w-48 bg-white border border-gray-200 shadow-lg z-[60]"
+        sideOffset={8}
       >
-        <DropdownMenuItem onClick={handleChatWebsite} className="cursor-pointer">
-          <MessageSquare className="mr-2 h-4 w-4" />
-          Chat Website
+        <DropdownMenuItem 
+          onClick={handleChatWebsite} 
+          className="cursor-pointer hover:bg-gray-100 px-3 py-2"
+        >
+          <MessageSquare className="mr-2 h-4 w-4 text-blue-600" />
+          <span className="font-medium">Chat Website</span>
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={handleMessenger} className="cursor-pointer">
-          <Users className="mr-2 h-4 w-4" />
-          Chat Messenger
+        <DropdownMenuItem 
+          onClick={handleMessenger} 
+          className="cursor-pointer hover:bg-gray-100 px-3 py-2"
+        >
+          <Users className="mr-2 h-4 w-4 text-blue-600" />
+          <span className="font-medium">Chat Messenger</span>
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={handleZalo} className="cursor-pointer">
-          <Phone className="mr-2 h-4 w-4" />
-          Chat Zalo
+        <DropdownMenuItem 
+          onClick={handleZalo} 
+          className="cursor-pointer hover:bg-gray-100 px-3 py-2"
+        >
+          <Phone className="mr-2 h-4 w-4 text-blue-600" />
+          <span className="font-medium">Chat Zalo</span>
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={handleTelegram} className="cursor-pointer">
-          <Send className="mr-2 h-4 w-4" />
-          Chat Telegram
+        <DropdownMenuItem 
+          onClick={handleTelegram} 
+          className="cursor-pointer hover:bg-gray-100 px-3 py-2"
+        >
+          <Send className="mr-2 h-4 w-4 text-blue-600" />
+          <span className="font-medium">Chat Telegram</span>
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={handleWhatsApp} className="cursor-pointer">
-          <MessageCircle className="mr-2 h-4 w-4" />
-          Chat WhatsApp
+        <DropdownMenuItem 
+          onClick={handleWhatsApp} 
+          className="cursor-pointer hover:bg-gray-100 px-3 py-2"
+        >
+          <MessageCircle className="mr-2 h-4 w-4 text-green-600" />
+          <span className="font-medium">Chat WhatsApp</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
