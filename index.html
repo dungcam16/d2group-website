@@ -33,7 +33,12 @@
     
     <!-- Chatwoot Script -->
     <script>
-      window.chatwootSettings = {"position":"right","type":"standard","launcherTitle":"Chat with us"};
+      window.chatwootSettings = {
+        "position":"right",
+        "type":"standard",
+        "launcherTitle":"Chat with us",
+        "hideBranding": true
+      };
       (function(d,t) {
         var BASE_URL="https://chatwoot.d2group.co";
         var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
@@ -50,7 +55,14 @@
       })(document,"script");
     </script>
     
+    <!-- CSS to hide Chatwoot branding -->
     <style>
+      /* Hide any "Powered by Chatwoot" footer or badge */
+      .cw-widget-poweredby,
+      .cw-chat-footer__powered-by {
+        display: none !important;
+      }
+      
       html {
         scroll-behavior: smooth;
       }
