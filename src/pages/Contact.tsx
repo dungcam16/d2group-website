@@ -80,32 +80,32 @@ const Contact = () => {
     {
       name: "Facebook",
       url: "https://www.facebook.com/d2groupmarketing",
-      icon: "📘"
+      logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png"
     },
     {
       name: "Instagram", 
       url: "https://www.instagram.com/d2group.co",
-      icon: "📸"
+      logo: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
     },
     {
       name: "Threads",
       url: "https://www.threads.com/@d2group.co", 
-      icon: "🧵"
+      logo: "/lovable-uploads/a15e3f58-c01f-4100-bd82-9f776c0c448c.png"
     },
     {
       name: "Telegram",
       url: "https://t.me/d2group",
-      icon: "✈️"
+      logo: "https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
     },
     {
       name: "WhatsApp",
       url: "https://wa.me/84909099421",
-      icon: "💬"
+      logo: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
     },
     {
       name: "Zalo",
       url: "https://zalo.me/d2group",
-      icon: "🔵"
+      logo: "https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg"
     }
   ];
 
@@ -354,10 +354,14 @@ const Contact = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors text-xl"
+                className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-md overflow-hidden"
                 aria-label={social.name}
               >
-                {social.icon}
+                <img 
+                  src={social.logo} 
+                  alt={social.name}
+                  className="w-6 h-6 object-contain"
+                />
               </a>
             ))}
           </div>

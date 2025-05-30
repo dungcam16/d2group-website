@@ -1,3 +1,4 @@
+
 import { useNavigate } from "react-router-dom";
 import { Mail, Phone, MapPin } from "lucide-react";
 
@@ -82,7 +83,9 @@ const Footer = () => {
                   <img 
                     src={social.logo} 
                     alt={social.name}
-                    className="w-5 h-5 object-contain"
+                    className={`w-5 h-5 object-contain ${
+                      social.name === 'Threads' ? '' : 'filter brightness-0 invert'
+                    }`}
                   />
                 </a>
               ))}
@@ -106,7 +109,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Solutions */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Solutions</h3>
             <ul className="space-y-2 text-sm text-gray-400">
@@ -119,7 +121,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact Info */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
             <div className="space-y-3 text-sm text-gray-400">
