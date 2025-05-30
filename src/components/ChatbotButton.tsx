@@ -1,7 +1,7 @@
 
 import { MessageCircle, Phone, Send, Users, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,6 +11,41 @@ import {
 
 const ChatbotButton = () => {
   const [isChatwootLoaded, setIsChatwootLoaded] = useState(false);
+
+  useEffect(() => {
+    // Lắng nghe sự kiện từ Chatwoot
+    const handleChatwootEvents = (event: MessageEvent) => {
+      if (event.origin !== 'https://chatwoot.d2group.co') return;
+      
+      if (event.data.type === 'chatwoot:closed') {
+        console.log('Chatwoot chat closed, showing original button');
+        setIsChatwootLoaded(false);
+        
+        // Xóa Chatwoot script và reset
+        const existingScript = document.querySelector('script[src*="chatwoot"]');
+        if (existingScript) {
+          existingScript.remove();
+        }
+        
+        // Reset window objects
+        delete (window as any).chatwootSDK;
+        delete (window as any).chatwootSettings;
+        delete (window as any).$chatwoot;
+        
+        // Xóa Chatwoot elements
+        const chatwootContainer = document.querySelector('#chatwoot_live_chat_widget');
+        if (chatwootContainer) {
+          chatwootContainer.remove();
+        }
+      }
+    };
+
+    window.addEventListener('message', handleChatwootEvents);
+    
+    return () => {
+      window.removeEventListener('message', handleChatwootEvents);
+    };
+  }, []);
 
   const handleMessenger = () => {
     console.log('Opening Messenger');
@@ -39,7 +74,8 @@ const ChatbotButton = () => {
     (window as any).chatwootSettings = {
       "position": "right",
       "type": "standard",
-      "launcherTitle": "Chat with us"
+      "launcherTitle": "Chat with us",
+      "hideMessageBubble": true
     };
 
     // Load Chatwoot script dynamically
@@ -55,8 +91,15 @@ const ChatbotButton = () => {
         baseUrl: BASE_URL
       });
       
-      // Ẩn button gốc sau khi Chatwoot đã load
+      // Ẩn button gốc và mở chat ngay lập tức
       setIsChatwootLoaded(true);
+      
+      // Mở chat widget ngay
+      setTimeout(() => {
+        if ((window as any).chatwootSDK && (window as any).chatwootSDK.toggle) {
+          (window as any).chatwootSDK.toggle();
+        }
+      }, 1000);
     };
     
     document.head.appendChild(script);
