@@ -84,7 +84,7 @@ const Contact = () => {
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
-            {t('contact.hero.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Touch</span>
+            {t('contact.hero.title')}
           </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
             {t('contact.hero.subtitle')}
@@ -122,7 +122,7 @@ const Contact = () => {
             <Card className="border-none shadow-xl">
               <CardHeader>
                 <CardTitle className="text-3xl font-bold text-gray-900">
-                  {t('contact.form.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Conversation</span>
+                  {t('contact.form.title')}
                 </CardTitle>
                 <p className="text-gray-600">
                   {t('contact.form.subtitle')}
@@ -232,7 +232,7 @@ const Contact = () => {
             <Card className="border-none shadow-xl">
               <CardHeader>
                 <CardTitle className="text-2xl font-bold text-gray-900">
-                  {t('contact.info.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Information</span>
+                  {t('contact.info.title')}
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
@@ -291,7 +291,7 @@ const Contact = () => {
             <Card className="border-none shadow-xl">
               <CardHeader>
                 <CardTitle className="text-2xl font-bold text-gray-900">
-                  {t('contact.map.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Us</span>
+                  {t('contact.map.title')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -317,7 +317,7 @@ const Contact = () => {
       <Section background="gray">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            {t('contact.thanks.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Interest</span>!
+            {t('contact.thanks.title')}
           </h2>
           <p className="text-xl text-gray-600 mb-8">
             {t('contact.thanks.subtitle')}
