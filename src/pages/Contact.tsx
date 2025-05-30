@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -47,7 +46,6 @@ const Contact = () => {
           description: "We'll get back to you within 24 hours. Check your email for confirmation.",
         });
         
-        // Reset form
         setFormData({
           name: "",
           email: "",
@@ -82,38 +80,37 @@ const Contact = () => {
     {
       name: "Facebook",
       url: "https://www.facebook.com/d2groupmarketing",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png"
+      icon: "📘"
     },
     {
       name: "Instagram", 
       url: "https://www.instagram.com/d2group.co",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+      icon: "📸"
     },
     {
       name: "Threads",
       url: "https://www.threads.com/@d2group.co", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/d/db/Threads_%28app%29_logo.svg"
+      icon: "🧵"
     },
     {
       name: "Telegram",
       url: "https://t.me/d2group",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+      icon: "✈️"
     },
     {
       name: "WhatsApp",
       url: "https://wa.me/84909099421",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+      icon: "💬"
     },
     {
       name: "Zalo",
       url: "https://zalo.me/d2group",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg"
+      icon: "🔵"
     }
   ];
 
   return (
     <div className="pt-16">
-      {/* Hero Section */}
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
@@ -150,7 +147,6 @@ const Contact = () => {
 
       <Section background="white">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
           <div>
             <Card className="border-none shadow-xl">
               <CardHeader>
@@ -259,9 +255,7 @@ const Contact = () => {
             </Card>
           </div>
 
-          {/* Contact Information */}
           <div className="space-y-8">
-            {/* Contact Details */}
             <Card className="border-none shadow-xl">
               <CardHeader>
                 <CardTitle className="text-2xl font-bold text-gray-900">
@@ -320,7 +314,6 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            {/* Map */}
             <Card className="border-none shadow-xl">
               <CardHeader>
                 <CardTitle className="text-2xl font-bold text-gray-900">
@@ -346,7 +339,6 @@ const Contact = () => {
         </div>
       </Section>
 
-      {/* Success Message Section */}
       <Section background="gray">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
@@ -362,14 +354,10 @@ const Contact = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors overflow-hidden"
+                className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition-colors text-xl"
                 aria-label={social.name}
               >
-                <img 
-                  src={social.logo} 
-                  alt={social.name}
-                  className="w-6 h-6 object-contain filter brightness-0 invert"
-                />
+                {social.icon}
               </a>
             ))}
           </div>
