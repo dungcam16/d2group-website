@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Section from "@/components/ui/section";
 import TestimonialAvatar from "@/components/TestimonialAvatar";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -93,15 +92,6 @@ const Index = () => {
       question: t('home.faq.q3'),
       answer: t('home.faq.a3')
     }
-  ];
-
-  const smePartners = [
-    { name: "Being Digital", logo: "https://beingdigital.vn/wp-content/uploads/2021/03/logo-being-digital.png" },
-    { name: "Tiki", logo: "https://salt.tikicdn.com/ts/upload/e4/49/6c/70e95b4f7d5d8702b10e747f39945654.png" },
-    { name: "Sapo", logo: "https://www.sapo.vn/static/images/logo-sapo.svg" },
-    { name: "Haravan", logo: "https://hrv-assets.s3-ap-southeast-1.amazonaws.com/assets/images/landing-pages/logo-haravan.svg" },
-    { name: "Base.vn", logo: "https://file.hstatic.net/1000140506/file/base-logo-blue_bf227b0f98684b5f99ef36a8f7ce675b.svg" },
-    { name: "Sendo", logo: "https://media.sendo.vn/media/website/logo-sendo.svg" }
   ];
 
   return (
@@ -451,21 +441,13 @@ const Index = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 items-center">
-          {smePartners.map((partner, index) => (
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-70">
+          {[
+            "VietcomBank", "FPT Corporation", "Vingroup", "BIDV", "Techcombank", "MB Bank"
+          ].map((partner, index) => (
             <div key={index} className="text-center">
-              <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-100">
-                <AspectRatio ratio={16/9} className="mb-3">
-                  <img 
-                    src={partner.logo} 
-                    alt={partner.name}
-                    className="w-full h-full object-contain p-2 grayscale hover:grayscale-0 transition-all duration-300"
-                    onError={(e) => {
-                      e.currentTarget.src = "/placeholder.svg";
-                    }}
-                  />
-                </AspectRatio>
-                <div className="text-sm font-medium text-gray-700">{partner.name}</div>
+              <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                <div className="text-2xl font-bold text-gray-400">{partner}</div>
               </div>
             </div>
           ))}
