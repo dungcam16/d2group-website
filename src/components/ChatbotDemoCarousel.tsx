@@ -23,7 +23,7 @@ interface DemoScenario {
 
 const ChatbotDemoCarousel = () => {
   const [currentGif, setCurrentGif] = useState(0);
-  const [animatingMessages, setAnimatingMessages] = useState<number>(0);
+  const [visibleMessages, setVisibleMessages] = useState<number>(0);
   const [isAnimating, setIsAnimating] = useState(true);
 
   const scenarios: DemoScenario[] = [
@@ -122,54 +122,97 @@ const ChatbotDemoCarousel = () => {
         { sender: 'bot', message: '✅ Đã nhận được thanh toán 450,000 VNĐ\n📦 Đơn hàng đang được chuẩn bị\n🚚 Dự kiến giao hàng: 2-3 ngày\nCảm ơn bạn!', time: '13:19' }
       ],
       features: ['Tích hợp gateway thanh toán', 'Xác nhận tự động', 'Bảo mật cao']
+    },
+    {
+      id: 'leadgen',
+      title: 'Lead Generation',
+      subtitle: 'Tạo leads tự động',
+      icon: <Target className="w-6 h-6" />,
+      color: 'bg-pink-500',
+      messages: [
+        { sender: 'user', message: 'Tôi quan tâm đến sản phẩm của các bạn', time: '10:30' },
+        { sender: 'bot', message: 'Cảm ơn bạn quan tâm! Để tư vấn tốt nhất, bạn có thể cho biết tên và số điện thoại không?', time: '10:30' },
+        { sender: 'user', message: 'Tên tôi là Minh, số điện thoại 0912345678', time: '10:31' },
+        { sender: 'bot', message: 'Xin chào anh Minh! Bạn đang quan tâm đến giải pháp nào của chúng tôi: Website, App mobile hay AI Chatbot?', time: '10:31' },
+        { sender: 'user', message: 'AI Chatbot cho website bán hàng', time: '10:32' },
+        { sender: 'bot', message: 'Tuyệt vời! Tôi đã ghi nhận thông tin. Sales sẽ liên hệ trong 30 phút để tư vấn chi tiết về AI Chatbot. Cảm ơn anh Minh!', time: '10:32' }
+      ],
+      features: ['Thu thập thông tin khách hàng', 'Phân loại leads tự động', 'Tích hợp CRM']
+    },
+    {
+      id: 'recommendations',
+      title: 'Product Recommendations',
+      subtitle: 'Gợi ý sản phẩm thông minh',
+      icon: <Package className="w-6 h-6" />,
+      color: 'bg-teal-500',
+      messages: [
+        { sender: 'user', message: 'Tôi cần mua quà sinh nhật cho bạn gái', time: '19:20' },
+        { sender: 'bot', message: 'Tôi sẽ giúp bạn tìm món quà ý nghĩa! Bạn gái bạn thích phong cách nào: trẻ trung, thanh lịch hay cá tính?', time: '19:20' },
+        { sender: 'user', message: 'Thanh lịch, budget khoảng 1-2 triệu', time: '19:21' },
+        { sender: 'bot', message: 'Với phong cách thanh lịch, tôi gợi ý:\n🎁 Túi xách da cao cấp - 1.8tr\n💄 Set mỹ phẩm premium - 1.5tr\n⌚ Đồng hồ nữ elegant - 1.9tr', time: '19:21' },
+        { sender: 'user', message: 'Túi xách nghe hay đấy', time: '19:22' },
+        { sender: 'bot', message: 'Tuyệt! Túi xách da cao cấp hiện có 3 màu: đen, nâu, be. Tôi có thể show ảnh và đặt hàng ngay cho bạn không?', time: '19:22' }
+      ],
+      features: ['AI phân tích sở thích', 'Gợi ý cá nhân hóa', 'Cross-selling thông minh']
     }
   ];
 
   const currentScenario = scenarios[currentGif];
 
-  // GIF-like continuous animation
+  // GIF animation với timing cố định
   useEffect(() => {
     if (!isAnimating) return;
 
-    const animateGif = () => {
-      const totalMessages = currentScenario.messages.length;
-      let messageIndex = 0;
+    const totalMessages = currentScenario.messages.length;
+    const animationDuration = 5000; // 5 giây cho mỗi loop
+    const messageInterval = animationDuration / (totalMessages + 1); // Chia đều thời gian
 
-      const showNextMessage = () => {
-        setAnimatingMessages(messageIndex);
-        messageIndex++;
+    let animationTimer: NodeJS.Timeout;
+    let messageIndex = 0;
 
+    const startAnimation = () => {
+      setVisibleMessages(0); // Reset về 0
+      
+      const showMessages = () => {
         if (messageIndex <= totalMessages) {
-          setTimeout(showNextMessage, 800); // 0.8s giữa các tin nhắn
-        } else {
-          // Sau khi hiển thị hết tin nhắn, chờ 1.5s rồi reset
-          setTimeout(() => {
-            setAnimatingMessages(0);
-            messageIndex = 0;
-            setTimeout(showNextMessage, 500);
-          }, 1500);
+          setVisibleMessages(messageIndex);
+          messageIndex++;
+          
+          if (messageIndex <= totalMessages) {
+            setTimeout(showMessages, messageInterval);
+          } else {
+            // Sau khi hiển thị hết, chờ 1 giây rồi restart
+            setTimeout(() => {
+              messageIndex = 0;
+              startAnimation();
+            }, 1000);
+          }
         }
       };
 
-      showNextMessage();
+      setTimeout(showMessages, 500); // Delay ban đầu
     };
 
-    animateGif();
-  }, [currentGif, currentScenario.messages.length, isAnimating]);
+    startAnimation();
+
+    return () => {
+      if (animationTimer) clearTimeout(animationTimer);
+    };
+  }, [currentGif, isAnimating, currentScenario.messages.length]);
 
   const nextGif = () => {
     setCurrentGif((prev) => (prev + 1) % scenarios.length);
-    setAnimatingMessages(0);
+    setVisibleMessages(0);
   };
 
   const prevGif = () => {
     setCurrentGif((prev) => (prev - 1 + scenarios.length) % scenarios.length);
-    setAnimatingMessages(0);
+    setVisibleMessages(0);
   };
 
   const selectGif = (index: number) => {
     setCurrentGif(index);
-    setAnimatingMessages(0);
+    setVisibleMessages(0);
   };
 
   return (
@@ -204,7 +247,7 @@ const ChatbotDemoCarousel = () => {
                 
                 {/* Chat Messages - GIF Animation */}
                 <div className="flex-1 p-4 space-y-3 h-[400px] overflow-y-auto bg-gray-50">
-                  {currentScenario.messages.slice(0, animatingMessages).map((message, msgIndex) => (
+                  {currentScenario.messages.slice(0, visibleMessages).map((message, msgIndex) => (
                     <div
                       key={msgIndex}
                       className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'} 
@@ -227,8 +270,8 @@ const ChatbotDemoCarousel = () => {
                     </div>
                   ))}
                   
-                  {/* Typing indicator khi đang chờ tin nhắn tiếp theo */}
-                  {animatingMessages < currentScenario.messages.length && animatingMessages > 0 && (
+                  {/* Typing indicator */}
+                  {visibleMessages > 0 && visibleMessages < currentScenario.messages.length && (
                     <div className="flex justify-start">
                       <div className="bg-white text-gray-800 rounded-2xl rounded-bl-md shadow-sm px-4 py-2">
                         <div className="flex space-x-1">
