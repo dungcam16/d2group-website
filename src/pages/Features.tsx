@@ -330,48 +330,47 @@ const Features = () => {
         </div>
       </Section>
 
-      {/* Interactive Demo Preview */}
-      <Section background="gradient">
+      {/* See It in Action Section */}
+      <Section background="gray">
         <div className="text-center max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
-            {t('features.demo.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.demo.titleHighlight')}</span>
+          <h2 className="text-4xl font-bold text-gray-900 mb-2">
+            Xem <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Thực Tế</span>
           </h2>
-          <p className="text-xl text-gray-600 mb-8">
-            {t('features.demo.description')}
+          <p className="text-xl text-gray-600 mb-12">
+            Trải nghiệm tính năng chatbot AI qua bản demo tương tác
           </p>
           
-          <div className="bg-white rounded-2xl shadow-2xl p-8 mb-8">
-            <div className="aspect-video bg-gray-100 rounded-lg flex items-center justify-center mb-6">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MessageSquare className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">{t('features.demo.interactive.title')}</h3>
-                <p className="text-gray-600">{t('features.demo.interactive.description')}</p>
+          <div className="bg-white rounded-3xl shadow-2xl p-12 mb-8 max-w-2xl mx-auto">
+            <div className="text-center mb-8">
+              <div className="w-20 h-20 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <MessageSquare className="w-10 h-10 text-white" />
               </div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-4">Demo Tương Tác Có Sẵn</h3>
+              <p className="text-gray-600 text-lg">Thử chatbot trong môi trường trực tiếp</p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
-              <div className="flex items-center space-x-2">
-                <Check className="w-4 h-4 text-green-500" />
-                <span>{t('features.demo.feature1')}</span>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div className="flex items-center space-x-3">
+                <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700">Phản hồi thời gian thực</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Check className="w-4 h-4 text-green-500" />
-                <span>{t('features.demo.feature2')}</span>
+              <div className="flex items-center space-x-3">
+                <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700">Hỗ trợ đa ngôn ngữ</span>
               </div>
-              <div className="flex items-center space-x-2">
-                <Check className="w-4 h-4 text-green-500" />
-                <span>{t('features.demo.feature3')}</span>
+              <div className="flex items-center space-x-3">
+                <Check className="w-5 h-5 text-green-500 flex-shrink-0" />
+                <span className="text-gray-700">Gọi ý thông minh</span>
               </div>
             </div>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
-              {t('features.demo.bookDemo')}
+              Đặt Demo Cá Nhân
             </Button>
             <Button size="lg" variant="outline" onClick={handleCaseStudiesClick} className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg">
-              {t('features.demo.viewCaseStudies')} <ArrowRight className="ml-2 w-4 h-4" />
+              Xem Nghiên Cứu <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </div>
         </div>
