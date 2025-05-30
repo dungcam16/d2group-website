@@ -1,4 +1,3 @@
-
 import { MessageCircle, Phone, Send, Users, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
@@ -11,58 +10,63 @@ import {
 
 const ChatbotButton = () => {
   const [isChatwootLoaded, setIsChatwootLoaded] = useState(false);
+  const BASE_URL = "https://chatwoot.d2group.co";
 
   const handleMessenger = () => {
-    console.log('Opening Messenger');
+    console.log("Opening Messenger");
     window.open("https://m.me/d2groupmarketing", "_blank");
   };
 
   const handleZalo = () => {
-    console.log('Opening Zalo');
+    console.log("Opening Zalo");
     window.open("https://zalo.me/0909099421", "_blank");
   };
 
   const handleTelegram = () => {
-    console.log('Opening Telegram');
+    console.log("Opening Telegram");
     window.open("https://t.me/nguyendung16", "_blank");
   };
 
   const handleWhatsApp = () => {
-    console.log('Opening WhatsApp');
+    console.log("Opening WhatsApp");
     window.open("https://wa.me/84909099421", "_blank");
   };
 
   const handleWebsite = () => {
-    console.log('Loading Chatwoot widget');
-    
-    // Set up Chatwoot settings
+    console.log(isChatwootLoaded ? "Toggling Chatwoot" : "Loading Chatwoot widget");
+
+    // Thiết lập chatwootSettings
     (window as any).chatwootSettings = {
-      "position": "right",
-      "type": "expanded_bubble",
-      "launcherTitle": "Chat with us"
+      position: "right",
+      type: "expanded_bubble",
+      launcherTitle: "Chat with us",
     };
 
-    // Load Chatwoot script dynamically
-    const BASE_URL = "https://chatwoot.d2group.co";
-    const script = document.createElement('script');
-    script.src = BASE_URL + "/packs/js/sdk.js";
-    script.defer = true;
-    script.async = true;
-    
-    script.onload = function() {
-      (window as any).chatwootSDK.run({
-        websiteToken: 'SDf9hw3hrgQP5Sd3brUkQ6ua',
-        baseUrl: BASE_URL
-      });
-      
-      // Ẩn button gốc sau khi Chatwoot đã load
-      setIsChatwootLoaded(true);
-    };
-    
-    document.head.appendChild(script);
+    if (!isChatwootLoaded) {
+      // Load script lần đầu
+      const script = document.createElement("script");
+      script.src = `${BASE_URL}/packs/js/sdk.js`;
+      script.defer = true;
+      script.async = true;
+
+      script.onload = () => {
+        (window as any).chatwootSDK.run({
+          websiteToken: "SDf9hw3hrgQP5Sd3brUkQ6ua",
+          baseUrl: BASE_URL,
+        });
+        // Ngay lập tức mở khung chat và ẩn nút gốc
+        (window as any).chatwootSDK.toggle();
+        setIsChatwootLoaded(true);
+      };
+
+      document.head.appendChild(script);
+    } else {
+      // Toggle chat mở/đóng
+      (window as any).chatwootSDK.toggle();
+    }
   };
 
-  // Ẩn button nếu Chatwoot đã được load
+  // Ẩn nút nếu Chatwoot đã load
   if (isChatwootLoaded) {
     return null;
   }
@@ -79,18 +83,18 @@ const ChatbotButton = () => {
             <MessageCircle className="h-6 w-6 text-white" />
           </Button>
         </DropdownMenuTrigger>
-        
-        <DropdownMenuContent 
-          align="end" 
-          className="mb-4 w-56 bg-white border border-gray-200 shadow-lg rounded-lg z-[100]"
+
+        <DropdownMenuContent
+          align="end"
           sideOffset={8}
+          className="mb-4 w-56 bg-white border border-gray-200 shadow-lg rounded-lg z-[100]"
         >
           <div className="p-2 border-b border-gray-100">
             <span className="text-sm font-semibold text-gray-700">Chọn platform chat</span>
           </div>
-          
-          <DropdownMenuItem 
-            onClick={handleWebsite} 
+
+          <DropdownMenuItem
+            onClick={handleWebsite}
             className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
           >
             <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
@@ -101,9 +105,9 @@ const ChatbotButton = () => {
               <p className="text-xs text-gray-500">Chat trực tiếp</p>
             </div>
           </DropdownMenuItem>
-          
-          <DropdownMenuItem 
-            onClick={handleMessenger} 
+
+          <DropdownMenuItem
+            onClick={handleMessenger}
             className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
           >
             <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
@@ -114,9 +118,9 @@ const ChatbotButton = () => {
               <p className="text-xs text-gray-500">Facebook Messenger</p>
             </div>
           </DropdownMenuItem>
-          
-          <DropdownMenuItem 
-            onClick={handleZalo} 
+
+          <DropdownMenuItem
+            onClick={handleZalo}
             className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
           >
             <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
@@ -127,9 +131,9 @@ const ChatbotButton = () => {
               <p className="text-xs text-gray-500">Zalo chat</p>
             </div>
           </DropdownMenuItem>
-          
-          <DropdownMenuItem 
-            onClick={handleTelegram} 
+
+          <DropdownMenuItem
+            onClick={handleTelegram}
             className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
           >
             <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
@@ -140,9 +144,9 @@ const ChatbotButton = () => {
               <p className="text-xs text-gray-500">Telegram chat</p>
             </div>
           </DropdownMenuItem>
-          
-          <DropdownMenuItem 
-            onClick={handleWhatsApp} 
+
+          <DropdownMenuItem
+            onClick={handleWhatsApp}
             className="cursor-pointer hover:bg-green-50 px-4 py-3 flex items-center gap-3"
           >
             <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
