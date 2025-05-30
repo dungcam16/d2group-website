@@ -7,7 +7,7 @@ import { viTranslations } from './translations/vi';
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<'en' | 'vi'>('en');
+  const [language, setLanguage] = useState<'en' | 'vi'>('vi');
 
   const translations = {
     en: enTranslations,
