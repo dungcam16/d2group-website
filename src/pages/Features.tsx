@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -334,10 +335,10 @@ const Features = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-2">
-            Xem <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Thực Tế</span>
+            {t('features.demo.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('features.demo.titleHighlight')}</span>
           </h2>
           <p className="text-xl text-gray-600 mb-12">
-            Trải nghiệm tính năng chatbot AI qua bản demo tương tác
+            {t('features.demo.description')}
           </p>
         </div>
         
@@ -346,10 +347,10 @@ const Features = () => {
         <div className="text-center mt-16">
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
-              Đặt Demo Cá Nhân
+              {t('features.demo.bookDemo')}
             </Button>
             <Button size="lg" variant="outline" onClick={handleCaseStudiesClick} className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg">
-              Xem Nghiên Cứu <ArrowRight className="ml-2 w-4 h-4" />
+              {t('features.demo.viewCaseStudies')} <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </div>
         </div>

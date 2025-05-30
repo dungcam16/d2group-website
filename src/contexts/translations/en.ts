@@ -1,4 +1,3 @@
-
 import { Translations } from '../types';
 
 export const enTranslations: Translations = {
@@ -177,15 +176,10 @@ export const enTranslations: Translations = {
   'features.advanced.analytics.abTesting.name': 'A/B Testing',
   'features.advanced.analytics.abTesting.desc': 'Test different conversation flows and optimise performance',
 
-  // Demo
+  // Demo Section
   'features.demo.title': 'See It in',
   'features.demo.titleHighlight': 'Action',
   'features.demo.description': 'Experience our AI-chatbot capabilities with an interactive demo',
-  'features.demo.interactive.title': 'Interactive Demo Available',
-  'features.demo.interactive.description': 'Put our chatbot to the test in a live environment',
-  'features.demo.feature1': 'Real-time responses',
-  'features.demo.feature2': 'Multilingual support',
-  'features.demo.feature3': 'Smart recommendations',
   'features.demo.bookDemo': 'Book Personal Demo',
   'features.demo.viewCaseStudies': 'View Case Studies',
 
