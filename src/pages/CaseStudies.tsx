@@ -41,7 +41,7 @@ const CaseStudies = () => {
         { metric: t('caseStudies.metrics.staffEfficiency'), improvement: "+40%", icon: <Users className="w-4 h-4" /> },
         { metric: t('caseStudies.metrics.customerSatisfaction'), improvement: "4.9/5", icon: <Users className="w-4 h-4" /> }
       ],
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=400&h=300&fit=crop",
+      image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=400&h=300&fit=crop",
       testimonial: t('caseStudies.content.case2.testimonial'),
       author: t('caseStudies.content.case2.author')
     },
@@ -125,7 +125,7 @@ const CaseStudies = () => {
 
   return (
     <div className="pt-16">
-      {/* Hero Section - TRANSLATED */}
+      {/* Hero Section */}
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
@@ -155,7 +155,7 @@ const CaseStudies = () => {
         </div>
       </Section>
 
-      {/* Case Studies Grid - NOW TRANSLATED */}
+      {/* Case Studies Grid */}
       <Section background="white">
         <div className="space-y-20">
           {caseStudies.map((study, index) => (
@@ -236,7 +236,7 @@ const CaseStudies = () => {
         </div>
       </Section>
 
-      {/* Industries Overview - NOW TRANSLATED */}
+      {/* Industries Overview */}
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
@@ -275,7 +275,7 @@ const CaseStudies = () => {
         </div>
       </Section>
 
-      {/* CTA Section - NOW TRANSLATED */}
+      {/* CTA Section */}
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
