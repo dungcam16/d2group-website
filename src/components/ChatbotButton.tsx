@@ -1,5 +1,5 @@
 
-import { MessageCircle, Phone, Send, Users } from "lucide-react";
+import { MessageCircle, Phone, Send, Users, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -29,6 +29,33 @@ const ChatbotButton = () => {
     window.open("https://wa.me/84909099421", "_blank");
   };
 
+  const handleWebsite = () => {
+    console.log('Loading Chatwoot widget');
+    
+    // Set up Chatwoot settings
+    (window as any).chatwootSettings = {
+      "position": "right",
+      "type": "standard",
+      "launcherTitle": "Chat with us"
+    };
+
+    // Load Chatwoot script dynamically
+    const BASE_URL = "https://chatwoot.d2group.co";
+    const script = document.createElement('script');
+    script.src = BASE_URL + "/packs/js/sdk.js";
+    script.defer = true;
+    script.async = true;
+    
+    script.onload = function() {
+      (window as any).chatwootSDK.run({
+        websiteToken: 'SDf9hw3hrgQP5Sd3brUkQ6ua',
+        baseUrl: BASE_URL
+      });
+    };
+    
+    document.head.appendChild(script);
+  };
+
   return (
     <div className="fixed bottom-6 right-6 z-[9999]">
       <DropdownMenu>
@@ -50,6 +77,19 @@ const ChatbotButton = () => {
           <div className="p-2 border-b border-gray-100">
             <span className="text-sm font-semibold text-gray-700">Chọn platform chat</span>
           </div>
+          
+          <DropdownMenuItem 
+            onClick={handleWebsite} 
+            className="cursor-pointer hover:bg-blue-50 px-4 py-3 flex items-center gap-3"
+          >
+            <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+              <Globe className="h-4 w-4 text-blue-600" />
+            </div>
+            <div>
+              <span className="font-medium text-gray-900">Website</span>
+              <p className="text-xs text-gray-500">Chat trực tiếp</p>
+            </div>
+          </DropdownMenuItem>
           
           <DropdownMenuItem 
             onClick={handleMessenger} 
