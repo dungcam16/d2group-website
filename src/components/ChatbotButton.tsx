@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const ChatbotButton = () => {
-  const [isChatwootLoaded, setIsChatwootLoaded] = useState(false);
+  const [isBotpressLoaded, setIsBotpressLoaded] = useState(false);
 
   const handleMessenger = () => {
     console.log('Opening Messenger');
@@ -33,37 +33,33 @@ const ChatbotButton = () => {
   };
 
   const handleWebsite = () => {
-    console.log('Loading Chatwoot widget');
+    console.log('Loading Botpress widget');
     
-    // Set up Chatwoot settings
-    (window as any).chatwootSettings = {
-      "position": "right",
-      "type": "expanded_bubble",
-      "launcherTitle": "Chat with us"
-    };
-
-    // Load Chatwoot script dynamically
-    const BASE_URL = "https://chatwoot.d2group.co";
-    const script = document.createElement('script');
-    script.src = BASE_URL + "/packs/js/sdk.js";
-    script.defer = true;
-    script.async = true;
+    // Load Botpress scripts dynamically
+    const script1 = document.createElement('script');
+    script1.src = "https://cdn.botpress.cloud/webchat/v2.5/inject.js";
+    script1.defer = true;
+    script1.async = true;
     
-    script.onload = function() {
-      (window as any).chatwootSDK.run({
-        websiteToken: 'SDf9hw3hrgQP5Sd3brUkQ6ua',
-        baseUrl: BASE_URL
-      });
+    const script2 = document.createElement('script');
+    script2.src = "https://files.bpcontent.cloud/2025/05/27/10/20250527101911-FJ8GLO2W.js";
+    script2.defer = true;
+    script2.async = true;
+    
+    script1.onload = function() {
+      document.head.appendChild(script2);
       
-      // Ẩn button gốc sau khi Chatwoot đã load
-      setIsChatwootLoaded(true);
+      script2.onload = function() {
+        // Ẩn button gốc sau khi Botpress đã load
+        setIsBotpressLoaded(true);
+      };
     };
     
-    document.head.appendChild(script);
+    document.head.appendChild(script1);
   };
 
-  // Ẩn button nếu Chatwoot đã được load
-  if (isChatwootLoaded) {
+  // Ẩn button nếu Botpress đã được load
+  if (isBotpressLoaded) {
     return null;
   }
 
