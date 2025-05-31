@@ -614,7 +614,7 @@ const Index = () => {
           <div className="flex flex-col sm:flex-row gap-6 justify-center text-sm text-gray-600">
             <span className="flex items-center justify-center space-x-2">
               <CheckCircle className="w-4 h-4 text-green-500" />
-              <span>{t('home.finalCta.freeTrial')}</span>
+              <span>{t('home.finalCta.pocTrial')}</span>
             </span>
             <span className="flex items-center justify-center space-x-2">
               <CheckCircle className="w-4 h-4 text-green-500" />
