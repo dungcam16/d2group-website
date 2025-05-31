@@ -12,7 +12,7 @@ const Pricing = () => {
   const pricingPlans = [
     {
       name: t('pricing.starter'),
-      price: language === 'vi' ? "1.900.000 VNĐ" : "$79",
+      price: language === 'vi' ? "2.900.000 VNĐ" : "$79",
       setupFee: language === 'vi' ? "6.900.000 VNĐ" : "$119",
       period: t('pricing.month'),
       description: t('pricing.starter.desc'),
