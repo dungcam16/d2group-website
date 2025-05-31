@@ -1,3 +1,4 @@
+
 import { Translations } from '../types';
 
 export const enTranslations: Translations = {
@@ -335,6 +336,7 @@ export const enTranslations: Translations = {
   'pricing.mostPopular': 'Most Popular',
   'pricing.getStarted': 'Get Started',
   'pricing.contactForPricing': 'Contact Sales',
+  'pricing.setupFee': 'Setup Fee',
   'pricing.starter.desc': 'Perfect for small teams starting with AI chatbots',
   'pricing.growth.desc': 'Ideal for fast-growing businesses that need more power',
   'pricing.business.desc': 'Designed for large businesses that need full customisation',
@@ -347,6 +349,51 @@ export const enTranslations: Translations = {
   'pricing.hero.freeTrial': '14-day free trial',
   'pricing.hero.noSetupFees': 'No setup fees',
   'pricing.hero.cancelAnytime': 'Cancel anytime',
+
+  // Pricing Add-ons
+  'pricing.addons.title': 'Optional',
+  'pricing.addons.titleHighlight': 'Add-ons',
+  'pricing.addons.subtitle': 'Enhance your chatbot with additional capabilities',
+  'pricing.addons.setupFee': 'Setup Fee',
+  'pricing.addons.monthlyFee': 'Monthly Fee',
+
+  'pricing.addons.additionalChannels.name': 'Additional Channels',
+  'pricing.addons.additionalChannels.desc': 'TikTok Shop, WhatsApp Business, Telegram, Line... (per channel)',
+
+  'pricing.addons.voicebot.name': 'Voicebot',
+  'pricing.addons.voicebot.desc': 'AI Phone Integration, TTS + STT Multi-language',
+
+  'pricing.addons.advancedPayment.name': 'Advanced Payment',
+  'pricing.addons.advancedPayment.desc': 'Momo/VNPay Payment, Inventory Management, Discount Codes',
+
+  'pricing.addons.dataCrawler.name': 'Data-Crawler Bot',
+  'pricing.addons.dataCrawler.desc': 'Collect & sync pricing data, competitor tracking, product info',
+
+  'pricing.addons.privateLLM.name': 'On-Premise / Private LLM',
+  'pricing.addons.privateLLM.desc': 'Deploy internal server, high security',
+
+  'pricing.addons.advancedAnalytics.name': 'Advanced Analytics',
+  'pricing.addons.advancedAnalytics.desc': 'Power BI Dashboard / Metabase data warehouse connector',
+
+  'pricing.addons.multiLanguage.name': 'Multi-Language',
+  'pricing.addons.multiLanguage.desc': 'Vietnamese-English-Japanese-Korean... (per language)',
+
+  'pricing.addons.training.name': 'Training & SOP',
+  'pricing.addons.training.desc': 'In-house workshop 1 day (up to 15 people)',
+
+  'pricing.addons.handover.name': 'Handover Live-Agent',
+  'pricing.addons.handover.desc': 'Module for seamless chat transfer to human agents',
+
+  'pricing.addons.additionalUsers.name': 'Additional Users (seat)',
+  'pricing.addons.additionalUsers.desc': 'Additional dashboard management accounts',
+
+  // Pricing Notes
+  'pricing.notes.title': 'Important Notes',
+  'pricing.notes.note1': 'Setup fee includes requirements analysis, flow building, channel configuration, testing and basic training.',
+  'pricing.notes.note2': 'Infrastructure pricing includes standard LLM (OpenAI-GPT-4o); if customers require more advanced models, On-Premise/Private LLM add-on will apply.',
+  'pricing.notes.note3': 'Conversations are calculated per 24-hour session. At month-end, Enterprise plans exceeding 200,000 chats will apply block pricing.',
+  'pricing.notes.note4': 'Invoices issued before signing; payment via bank transfer, VNPay QR or Momo Business.',
+  'pricing.notes.yearlyDiscount': 'Annual payment customers receive 15% discount on operating fees.',
 
   // Pricing Comparison – headers
   'pricing.comparison.title': 'Feature',

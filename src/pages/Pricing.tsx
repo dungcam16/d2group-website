@@ -1,6 +1,7 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Check, X, Star, HelpCircle } from "lucide-react";
+import { Check, X, Star, HelpCircle, Plus } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import Section from "@/components/ui/section";
@@ -12,12 +13,14 @@ const Pricing = () => {
   const pricingPlans = [
     {
       name: t('pricing.starter'),
-      price: language === 'vi' ? "2.900.000 VNĐ" : "$119",
+      price: language === 'vi' ? "6.900.000 VNĐ" : "$119",
+      setupFee: language === 'vi' ? "1.900.000 VNĐ" : "$79",
       period: t('pricing.month'),
       description: t('pricing.starter.desc'),
       popular: false,
+      conversations: language === 'vi' ? "1.000" : "1,000",
       features: [
-        `1,000 ${t('feature.conversations')}`,
+        `${language === 'vi' ? '1.000' : '1,000'} ${t('feature.conversations')}`,
         t('feature.basicTemplates'),
         t('feature.websiteIntegration'),
         t('feature.emailSupport'),
@@ -28,12 +31,14 @@ const Pricing = () => {
     },
     {
       name: t('pricing.growth'),
-      price: language === 'vi' ? "3.900.000 VNĐ" : "$199",
+      price: language === 'vi' ? "12.900.000 VNĐ" : "$199",
+      setupFee: language === 'vi' ? "3.900.000 VNĐ" : "$159",
       period: t('pricing.month'),
       description: t('pricing.growth.desc'),
       popular: true,
+      conversations: language === 'vi' ? "5.000" : "5,000",
       features: [
-        `5,000 ${t('feature.conversations')}`,
+        `${language === 'vi' ? '5.000' : '5,000'} ${t('feature.conversations')}`,
         t('feature.advancedTemplates'),
         t('feature.multiChannel'),
         t('feature.crmIntegration'),
@@ -46,12 +51,14 @@ const Pricing = () => {
     },
     {
       name: t('pricing.business'),
-      price: language === 'vi' ? "7.900.000 VNĐ" : "$299",
+      price: language === 'vi' ? "24.900.000 VNĐ" : "$299",
+      setupFee: language === 'vi' ? "7.900.000 VNĐ" : "$299",
       period: t('pricing.month'),
       description: t('pricing.business.desc'),
       popular: false,
+      conversations: language === 'vi' ? "15.000" : "15,000",
       features: [
-        `15,000 ${t('feature.conversations')}`,
+        `${language === 'vi' ? '15.000' : '15,000'} ${t('feature.conversations')}`,
         t('feature.customDesign'),
         t('feature.multiChannel'),
         t('feature.crmIntegration'),
@@ -66,12 +73,14 @@ const Pricing = () => {
     },
     {
       name: t('pricing.enterprise'),
-      price: language === 'vi' ? "Liên hệ" : "Contact",
+      price: language === 'vi' ? "49 triệu VNĐ+" : "Contact",
+      setupFee: language === 'vi' ? "Liên hệ" : "Contact",
       period: "",
       description: t('pricing.enterprise.desc'),
       popular: false,
+      conversations: language === 'vi' ? "200.000" : "Unlimited",
       features: [
-        `${t('feature.unlimited')} conversations`,
+        `${language === 'vi' ? '200.000+' : 'Unlimited'} conversations`,
         t('feature.customAI'),
         t('feature.dedicatedManager'),
         t('feature.onPremise'),
@@ -85,11 +94,74 @@ const Pricing = () => {
     }
   ];
 
+  const addOns = [
+    {
+      name: t('pricing.addons.additionalChannels.name'),
+      description: t('pricing.addons.additionalChannels.desc'),
+      setupFee: language === 'vi' ? "1 triệu VNĐ" : "$500",
+      monthlyFee: language === 'vi' ? "500.000 VNĐ" : "$50"
+    },
+    {
+      name: t('pricing.addons.voicebot.name'),
+      description: t('pricing.addons.voicebot.desc'),
+      setupFee: language === 'vi' ? "3 triệu VNĐ" : "$1,500",
+      monthlyFee: language === 'vi' ? "từ 1.200.000 VNĐ" : "from $120"
+    },
+    {
+      name: t('pricing.addons.advancedPayment.name'),
+      description: t('pricing.addons.advancedPayment.desc'),
+      setupFee: language === 'vi' ? "2 triệu VNĐ" : "$1,000",
+      monthlyFee: language === 'vi' ? "800.000 VNĐ" : "$80"
+    },
+    {
+      name: t('pricing.addons.dataCrawler.name'),
+      description: t('pricing.addons.dataCrawler.desc'),
+      setupFee: language === 'vi' ? "5 triệu VNĐ" : "$2,500",
+      monthlyFee: language === 'vi' ? "từ 2 triệu VNĐ" : "from $200"
+    },
+    {
+      name: t('pricing.addons.privateLLM.name'),
+      description: t('pricing.addons.privateLLM.desc'),
+      setupFee: language === 'vi' ? "Báo giá" : "Quote",
+      monthlyFee: language === 'vi' ? "Báo giá" : "Quote"
+    },
+    {
+      name: t('pricing.addons.advancedAnalytics.name'),
+      description: t('pricing.addons.advancedAnalytics.desc'),
+      setupFee: language === 'vi' ? "4 triệu VNĐ" : "$2,000",
+      monthlyFee: language === 'vi' ? "1 triệu VNĐ" : "$100"
+    },
+    {
+      name: t('pricing.addons.multiLanguage.name'),
+      description: t('pricing.addons.multiLanguage.desc'),
+      setupFee: language === 'vi' ? "1 triệu VNĐ" : "$500",
+      monthlyFee: language === 'vi' ? "400.000 VNĐ" : "$40"
+    },
+    {
+      name: t('pricing.addons.training.name'),
+      description: t('pricing.addons.training.desc'),
+      setupFee: language === 'vi' ? "5 triệu VNĐ" : "$2,500",
+      monthlyFee: language === 'vi' ? "—" : "—"
+    },
+    {
+      name: t('pricing.addons.handover.name'),
+      description: t('pricing.addons.handover.desc'),
+      setupFee: language === 'vi' ? "1 triệu VNĐ" : "$500",
+      monthlyFee: language === 'vi' ? "300.000 VNĐ" : "$30"
+    },
+    {
+      name: t('pricing.addons.additionalUsers.name'),
+      description: t('pricing.addons.additionalUsers.desc'),
+      setupFee: language === 'vi' ? "—" : "—",
+      monthlyFee: language === 'vi' ? "150.000 VNĐ/seat" : "$15/seat"
+    }
+  ];
+
   const comparisonFeatures = [
     {
       category: t('pricing.comparison.coreFeatures'),
       features: [
-        { name: t('pricing.comparison.monthlyChatSessions'), starter: "1,000", growth: "5,000", business: "15,000", enterprise: t('pricing.comparison.unlimited') },
+        { name: t('pricing.comparison.monthlyChatSessions'), starter: "1,000", growth: "5,000", business: "15,000", enterprise: language === 'vi' ? "200,000" : t('pricing.comparison.unlimited') },
         { name: t('pricing.comparison.chatbotTemplate'), starter: t('pricing.comparison.basic'), growth: t('pricing.comparison.advanced'), business: t('pricing.comparison.custom'), enterprise: t('pricing.comparison.fullyCustom') },
         { name: t('pricing.comparison.responseTimeSLA'), starter: t('pricing.comparison.standard'), growth: t('pricing.comparison.priority'), business: t('pricing.comparison.priority'), enterprise: t('pricing.comparison.instant') },
         { name: t('pricing.comparison.analyticsDashboard'), starter: true, growth: true, business: true, enterprise: true },
@@ -133,7 +205,7 @@ const Pricing = () => {
 
   return (
     <div className="pt-16">
-      {/* Hero Section - NOW TRANSLATED */}
+      {/* Hero Section */}
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
@@ -159,7 +231,7 @@ const Pricing = () => {
         </div>
       </Section>
 
-      {/* Pricing Cards - ALREADY TRANSLATED */}
+      {/* Pricing Cards */}
       <Section background="white">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {pricingPlans.map((plan, index) => (
@@ -182,10 +254,15 @@ const Pricing = () => {
 
               <CardHeader className="text-center pb-4">
                 <CardTitle className="text-2xl font-bold mb-2">{plan.name}</CardTitle>
-                <div className="mb-4">
+                <div className="mb-2">
                   <span className="text-3xl font-bold text-blue-600">{plan.price}</span>
                   <span className="text-gray-600 ml-1 text-sm">{plan.period}</span>
                 </div>
+                {plan.setupFee && (
+                  <div className="text-sm text-gray-500 mb-4">
+                    {t('pricing.setupFee')}: <span className="font-semibold">{plan.setupFee}</span>
+                  </div>
+                )}
                 <p className="text-gray-600 text-sm leading-relaxed">{plan.description}</p>
               </CardHeader>
 
@@ -215,7 +292,82 @@ const Pricing = () => {
         </div>
       </Section>
 
-      {/* Feature Comparison Table - NOW TRANSLATED */}
+      {/* Add-ons Section */}
+      <Section background="gray">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">
+            {t('pricing.addons.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('pricing.addons.titleHighlight')}</span>
+          </h2>
+          <p className="text-xl text-gray-600">
+            {t('pricing.addons.subtitle')}
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+          {addOns.map((addon, index) => (
+            <Card key={index} className="border-2 border-gray-200 hover:border-blue-600 hover:shadow-lg transition-all duration-300">
+              <CardHeader className="pb-4">
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <CardTitle className="text-lg font-bold mb-2 flex items-center space-x-2">
+                      <Plus className="w-5 h-5 text-blue-600" />
+                      <span>{addon.name}</span>
+                    </CardTitle>
+                    <p className="text-sm text-gray-600 leading-relaxed">{addon.description}</p>
+                  </div>
+                </div>
+              </CardHeader>
+              
+              <CardContent>
+                <div className="space-y-2">
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">{t('pricing.addons.setupFee')}:</span>
+                    <span className="font-semibold text-blue-600">{addon.setupFee}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm text-gray-600">{t('pricing.addons.monthlyFee')}:</span>
+                    <span className="font-semibold text-blue-600">{addon.monthlyFee}</span>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      {/* Notes Section */}
+      <Section background="white">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold mb-8 text-center text-gray-900">{t('pricing.notes.title')}</h2>
+          <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg">
+            <ul className="space-y-4 text-gray-700">
+              <li className="flex items-start space-x-3">
+                <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                <span>{t('pricing.notes.note1')}</span>
+              </li>
+              <li className="flex items-start space-x-3">
+                <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                <span>{t('pricing.notes.note2')}</span>
+              </li>
+              <li className="flex items-start space-x-3">
+                <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                <span>{t('pricing.notes.note3')}</span>
+              </li>
+              <li className="flex items-start space-x-3">
+                <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
+                <span>{t('pricing.notes.note4')}</span>
+              </li>
+            </ul>
+            <div className="mt-6 p-4 bg-yellow-100 border border-yellow-300 rounded-lg">
+              <p className="text-sm text-gray-700 font-semibold">
+                {t('pricing.notes.yearlyDiscount')}
+              </p>
+            </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Feature Comparison Table */}
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
@@ -303,7 +455,7 @@ const Pricing = () => {
         </div>
       </Section>
 
-      {/* FAQ Section - NOW TRANSLATED */}
+      {/* FAQ Section */}
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
@@ -333,7 +485,7 @@ const Pricing = () => {
         </div>
       </Section>
 
-      {/* CTA Section - NOW TRANSLATED */}
+      {/* CTA Section */}
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">
