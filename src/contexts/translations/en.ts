@@ -18,7 +18,7 @@ export const enTranslations: Translations = {
   'home.hero.subtitle2': 'Chatbots That',
   'home.hero.subtitle3': 'Actually Work',
   'home.hero.description': 'Automate customer support, boost sales, and elevate user experience with our cutting-edge AI chatbot solutions. Join 1,000+ businesses already transforming their customer conversations.',
-  'home.hero.getDemo': 'Get Free Demo',
+  'home.hero.getDemo': 'Get Demo',
   'home.hero.learnMore': 'Learn More',
 
   // About Page
@@ -54,7 +54,7 @@ export const enTranslations: Translations = {
   'features.hero.titleHighlight': 'AI Features',
   'features.hero.titleEnd': 'for Modern Businesses',
   'features.hero.description': 'Explore the complete suite of AI-powered capabilities that make our chatbots the smartest choice for growing brands.',
-  'features.hero.cta': 'Start Free Trial',
+  'features.hero.cta': 'Start PoC Trial',
 
   // Core Features
   'features.core.title': 'Core',
@@ -320,9 +320,9 @@ export const enTranslations: Translations = {
   'home.finalCta.title2': 'Your Business',
   'home.finalCta.title3': 'Today?',
   'home.finalCta.description': 'Join thousands of businesses already using D2 Group AI chatbots to elevate customer experience and drive growth.',
-  'home.finalCta.startTrial': 'Start Free Trial',
+  'home.finalCta.startTrial': 'Start PoC Trial',
   'home.finalCta.bookDemo': 'Book a Demo',
-  'home.finalCta.freeTrial': '14-day free trial',
+  'home.finalCta.pocTrial': 'PoC trial available',
   'home.finalCta.noCreditCard': 'No credit card required',
   'home.finalCta.setupIn5': 'Setup in 5 minutes',
 
@@ -345,8 +345,8 @@ export const enTranslations: Translations = {
   // Pricing Hero
   'pricing.hero.title': 'Transparent',
   'pricing.hero.titleHighlight': 'Pricing',
-  'pricing.hero.description': 'Pick the perfect plan for your needs. Every plan includes a free 14-day trial.',
-  'pricing.hero.freeTrial': '14-day free trial',
+  'pricing.hero.description': 'Pick the perfect plan for your needs. Every plan includes a PoC trial.',
+  'pricing.hero.pocTrial': 'PoC trial available',
   'pricing.hero.noSetupFees': 'No setup fees',
   'pricing.hero.cancelAnytime': 'Cancel anytime',
 
@@ -429,8 +429,8 @@ export const enTranslations: Translations = {
   'pricing.faq.a1': 'A chat session is recorded each time a unique user interacts with your chatbot within a 24-hour window, regardless of message count.',
   'pricing.faq.q2': 'Can I upgrade or downgrade my plan at any time?',
   'pricing.faq.a2': 'Yes. Upgrades apply immediately; downgrades take effect at the next billing cycle.',
-  'pricing.faq.q3': 'Is there a free trial?',
-  'pricing.faq.a3': 'Yes. Enjoy a 14-day free trial on any plan – no credit card required.',
+  'pricing.faq.q3': 'Is there a PoC trial?',
+  'pricing.faq.a3': 'Yes. Enjoy a PoC trial on any plan – no credit card required.',
   'pricing.faq.q4': 'What if I exceed my chat-session limit?',
   'pricing.faq.a4': 'Excess sessions are billed at US $3 per session. We\'ll notify you as you approach your limit.',
 
@@ -438,9 +438,9 @@ export const enTranslations: Translations = {
   'pricing.cta.title': 'Ready to',
   'pricing.cta.titleHighlight': 'Get Started',
   'pricing.cta.question': '?',
-  'pricing.cta.description': 'Start your free trial today and discover how D2 Group AI chatbots transform customer conversations. Cancel anytime.',
-  'pricing.cta.startFreeTrial': 'Start Free Trial',
-  'pricing.cta.contactSales': 'Contact Sales',
+  'pricing.cta.description': 'Start your PoC trial today and discover how D2 Group AI chatbots transform customer conversations. Cancel anytime.',
+  'pricing.cta.startTrial': 'Start Trial',
+  'pricing.cta.getDemo': 'Get Demo',
   'pricing.cta.questionsText': 'Have questions? Our sales team will help you choose the right plan.',
 
   // Feature shorthand

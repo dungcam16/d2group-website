@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, X, Star, HelpCircle, Plus } from "lucide-react";
@@ -13,8 +12,8 @@ const Pricing = () => {
   const pricingPlans = [
     {
       name: t('pricing.starter'),
-      price: language === 'vi' ? "6.900.000 VNĐ" : "$119",
-      setupFee: language === 'vi' ? "1.900.000 VNĐ" : "$79",
+      price: language === 'vi' ? "1.900.000 VNĐ" : "$79",
+      setupFee: language === 'vi' ? "6.900.000 VNĐ" : "$119",
       period: t('pricing.month'),
       description: t('pricing.starter.desc'),
       popular: false,
@@ -31,8 +30,8 @@ const Pricing = () => {
     },
     {
       name: t('pricing.growth'),
-      price: language === 'vi' ? "12.900.000 VNĐ" : "$199",
-      setupFee: language === 'vi' ? "3.900.000 VNĐ" : "$159",
+      price: language === 'vi' ? "3.900.000 VNĐ" : "$159",
+      setupFee: language === 'vi' ? "12.900.000 VNĐ" : "$199",
       period: t('pricing.month'),
       description: t('pricing.growth.desc'),
       popular: true,
@@ -51,8 +50,8 @@ const Pricing = () => {
     },
     {
       name: t('pricing.business'),
-      price: language === 'vi' ? "24.900.000 VNĐ" : "$299",
-      setupFee: language === 'vi' ? "7.900.000 VNĐ" : "$299",
+      price: language === 'vi' ? "7.900.000 VNĐ" : "$299",
+      setupFee: language === 'vi' ? "24.900.000 VNĐ" : "$299",
       period: t('pricing.month'),
       description: t('pricing.business.desc'),
       popular: false,
@@ -73,8 +72,8 @@ const Pricing = () => {
     },
     {
       name: t('pricing.enterprise'),
-      price: language === 'vi' ? "49 triệu VNĐ+" : "Contact",
-      setupFee: language === 'vi' ? "Liên hệ" : "Contact",
+      price: language === 'vi' ? "Liên hệ" : "Contact",
+      setupFee: language === 'vi' ? "49 triệu VNĐ+" : "Contact",
       period: "",
       description: t('pricing.enterprise.desc'),
       popular: false,
@@ -98,26 +97,26 @@ const Pricing = () => {
     {
       name: t('pricing.addons.additionalChannels.name'),
       description: t('pricing.addons.additionalChannels.desc'),
-      setupFee: language === 'vi' ? "1 triệu VNĐ" : "$500",
-      monthlyFee: language === 'vi' ? "500.000 VNĐ" : "$50"
+      setupFee: language === 'vi' ? "500.000 VNĐ" : "$50",
+      monthlyFee: language === 'vi' ? "1 triệu VNĐ" : "$500"
     },
     {
       name: t('pricing.addons.voicebot.name'),
       description: t('pricing.addons.voicebot.desc'),
-      setupFee: language === 'vi' ? "3 triệu VNĐ" : "$1,500",
-      monthlyFee: language === 'vi' ? "từ 1.200.000 VNĐ" : "from $120"
+      setupFee: language === 'vi' ? "từ 1.200.000 VNĐ" : "from $120",
+      monthlyFee: language === 'vi' ? "3 triệu VNĐ" : "$1,500"
     },
     {
       name: t('pricing.addons.advancedPayment.name'),
       description: t('pricing.addons.advancedPayment.desc'),
-      setupFee: language === 'vi' ? "2 triệu VNĐ" : "$1,000",
-      monthlyFee: language === 'vi' ? "800.000 VNĐ" : "$80"
+      setupFee: language === 'vi' ? "800.000 VNĐ" : "$80",
+      monthlyFee: language === 'vi' ? "2 triệu VNĐ" : "$1,000"
     },
     {
       name: t('pricing.addons.dataCrawler.name'),
       description: t('pricing.addons.dataCrawler.desc'),
-      setupFee: language === 'vi' ? "5 triệu VNĐ" : "$2,500",
-      monthlyFee: language === 'vi' ? "từ 2 triệu VNĐ" : "from $200"
+      setupFee: language === 'vi' ? "từ 2 triệu VNĐ" : "from $200",
+      monthlyFee: language === 'vi' ? "5 triệu VNĐ" : "$2,500"
     },
     {
       name: t('pricing.addons.privateLLM.name'),
@@ -128,32 +127,32 @@ const Pricing = () => {
     {
       name: t('pricing.addons.advancedAnalytics.name'),
       description: t('pricing.addons.advancedAnalytics.desc'),
-      setupFee: language === 'vi' ? "4 triệu VNĐ" : "$2,000",
-      monthlyFee: language === 'vi' ? "1 triệu VNĐ" : "$100"
+      setupFee: language === 'vi' ? "1 triệu VNĐ" : "$100",
+      monthlyFee: language === 'vi' ? "4 triệu VNĐ" : "$2,000"
     },
     {
       name: t('pricing.addons.multiLanguage.name'),
       description: t('pricing.addons.multiLanguage.desc'),
-      setupFee: language === 'vi' ? "1 triệu VNĐ" : "$500",
-      monthlyFee: language === 'vi' ? "400.000 VNĐ" : "$40"
+      setupFee: language === 'vi' ? "400.000 VNĐ" : "$40",
+      monthlyFee: language === 'vi' ? "1 triệu VNĐ" : "$500"
     },
     {
       name: t('pricing.addons.training.name'),
       description: t('pricing.addons.training.desc'),
-      setupFee: language === 'vi' ? "5 triệu VNĐ" : "$2,500",
-      monthlyFee: language === 'vi' ? "—" : "—"
+      setupFee: language === 'vi' ? "—" : "—",
+      monthlyFee: language === 'vi' ? "5 triệu VNĐ" : "$2,500"
     },
     {
       name: t('pricing.addons.handover.name'),
       description: t('pricing.addons.handover.desc'),
-      setupFee: language === 'vi' ? "1 triệu VNĐ" : "$500",
-      monthlyFee: language === 'vi' ? "300.000 VNĐ" : "$30"
+      setupFee: language === 'vi' ? "300.000 VNĐ" : "$30",
+      monthlyFee: language === 'vi' ? "1 triệu VNĐ" : "$500"
     },
     {
       name: t('pricing.addons.additionalUsers.name'),
       description: t('pricing.addons.additionalUsers.desc'),
-      setupFee: language === 'vi' ? "—" : "—",
-      monthlyFee: language === 'vi' ? "150.000 VNĐ/seat" : "$15/seat"
+      setupFee: language === 'vi' ? "150.000 VNĐ/seat" : "$15/seat",
+      monthlyFee: language === 'vi' ? "—" : "—"
     }
   ];
 
@@ -217,7 +216,7 @@ const Pricing = () => {
           <div className="flex items-center justify-center space-x-6 text-sm text-gray-600">
             <span className="flex items-center space-x-2">
               <Check className="w-4 h-4 text-green-500" />
-              <span>{t('pricing.hero.freeTrial')}</span>
+              <span>{t('pricing.hero.pocTrial')}</span>
             </span>
             <span className="flex items-center space-x-2">
               <Check className="w-4 h-4 text-green-500" />
@@ -496,10 +495,10 @@ const Pricing = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" onClick={handleContactClick} className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg">
-              {t('pricing.cta.startFreeTrial')}
+              {t('pricing.cta.startTrial')}
             </Button>
             <Button size="lg" variant="outline" onClick={handleContactClick} className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg">
-              {t('pricing.cta.contactSales')}
+              {t('pricing.cta.getDemo')}
             </Button>
           </div>
           <div className="mt-6 text-sm text-gray-600">
