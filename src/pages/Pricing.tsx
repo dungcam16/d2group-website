@@ -12,8 +12,8 @@ const Pricing = () => {
   const pricingPlans = [
     {
       name: t('pricing.starter'),
-      price: language === 'vi' ? "2.900.000 VNĐ" : "$79",
-      setupFee: language === 'vi' ? "6.900.000 VNĐ" : "$119",
+      price: language === 'vi' ? "2.900.000 VNĐ" : "$119",
+      setupFee: language === 'vi' ? "6.900.000 VNĐ" : "$269",
       period: t('pricing.month'),
       description: t('pricing.starter.desc'),
       popular: false,
@@ -30,8 +30,8 @@ const Pricing = () => {
     },
     {
       name: t('pricing.growth'),
-      price: language === 'vi' ? "3.900.000 VNĐ" : "$159",
-      setupFee: language === 'vi' ? "12.900.000 VNĐ" : "$199",
+      price: language === 'vi' ? "3.900.000 VNĐ" : "$149",
+      setupFee: language === 'vi' ? "12.900.000 VNĐ" : "$499",
       period: t('pricing.month'),
       description: t('pricing.growth.desc'),
       popular: true,
@@ -51,7 +51,7 @@ const Pricing = () => {
     {
       name: t('pricing.business'),
       price: language === 'vi' ? "7.900.000 VNĐ" : "$299",
-      setupFee: language === 'vi' ? "24.900.000 VNĐ" : "$299",
+      setupFee: language === 'vi' ? "24.900.000 VNĐ" : "$949",
       period: t('pricing.month'),
       description: t('pricing.business.desc'),
       popular: false,
@@ -73,7 +73,7 @@ const Pricing = () => {
     {
       name: t('pricing.enterprise'),
       price: language === 'vi' ? "Liên hệ" : "Contact",
-      setupFee: language === 'vi' ? "49 triệu VNĐ+" : "Contact",
+      setupFee: language === 'vi' ? "Liên hệ" : "Contact",
       period: "",
       description: t('pricing.enterprise.desc'),
       popular: false,
