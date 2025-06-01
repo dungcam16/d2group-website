@@ -9,46 +9,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const About = () => {
   const navigate = useNavigate();
   const { t } = useLanguage();
-
-  const teamMembers = [
-    {
-      name: "Dr. Nguyễn Minh Tuấn",
-      role: "Chief Executive Officer",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
-      bio: "15+ years in AI research and enterprise solutions"
-    },
-    {
-      name: "Sarah Chen",
-      role: "Chief Technology Officer", 
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b5ab?w=300&h=300&fit=crop&crop=face",
-      bio: "Former Google AI engineer, NLP specialist"
-    },
-    {
-      name: "Trần Văn Đức",
-      role: "VP of Engineering",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-      bio: "Led chatbot implementations for Fortune 500 companies"
-    },
-    {
-      name: "Lisa Wang",
-      role: "Head of Product",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop&crop=face",
-      bio: "Product strategy expert with focus on user experience"
-    },
-    {
-      name: "Phạm Thị Mai",
-      role: "Customer Success Director",
-      image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&h=300&fit=crop&crop=face",
-      bio: "Ensures every client achieves their automation goals"
-    },
-    {
-      name: "James Rodriguez",
-      role: "Head of Sales",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face",
-      bio: "Strategic partnerships and enterprise solutions specialist"
-    }
-  ];
-
   const timeline = [
     {
       year: "2019",
