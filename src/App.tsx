@@ -23,6 +23,19 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 import RetailEcommerce from "./pages/industries/RetailEcommerce";
+import FoodBeverage from "./pages/industries/FoodBeverage";
+import BankingFinance from "./pages/industries/BankingFinance";
+import Insurance from "./pages/industries/Insurance";
+import Travel from "./pages/industries/Travel";
+import Healthcare from "./pages/industries/Healthcare";
+import RealEstate from "./pages/industries/RealEstate";
+import Education from "./pages/industries/Education";
+import CallCenter from "./pages/industries/CallCenter";
+import Logistics from "./pages/industries/Logistics";
+import TechSaas from "./pages/industries/TechSaas";
+import Automotive from "./pages/industries/Automotive";
+import SpaBeauty from "./pages/industries/SpaBeauty";
+import Recruitment from "./pages/industries/Recruitment";
 
 const queryClient = new QueryClient();
 
@@ -62,6 +75,19 @@ const App = () => {
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/blog/:slug" element={<BlogPost />} />
                   <Route path="/industries/retail-ecommerce" element={<RetailEcommerce />} />
+                  <Route path="/industries/fnb" element={<FoodBeverage />} />
+                  <Route path="/industries/banking-finance" element={<BankingFinance />} />
+                  <Route path="/industries/insurance" element={<Insurance />} />
+                  <Route path="/industries/travel" element={<Travel />} />
+                  <Route path="/industries/healthcare" element={<Healthcare />} />
+                  <Route path="/industries/real-estate" element={<RealEstate />} />
+                  <Route path="/industries/education" element={<Education />} />
+                  <Route path="/industries/call-center" element={<CallCenter />} />
+                  <Route path="/industries/logistics" element={<Logistics />} />
+                  <Route path="/industries/tech-saas" element={<TechSaas />} />
+                  <Route path="/industries/automotive" element={<Automotive />} />
+                  <Route path="/industries/spa-beauty" element={<SpaBeauty />} />
+                  <Route path="/industries/recruitment" element={<Recruitment />} />
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                   <Route path="/terms-of-service" element={<TermsOfService />} />
                   <Route path="/cookie-policy" element={<CookiePolicy />} />
