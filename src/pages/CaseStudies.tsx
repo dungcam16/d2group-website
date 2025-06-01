@@ -240,32 +240,34 @@ const CaseStudies = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            {t('caseStudies.industries.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">We Serve</span>
+            Ngành nghề <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">We Serve</span>
           </h2>
           <p className="text-xl text-gray-600">
-            {t('caseStudies.industries.subtitle')}
+            Chuyên đổi doanh nghiệp trên tất cả các lĩnh vực chính
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
           {[
-            { name: t('caseStudies.industries.ecommerce'), icon: "🛒", metric: "+45% Sales" },
-            { name: t('caseStudies.industries.healthcare'), icon: "🏥", metric: "-60% Wait Time" },
-            { name: t('caseStudies.industries.finance'), icon: "🏦", metric: "+80% Lead Quality" },
-            { name: t('caseStudies.industries.education'), icon: "🎓", metric: "+70% Engagement" },
-            { name: t('caseStudies.industries.realestate'), icon: "🏠", metric: "+300% Leads" },
-            { name: t('caseStudies.industries.hospitality'), icon: "🏨", metric: "90% Automation" },
-            { name: t('caseStudies.industries.retail'), icon: "🏪", metric: "+35% Conversion" },
-            { name: t('caseStudies.industries.automotive'), icon: "🚗", metric: "+50% Efficiency" },
-            { name: t('caseStudies.industries.insurance'), icon: "🛡️", metric: "+25% Claims" },
-            { name: t('caseStudies.industries.manufacturing'), icon: "🏭", metric: "+40% Support" },
-            { name: t('caseStudies.industries.travel'), icon: "✈️", metric: "+55% Bookings" },
-            { name: t('caseStudies.industries.logistics'), icon: "📦", metric: "+30% Tracking" }
+            { name: "Bán lẻ & Thương mại điện tử", icon: "🛒", metric: "+45% Sales" },
+            { name: "Dịch vụ ăn uống (F&B)", icon: "🍽️", metric: "+35% Orders" },
+            { name: "Ngân hàng & Tài chính", icon: "🏦", metric: "+80% Lead Quality" },
+            { name: "Bảo hiểm", icon: "🛡️", metric: "+25% Claims" },
+            { name: "Du lịch lữ hành", icon: "✈️", metric: "+55% Bookings" },
+            { name: "Chăm sóc sức khỏe", icon: "🏥", metric: "-60% Wait Time" },
+            { name: "Bất động sản", icon: "🏠", metric: "+300% Leads" },
+            { name: "Giáo dục & Đào tạo", icon: "🎓", metric: "+70% Engagement" },
+            { name: "Dịch vụ khách hàng Call Center", icon: "📞", metric: "+90% Resolution" },
+            { name: "Logistics & Vận chuyển", icon: "📦", metric: "+30% Tracking" },
+            { name: "Công nghệ & Phần mềm (SaaS, IT)", icon: "💻", metric: "+50% Support" },
+            { name: "Ô tô & Xe máy", icon: "🚗", metric: "+50% Efficiency" },
+            { name: "Spa & Thẩm mỹ", icon: "💅", metric: "+40% Bookings" },
+            { name: "Tuyển dụng & Nhân sự", icon: "👥", metric: "+60% Matching" }
           ].map((industry, index) => (
-            <Card key={index} className="text-center p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
+            <Card key={index} className="text-center p-4 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
               <CardContent className="p-0">
-                <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">{industry.icon}</div>
-                <h3 className="font-semibold text-gray-700 group-hover:text-blue-600 transition-colors mb-2">
+                <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">{industry.icon}</div>
+                <h3 className="font-semibold text-gray-700 group-hover:text-blue-600 transition-colors mb-1 text-sm">
                   {industry.name}
                 </h3>
                 <div className="text-xs text-blue-600 font-semibold">{industry.metric}</div>
