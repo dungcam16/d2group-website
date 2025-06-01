@@ -123,6 +123,10 @@ const CaseStudies = () => {
     navigate('/pricing');
   };
 
+  const handleIndustryClick = (industrySlug: string) => {
+    navigate(`/industries/${industrySlug}`);
+  };
+
   return (
     <div className="pt-16">
       {/* Hero Section */}
@@ -249,22 +253,26 @@ const CaseStudies = () => {
 
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
           {[
-            { name: "Bán lẻ & Thương mại điện tử", icon: "🛒", metric: "+45% Sales" },
-            { name: "Dịch vụ ăn uống (F&B)", icon: "🍽️", metric: "+35% Orders" },
-            { name: "Ngân hàng & Tài chính", icon: "🏦", metric: "+80% Lead Quality" },
-            { name: "Bảo hiểm", icon: "🛡️", metric: "+25% Claims" },
-            { name: "Du lịch lữ hành", icon: "✈️", metric: "+55% Bookings" },
-            { name: "Chăm sóc sức khỏe", icon: "🏥", metric: "-60% Wait Time" },
-            { name: "Bất động sản", icon: "🏠", metric: "+300% Leads" },
-            { name: "Giáo dục & Đào tạo", icon: "🎓", metric: "+70% Engagement" },
-            { name: "Dịch vụ khách hàng Call Center", icon: "📞", metric: "+90% Resolution" },
-            { name: "Logistics & Vận chuyển", icon: "📦", metric: "+30% Tracking" },
-            { name: "Công nghệ & Phần mềm (SaaS, IT)", icon: "💻", metric: "+50% Support" },
-            { name: "Ô tô & Xe máy", icon: "🚗", metric: "+50% Efficiency" },
-            { name: "Spa & Thẩm mỹ", icon: "💅", metric: "+40% Bookings" },
-            { name: "Tuyển dụng & Nhân sự", icon: "👥", metric: "+60% Matching" }
+            { name: "Bán lẻ & Thương mại điện tử", icon: "🛒", metric: "+45% Sales", slug: "retail-ecommerce" },
+            { name: "Dịch vụ ăn uống (F&B)", icon: "🍽️", metric: "+35% Orders", slug: "fnb" },
+            { name: "Ngân hàng & Tài chính", icon: "🏦", metric: "+80% Lead Quality", slug: "banking-finance" },
+            { name: "Bảo hiểm", icon: "🛡️", metric: "+25% Claims", slug: "insurance" },
+            { name: "Du lịch lữ hành", icon: "✈️", metric: "+55% Bookings", slug: "travel" },
+            { name: "Chăm sóc sức khỏe", icon: "🏥", metric: "-60% Wait Time", slug: "healthcare" },
+            { name: "Bất động sản", icon: "🏠", metric: "+300% Leads", slug: "real-estate" },
+            { name: "Giáo dục & Đào tạo", icon: "🎓", metric: "+70% Engagement", slug: "education" },
+            { name: "Dịch vụ khách hàng Call Center", icon: "📞", metric: "+90% Resolution", slug: "call-center" },
+            { name: "Logistics & Vận chuyển", icon: "📦", metric: "+30% Tracking", slug: "logistics" },
+            { name: "Công nghệ & Phần mềm (SaaS, IT)", icon: "💻", metric: "+50% Support", slug: "tech-saas" },
+            { name: "Ô tô & Xe máy", icon: "🚗", metric: "+50% Efficiency", slug: "automotive" },
+            { name: "Spa & Thẩm mỹ", icon: "💅", metric: "+40% Bookings", slug: "spa-beauty" },
+            { name: "Tuyển dụng & Nhân sự", icon: "👥", metric: "+60% Matching", slug: "recruitment" }
           ].map((industry, index) => (
-            <Card key={index} className="text-center p-4 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 cursor-pointer group">
+            <Card 
+              key={index} 
+              className="text-center p-4 hover:shadow-lg transition-all duration-300 hover:-translate-y-2 cursor-pointer group"
+              onClick={() => handleIndustryClick(industry.slug)}
+            >
               <CardContent className="p-0">
                 <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">{industry.icon}</div>
                 <h3 className="font-semibold text-gray-700 group-hover:text-blue-600 transition-colors mb-1 text-sm">
