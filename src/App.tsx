@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -41,28 +42,27 @@ const queryClient = new QueryClient();
 
 function App() {
   const [loading, setLoading] = useState(true);
-    const [scrollProgress, setScrollProgress] = useState(0);
-
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1000);
     return () => clearTimeout(timer);
   }, []);
 
-    useEffect(() => {
-        const updateScrollProgress = () => {
-            const scrollTop = window.scrollY;
-            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercent = (scrollTop / docHeight) * 100;
-            setScrollProgress(scrollPercent);
-        };
+  useEffect(() => {
+    const updateScrollProgress = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = (scrollTop / docHeight) * 100;
+      setScrollProgress(scrollPercent);
+    };
 
-        window.addEventListener('scroll', updateScrollProgress);
-        return () => window.removeEventListener('scroll', updateScrollProgress);
-    }, []);
+    window.addEventListener('scroll', updateScrollProgress);
+    return () => window.removeEventListener('scroll', updateScrollProgress);
+  }, []);
 
   if (loading) {
-    return <ProgressBar />;
+    return <ProgressBar progress={100} />;
   }
 
   return (
@@ -73,7 +73,7 @@ function App() {
           <Sonner />
           <BrowserRouter>
             <div className="min-h-screen flex flex-col">
-                <ProgressBar progress={scrollProgress} />
+              <ProgressBar progress={scrollProgress} />
               <Header />
               <main className="flex-1">
                 <Routes>
