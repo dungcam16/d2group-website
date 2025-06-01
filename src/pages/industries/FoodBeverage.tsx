@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle, TrendingUp, Clock, Users, ShoppingCart, MessageCircle, BarChart3, Shield, Zap, Globe, Coffee, Utensils, Phone } from 'lucide-react';
 
-const FnBReport = () => {
+const FoodBeverage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50">
       {/* Header Section */}
@@ -418,15 +417,12 @@ const FnBReport = () => {
             Đặt lịch demo cá nhân hoá hoặc nhận tư vấn chi tiết
           </p>
           <div className="space-y-4">
-            <Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50 font-bold px-12 py-4 text-lg">
-              <Coffee className="mr-3 h-6 w-6" />
-              Demo Ngay
-            </Button>
-            <p className="text-orange-200">
-              <a href="https://tinyurl.com/d2group-chatbot" className="underline hover:text-white">
-                https://tinyurl.com/d2group-chatbot
-              </a>
-            </p>
+            <a href="https://tinyurl.com/d2group-chatbot" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" className="bg-white text-orange-600 hover:bg-orange-50 font-bold px-12 py-4 text-lg">
+                <Coffee className="mr-3 h-6 w-6" />
+                NHẬN DEMO/BÁO GIÁ NGAY
+              </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -458,4 +454,4 @@ const FnBReport = () => {
   );
 };
 
-export default FnBReport;
+export default FoodBeverage;

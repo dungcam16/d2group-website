@@ -295,10 +295,12 @@ const CallCenter = () => {
           <p className="text-xl mb-8 text-gray-600 max-w-2xl mx-auto">
             Đặt lịch demo cá nhân hoá hoặc nhận tư vấn chi tiết
           </p>
-          <Button size="lg" className="bg-rose-600 hover:bg-rose-700 text-white font-bold px-12 py-4 text-lg">
-            <MessageCircle className="mr-3 h-6 w-6" />
-            https://tinyurl.com/d2group-chatbot
-          </Button>
+          <a href="https://tinyurl.com/d2group-chatbot" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="bg-rose-600 hover:bg-rose-700 text-white font-bold px-12 py-4 text-lg">
+              <MessageCircle className="mr-3 h-6 w-6" />
+              NHẬN DEMO/BÁO GIÁ NGAY
+            </Button>
+          </a>
         </div>
       </section>
 

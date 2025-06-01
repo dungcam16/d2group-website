@@ -1,394 +1,337 @@
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Progress } from "@/components/ui/progress";
-import { Building2, DollarSign, Shield, TrendingUp, CheckCircle, Phone, Mail } from "lucide-react";
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
+import { CheckCircle, TrendingUp, Clock, Users, CreditCard, MessageCircle, BarChart3, Shield, Zap, Phone, DollarSign, Building2 } from 'lucide-react';
 
-const BankingReport = () => {
+const BankingFinance = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-cyan-100">
-      {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-cyan-700 text-white py-16">
-        <div className="container mx-auto px-4 text-center">
-          <Badge className="mb-4 bg-blue-500 hover:bg-blue-600">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
+      {/* Header Section */}
+      <header className="relative overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-800 text-white">
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative container mx-auto px-6 py-20 text-center">
+          <Badge className="mb-6 bg-white/20 text-white border-white/30 hover:bg-white/30">
             AI CHATBOT IMPACT REPORT – NGÀNH NGÂN HÀNG & TÀI CHÍNH
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            +20% Tỉ lệ chuyển đổi lead<br />
-            <span className="text-blue-200">-50% Thời gian phản hồi</span>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+            +40% Lead tư vấn
           </h1>
-          <div className="flex items-center justify-center gap-4 text-lg">
-            <div className="flex items-center gap-2">
-              <Mail className="w-5 h-5" />
-              <span>chatbot@d2group.vn</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Phone className="w-5 h-5" />
-              <span>090909.9421</span>
-            </div>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-blue-100">
+            -50% Thời gian xử lý
+          </h2>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+            <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 font-semibold px-8 py-3">
+              <MessageCircle className="mr-2 h-5 w-5" />
+              chatbot@d2group.vn
+            </Button>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10 font-semibold px-8 py-3">
+              <Phone className="mr-2 h-5 w-5" />
+              090909.9421
+            </Button>
           </div>
-          <div className="mt-8">
-            <Building2 className="w-24 h-24 mx-auto text-blue-200" />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="bg-white/10 backdrop-blur rounded-lg p-6">
+              <CreditCard className="h-12 w-12 mb-4 mx-auto text-blue-200" />
+              <h3 className="text-lg font-semibold mb-2">Banking</h3>
+              <p className="text-blue-100">Mở tài khoản & giao dịch</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur rounded-lg p-6">
+              <DollarSign className="h-12 w-12 mb-4 mx-auto text-indigo-200" />
+              <h3 className="text-lg font-semibold mb-2">Investment</h3>
+              <p className="text-blue-100">Tư vấn đầu tư thông minh</p>
+            </div>
+            <div className="bg-white/10 backdrop-blur rounded-lg p-6">
+              <Building2 className="h-12 w-12 mb-4 mx-auto text-cyan-200" />
+              <h3 className="text-lg font-semibold mb-2">Corporate</h3>
+              <p className="text-blue-100">Dịch vụ doanh nghiệp</p>
+            </div>
           </div>
         </div>
-      </div>
+      </header>
 
-      <div className="container mx-auto px-4 py-12">
-        {/* Executive Summary */}
-        <Card className="mb-8 border-blue-200">
-          <CardHeader className="bg-blue-50">
-            <CardTitle className="text-blue-800 flex items-center gap-2">
-              <TrendingUp className="w-6 h-6" />
-              EXECUTIVE SUMMARY
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <p className="text-gray-700 mb-6">
-              Chatbot AI tự động hoá tương tác với khách hàng ngân hàng & tài chính 24/7: trả lời FAQ, tra cứu số dư, 
-              mở tài khoản, tiền gửi... Giúp:
+      {/* Executive Summary */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">Executive Summary</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto"></div>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+              Chatbot AI tự động hóa tư vấn sản phẩm tài chính, mở tài khoản trực tuyến, hỗ trợ giao dịch và chăm sóc khách hàng 24/7. 
+              Các ngân hàng và tổ chức tài chính áp dụng ghi nhận:
             </p>
-            <div className="grid md:grid-cols-3 gap-4">
-              <div className="text-center p-4 bg-blue-50 rounded-lg">
-                <div className="text-2xl font-bold text-blue-600">+15-20%</div>
-                <div className="text-sm text-gray-600">Tỉ lệ chuyển đổi hồ sơ mới</div>
-              </div>
-              <div className="text-center p-4 bg-cyan-50 rounded-lg">
-                <div className="text-2xl font-bold text-cyan-600">-50%</div>
-                <div className="text-sm text-gray-600">Thời gian chờ hỗ trợ</div>
-              </div>
-              <div className="text-center p-4 bg-blue-50 rounded-lg">
-                <div className="text-2xl font-bold text-blue-600">6-12 tháng</div>
-                <div className="text-sm text-gray-600">ROI hoàn vốn</div>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <Card className="border-green-200 hover:shadow-lg transition-shadow">
+                <CardHeader className="text-center">
+                  <TrendingUp className="h-12 w-12 text-green-600 mx-auto mb-2" />
+                  <CardTitle className="text-2xl text-green-600">+35-40%</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-center text-gray-600">Lead tư vấn sản phẩm trong 3 tháng</p>
+                </CardContent>
+              </Card>
+              <Card className="border-blue-200 hover:shadow-lg transition-shadow">
+                <CardHeader className="text-center">
+                  <Clock className="h-12 w-12 text-blue-600 mx-auto mb-2" />
+                  <CardTitle className="text-2xl text-blue-600">-50%</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-center text-gray-600">Thời gian xử lý yêu cầu khách hàng</p>
+                </CardContent>
+              </Card>
+              <Card className="border-purple-200 hover:shadow-lg transition-shadow">
+                <CardHeader className="text-center">
+                  <BarChart3 className="h-12 w-12 text-purple-600 mx-auto mb-2" />
+                  <CardTitle className="text-2xl text-purple-600">3-6 tháng</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-center text-gray-600">ROI hòa vốn</p>
+                </CardContent>
+              </Card>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
+      </section>
 
-        {/* Pain Points */}
-        <Card className="mb-8 border-blue-200">
-          <CardHeader className="bg-blue-50">
-            <CardTitle className="text-blue-800">PAIN POINTS & CƠ HỘI</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <div className="grid md:grid-cols-2 gap-6">
-              <div>
-                <h4 className="font-semibold text-red-600 mb-2">Vấn đề hiện tại:</h4>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Chờ lâu khi hỏi số dư, biểu phí</li>
-                  <li>• Khách lặp lại câu hỏi về lãi suất, phí dịch vụ</li>
-                  <li>• Dễ bỏ lỡ lead tiềm năng ngoài giờ hành chính</li>
-                  <li>• Rủi ro tuân thủ quy định</li>
-                </ul>
-              </div>
-              <div>
-                <h4 className="font-semibold text-green-600 mb-2">Giải pháp AI:</h4>
-                <ul className="space-y-2 text-gray-700">
-                  <li>• Bot trả lời ngay, kèm link chi tiết</li>
-                  <li>• Chatbot tra cứu trực tiếp</li>
-                  <li>• Bot thu thông tin & qualify tự động</li>
-                  <li>• Chatbot kèm cảnh báo, hướng dẫn KYC/AML</li>
-                </ul>
-              </div>
+      {/* Pain Points & Opportunities */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">Pain Points & Cơ Hội</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <CardTitle className="flex items-center text-red-600">
+                  <Phone className="mr-3 h-6 w-6" />
+                  Tắc nghẽn hotline giờ cao điểm
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-2">→ Bot trả lời FAQ & chỉ chuyển advisor với tư vấn phức tạp</p>
+              </CardContent>
+            </Card>
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <CardTitle className="flex items-center text-orange-600">
+                  <Clock className="mr-3 h-6 w-6" />
+                  Quy trình KYC/mở tài khoản dài
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-2">→ Chatbot hướng dẫn từng bước, thu thập thông tin sơ bộ</p>
+              </CardContent>
+            </Card>
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <CardTitle className="flex items-center text-blue-600">
+                  <TrendingUp className="mr-3 h-6 w-6" />
+                  Cross-sell sản phẩm không hiệu quả
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-2">→ AI phân tích hành vi, gợi ý sản phẩm phù hợp</p>
+              </CardContent>
+            </Card>
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <CardTitle className="flex items-center text-purple-600">
+                  <Users className="mr-3 h-6 w-6" />
+                  Khách hàng quên thủ tục, deadline
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-gray-600 mb-2">→ Bot nhắc lịch tự động qua Zalo/SMS</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">Bản Đồ Use-Case Chatbot</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {[
+              { icon: Zap, title: "Tư vấn sản phẩm (thẻ tín dụng, vay, tiết kiệm)", color: "text-yellow-600" },
+              { icon: CreditCard, title: "Hướng dẫn mở tài khoản & KYC điện tử", color: "text-blue-600" },
+              { icon: CheckCircle, title: "Tra cứu số dư, lịch sử giao dịch", color: "text-green-600" },
+              { icon: MessageCircle, title: "Báo cáo thất lạc thẻ, khóa tài khoản khẩn cấp", color: "text-red-600" },
+              { icon: Users, title: "Lên lịch hẹn với advisor", color: "text-purple-600" },
+              { icon: Shield, title: "Khảo sát NPS & cross-sell sản phẩm", color: "text-orange-600" }
+            ].map((item, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow text-center">
+                <CardHeader>
+                  <item.icon className={`h-12 w-12 ${item.color} mx-auto mb-4`} />
+                  <CardTitle className="text-lg">{item.title}</CardTitle>
+                </CardHeader>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Market Benchmarks */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-6">Market Benchmarks 2024</h2>
+            <p className="text-xl text-blue-100">25 ngân hàng và tổ chức tài chính khu vực khảo sát</p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="text-center bg-white/10 backdrop-blur rounded-lg p-8">
+              <h3 className="text-3xl font-bold mb-2">45%</h3>
+              <p className="text-blue-100">Tỷ lệ tương tác tự động hóa trung vị</p>
             </div>
-          </CardContent>
-        </Card>
+            <div className="text-center bg-white/10 backdrop-blur rounded-lg p-8">
+              <h3 className="text-3xl font-bold mb-2">38%</h3>
+              <p className="text-blue-100">Tăng lead sản phẩm mới sau triển khai</p>
+            </div>
+            <div className="text-center bg-white/10 backdrop-blur rounded-lg p-8">
+              <h3 className="text-3xl font-bold mb-2">+16</h3>
+              <p className="text-blue-100">NPS tăng điểm sau 6 tháng</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-        {/* Use Cases */}
-        <Card className="mb-8 border-blue-200">
-          <CardHeader className="bg-blue-50">
-            <CardTitle className="text-blue-800 flex items-center gap-2">
-              <DollarSign className="w-6 h-6" />
-              BẢN ĐỒ USE-CASE CHATBOT
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {/* Customer Journey */}
+      <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">Customer Journey & Flow Tự Động</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto"></div>
+          </div>
+          <div className="max-w-6xl mx-auto">
+            <div className="flex flex-wrap items-center justify-center gap-4 text-center">
               {[
-                "Tra cứu số dư & lịch sử giao dịch",
-                "Mở tài khoản tiết kiệm/tiền gửi",
-                "Vay cá nhân: thu thập thông tin sơ bộ",
-                "Tư vấn sản phẩm (thẻ, gói đầu tư)",
-                "Cảnh báo giao dịch nghi ngờ",
-                "Lên lịch cuộc hẹn với chuyên viên"
-              ].map((useCase, index) => (
-                <div key={index} className="p-4 bg-blue-50 rounded-lg">
-                  <div className="flex items-start gap-2">
-                    <CheckCircle className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                    <span className="text-sm text-gray-700">{useCase}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Market Benchmarks */}
-        <Card className="mb-8 border-blue-200">
-          <CardHeader className="bg-blue-50">
-            <CardTitle className="text-blue-800">MARKET BENCHMARKS 2024</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">28</div>
-                <div className="text-sm text-gray-600">Ngân hàng & fintech ASEAN khảo sát</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-cyan-600 mb-2">-45%</div>
-                <div className="text-sm text-gray-600">Cuộc gọi đến contact center</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-blue-600 mb-2">+18%</div>
-                <div className="text-sm text-gray-600">Lead mở tài khoản mới</div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Customer Journey */}
-        <Card className="mb-8 border-blue-200">
-          <CardHeader className="bg-blue-50">
-            <CardTitle className="text-blue-800">CUSTOMER JOURNEY & FLOW TỰ ĐỘNG</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
-              {[
-                "Truy cập web/app",
-                "Bot chào + hỏi mục đích", 
-                "Tra cứu/vay/ghi lead",
-                "E-mail/Xác thực OTP",
-                "CSKH hoặc chuyên viên",
-                "Thu feedback"
+                "Khách truy cập website",
+                "Bot chào & hỏi nhu cầu",
+                "Tư vấn sản phẩm phù hợp",
+                "Hướng dẫn KYC online",
+                "Xác nhận mở tài khoản",
+                "Gửi thông tin đăng nhập",
+                "Thu feedback NPS",
+                "Cross-sell sản phẩm mới"
               ].map((step, index) => (
-                <div key={index} className="flex items-center">
-                  <div className="px-3 py-2 bg-blue-100 rounded-lg text-gray-700">
-                    {step}
+                <React.Fragment key={index}>
+                  <div className="bg-white rounded-lg p-4 shadow-md min-w-[200px]">
+                    <p className="text-sm font-medium text-gray-800">{step}</p>
                   </div>
-                  {index < 5 && <span className="mx-2 text-blue-600">▶️</span>}
-                </div>
+                  {index < 7 && (
+                    <div className="text-blue-600 font-bold text-2xl">▶️</div>
+                  )}
+                </React.Fragment>
               ))}
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
+      </section>
 
-        {/* Core Features */}
-        <Card className="mb-8 border-blue-200">
-          <CardHeader className="bg-blue-50">
-            <CardTitle className="text-blue-800">CHECKLIST TÍNH NĂNG CỐT LÕI</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <div className="grid md:grid-cols-2 gap-4">
-              {[
-                "Omnichannel (Web, Messenger, Mobile SDK)",
-                "NLP & Entity Recognition (Số tài khoản, số tiền...)",
-                "Xác thực OTP & KYC tự động",
-                "Tích hợp Core Banking System",
-                "Dashboard real-time (lead, CSAT, SLA)",
-                "Chuyển live agent & ticket escalation"
-              ].map((feature, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <CheckCircle className="w-5 h-5 text-green-500" />
-                  <span className="text-gray-700">{feature}</span>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+      {/* Core Features Checklist */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">Checklist Tính Năng Cốt Lõi</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto"></div>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {[
+              "Bảo mật chuẩn PCI DSS, SSL/TLS",
+              "Tích hợp Core Banking (T24, Flexcube)",
+              "KYC điện tử (eKYC, OCR CCCD)",
+              "Multi-channel (Web, Mobile App, Zalo)",
+              "Real-time fraud detection",
+              "Dashboard analytics & reporting"
+            ].map((feature, index) => (
+              <div key={index} className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg">
+                <CheckCircle className="h-6 w-6 text-green-600 flex-shrink-0" />
+                <span className="text-gray-800 font-medium">{feature}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        {/* Integration */}
-        <Card className="mb-8 border-blue-200">
-          <CardHeader className="bg-blue-50">
-            <CardTitle className="text-blue-800">TÍCH HỢP HỆ THỐNG</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="p-4 bg-blue-50 rounded-lg">
-                <h4 className="font-semibold mb-2">Core Banking API</h4>
-                <p className="text-sm text-gray-600">Flexcube, Mambu</p>
-              </div>
-              <div className="p-4 bg-cyan-50 rounded-lg">
-                <h4 className="font-semibold mb-2">CRM & Marketing</h4>
-                <p className="text-sm text-gray-600">Salesforce, HubSpot</p>
-              </div>
-              <div className="p-4 bg-blue-50 rounded-lg">
-                <h4 className="font-semibold mb-2">SMS/OTP Gateway</h4>
-                <p className="text-sm text-gray-600">VNPT, Viettel</p>
-              </div>
-              <div className="p-4 bg-cyan-50 rounded-lg">
-                <h4 className="font-semibold mb-2">KYC/AML Service</h4>
-                <p className="text-sm text-gray-600">Shufti Pro, Onfido</p>
-              </div>
-              <div className="p-4 bg-blue-50 rounded-lg">
-                <h4 className="font-semibold mb-2">Email Service</h4>
-                <p className="text-sm text-gray-600">SendGrid, Mailchimp</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Implementation Roadmap */}
-        <Card className="mb-8 border-blue-200">
-          <CardHeader className="bg-blue-50">
-            <CardTitle className="text-blue-800">LỘ TRÌNH TRIỂN KHAI ĐỀ XUẤT</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <div className="space-y-4">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="font-bold text-blue-600">0-1</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold">Thg 0–1</h4>
-                  <p className="text-gray-600">Khảo sát nghiệp vụ, prototype</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center">
-                  <span className="font-bold text-cyan-600">1-3</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold">Thg 1–3</h4>
-                  <p className="text-gray-600">Kết nối Core Banking & OTP, pilot chi nhánh</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                  <span className="font-bold text-blue-600">3-6</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold">Thg 3–6</h4>
-                  <p className="text-gray-600">Tinh chỉnh NLP, đào tạo nhân viên</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 bg-cyan-100 rounded-full flex items-center justify-center">
-                  <span className="font-bold text-cyan-600">6-12</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold">Thg 6–12</h4>
-                  <p className="text-gray-600">Scale toàn hệ thống, đa ngôn ngữ</p>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Case Study */}
-        <Card className="mb-8 border-blue-200">
-          <CardHeader className="bg-blue-50">
-            <CardTitle className="text-blue-800">CASE STUDY – NGÂN HÀNG ABC</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <div className="grid md:grid-cols-2 gap-6">
+      {/* Case Study */}
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-6">Case Study - Sacombank Digital</h2>
+          </div>
+          <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur rounded-lg p-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <h4 className="font-semibold mb-2">Thông tin khách hàng:</h4>
-                <p className="text-gray-700 mb-4">Chi nhánh HCM, 2.000 lead/tháng</p>
-                <h4 className="font-semibold mb-2">Giải pháp:</h4>
-                <p className="text-gray-700">Bot Web & Messenger tích hợp Flexcube</p>
+                <h3 className="text-2xl font-bold mb-4">Thông tin cơ bản</h3>
+                <ul className="space-y-2 text-blue-100">
+                  <li>• 1.5 triệu khách hàng, 15.000 tương tác/ngày</li>
+                  <li>• Triển khai chatbot Web & Mobile App</li>
+                  <li>• Tích hợp T24 Core Banking</li>
+                </ul>
               </div>
               <div>
-                <h4 className="font-semibold mb-4">Kết quả sau 4 tháng:</h4>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span>Lead mở mới</span>
-                    <span className="font-bold text-green-600">+18%</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>Cuộc gọi CS</span>
-                    <span className="font-bold text-blue-600">-35%</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span>ROI</span>
-                    <span className="font-bold text-blue-600">2.3×</span>
-                  </div>
-                </div>
+                <h3 className="text-2xl font-bold mb-4">Kết quả sau 6 tháng</h3>
+                <ul className="space-y-2 text-blue-100">
+                  <li>• +42% mở tài khoản online</li>
+                  <li>• Giảm 45% cuộc gọi hotline</li>
+                  <li>• ROI 3.2×</li>
+                </ul>
               </div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+        </div>
+      </section>
 
-        {/* KPI */}
-        <Card className="mb-8 border-blue-200">
-          <CardHeader className="bg-blue-50">
-            <CardTitle className="text-blue-800">KPI & KHUNG ĐO LƯỜNG</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {[
-                "Tỉ lệ lead conversion (%)",
-                "Thời gian trả lời đầu tiên (s)",
-                "Tỉ lệ hoàn thành KYC tự động (%)",
-                "CSAT (1–5)",
-                "Số giao dịch qua bot (%)"
-              ].map((kpi, index) => (
-                <div key={index} className="p-3 bg-blue-50 rounded-lg text-center">
-                  <span className="text-sm font-medium text-gray-700">{kpi}</span>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Security & Compliance */}
-        <Card className="mb-8 border-blue-200">
-          <CardHeader className="bg-blue-50">
-            <CardTitle className="text-blue-800 flex items-center gap-2">
-              <Shield className="w-6 h-6" />
-              TUÂN THỦ & BẢO MẬT
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <div className="grid md:grid-cols-2 gap-4">
-              {[
-                "Mã hóa AES-256 & TLS/SSL",
-                "OAuth2 & token-based authentication",
-                "Tuân thủ PCI DSS, PDPA, GDPR",
-                "Audit log & role-based access"
-              ].map((item, index) => (
-                <div key={index} className="flex items-center gap-2">
-                  <Shield className="w-5 h-5 text-green-500" />
-                  <span className="text-gray-700">{item}</span>
-                </div>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* Terminology */}
-        <Card className="mb-8 border-blue-200">
-          <CardHeader className="bg-blue-50">
-            <CardTitle className="text-blue-800">PHỤ LỤC – THUẬT NGỮ</CardTitle>
-          </CardHeader>
-          <CardContent className="pt-6">
-            <div className="grid md:grid-cols-2 gap-4">
-              <div className="space-y-2">
-                <div><span className="font-semibold">KYC</span> – Know Your Customer</div>
-                <div><span className="font-semibold">AML</span> – Anti–Money Laundering</div>
-              </div>
-              <div className="space-y-2">
-                <div><span className="font-semibold">OTP</span> – One–Time Password</div>
-                <div><span className="font-semibold">SLA</span> – Service Level Agreement</div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-
-        {/* CTA */}
-        <Card className="border-blue-200 bg-gradient-to-r from-blue-50 to-cyan-50">
-          <CardContent className="pt-6 text-center">
-            <h2 className="text-2xl font-bold text-blue-800 mb-4">NEXT STEPS & CTA</h2>
-            <p className="text-gray-700 mb-6">
-              Đặt lịch demo cá nhân hoá hoặc nhận tư vấn chi tiết tại:
-            </p>
-            <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 text-lg">
-              https://tinyurl.com/d2group-chatbot
+      {/* CTA Section */}
+      <section className="py-20 bg-white text-center">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-bold text-gray-800 mb-6">Next Steps & Call To Action</h2>
+          <p className="text-xl mb-8 text-gray-600 max-w-2xl mx-auto">
+            Đặt lịch demo cá nhân hoá hoặc nhận tư vấn chi tiết
+          </p>
+          <a href="https://tinyurl.com/d2group-chatbot" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-12 py-4 text-lg">
+              <MessageCircle className="mr-3 h-6 w-6" />
+              NHẬN DEMO/BÁO GIÁ NGAY
             </Button>
-          </CardContent>
-        </Card>
-      </div>
+          </a>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="container mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-2xl font-bold mb-4">Liên Hệ</h3>
+              <p className="text-gray-300 mb-2">Email: chatbot@d2group.vn</p>
+              <p className="text-gray-300 mb-2">Phone: 090909.9421</p>
+            </div>
+            <div>
+              <h3 className="text-2xl font-bold mb-4">Phụ Lục (Thuật Ngữ)</h3>
+              <div className="text-gray-300 space-y-1">
+                <p>• KYC – Know Your Customer</p>
+                <p>• PCI DSS – Payment Card Industry Data Security Standard</p>
+                <p>• NPS – Net Promoter Score</p>
+                <p>• eKYC – Electronic Know Your Customer</p>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center">
+            <p className="text-gray-400">© 2024 D2Group. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
 
-export default BankingReport;
+export default BankingFinance;
