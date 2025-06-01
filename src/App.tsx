@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,6 +9,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ProgressBar from "./components/ProgressBar";
 import ChatbotButton from "./components/ChatbotButton";
+
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Features from "./pages/Features";
@@ -39,20 +39,31 @@ import Recruitment from "./pages/industries/Recruitment";
 
 const queryClient = new QueryClient();
 
-const App = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
+function App() {
+  const [loading, setLoading] = useState(true);
+    const [scrollProgress, setScrollProgress] = useState(0);
+
 
   useEffect(() => {
-    const updateScrollProgress = () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const scrollPercent = (scrollTop / docHeight) * 100;
-      setScrollProgress(scrollPercent);
-    };
-
-    window.addEventListener('scroll', updateScrollProgress);
-    return () => window.removeEventListener('scroll', updateScrollProgress);
+    const timer = setTimeout(() => setLoading(false), 1000);
+    return () => clearTimeout(timer);
   }, []);
+
+    useEffect(() => {
+        const updateScrollProgress = () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            setScrollProgress(scrollPercent);
+        };
+
+        window.addEventListener('scroll', updateScrollProgress);
+        return () => window.removeEventListener('scroll', updateScrollProgress);
+    }, []);
+
+  if (loading) {
+    return <ProgressBar />;
+  }
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -62,7 +73,7 @@ const App = () => {
           <Sonner />
           <BrowserRouter>
             <div className="min-h-screen flex flex-col">
-              <ProgressBar progress={scrollProgress} />
+                <ProgressBar progress={scrollProgress} />
               <Header />
               <main className="flex-1">
                 <Routes>
@@ -74,8 +85,11 @@ const App = () => {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/blog/:slug" element={<BlogPost />} />
+                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                  <Route path="/terms-of-service" element={<TermsOfService />} />
+                  <Route path="/cookie-policy" element={<CookiePolicy />} />
                   <Route path="/industries/retail-ecommerce" element={<RetailEcommerce />} />
-                  <Route path="/industries/fnb" element={<FoodBeverage />} />
+                  <Route path="/industries/food-beverage" element={<FoodBeverage />} />
                   <Route path="/industries/banking-finance" element={<BankingFinance />} />
                   <Route path="/industries/insurance" element={<Insurance />} />
                   <Route path="/industries/travel" element={<Travel />} />
@@ -88,9 +102,6 @@ const App = () => {
                   <Route path="/industries/automotive" element={<Automotive />} />
                   <Route path="/industries/spa-beauty" element={<SpaBeauty />} />
                   <Route path="/industries/recruitment" element={<Recruitment />} />
-                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                  <Route path="/terms-of-service" element={<TermsOfService />} />
-                  <Route path="/cookie-policy" element={<CookiePolicy />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>
@@ -102,6 +113,6 @@ const App = () => {
       </TooltipProvider>
     </QueryClientProvider>
   );
-};
+}
 
 export default App;
