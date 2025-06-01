@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle, TrendingUp, Clock, Users, ShoppingCart, MessageCircle, BarChart3, Shield, Zap, Globe } from 'lucide-react';
 
-const RetailEcommerce = () => {
+const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50">
       {/* Header Section */}
@@ -388,4 +388,4 @@ const RetailEcommerce = () => {
   );
 };
 
-export default RetailEcommerce;
+export default Index;
