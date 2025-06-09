@@ -13,50 +13,50 @@ const About = () => {
   const timeline = [
     {
       year: "2019",
-      title: "Company Founded",
-      description: "Started with a vision to democratize AI for businesses"
+      title: t('about.timeline.2019.title'),
+      description: t('about.timeline.2019.desc')
     },
     {
       year: "2020", 
-      title: "First Enterprise Client",
-      description: "Deployed chatbot for major Vietnamese bank"
+      title: t('about.timeline.2020.title'),
+      description: t('about.timeline.2020.desc')
     },
     {
       year: "2021",
-      title: "Series A Funding",
-      description: "$5M raised to accelerate product development"
+      title: t('about.timeline.2021.title'),
+      description: t('about.timeline.2021.desc')
     },
     {
       year: "2022",
-      title: "Regional Expansion",
-      description: "Opened offices in Singapore and Thailand"
+      title: t('about.timeline.2022.title'),
+      description: t('about.timeline.2022.desc')
     },
     {
       year: "2023",
-      title: "AI Breakthrough",
-      description: "Launched industry-leading conversational AI platform"
+      title: t('about.timeline.2023.title'),
+      description: t('about.timeline.2023.desc')
     },
     {
       year: "2024",
-      title: "500+ Clients",
-      description: "Serving businesses across 12 countries"
+      title: t('about.timeline.2024.title'),
+      description: t('about.timeline.2024.desc')
     }
   ];
 
   const awards = [
     {
-      title: "Best AI Startup 2023",
-      organization: "TechCrunch Disrupt",
+      title: t('about.awards.award1.title'),
+      organization: t('about.awards.award1.org'),
       icon: <Award className="w-8 h-8 text-yellow-500" />
     },
     {
-      title: "Top Chatbot Platform",
-      organization: "G2 Software Reviews",
+      title: t('about.awards.award2.title'),
+      organization: t('about.awards.award2.org'),
       icon: <Award className="w-8 h-8 text-yellow-500" />
     },
     {
-      title: "Innovation Award",
-      organization: "Vietnam Tech Summit",
+      title: t('about.awards.award3.title'),
+      organization: t('about.awards.award3.org'),
       icon: <Award className="w-8 h-8 text-yellow-500" />
     }
   ];
@@ -64,49 +64,49 @@ const About = () => {
   const whyChooseUs = [
     {
       icon: <TrendingUp className="w-8 h-8 text-blue-600" />,
-      title: "Proven Results",
-      description: "Average 40% increase in customer satisfaction and 60% reduction in response time",
-      stats: "98% success rate"
+      title: t('about.whyChoose.results.title'),
+      description: t('about.whyChoose.results.desc'),
+      stats: t('about.whyChoose.results.stats')
     },
     {
       icon: <Users className="w-8 h-8 text-green-600" />,
-      title: "Trusted by Leaders",
-      description: "From startups to Fortune 500 companies across diverse industries",
-      stats: "500+ clients"
+      title: t('about.whyChoose.trusted.title'),
+      description: t('about.whyChoose.trusted.desc'),
+      stats: t('about.whyChoose.trusted.stats')
     },
     {
       icon: <MessageSquare className="w-8 h-8 text-purple-600" />,
-      title: "Advanced AI Technology",
-      description: "Cutting-edge natural language processing and machine learning algorithms",
-      stats: "99.9% uptime"
+      title: t('about.whyChoose.technology.title'),
+      description: t('about.whyChoose.technology.desc'),
+      stats: t('about.whyChoose.technology.stats')
     },
     {
       icon: <Clock className="w-8 h-8 text-orange-600" />,
-      title: "24/7 Support",
-      description: "Round-the-clock technical support and customer success team",
-      stats: "< 5min response"
+      title: t('about.whyChoose.support.title'),
+      description: t('about.whyChoose.support.desc'),
+      stats: t('about.whyChoose.support.stats')
     }
   ];
 
   const companyValues = [
     {
-      title: "Innovation First",
-      description: "We constantly push the boundaries of what's possible with AI technology",
+      title: t('about.values.innovation.title'),
+      description: t('about.values.innovation.desc'),
       icon: <Zap className="w-6 h-6 text-blue-600" />
     },
     {
-      title: "Customer Success",
-      description: "Your success is our success. We're committed to delivering measurable results",
+      title: t('about.values.customer.title'),
+      description: t('about.values.customer.desc'),
       icon: <Target className="w-6 h-6 text-green-600" />
     },
     {
-      title: "Transparency",
-      description: "Clear communication, honest pricing, and open about our capabilities",
+      title: t('about.values.transparency.title'),
+      description: t('about.values.transparency.desc'),
       icon: <Shield className="w-6 h-6 text-purple-600" />
     },
     {
-      title: "Global Impact",
-      description: "Making AI accessible to businesses worldwide, regardless of size or industry",
+      title: t('about.values.global.title'),
+      description: t('about.values.global.desc'),
       icon: <Globe className="w-6 h-6 text-orange-600" />
     }
   ];
@@ -201,10 +201,10 @@ const About = () => {
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Tại sao chọn D2 Group?
+            {t('about.whyChoose.title')}
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Chúng tôi mang đến giá trị vượt trội với công nghệ tiên tiến và dịch vụ tận tâm
+            {t('about.whyChoose.subtitle')}
           </p>
         </div>
 
@@ -226,10 +226,10 @@ const About = () => {
       <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            Giá trị cốt lõi
+            {t('about.values.title')}
           </h2>
           <p className="text-xl text-gray-600">
-            Những nguyên tắc định hướng hoạt động của chúng tôi
+            {t('about.values.subtitle')}
           </p>
         </div>
 
