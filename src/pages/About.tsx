@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Award, Users, Target, ArrowRight, Globe, Zap, Shield } from "lucide-react";
+import { Award, Target, ArrowRight, Globe, Zap, Shield, TrendingUp, Users, MessageSquare, Clock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Section from "@/components/ui/section";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -9,27 +9,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const About = () => {
   const navigate = useNavigate();
   const { t } = useLanguage();
-
-  const teamMembers = [
-    {
-      name: "Dr. Nguyễn Minh Tuấn",
-      role: "Chief Executive Officer",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face",
-      bio: "15+ years in AI research and enterprise solutions"
-    },
-    {
-      name: "Trần Văn Đức",
-      role: "VP of Engineering",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face",
-      bio: "Led chatbot implementations for Fortune 500 companies"
-    },
-    {
-      name: "Phạm Thị Mai",
-      role: "Customer Success Director",
-      image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=300&h=300&fit=crop&crop=face",
-      bio: "Ensures every client achieves their automation goals"
-    }
-  ];
 
   const timeline = [
     {
@@ -79,6 +58,56 @@ const About = () => {
       title: "Innovation Award",
       organization: "Vietnam Tech Summit",
       icon: <Award className="w-8 h-8 text-yellow-500" />
+    }
+  ];
+
+  const whyChooseUs = [
+    {
+      icon: <TrendingUp className="w-8 h-8 text-blue-600" />,
+      title: "Proven Results",
+      description: "Average 40% increase in customer satisfaction and 60% reduction in response time",
+      stats: "98% success rate"
+    },
+    {
+      icon: <Users className="w-8 h-8 text-green-600" />,
+      title: "Trusted by Leaders",
+      description: "From startups to Fortune 500 companies across diverse industries",
+      stats: "500+ clients"
+    },
+    {
+      icon: <MessageSquare className="w-8 h-8 text-purple-600" />,
+      title: "Advanced AI Technology",
+      description: "Cutting-edge natural language processing and machine learning algorithms",
+      stats: "99.9% uptime"
+    },
+    {
+      icon: <Clock className="w-8 h-8 text-orange-600" />,
+      title: "24/7 Support",
+      description: "Round-the-clock technical support and customer success team",
+      stats: "< 5min response"
+    }
+  ];
+
+  const companyValues = [
+    {
+      title: "Innovation First",
+      description: "We constantly push the boundaries of what's possible with AI technology",
+      icon: <Zap className="w-6 h-6 text-blue-600" />
+    },
+    {
+      title: "Customer Success",
+      description: "Your success is our success. We're committed to delivering measurable results",
+      icon: <Target className="w-6 h-6 text-green-600" />
+    },
+    {
+      title: "Transparency",
+      description: "Clear communication, honest pricing, and open about our capabilities",
+      icon: <Shield className="w-6 h-6 text-purple-600" />
+    },
+    {
+      title: "Global Impact",
+      description: "Making AI accessible to businesses worldwide, regardless of size or industry",
+      icon: <Globe className="w-6 h-6 text-orange-600" />
     }
   ];
 
@@ -168,40 +197,59 @@ const About = () => {
         </div>
       </Section>
 
-      {/* Team Section */}
+      {/* Why Choose Us Section */}
       <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
-            {t('about.team.title')}
+            Tại sao chọn D2 Group?
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            {t('about.team.subtitle')}
+            Chúng tôi mang đến giá trị vượt trội với công nghệ tiên tiến và dịch vụ tận tâm
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {teamMembers.map((member, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {whyChooseUs.map((item, index) => (
             <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
               <CardContent className="p-6 text-center">
-                <div className="relative mb-6">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-24 h-24 rounded-full mx-auto object-cover shadow-lg"
-                    loading="lazy"
-                  />
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-900">{member.name}</h3>
-                <p className="text-blue-600 font-semibold mb-3">{member.role}</p>
-                <p className="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
+                <div className="mb-6">{item.icon}</div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">{item.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed mb-4">{item.description}</p>
+                <div className="text-2xl font-bold text-blue-600">{item.stats}</div>
               </CardContent>
             </Card>
           ))}
         </div>
       </Section>
 
-      {/* Timeline */}
+      {/* Company Values */}
       <Section background="white">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">
+            Giá trị cốt lõi
+          </h2>
+          <p className="text-xl text-gray-600">
+            Những nguyên tắc định hướng hoạt động của chúng tôi
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {companyValues.map((value, index) => (
+            <div key={index} className="flex items-start space-x-4 p-6 bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300">
+              <div className="flex-shrink-0">
+                {value.icon}
+              </div>
+              <div>
+                <h3 className="text-xl font-bold mb-3 text-gray-900">{value.title}</h3>
+                <p className="text-gray-600 leading-relaxed">{value.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Timeline */}
+      <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
             {t('about.journey.title')}
@@ -238,7 +286,7 @@ const About = () => {
       </Section>
 
       {/* Awards */}
-      <Section background="gray">
+      <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
             {t('about.awards.title')}
