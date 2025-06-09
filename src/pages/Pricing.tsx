@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Check, X, Star, HelpCircle, Plus } from "lucide-react";
@@ -96,63 +97,43 @@ const Pricing = () => {
   const addOns = [
     {
       name: t('pricing.addons.additionalChannels.name'),
-      description: t('pricing.addons.additionalChannels.desc'),
-      setupFee: language === 'vi' ? "500.000 VNĐ" : "$50",
-      monthlyFee: language === 'vi' ? "1 triệu VNĐ" : "$500"
+      description: t('pricing.addons.additionalChannels.desc')
     },
     {
       name: t('pricing.addons.voicebot.name'),
-      description: t('pricing.addons.voicebot.desc'),
-      setupFee: language === 'vi' ? "từ 1.200.000 VNĐ" : "from $120",
-      monthlyFee: language === 'vi' ? "3 triệu VNĐ" : "$1,500"
+      description: t('pricing.addons.voicebot.desc')
     },
     {
       name: t('pricing.addons.advancedPayment.name'),
-      description: t('pricing.addons.advancedPayment.desc'),
-      setupFee: language === 'vi' ? "800.000 VNĐ" : "$80",
-      monthlyFee: language === 'vi' ? "2 triệu VNĐ" : "$1,000"
+      description: t('pricing.addons.advancedPayment.desc')
     },
     {
       name: t('pricing.addons.dataCrawler.name'),
-      description: t('pricing.addons.dataCrawler.desc'),
-      setupFee: language === 'vi' ? "từ 2 triệu VNĐ" : "from $200",
-      monthlyFee: language === 'vi' ? "5 triệu VNĐ" : "$2,500"
+      description: t('pricing.addons.dataCrawler.desc')
     },
     {
       name: t('pricing.addons.privateLLM.name'),
-      description: t('pricing.addons.privateLLM.desc'),
-      setupFee: language === 'vi' ? "Báo giá" : "Quote",
-      monthlyFee: language === 'vi' ? "Báo giá" : "Quote"
+      description: t('pricing.addons.privateLLM.desc')
     },
     {
       name: t('pricing.addons.advancedAnalytics.name'),
-      description: t('pricing.addons.advancedAnalytics.desc'),
-      setupFee: language === 'vi' ? "1 triệu VNĐ" : "$100",
-      monthlyFee: language === 'vi' ? "4 triệu VNĐ" : "$2,000"
+      description: t('pricing.addons.advancedAnalytics.desc')
     },
     {
       name: t('pricing.addons.multiLanguage.name'),
-      description: t('pricing.addons.multiLanguage.desc'),
-      setupFee: language === 'vi' ? "400.000 VNĐ" : "$40",
-      monthlyFee: language === 'vi' ? "1 triệu VNĐ" : "$500"
+      description: t('pricing.addons.multiLanguage.desc')
     },
     {
       name: t('pricing.addons.training.name'),
-      description: t('pricing.addons.training.desc'),
-      setupFee: language === 'vi' ? "—" : "—",
-      monthlyFee: language === 'vi' ? "5 triệu VNĐ" : "$2,500"
+      description: t('pricing.addons.training.desc')
     },
     {
       name: t('pricing.addons.handover.name'),
-      description: t('pricing.addons.handover.desc'),
-      setupFee: language === 'vi' ? "300.000 VNĐ" : "$30",
-      monthlyFee: language === 'vi' ? "1 triệu VNĐ" : "$500"
+      description: t('pricing.addons.handover.desc')
     },
     {
       name: t('pricing.addons.additionalUsers.name'),
-      description: t('pricing.addons.additionalUsers.desc'),
-      setupFee: language === 'vi' ? "150.000 VNĐ/seat" : "$15/seat",
-      monthlyFee: language === 'vi' ? "—" : "—"
+      description: t('pricing.addons.additionalUsers.desc')
     }
   ];
 
@@ -164,7 +145,10 @@ const Pricing = () => {
         { name: t('pricing.comparison.chatbotTemplate'), starter: t('pricing.comparison.basic'), growth: t('pricing.comparison.advanced'), business: t('pricing.comparison.custom'), enterprise: t('pricing.comparison.fullyCustom') },
         { name: t('pricing.comparison.responseTimeSLA'), starter: t('pricing.comparison.standard'), growth: t('pricing.comparison.priority'), business: t('pricing.comparison.priority'), enterprise: t('pricing.comparison.instant') },
         { name: t('pricing.comparison.analyticsDashboard'), starter: true, growth: true, business: true, enterprise: true },
-        { name: t('pricing.comparison.websiteWidgetIntegration'), starter: true, growth: true, business: true, enterprise: true }
+        { name: t('pricing.comparison.websiteWidgetIntegration'), starter: true, growth: true, business: true, enterprise: true },
+        { name: "Workflow Builder", starter: "5 workflows", growth: "Unlimited", business: "Unlimited", enterprise: "Unlimited" },
+        { name: "Multi-language Support", starter: false, growth: true, business: true, enterprise: true },
+        { name: "AI Training & Optimization", starter: false, growth: true, business: true, enterprise: true }
       ]
     },
     {
@@ -173,8 +157,48 @@ const Pricing = () => {
         { name: t('pricing.comparison.websiteWidget'), starter: true, growth: true, business: true, enterprise: true },
         { name: t('pricing.comparison.whatsappBusiness'), starter: false, growth: true, business: true, enterprise: true },
         { name: t('pricing.comparison.facebookMessenger'), starter: false, growth: true, business: true, enterprise: true },
+        { name: "Zalo Official Account", starter: false, growth: true, business: true, enterprise: true },
+        { name: "Mobile App SDK", starter: false, growth: false, business: true, enterprise: true },
+        { name: "Telegram", starter: false, growth: false, business: true, enterprise: true },
+        { name: "Voice & Phone Integration", starter: false, growth: false, business: false, enterprise: true },
         { name: t('pricing.comparison.crmIntegration'), starter: false, growth: true, business: true, enterprise: true },
         { name: t('pricing.comparison.customApiAccess'), starter: false, growth: false, business: false, enterprise: true }
+      ]
+    },
+    {
+      category: "Analytics & Reporting",
+      features: [
+        { name: "Basic Analytics Dashboard", starter: true, growth: true, business: true, enterprise: true },
+        { name: "Advanced Conversation Analytics", starter: false, growth: true, business: true, enterprise: true },
+        { name: "Customer Journey Tracking", starter: false, growth: false, business: true, enterprise: true },
+        { name: "Custom Reports", starter: false, growth: false, business: true, enterprise: true },
+        { name: "Real-time Monitoring", starter: false, growth: false, business: true, enterprise: true },
+        { name: "Performance Benchmarking", starter: false, growth: false, business: false, enterprise: true },
+        { name: "Data Export & API", starter: false, growth: false, business: false, enterprise: true }
+      ]
+    },
+    {
+      category: "Support & Training",
+      features: [
+        { name: "Email Support", starter: true, growth: true, business: true, enterprise: true },
+        { name: "Priority Support", starter: false, growth: true, business: true, enterprise: true },
+        { name: "Phone Support", starter: false, growth: false, business: false, enterprise: true },
+        { name: "Dedicated Account Manager", starter: false, growth: false, business: false, enterprise: true },
+        { name: "Training Sessions", starter: false, growth: "1 session", business: "3 sessions", enterprise: "Unlimited" },
+        { name: "Custom Implementation", starter: false, growth: false, business: false, enterprise: true },
+        { name: "SLA Guarantee", starter: false, growth: false, business: "99.5%", enterprise: "99.9%" }
+      ]
+    },
+    {
+      category: "Advanced Features",
+      features: [
+        { name: "A/B Testing", starter: false, growth: false, business: true, enterprise: true },
+        { name: "Lead Qualification", starter: false, growth: false, business: true, enterprise: true },
+        { name: "Custom Branding", starter: false, growth: false, business: true, enterprise: true },
+        { name: "White Label Solution", starter: false, growth: false, business: false, enterprise: true },
+        { name: "On-premise Deployment", starter: false, growth: false, business: false, enterprise: true },
+        { name: "Custom AI Model", starter: false, growth: false, business: false, enterprise: true },
+        { name: "Advanced Security Features", starter: false, growth: false, business: false, enterprise: true }
       ]
     }
   ];
@@ -318,15 +342,8 @@ const Pricing = () => {
               </CardHeader>
               
               <CardContent>
-                <div className="space-y-2">
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">{t('pricing.addons.setupFee')}:</span>
-                    <span className="font-semibold text-blue-600">{addon.setupFee}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-sm text-gray-600">{t('pricing.addons.monthlyFee')}:</span>
-                    <span className="font-semibold text-blue-600">{addon.monthlyFee}</span>
-                  </div>
+                <div className="text-center">
+                  <p className="text-sm text-blue-600 font-semibold">Liên hệ để biết thêm chi tiết</p>
                 </div>
               </CardContent>
             </Card>
@@ -334,40 +351,8 @@ const Pricing = () => {
         </div>
       </Section>
 
-      {/* Notes Section */}
-      <Section background="white">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center text-gray-900">{t('pricing.notes.title')}</h2>
-          <div className="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-lg">
-            <ul className="space-y-4 text-gray-700">
-              <li className="flex items-start space-x-3">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
-                <span>{t('pricing.notes.note1')}</span>
-              </li>
-              <li className="flex items-start space-x-3">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
-                <span>{t('pricing.notes.note2')}</span>
-              </li>
-              <li className="flex items-start space-x-3">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
-                <span>{t('pricing.notes.note3')}</span>
-              </li>
-              <li className="flex items-start space-x-3">
-                <span className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></span>
-                <span>{t('pricing.notes.note4')}</span>
-              </li>
-            </ul>
-            <div className="mt-6 p-4 bg-yellow-100 border border-yellow-300 rounded-lg">
-              <p className="text-sm text-gray-700 font-semibold">
-                {t('pricing.notes.yearlyDiscount')}
-              </p>
-            </div>
-          </div>
-        </div>
-      </Section>
-
       {/* Feature Comparison Table */}
-      <Section background="gray">
+      <Section background="white">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
             {t('pricing.comparison.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('pricing.comparison.titleHighlight')}</span>
@@ -455,7 +440,7 @@ const Pricing = () => {
       </Section>
 
       {/* FAQ Section */}
-      <Section background="white">
+      <Section background="gray">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-gray-900">
             {t('pricing.faq.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">{t('pricing.faq.titleHighlight')}</span>
