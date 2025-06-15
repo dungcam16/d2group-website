@@ -1,169 +1,374 @@
-import React from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
-import { useForm, Controller } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import * as z from 'zod';
-import { toast } from "@/components/ui/use-toast"
-import { useNavigate } from 'react-router-dom';
-import ScrollTriggered3D from "@/components/ScrollTriggered3D";
-
-const contactFormSchema = z.object({
-  name: z.string().min(2, {
-    message: "Tên phải có ít nhất 2 ký tự.",
-  }),
-  email: z.string().email({
-    message: "Vui lòng nhập đúng định dạng email.",
-  }),
-  phone: z.string().min(10, {
-    message: "Số điện thoại phải có ít nhất 10 số.",
-  }),
-  message: z.string().min(10, {
-    message: "Tin nhắn phải có ít nhất 10 ký tự.",
-  }),
-});
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import { Phone, Mail, MapPin, Clock, MessageSquare, Calendar, Rocket } from "lucide-react";
+import Section from "@/components/ui/section";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
-  const navigate = useNavigate();
-  const {
-    control,
-    handleSubmit,
-    formState: { errors }
-  } = useForm<z.infer<typeof contactFormSchema>>({
-    resolver: zodResolver(contactFormSchema),
+  const { t } = useLanguage();
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    company: "",
+    areaOfInterest: "",
+    message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
-  const onSubmit = (data: z.infer<typeof contactFormSchema>) => {
-    console.log(data);
-    toast({
-      title: "Cảm ơn bạn!",
-      description: "Chúng tôi đã nhận được tin nhắn của bạn và sẽ phản hồi sớm nhất.",
-    })
-    navigate('/');
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://automation.d2group.co/webhook/website', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toISOString(),
+          source: 'website_contact_form'
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Thank you for your inquiry!",
+          description: "We'll get back to you within 24 hours. Check your email for confirmation.",
+        });
+        
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          areaOfInterest: "",
+          message: ""
+        });
+      } else {
+        throw new Error('Network response was not ok');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Oops! Something went wrong",
+        description: "Unable to submit form. Please try again or contact us directly via email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
+
+  const handleInputChange = (field: string, value: string) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
+  const socialLinks = [
+    {
+      name: "Facebook",
+      url: "https://www.facebook.com/d2groupmarketing",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png"
+    },
+    {
+      name: "Instagram", 
+      url: "https://www.instagram.com/d2group.co",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+    },
+    {
+      name: "Threads",
+      url: "https://www.threads.com/@d2group.co", 
+      logo: "/lovable-uploads/a15e3f58-c01f-4100-bd82-9f776c0c448c.png"
+    },
+    {
+      name: "Telegram",
+      url: "https://t.me/d2group",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg"
+    },
+    {
+      name: "WhatsApp",
+      url: "https://wa.me/84909099421",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+    },
+    {
+      name: "Zalo",
+      url: "https://zalo.me/d2group",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/9/91/Icon_of_Zalo.svg"
+    }
+  ];
 
   return (
     <div className="pt-16">
-      <section className="container mx-auto px-6 text-center py-16">
-        <ScrollTriggered3D direction="up" delay={0.1}>
+      <Section background="gradient">
+        <div className="text-center max-w-4xl mx-auto">
           <h1 className="text-5xl font-bold mb-6 text-gray-900">
-            Liên hệ với chúng tôi
+            {t('contact.hero.title')}
           </h1>
-        </ScrollTriggered3D>
-        <p className="text-xl text-gray-600 mb-8">
-          Hãy liên hệ với chúng tôi nếu bạn có bất kỳ câu hỏi hoặc yêu cầu nào.
-        </p>
-      </section>
-
-      <section className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Contact Form */}
-          <div className="p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">Gửi tin nhắn cho chúng tôi</h2>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
-              <div>
-                <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
-                  Tên
-                </label>
-                <Controller
-                  control={control}
-                  name="name"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input {...field} type="text" placeholder="Tên của bạn" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-                  )}
-                />
-                {errors.name && <p className="text-red-500 text-xs italic">{errors.name?.message}</p>}
+          <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            {t('contact.hero.subtitle')}
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <MessageSquare className="w-8 h-8 text-white" />
               </div>
-              <div>
-                <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
-                  Email
-                </label>
-                <Controller
-                  control={control}
-                  name="email"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input {...field} type="email" placeholder="Email của bạn" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-                  )}
-                />
-                {errors.email && <p className="text-red-500 text-xs italic">{errors.email?.message}</p>}
+              <h3 className="font-semibold text-gray-900 mb-2">Free Consultation</h3>
+              <p className="text-gray-600 text-sm">Expert guidance tailored to your needs</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Calendar className="w-8 h-8 text-white" />
               </div>
-              <div>
-                <label htmlFor="phone" className="block text-gray-700 text-sm font-bold mb-2">
-                  Số điện thoại
-                </label>
-                <Controller
-                  control={control}
-                  name="phone"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Input {...field} type="tel" placeholder="Số điện thoại của bạn" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-                  )}
-                />
-                {errors.phone && <p className="text-red-500 text-xs italic">{errors.phone?.message}</p>}
+              <h3 className="font-semibold text-gray-900 mb-2">24-Hour Response</h3>
+              <p className="text-gray-600 text-sm">Quick turnaround on all inquiries</p>
+            </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                <Rocket className="w-8 h-8 text-white" />
               </div>
-              <div>
-                <label htmlFor="message" className="block text-gray-700 text-sm font-bold mb-2">
-                  Tin nhắn
-                </label>
-                <Controller
-                  control={control}
-                  name="message"
-                  defaultValue=""
-                  render={({ field }) => (
-                    <Textarea {...field} placeholder="Tin nhắn của bạn" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
-                  )}
-                />
-                {errors.message && <p className="text-red-500 text-xs italic">{errors.message?.message}</p>}
-              </div>
-              <div>
-                <Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                  Gửi tin nhắn <ArrowRight className="ml-2" />
-                </Button>
-              </div>
-            </form>
-          </div>
-
-          {/* Contact Information */}
-          <div className="p-6 rounded-lg shadow-md">
-            <h2 className="text-2xl font-semibold mb-4 text-gray-800">Thông tin liên hệ</h2>
-            <div className="space-y-4">
-              <div className="flex items-center">
-                <Mail className="mr-2 text-blue-500" />
-                <span>Email: info@example.com</span>
-              </div>
-              <div className="flex items-center">
-                <Phone className="mr-2 text-blue-500" />
-                <span>Điện thoại: +1 555-123-4567</span>
-              </div>
-              <div className="flex items-center">
-                <MapPin className="mr-2 text-blue-500" />
-                <span>Địa chỉ: 123 Main Street, Anytown, USA</span>
-              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Fast Implementation</h3>
+              <p className="text-gray-600 text-sm">Go live in as little as 48 hours</p>
             </div>
           </div>
         </div>
-      </section>
+      </Section>
 
-      {/* Google Maps Section */}
-      <section className="container mx-auto px-6 py-12">
-        <div className="rounded-lg shadow-md overflow-hidden">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.788727748751!2d-122.41945!3d37.7749296!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085809a9249c499%3A0x4d204c74c626bbd7!2sGolden%20Gate%20Bridge!5e0!3m2!1sen!2sus!4v16234234567890"
-            width="100%"
-            height="450"
-            style={{ border: 0 }}
-            allowFullScreen={true}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            title="Google Map"
-          ></iframe>
+      <Section background="white">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div>
+            <Card className="border-none shadow-xl">
+              <CardHeader>
+                <CardTitle className="text-3xl font-bold text-gray-900">
+                  {t('contact.form.title')}
+                </CardTitle>
+                <p className="text-gray-600">
+                  {t('contact.form.subtitle')}
+                </p>
+              </CardHeader>
+              <CardContent>
+                <form onSubmit={handleSubmit} className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="name">Full Name *</Label>
+                      <Input
+                        id="name"
+                        value={formData.name}
+                        onChange={(e) => handleInputChange("name", e.target.value)}
+                        placeholder="John Smith"
+                        required
+                        className="mt-1"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="email">Email Address *</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={(e) => handleInputChange("email", e.target.value)}
+                        placeholder="john@company.com"
+                        required
+                        className="mt-1"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="phone">Phone Number</Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        value={formData.phone}
+                        onChange={(e) => handleInputChange("phone", e.target.value)}
+                        placeholder="+1 (555) 123-4567"
+                        className="mt-1"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="company">Company Name</Label>
+                      <Input
+                        id="company"
+                        value={formData.company}
+                        onChange={(e) => handleInputChange("company", e.target.value)}
+                        placeholder="Acme Corporation"
+                        className="mt-1"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="areaOfInterest">Area of Interest *</Label>
+                    <Select onValueChange={(value) => handleInputChange("areaOfInterest", value)} required>
+                      <SelectTrigger className="mt-1">
+                        <SelectValue placeholder="What can we help you with?" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="demo">Schedule a Product Demo</SelectItem>
+                        <SelectItem value="pricing">Get Pricing Information</SelectItem>
+                        <SelectItem value="integration">Discuss Integration Options</SelectItem>
+                        <SelectItem value="enterprise">Enterprise Solutions</SelectItem>
+                        <SelectItem value="support">Technical Support</SelectItem>
+                        <SelectItem value="partnership">Partnership Opportunities</SelectItem>
+                        <SelectItem value="other">Other</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="message">Message</Label>
+                    <Textarea
+                      id="message"
+                      value={formData.message}
+                      onChange={(e) => handleInputChange("message", e.target.value)}
+                      placeholder="Tell us about your business needs, current challenges, or any specific questions you have..."
+                      rows={4}
+                      className="mt-1"
+                    />
+                  </div>
+
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 text-lg"
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message"}
+                  </Button>
+
+                  <p className="text-xs text-gray-500 text-center">
+                    By submitting this form, you agree to our Privacy Policy and Terms of Service.
+                  </p>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="space-y-8">
+            <Card className="border-none shadow-xl">
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-gray-900">
+                  {t('contact.info.title')}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
+                    <Mail className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-gray-900">Email</h3>
+                    <p className="text-gray-600">contact@d2group.co</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
+                    <Phone className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-gray-900">Phone</h3>
+                    <p className="text-gray-600">+84 909 099 421</p>
+                    <p className="text-gray-600">+84 933 221 059</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
+                    <MapPin className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-gray-900">Address</h3>
+                    <p className="text-gray-600">
+                      No. 3 Nguyễn Cơ Thạch Street<br />
+                      An Lợi Đông Ward, Thủ Đức City<br />
+                      Ho Chi Minh City, Vietnam
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
+                    <Clock className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-gray-900">Business Hours</h3>
+                    <p className="text-gray-600">
+                      Monday - Friday: 9:00 AM - 6:00 PM (GMT+7)<br />
+                      Saturday: 10:00 AM - 2:00 PM (GMT+7)<br />
+                      <span className="text-blue-600 font-semibold">Emergency support: 24/7</span>
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="border-none shadow-xl">
+              <CardHeader>
+                <CardTitle className="text-2xl font-bold text-gray-900">
+                  {t('contact.map.title')}
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="aspect-video bg-gray-200 rounded-lg overflow-hidden">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.585089432689!2d106.72348467637474!3d10.766425459375347!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317525b0fd9e9f3f%3A0xf04a8174c09efc3c!2sD2%20GROUP!5e0!3m2!1sen!2s!4v1748530631630!5m2!1sen!2s"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="D2 Group Office Location"
+                  ></iframe>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
-      </section>
+      </Section>
+
+      <Section background="gray">
+        <div className="text-center max-w-4xl mx-auto">
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            {t('contact.thanks.title')}
+          </h2>
+          <p className="text-xl text-gray-600 mb-8">
+            {t('contact.thanks.subtitle')}
+          </p>
+          <div className="flex justify-center space-x-4">
+            {socialLinks.map((social) => (
+              <a 
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-white rounded-full flex items-center justify-center hover:bg-gray-100 transition-colors shadow-md overflow-hidden"
+                aria-label={social.name}
+              >
+                <img 
+                  src={social.logo} 
+                  alt={social.name}
+                  className="w-6 h-6 object-contain"
+                />
+              </a>
+            ))}
+          </div>
+        </div>
+      </Section>
     </div>
   );
 };
+
 export default Contact;

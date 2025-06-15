@@ -1,9 +1,9 @@
+
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle, TrendingUp, Clock, Users, Car, MessageCircle, BarChart3, Settings, Zap, Wrench } from 'lucide-react';
-import ScrollTriggered3D from '@/components/ScrollTriggered3D';
 
 const Automotive = () => {
   return (
@@ -15,16 +15,12 @@ const Automotive = () => {
           <Badge className="mb-6 bg-white/20 text-white border-white/30 hover:bg-white/30">
             AI CHATBOT IMPACT REPORT
           </Badge>
-          <ScrollTriggered3D direction="up" delay={0.1}>
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
-              Tăng 50% Hiệu quả
-            </h1>
-          </ScrollTriggered3D>
-          <ScrollTriggered3D direction="up" delay={0.2}>
-            <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-blue-100">
-              Giảm 35% Thời gian tư vấn
-            </h2>
-          </ScrollTriggered3D>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-blue-100 bg-clip-text text-transparent">
+            Tăng 50% Hiệu quả
+          </h1>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-blue-100">
+            Giảm 35% Thời gian tư vấn
+          </h2>
           <p className="text-xl mb-8 text-blue-100 max-w-3xl mx-auto">
             NGÀNH Ô TÔ & XE MÁY
           </p>
@@ -62,9 +58,7 @@ const Automotive = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <ScrollTriggered3D direction="up" delay={0.1}>
-              <h2 className="text-4xl font-bold text-gray-800 mb-6">Executive Summary</h2>
-            </ScrollTriggered3D>
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">Executive Summary</h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 mx-auto"></div>
           </div>
           <div className="max-w-4xl mx-auto">
@@ -108,9 +102,7 @@ const Automotive = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-center">
         <div className="container mx-auto px-6">
-          <ScrollTriggered3D direction="up" delay={0.1}>
-            <h2 className="text-4xl font-bold mb-6">Nâng cấp Showroom Automotive</h2>
-          </ScrollTriggered3D>
+          <h2 className="text-4xl font-bold mb-6">Nâng cấp Showroom Automotive</h2>
           <p className="text-xl mb-8 text-blue-100 max-w-2xl mx-auto">
             Tăng doanh số và cải thiện dịch vụ khách hàng
           </p>

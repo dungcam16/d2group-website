@@ -1,10 +1,10 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Award, Target, ArrowRight, Globe, Zap, Shield, TrendingUp, Users, MessageSquare, Clock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Section from "@/components/ui/section";
 import { useLanguage } from "@/contexts/LanguageContext";
-import ScrollTriggered3D from '@/components/ScrollTriggered3D';
 
 const About = () => {
   const navigate = useNavigate();
@@ -120,11 +120,9 @@ const About = () => {
       {/* Hero Section */}
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
-          <ScrollTriggered3D direction="up" delay={0.1}>
-            <h1 className="text-5xl font-bold mb-6 text-gray-900">
-              {t('about.hero.title')}
-            </h1>
-          </ScrollTriggered3D>
+          <h1 className="text-5xl font-bold mb-6 text-gray-900">
+            {t('about.hero.title')}
+          </h1>
           <p className="text-xl text-gray-600 mb-8 leading-relaxed">
             {t('about.hero.subtitle')} {t('about.hero.description')}
           </p>
@@ -149,11 +147,9 @@ const About = () => {
       <Section background="white">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <ScrollTriggered3D direction="up" delay={0.1}>
-              <h2 className="text-4xl font-bold mb-6 text-gray-900">
-                {t('about.mission.title')}
-              </h2>
-            </ScrollTriggered3D>
+            <h2 className="text-4xl font-bold mb-6 text-gray-900">
+              {t('about.mission.title')}
+            </h2>
             <p className="text-lg text-gray-600 mb-8 leading-relaxed">
               {t('about.mission.description')}
             </p>
@@ -200,14 +196,13 @@ const About = () => {
           </div>
         </div>
       </Section>
+
       {/* Why Choose Us Section */}
       <Section background="gray">
         <div className="text-center mb-16">
-          <ScrollTriggered3D direction="up" delay={0.1}>
-            <h2 className="text-4xl font-bold mb-4 text-gray-900">
-              {t('about.whyChoose.title')}
-            </h2>
-          </ScrollTriggered3D>
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">
+            {t('about.whyChoose.title')}
+          </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             {t('about.whyChoose.subtitle')}
           </p>
@@ -230,11 +225,9 @@ const About = () => {
       {/* Company Values */}
       <Section background="white">
         <div className="text-center mb-16">
-          <ScrollTriggered3D direction="up" delay={0.1}>
-            <h2 className="text-4xl font-bold mb-4 text-gray-900">
-              {t('about.values.title')}
-            </h2>
-          </ScrollTriggered3D>
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">
+            {t('about.values.title')}
+          </h2>
           <p className="text-xl text-gray-600">
             {t('about.values.subtitle')}
           </p>
@@ -258,11 +251,9 @@ const About = () => {
       {/* Timeline */}
       <Section background="gray">
         <div className="text-center mb-16">
-          <ScrollTriggered3D direction="up" delay={0.1}>
-            <h2 className="text-4xl font-bold mb-4 text-gray-900">
-              {t('about.journey.title')}
-            </h2>
-          </ScrollTriggered3D>
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">
+            {t('about.journey.title')}
+          </h2>
           <p className="text-xl text-gray-600">
             {t('about.journey.subtitle')}
           </p>
@@ -297,11 +288,9 @@ const About = () => {
       {/* Awards */}
       <Section background="white">
         <div className="text-center mb-16">
-          <ScrollTriggered3D direction="up" delay={0.1}>
-            <h2 className="text-4xl font-bold mb-4 text-gray-900">
-              {t('about.awards.title')}
-            </h2>
-          </ScrollTriggered3D>
+          <h2 className="text-4xl font-bold mb-4 text-gray-900">
+            {t('about.awards.title')}
+          </h2>
           <p className="text-xl text-gray-600">
             {t('about.awards.subtitle')}
           </p>
@@ -323,11 +312,9 @@ const About = () => {
       {/* CTA Section */}
       <Section background="gradient">
         <div className="text-center max-w-4xl mx-auto">
-          <ScrollTriggered3D direction="up" delay={0.1}>
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              {t('about.cta.title')}
-            </h2>
-          </ScrollTriggered3D>
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            {t('about.cta.title')}
+          </h2>
           <p className="text-xl text-gray-600 mb-8">
             {t('about.cta.description')}
           </p>
