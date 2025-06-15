@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -8,14 +7,15 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import Section from "@/components/ui/section";
 import TestimonialAvatar from "@/components/TestimonialAvatar";
 import Scene3D from "@/components/3d/Scene3D";
-import AnimatedCard from "@/components/AnimatedCard";
-import AnimatedButton from "@/components/AnimatedButton";
-import ScrollTriggeredSection from "@/components/ScrollTriggeredSection";
+import Enhanced3DCard from "@/components/Enhanced3DCard";
+import Enhanced3DButton from "@/components/Enhanced3DButton";
+import ScrollTriggered3D from "@/components/ScrollTriggered3D";
 
 const Index = () => {
   const navigate = useNavigate();
   const { t, language } = useLanguage();
 
+  // ... keep existing code (pricingPlans, testimonials, partners, faqs data)
   const pricingPlans = [
     {
       name: t('pricing.starter'),
@@ -105,12 +105,17 @@ const Index = () => {
 
   return (
     <div className="pt-16 relative">
-      {/* 3D Background Scene */}
-      <Scene3D />
+      {/* Enhanced 3D Background Scene */}
+      <Scene3D 
+        enableDynamicBackground={true}
+        enableFloatingObjects={true}
+        enableCircuits={true}
+        enableParticles={true}
+      />
       
       {/* Hero Section */}
       <Section background="gradient">
-        <ScrollTriggeredSection direction="up" delay={0.2}>
+        <ScrollTriggered3D direction="up" delay={0.2}>
           <div className="text-center max-w-6xl mx-auto relative z-10">
             <Badge variant="secondary" className="mb-6 px-4 py-2 bg-blue-100/80 backdrop-blur-sm text-blue-700 border-blue-200">
               ✨ <span className="text-green-600">{t('home.hero.subtitle3')}</span> AI-Powered Customer Conversations
@@ -129,17 +134,17 @@ const Index = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <AnimatedButton size="lg" onClick={() => navigate('/contact')} className="font-semibold px-8 py-4 text-lg">
+              <Enhanced3DButton size="lg" onClick={() => navigate('/contact')} className="font-semibold px-8 py-4 text-lg">
                 {t('home.hero.getDemo')} <ArrowRight className="ml-2 w-5 h-5" />
-              </AnimatedButton>
-              <AnimatedButton 
+              </Enhanced3DButton>
+              <Enhanced3DButton 
                 size="lg" 
                 variant="outline" 
                 onClick={() => navigate('/features')}
                 className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg backdrop-blur-sm"
               >
                 {t('home.hero.learnMore')}
-              </AnimatedButton>
+              </Enhanced3DButton>
             </div>
 
             {/* Stats */}
@@ -150,21 +155,21 @@ const Index = () => {
                 { value: "< 2s", label: "Response Time" },
                 { value: "24/7", label: "AI Support" }
               ].map((stat, index) => (
-                <ScrollTriggeredSection key={index} direction="up" delay={0.4 + index * 0.1}>
+                <ScrollTriggered3D key={index} direction="up" delay={0.4 + index * 0.1}>
                   <div className="text-center backdrop-blur-sm bg-white/10 rounded-lg p-4">
                     <div className="text-4xl font-bold text-blue-600 mb-2">{stat.value}</div>
                     <div className="text-gray-600">{stat.label}</div>
                   </div>
-                </ScrollTriggeredSection>
+                </ScrollTriggered3D>
               ))}
             </div>
           </div>
-        </ScrollTriggeredSection>
+        </ScrollTriggered3D>
       </Section>
 
       {/* Why Choose Us */}
       <Section background="white">
-        <ScrollTriggeredSection direction="up" delay={0.2}>
+        <ScrollTriggered3D direction="up" delay={0.2}>
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-gray-900">
               {t('home.why.title')} <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">D2 Group</span>?
@@ -173,7 +178,7 @@ const Index = () => {
               {t('home.why.subtitle')}
             </p>
           </div>
-        </ScrollTriggeredSection>
+        </ScrollTriggered3D>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {[
@@ -193,7 +198,7 @@ const Index = () => {
               desc: t('home.why.results.desc')
             }
           ].map((item, index) => (
-            <AnimatedCard key={index} delay={index * 0.2} hoverRotate={3}>
+            <Enhanced3DCard key={index} delay={index * 0.2}>
               <CardHeader>
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   {item.icon}
@@ -203,26 +208,26 @@ const Index = () => {
               <CardContent>
                 <p className="text-gray-600">{item.desc}</p>
               </CardContent>
-            </AnimatedCard>
+            </Enhanced3DCard>
           ))}
         </div>
 
-        <ScrollTriggeredSection direction="up" delay={0.4}>
+        <ScrollTriggered3D direction="up" delay={0.4}>
           <div className="text-center">
-            <AnimatedButton 
+            <Enhanced3DButton 
               variant="outline" 
               onClick={() => navigate('/about')}
               className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
             >
               {t('home.why.learnMore')} <ArrowRight className="ml-2 w-4 h-4" />
-            </AnimatedButton>
+            </Enhanced3DButton>
           </div>
-        </ScrollTriggeredSection>
+        </ScrollTriggered3D>
       </Section>
 
       {/* Features Overview */}
       <Section background="gray">
-        <ScrollTriggeredSection direction="up" delay={0.2}>
+        <ScrollTriggered3D direction="up" delay={0.2} enableParallax={true}>
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-gray-900">
               {t('home.features.title')}
@@ -231,7 +236,7 @@ const Index = () => {
               {t('home.features.subtitle')}
             </p>
           </div>
-        </ScrollTriggeredSection>
+        </ScrollTriggered3D>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {[
@@ -256,7 +261,7 @@ const Index = () => {
               desc: t('home.features.multichannel.desc')
             }
           ].map((feature, index) => (
-            <AnimatedCard key={index} delay={index * 0.1} hoverScale={1.08}>
+            <Enhanced3DCard key={index} delay={index * 0.1}>
               <CardHeader>
                 {feature.icon}
                 <CardTitle className="text-lg">{feature.title}</CardTitle>
@@ -264,25 +269,25 @@ const Index = () => {
               <CardContent>
                 <p className="text-gray-600 text-sm">{feature.desc}</p>
               </CardContent>
-            </AnimatedCard>
+            </Enhanced3DCard>
           ))}
         </div>
 
-        <ScrollTriggeredSection direction="up" delay={0.4}>
+        <ScrollTriggered3D direction="up" delay={0.4}>
           <div className="text-center">
-            <AnimatedButton 
+            <Enhanced3DButton 
               onClick={() => navigate('/features')}
               className="text-white"
             >
               {t('home.features.viewAll')} <ArrowRight className="ml-2 w-4 h-4" />
-            </AnimatedButton>
+            </Enhanced3DButton>
           </div>
-        </ScrollTriggeredSection>
+        </ScrollTriggered3D>
       </Section>
 
       {/* How It Works */}
       <Section background="white">
-        <ScrollTriggeredSection direction="up" delay={0.2}>
+        <ScrollTriggered3D direction="up" delay={0.2} rotateOnScroll={true}>
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-gray-900">
               {t('home.howItWorks.title')}
@@ -291,7 +296,7 @@ const Index = () => {
               {t('home.howItWorks.subtitle')}
             </p>
           </div>
-        </ScrollTriggeredSection>
+        </ScrollTriggered3D>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {[
@@ -311,7 +316,7 @@ const Index = () => {
               desc: t('home.howItWorks.step3.desc')
             }
           ].map((item, index) => (
-            <ScrollTriggeredSection key={index} direction="up" delay={0.3 + index * 0.2}>
+            <ScrollTriggered3D key={index} direction="up" delay={0.3 + index * 0.2}>
               <div className="text-center">
                 <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold shadow-lg">
                   {item.step}
@@ -319,14 +324,14 @@ const Index = () => {
                 <h3 className="text-xl font-bold mb-4">{item.title}</h3>
                 <p className="text-gray-600">{item.desc}</p>
               </div>
-            </ScrollTriggeredSection>
+            </ScrollTriggered3D>
           ))}
         </div>
       </Section>
 
       {/* Industry Use Cases */}
       <Section background="gray">
-        <ScrollTriggeredSection direction="up" delay={0.2}>
+        <ScrollTriggered3D direction="up" delay={0.2}>
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-gray-900">
               {t('home.useCases.title')}
@@ -335,7 +340,7 @@ const Index = () => {
               {t('home.useCases.subtitle')}
             </p>
           </div>
-        </ScrollTriggeredSection>
+        </ScrollTriggered3D>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mb-12">
           {[
@@ -346,31 +351,31 @@ const Index = () => {
             { name: t('home.useCases.realestate'), icon: "🏠", color: "bg-orange-100 text-orange-700" },
             { name: t('home.useCases.travel'), icon: "✈️", color: "bg-cyan-100 text-cyan-700" }
           ].map((useCase, index) => (
-            <AnimatedCard key={index} delay={index * 0.1} hoverScale={1.1}>
+            <Enhanced3DCard key={index} delay={index * 0.1}>
               <CardContent className="p-6">
                 <div className="text-4xl mb-3">{useCase.icon}</div>
                 <h3 className={`font-semibold ${useCase.color}`}>{useCase.name}</h3>
               </CardContent>
-            </AnimatedCard>
+            </Enhanced3DCard>
           ))}
         </div>
 
-        <ScrollTriggeredSection direction="up" delay={0.4}>
+        <ScrollTriggered3D direction="up" delay={0.4}>
           <div className="text-center">
-            <AnimatedButton 
+            <Enhanced3DButton 
               variant="outline" 
               onClick={() => navigate('/case-studies')}
               className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
             >
               {t('home.useCases.viewCaseStudies')} <ArrowRight className="ml-2 w-4 h-4" />
-            </AnimatedButton>
+            </Enhanced3DButton>
           </div>
-        </ScrollTriggeredSection>
+        </ScrollTriggered3D>
       </Section>
 
       {/* Customer Testimonials */}
       <Section background="white">
-        <ScrollTriggeredSection direction="up" delay={0.2}>
+        <ScrollTriggered3D direction="up" delay={0.2}>
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-gray-900">
               {t('home.testimonials.title')}
@@ -379,11 +384,11 @@ const Index = () => {
               {t('home.testimonials.subtitle')}
             </p>
           </div>
-        </ScrollTriggeredSection>
+        </ScrollTriggered3D>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <AnimatedCard key={index} delay={index * 0.2} hoverRotate={2}>
+            <Enhanced3DCard key={index} delay={index * 0.2}>
               <CardContent className="p-8">
                 <div className="flex items-center mb-4">
                   {[...Array(5)].map((_, i) => (
@@ -401,14 +406,14 @@ const Index = () => {
                   </div>
                 </div>
               </CardContent>
-            </AnimatedCard>
+            </Enhanced3DCard>
           ))}
         </div>
       </Section>
 
       {/* Trusted Partners */}
       <Section background="gray">
-        <ScrollTriggeredSection direction="up" delay={0.2}>
+        <ScrollTriggered3D direction="up" delay={0.2}>
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4 text-gray-900">
               {t('home.partners.title')}
@@ -417,11 +422,11 @@ const Index = () => {
               {t('home.partners.subtitle')}
             </p>
           </div>
-        </ScrollTriggeredSection>
+        </ScrollTriggered3D>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
           {partners.map((partner, index) => (
-            <ScrollTriggeredSection key={index} direction="up" delay={0.3 + index * 0.1}>
+            <ScrollTriggered3D key={index} direction="up" delay={0.3 + index * 0.1}>
               <div className="text-center">
                 <div className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow h-32 flex flex-col items-center justify-center">
                   <img 
@@ -432,14 +437,14 @@ const Index = () => {
                   <div className="text-sm font-medium text-gray-700">{partner.name}</div>
                 </div>
               </div>
-            </ScrollTriggeredSection>
+            </ScrollTriggered3D>
           ))}
         </div>
       </Section>
 
       {/* Pricing Preview */}
       <Section background="white">
-        <ScrollTriggeredSection direction="up" delay={0.2}>
+        <ScrollTriggered3D direction="up" delay={0.2}>
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-gray-900">
               {t('home.pricing.title')}
@@ -448,14 +453,13 @@ const Index = () => {
               {t('home.pricing.subtitle')}
             </p>
           </div>
-        </ScrollTriggeredSection>
+        </ScrollTriggered3D>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {pricingPlans.map((plan, index) => (
-            <AnimatedCard 
+            <Enhanced3DCard 
               key={index}
               delay={index * 0.1}
-              hoverScale={plan.popular ? 1.08 : 1.05}
               className={plan.popular ? 'scale-105' : ''}
             >
               <Card 
@@ -478,7 +482,7 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600 text-sm mb-6">{plan.description}</p>
-                  <AnimatedButton 
+                  <Enhanced3DButton 
                     onClick={() => navigate('/contact')}
                     className={`w-full ${
                       plan.popular 
@@ -487,29 +491,29 @@ const Index = () => {
                     }`}
                   >
                     {plan.name === t('pricing.enterprise') ? t('pricing.contactForPricing') : t('pricing.getStarted')}
-                  </AnimatedButton>
+                  </Enhanced3DButton>
                 </CardContent>
               </Card>
-            </AnimatedCard>
+            </Enhanced3DCard>
           ))}
         </div>
 
-        <ScrollTriggeredSection direction="up" delay={0.4}>
+        <ScrollTriggered3D direction="up" delay={0.4}>
           <div className="text-center">
-            <AnimatedButton 
+            <Enhanced3DButton 
               variant="outline" 
               onClick={() => navigate('/pricing')}
               className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
             >
               {t('home.pricing.seeFullPricing')} <ArrowRight className="ml-2 w-4 h-4" />
-            </AnimatedButton>
+            </Enhanced3DButton>
           </div>
-        </ScrollTriggeredSection>
+        </ScrollTriggered3D>
       </Section>
 
       {/* FAQ Preview */}
       <Section background="gray">
-        <ScrollTriggeredSection direction="up" delay={0.2}>
+        <ScrollTriggered3D direction="up" delay={0.2}>
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4 text-gray-900">
               {t('home.faq.title')}
@@ -518,50 +522,50 @@ const Index = () => {
               {t('home.faq.subtitle')}
             </p>
           </div>
-        </ScrollTriggeredSection>
+        </ScrollTriggered3D>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
           {faqs.map((faq, index) => (
-            <AnimatedCard key={index} delay={index * 0.2}>
+            <Enhanced3DCard key={index} delay={index * 0.2}>
               <CardContent className="p-8">
                 <h3 className="font-bold text-lg mb-4 text-blue-600">{faq.question}</h3>
                 <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
               </CardContent>
-            </AnimatedCard>
+            </Enhanced3DCard>
           ))}
           
-          <AnimatedCard delay={0.6}>
+          <Enhanced3DCard delay={0.6}>
             <CardContent className="p-8">
               <div className="text-center">
                 <h3 className="font-bold text-lg mb-4">Have more questions?</h3>
-                <AnimatedButton 
+                <Enhanced3DButton 
                   variant="outline" 
                   onClick={() => navigate('/contact')}
                   className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
                 >
                   Contact Us <ArrowRight className="ml-2 w-4 h-4" />
-                </AnimatedButton>
+                </Enhanced3DButton>
               </div>
             </CardContent>
-          </AnimatedCard>
+          </Enhanced3DCard>
         </div>
 
-        <ScrollTriggeredSection direction="up" delay={0.4}>
+        <ScrollTriggered3D direction="up" delay={0.4}>
           <div className="text-center">
-            <AnimatedButton 
+            <Enhanced3DButton 
               variant="outline" 
               onClick={() => navigate('/contact')}
               className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
             >
               {t('home.faq.viewFullFaq')} <ArrowRight className="ml-2 w-4 h-4" />
-            </AnimatedButton>
+            </Enhanced3DButton>
           </div>
-        </ScrollTriggeredSection>
+        </ScrollTriggered3D>
       </Section>
 
       {/* Final CTA */}
       <Section background="gradient">
-        <ScrollTriggeredSection direction="up" delay={0.2}>
+        <ScrollTriggered3D direction="up" delay={0.2}>
           <div className="text-center max-w-4xl mx-auto relative z-10">
             <h2 className="text-5xl font-bold mb-6 text-gray-900">
               {t('home.finalCta.title')} <br />
@@ -574,21 +578,21 @@ const Index = () => {
               {t('home.finalCta.description')}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-              <AnimatedButton 
+              <Enhanced3DButton 
                 size="lg" 
                 onClick={() => navigate('/contact')}
                 className="font-semibold px-8 py-4 text-lg"
               >
                 {t('home.finalCta.startTrial')} <ArrowRight className="ml-2 w-5 h-5" />
-              </AnimatedButton>
-              <AnimatedButton 
+              </Enhanced3DButton>
+              <Enhanced3DButton 
                 size="lg" 
                 variant="outline" 
                 onClick={() => navigate('/contact')}
                 className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg backdrop-blur-sm"
               >
                 {t('home.finalCta.bookDemo')}
-              </AnimatedButton>
+              </Enhanced3DButton>
             </div>
             <div className="flex flex-col sm:flex-row gap-6 justify-center text-sm text-gray-600">
               {[
@@ -603,7 +607,7 @@ const Index = () => {
               ))}
             </div>
           </div>
-        </ScrollTriggeredSection>
+        </ScrollTriggered3D>
       </Section>
     </div>
   );

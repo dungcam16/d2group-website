@@ -3,53 +3,65 @@ import { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
+interface LineData {
+  geometry: THREE.BufferGeometry;
+  material: THREE.LineBasicMaterial;
+  initialRotation: THREE.Euler;
+}
+
 const CircuitLines = () => {
-  const linesRef = useRef<THREE.Group>(null);
+  const groupRef = useRef<THREE.Group>(null);
   
-  const lines = useMemo(() => {
-    const temp = [];
-    for (let i = 0; i < 8; i++) {
-      const points = [];
-      const segments = 20;
+  const lineData = useMemo(() => {
+    const lines: LineData[] = [];
+    
+    for (let i = 0; i < 6; i++) {
+      const points: THREE.Vector3[] = [];
+      const segments = 15;
+      
       for (let j = 0; j <= segments; j++) {
         const t = j / segments;
-        const x = (t - 0.5) * 15 + Math.sin(t * Math.PI * 4) * 2;
-        const y = Math.sin(t * Math.PI * 2) * 3 + (Math.random() - 0.5) * 2;
-        const z = Math.cos(t * Math.PI * 2) * 3 + (Math.random() - 0.5) * 2;
+        const x = (t - 0.5) * 20 + Math.sin(t * Math.PI * 3) * 3;
+        const y = Math.sin(t * Math.PI * 2) * 4 + (Math.random() - 0.5) * 2;
+        const z = Math.cos(t * Math.PI * 2) * 4 + (Math.random() - 0.5) * 2;
         points.push(new THREE.Vector3(x, y, z));
       }
       
       const geometry = new THREE.BufferGeometry().setFromPoints(points);
       const material = new THREE.LineBasicMaterial({
-        color: i % 2 === 0 ? "#3b82f6" : "#8b5cf6",
+        color: i % 3 === 0 ? "#3b82f6" : i % 3 === 1 ? "#8b5cf6" : "#06b6d4",
         transparent: true,
-        opacity: 0.3 + Math.random() * 0.4
+        opacity: 0.4 + Math.random() * 0.3,
+        linewidth: 2
       });
       
-      const line = new THREE.Line(geometry, material);
-      temp.push(line);
+      lines.push({
+        geometry,
+        material,
+        initialRotation: new THREE.Euler(
+          Math.random() * Math.PI,
+          Math.random() * Math.PI,
+          Math.random() * Math.PI
+        )
+      });
     }
-    return temp;
+    
+    return lines;
   }, []);
 
   useFrame((state) => {
-    if (linesRef.current) {
-      linesRef.current.rotation.z = state.clock.elapsedTime * 0.05;
-      linesRef.current.children.forEach((child, index) => {
-        if (child instanceof THREE.Line) {
-          child.rotation.y = state.clock.elapsedTime * (0.1 + index * 0.02);
-        }
-      });
+    const time = state.clock.elapsedTime;
+    
+    if (groupRef.current) {
+      groupRef.current.rotation.z = time * 0.03;
+      groupRef.current.rotation.y = time * 0.02;
     }
   });
 
   return (
-    <group ref={linesRef}>
-      {lines.map((line, index) => (
-        <primitive
-          key={index}
-          object={line}
-        />
+    <group ref={groupRef}>
+      {lineData.map((line, index) => (
+        <line key={index} geometry={line.geometry} material={line.material} />
       ))}
     </group>
   );
