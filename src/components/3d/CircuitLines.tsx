@@ -45,13 +45,19 @@ const CircuitLines = () => {
   return (
     <group ref={linesRef}>
       {lines.map((line, index) => (
-        <line key={index} geometry={line.geometry}>
-          <lineBasicMaterial
-            color={line.color}
-            transparent
-            opacity={line.opacity}
-          />
-        </line>
+        <primitive
+          key={index}
+          object={
+            new THREE.Line(
+              line.geometry,
+              new THREE.LineBasicMaterial({
+                color: line.color,
+                transparent: true,
+                opacity: line.opacity,
+              })
+            )
+          }
+        />
       ))}
     </group>
   );
