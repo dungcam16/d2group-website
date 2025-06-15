@@ -15,7 +15,6 @@ const Index = () => {
   const navigate = useNavigate();
   const { t, language } = useLanguage();
 
-  // ... keep existing code (pricingPlans, testimonials, partners, faqs data)
   const pricingPlans = [
     {
       name: t('pricing.starter'),
@@ -287,8 +286,9 @@ const Index = () => {
 
       {/* How It Works */}
       <Section background="white">
-        <ScrollTriggered3D direction="up" delay={0.2} rotateOnScroll={true}>
+        <ScrollTriggered3D direction="up" delay={0.2}>
           <div className="text-center mb-16">
+            {/* Đổi hiệu ứng title: không rotate, giống các title khác */}
             <h2 className="text-4xl font-bold mb-4 text-gray-900">
               {t('home.howItWorks.title')}
             </h2>
@@ -333,6 +333,7 @@ const Index = () => {
       <Section background="gray">
         <ScrollTriggered3D direction="up" delay={0.2}>
           <div className="text-center mb-16">
+            {/* Sửa lại hiệu ứng title của use case: giống các title khác */}
             <h2 className="text-4xl font-bold mb-4 text-gray-900">
               {t('home.useCases.title')}
             </h2>

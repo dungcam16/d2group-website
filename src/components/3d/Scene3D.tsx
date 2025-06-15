@@ -1,7 +1,7 @@
+
 import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
 import { OrbitControls, Environment } from '@react-three/drei';
-// New
 import BreathingBlob from './BreathingBlob';
 import FloatingObjects from './FloatingObjects';
 import CircuitLines from './CircuitLines';
@@ -20,6 +20,7 @@ interface Scene3DProps {
 const Scene3D = ({
   className = "",
   enableControls = false,
+  // Luôn bật hiệu ứng trên mọi thiết bị
   enableParticles = true,
   enableFloatingObjects = true,
   enableCircuits = true,
