@@ -19,11 +19,8 @@ const CircuitLines = () => {
         points.push(new THREE.Vector3(x, y, z));
       }
       
-      // Create the geometry properly
-      const geometry = new THREE.BufferGeometry().setFromPoints(points);
-      
       temp.push({
-        geometry,
+        points,
         color: i % 2 === 0 ? "#3b82f6" : "#8b5cf6",
         opacity: 0.3 + Math.random() * 0.4
       });
@@ -45,19 +42,21 @@ const CircuitLines = () => {
   return (
     <group ref={linesRef}>
       {lines.map((line, index) => (
-        <primitive
-          key={index}
-          object={
-            new THREE.Line(
-              line.geometry,
-              new THREE.LineBasicMaterial({
-                color: line.color,
-                transparent: true,
-                opacity: line.opacity,
-              })
-            )
-          }
-        />
+        <line key={index}>
+          <bufferGeometry>
+            <bufferAttribute
+              attach="attributes-position"
+              count={line.points.length}
+              array={new Float32Array(line.points.flatMap(p => [p.x, p.y, p.z]))}
+              itemSize={3}
+            />
+          </bufferGeometry>
+          <lineBasicMaterial
+            color={line.color}
+            transparent
+            opacity={line.opacity}
+          />
+        </line>
       ))}
     </group>
   );
