@@ -1,152 +1,62 @@
-
-import { useEffect, useState } from "react";
-import { supabase } from "@/integrations/supabase/client";
-import { useNavigate } from "react-router-dom";
-import Section from "@/components/ui/section";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Shell } from "@/components/Shell";
+import { Post } from "@/types";
+import { Link } from 'react-router-dom';
+import { useQuery } from "@tanstack/react-query";
+import { getPosts } from "@/lib/data";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { CalendarDays, User } from "lucide-react";
-
-interface BlogPost {
-  id: string;
-  title: string;
-  content: string;
-  excerpt: string | null;
-  slug: string;
-  author: string;
-  featured_image: string | null;
-  published: boolean;
-  created_at: string;
-  updated_at: string;
-}
+import ScrollTriggered3D from "@/components/ScrollTriggered3D";
 
 const Blog = () => {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
+  const { data: posts, isLoading, isError } = useQuery({
+    queryKey: ["posts"],
+    queryFn: getPosts,
+  });
 
-  useEffect(() => {
-    fetchPosts();
-  }, []);
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
-  const fetchPosts = async () => {
-    try {
-      const { data, error } = await supabase
-        .from('blog_posts')
-        .select('*')
-        .eq('published', true)
-        .order('created_at', { ascending: false });
-
-      if (error) {
-        console.error('Error fetching blog posts:', error);
-      } else {
-        setPosts(data || []);
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const handlePostClick = (slug: string) => {
-    navigate(`/blog/${slug}`);
-  };
-
-  const formatDate = (dateString: string) => {
-    const locale = language === 'en' ? 'en-US' : 'vi-VN';
-    return new Date(dateString).toLocaleDateString(locale, {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
-  };
-
-  if (loading) {
-    return (
-      <Section className="pt-24">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">{t('blog.loading')}</p>
-        </div>
-      </Section>
-    );
+  if (isError) {
+    return <div>Error loading posts.</div>;
   }
 
   return (
-    <Section className="pt-24" background="gray">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            {t('blog.title')}
-          </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            {t('blog.subtitle')}
-          </p>
-        </div>
+    <div className="pt-16">
+      <section className="container mx-auto px-6 text-center py-16">
+        <ScrollTriggered3D direction="up" delay={0.1}>
+          <h1 className="text-5xl font-bold mb-6 text-gray-900">Blog & Tin tức</h1>
+        </ScrollTriggered3D>
+        <p className="text-xl text-gray-600 mb-8">{t('blog.hero.subtitle')}</p>
+        <Button size="lg">{t('blog.hero.button')}</Button>
+      </section>
 
-        {/* Blog Posts */}
-        {posts.length === 0 ? (
-          <div className="text-center py-12">
-            <p className="text-gray-600 text-lg">
-              {t('blog.noPosts')}
-            </p>
-          </div>
-        ) : (
-          <div className="grid gap-8 md:gap-6">
-            {posts.map((post) => (
-              <Card 
-                key={post.id} 
-                className="cursor-pointer hover:shadow-lg transition-shadow duration-300"
-                onClick={() => handlePostClick(post.slug)}
-              >
-                <div className="flex flex-col md:flex-row">
-                  {post.featured_image && (
-                    <div className="md:w-1/3">
-                      <img
-                        src={post.featured_image}
-                        alt={post.title}
-                        className="w-full h-48 md:h-full object-cover rounded-t-lg md:rounded-l-lg md:rounded-t-none"
-                      />
-                    </div>
-                  )}
-                  <div className={`${post.featured_image ? 'md:w-2/3' : 'w-full'}`}>
-                    <CardHeader>
-                      <CardTitle className="text-xl md:text-2xl text-gray-900 hover:text-blue-600 transition-colors">
-                        {post.title}
-                      </CardTitle>
-                      <div className="flex items-center gap-4 text-sm text-gray-500">
-                        <div className="flex items-center gap-1">
-                          <User className="w-4 h-4" />
-                          <span>{post.author}</span>
-                        </div>
-                        <div className="flex items-center gap-1">
-                          <CalendarDays className="w-4 h-4" />
-                          <span>{formatDate(post.created_at)}</span>
-                        </div>
-                      </div>
-                    </CardHeader>
-                    <CardContent>
-                      <CardDescription className="text-gray-600 text-base leading-relaxed">
-                        {post.excerpt || post.content.substring(0, 150) + '...'}
-                      </CardDescription>
-                      <div className="mt-4">
-                        <span className="text-blue-600 hover:text-blue-700 font-medium">
-                          {t('blog.readMore')}
-                        </span>
-                      </div>
-                    </CardContent>
-                  </div>
-                </div>
-              </Card>
-            ))}
-          </div>
-        )}
-      </div>
-    </Section>
+      <Shell>
+        <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-3">
+          {posts?.map((post: Post) => (
+            <Card key={post.slug} className="group">
+              <CardHeader>
+                <CardTitle>{post.title}</CardTitle>
+                <CardDescription>{post.description}</CardDescription>
+              </CardHeader>
+              <CardContent className="grid gap-4">
+                <p className="text-sm text-muted-foreground">
+                  Published: {new Date(post.date).toLocaleDateString()}
+                </p>
+                <Link to={`/blog/${post.slug}`}>
+                  <Button variant="secondary" size="sm">
+                    Read more
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      </Shell>
+    </div>
   );
 };
-
 export default Blog;
