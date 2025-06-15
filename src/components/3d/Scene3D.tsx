@@ -4,7 +4,7 @@ import { Suspense } from 'react';
 import { OrbitControls, Environment } from '@react-three/drei';
 import DynamicBackground from './DynamicBackground';
 import FloatingObjects from './FloatingObjects';
-import CircuitLines from './CircuitLines';
+// import CircuitLines from './CircuitLines';
 import ParticleField from './ParticleField';
 
 interface Scene3DProps {
@@ -13,6 +13,8 @@ interface Scene3DProps {
 }
 
 const Scene3D = ({ className = "", enableControls = false }: Scene3DProps) => {
+  console.log('Scene3D rendering...');
+  
   return (
     <div className={`fixed inset-0 -z-10 ${className}`}>
       <Canvas
@@ -24,7 +26,7 @@ const Scene3D = ({ className = "", enableControls = false }: Scene3DProps) => {
         <Suspense fallback={null}>
           <DynamicBackground />
           <FloatingObjects count={12} />
-          <CircuitLines />
+          {/* <CircuitLines /> */}
           <ParticleField />
           
           {enableControls && (
