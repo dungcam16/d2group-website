@@ -10,7 +10,6 @@ import Scene3D from "@/components/3d/Scene3D";
 import Enhanced3DCard from "@/components/Enhanced3DCard";
 import Enhanced3DButton from "@/components/Enhanced3DButton";
 import ScrollTriggered3D from "@/components/ScrollTriggered3D";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
 const Index = () => {
   const navigate = useNavigate();
@@ -525,26 +524,22 @@ const Index = () => {
           </div>
         </ScrollTriggered3D>
 
-        <div className="mb-12 max-w-2xl mx-auto">
-          <Accordion type="single" collapsible defaultValue="item-0" className="space-y-2">
-            {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="rounded-lg bg-white/80 backdrop-blur px-4 py-2 shadow">
-                <AccordionTrigger className="text-lg text-blue-700 font-semibold">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent>
-                  <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-          {/* Card mở rộng “Có thắc mắc” giữ lại như cũ */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          {faqs.map((faq, index) => (
+            <Enhanced3DCard key={index} delay={index * 0.2}>
+              <CardContent className="p-8">
+                <h3 className="font-bold text-lg mb-4 text-blue-600">{faq.question}</h3>
+                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+              </CardContent>
+            </Enhanced3DCard>
+          ))}
+          
           <Enhanced3DCard delay={0.6}>
             <CardContent className="p-8">
               <div className="text-center">
                 <h3 className="font-bold text-lg mb-4">Have more questions?</h3>
-                <Enhanced3DButton
-                  variant="outline"
+                <Enhanced3DButton 
+                  variant="outline" 
                   onClick={() => navigate('/contact')}
                   className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
                 >
@@ -557,8 +552,8 @@ const Index = () => {
 
         <ScrollTriggered3D direction="up" delay={0.4}>
           <div className="text-center">
-            <Enhanced3DButton
-              variant="outline"
+            <Enhanced3DButton 
+              variant="outline" 
               onClick={() => navigate('/contact')}
               className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white"
             >

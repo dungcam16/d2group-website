@@ -1,11 +1,12 @@
-
 import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
 import { OrbitControls, Environment } from '@react-three/drei';
-import DynamicBackground from './DynamicBackground';
+// New
+import BreathingBlob from './BreathingBlob';
 import FloatingObjects from './FloatingObjects';
 import CircuitLines from './CircuitLines';
 import ParticleField from './ParticleField';
+import DynamicBackground from './DynamicBackground';
 
 interface Scene3DProps {
   className?: string;
@@ -19,7 +20,6 @@ interface Scene3DProps {
 const Scene3D = ({
   className = "",
   enableControls = false,
-  // luôn luôn enable mọi hiệu ứng, loại bỏ điều kiện disable trên mobile
   enableParticles = true,
   enableFloatingObjects = true,
   enableCircuits = true,
@@ -29,7 +29,7 @@ const Scene3D = ({
   return (
     <div className={`fixed inset-0 -z-10 ${className}`}>
       <Canvas
-        camera={{ position: [0, 0, 10], fov: 60 }}
+        camera={{ position: [0, 0, 14], fov: 60 }}
         gl={{
           antialias: true,
           alpha: true,
@@ -37,24 +37,19 @@ const Scene3D = ({
         }}
         dpr={[1, 2]}
         performance={{ min: 0.5 }}
+        shadows="soft"
       >
         <Suspense fallback={null}>
-          <ambientLight intensity={0.3} />
-          <pointLight position={[10, 10, 5]} intensity={0.5} />
-
-          <mesh position={[0, 0, -15]}>
-            <planeGeometry args={[50, 50]} />
-            <meshBasicMaterial
-              color="#1e40af"
-              transparent
-              opacity={0.1}
-            />
-          </mesh>
-
+          {/* 1. Nền gradient 3D động + ánh sáng động */}
           {enableDynamicBackground && <DynamicBackground />}
-          {enableParticles && <ParticleField />}
-          {enableFloatingObjects && <FloatingObjects />}
+
+          {/* 2. AI Breathing Blob center */}
+          <BreathingBlob />
+
+          {/* 3. Các vật thể trôi nổi (multi-layer, depth) */}
+          {enableFloatingObjects && <FloatingObjects count={10} />}
           {enableCircuits && <CircuitLines />}
+          {enableParticles && <ParticleField />}
 
           {enableControls && (
             <OrbitControls
@@ -62,10 +57,9 @@ const Scene3D = ({
               enableZoom={false}
               enableRotate={true}
               autoRotate={true}
-              autoRotateSpeed={0.3}
+              autoRotateSpeed={0.27}
             />
           )}
-
           <Environment preset="night" />
         </Suspense>
       </Canvas>
