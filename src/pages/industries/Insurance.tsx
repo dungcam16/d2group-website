@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { CheckCircle, TrendingUp, Clock, Users, Shield, MessageCircle, BarChart3, FileText, Zap, Heart, Phone, Mail } from 'lucide-react';
+import ScrollTriggered3D from '@/components/ScrollTriggered3D';
 
 const Insurance = () => {
   return (
@@ -15,12 +15,16 @@ const Insurance = () => {
           <Badge className="mb-6 bg-white/20 text-white border-white/30 hover:bg-white/30">
             AI CHATBOT IMPACT REPORT – NGÀNH BẢO HIỂM
           </Badge>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-sky-100 bg-clip-text text-transparent">
-            +30% Lead Bảo hiểm
-          </h1>
-          <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-sky-100">
-            −35% Thời gian xử lý yêu cầu
-          </h2>
+          <ScrollTriggered3D direction="up" delay={0.1}>
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white to-sky-100 bg-clip-text text-transparent">
+              +30% Lead Bảo hiểm
+            </h1>
+          </ScrollTriggered3D>
+          <ScrollTriggered3D direction="up" delay={0.2}>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-8 text-sky-100">
+              −35% Thời gian xử lý yêu cầu
+            </h2>
+          </ScrollTriggered3D>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <Button size="lg" className="bg-white text-sky-600 hover:bg-sky-50 font-semibold px-8 py-3">
               <Mail className="mr-2 h-5 w-5" />
@@ -55,7 +59,9 @@ const Insurance = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">Executive Summary</h2>
+            <ScrollTriggered3D direction="up" delay={0.1}>
+              <h2 className="text-4xl font-bold text-gray-800 mb-6">Executive Summary</h2>
+            </ScrollTriggered3D>
             <div className="w-24 h-1 bg-gradient-to-r from-sky-500 to-cyan-500 mx-auto"></div>
           </div>
           <div className="max-w-4xl mx-auto">
@@ -100,7 +106,9 @@ const Insurance = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">Pain Points & Cơ Hội</h2>
+            <ScrollTriggered3D direction="up" delay={0.1}>
+              <h2 className="text-4xl font-bold text-gray-800 mb-6">Pain Points & Cơ Hội</h2>
+            </ScrollTriggered3D>
             <div className="w-24 h-1 bg-gradient-to-r from-sky-500 to-cyan-500 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
@@ -156,7 +164,9 @@ const Insurance = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">Bản Đồ Use-Case Chatbot</h2>
+            <ScrollTriggered3D direction="up" delay={0.1}>
+              <h2 className="text-4xl font-bold text-gray-800 mb-6">Bản Đồ Use-Case Chatbot</h2>
+            </ScrollTriggered3D>
             <div className="w-24 h-1 bg-gradient-to-r from-sky-500 to-cyan-500 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -183,7 +193,9 @@ const Insurance = () => {
       <section className="py-16 bg-gradient-to-r from-sky-600 to-cyan-600 text-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-6">Market Benchmarks 2024</h2>
+            <ScrollTriggered3D direction="up" delay={0.1}>
+              <h2 className="text-4xl font-bold mb-6">Market Benchmarks 2024</h2>
+            </ScrollTriggered3D>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
             <div className="text-center bg-white/10 backdrop-blur rounded-lg p-8">
@@ -206,7 +218,9 @@ const Insurance = () => {
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">Customer Journey & Flow Tự Động</h2>
+            <ScrollTriggered3D direction="up" delay={0.1}>
+              <h2 className="text-4xl font-bold text-gray-800 mb-6">Customer Journey & Flow Tự Động</h2>
+            </ScrollTriggered3D>
             <div className="w-24 h-1 bg-gradient-to-r from-sky-500 to-cyan-500 mx-auto"></div>
           </div>
           <div className="max-w-6xl mx-auto">
@@ -239,7 +253,9 @@ const Insurance = () => {
       <section className="py-16 bg-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-800 mb-6">Checklist Tính Năng Cốt Lõi</h2>
+            <ScrollTriggered3D direction="up" delay={0.1}>
+              <h2 className="text-4xl font-bold text-gray-800 mb-6">Checklist Tính Năng Cốt Lõi</h2>
+            </ScrollTriggered3D>
             <div className="w-24 h-1 bg-gradient-to-r from-sky-500 to-cyan-500 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
@@ -264,7 +280,9 @@ const Insurance = () => {
       <section className="py-16 bg-gradient-to-r from-sky-600 to-cyan-600 text-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-6">Case Study - Công Ty Bảo Hiểm XYZ</h2>
+            <ScrollTriggered3D direction="up" delay={0.1}>
+              <h2 className="text-4xl font-bold mb-6">Case Study - Công Ty Bảo Hiểm XYZ</h2>
+            </ScrollTriggered3D>
           </div>
           <div className="max-w-4xl mx-auto bg-white/10 backdrop-blur rounded-lg p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -292,7 +310,9 @@ const Insurance = () => {
       {/* CTA Section */}
       <section className="py-20 bg-white text-center">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-gray-800 mb-6">Next Steps & Call To Action</h2>
+          <ScrollTriggered3D direction="up" delay={0.1}>
+            <h2 className="text-4xl font-bold text-gray-800 mb-6">Next Steps & Call To Action</h2>
+          </ScrollTriggered3D>
           <p className="text-xl mb-8 text-gray-600 max-w-2xl mx-auto">
             Đặt lịch demo cá nhân hoá hoặc nhận tư vấn chi tiết
           </p>
