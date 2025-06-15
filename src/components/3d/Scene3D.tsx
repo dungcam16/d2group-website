@@ -24,10 +24,14 @@ const Scene3D = ({ className = "", enableControls = false }: Scene3DProps) => {
         performance={{ min: 0.5 }}
       >
         <Suspense fallback={null}>
-          <DynamicBackground />
-          <FloatingObjects count={12} />
+          {/* <DynamicBackground /> */}
+          {/* <FloatingObjects count={12} /> */}
           {/* <CircuitLines /> */}
-          <ParticleField />
+          {/* <ParticleField /> */}
+          
+          {/* Basic lighting only to test */}
+          <ambientLight intensity={0.2} />
+          <directionalLight position={[10, 10, 5]} intensity={0.5} />
           
           {enableControls && (
             <OrbitControls
