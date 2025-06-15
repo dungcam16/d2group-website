@@ -2,10 +2,11 @@
 import { Canvas } from '@react-three/fiber';
 import { Suspense } from 'react';
 import { OrbitControls, Environment } from '@react-three/drei';
-import DynamicBackground from './DynamicBackground';
-import FloatingObjects from './FloatingObjects';
-import CircuitLines from './CircuitLines';
-import ParticleField from './ParticleField';
+// Temporarily disable problematic components
+// import DynamicBackground from './DynamicBackground';
+// import FloatingObjects from './FloatingObjects';
+// import CircuitLines from './CircuitLines';
+// import ParticleField from './ParticleField';
 
 interface Scene3DProps {
   className?: string;
@@ -24,7 +25,7 @@ const Scene3D = ({
   enableCircuits = true,
   enableDynamicBackground = true
 }: Scene3DProps) => {
-  console.log('Scene3D rendering...');
+  console.log('Scene3D rendering safely...');
   
   return (
     <div className={`fixed inset-0 -z-10 ${className}`}>
@@ -37,13 +38,21 @@ const Scene3D = ({
         }}
         dpr={[1, 2]}
         performance={{ min: 0.5 }}
-        shadows
       >
         <Suspense fallback={null}>
-          {enableDynamicBackground && <DynamicBackground />}
-          {enableFloatingObjects && <FloatingObjects count={8} />}
-          {enableCircuits && <CircuitLines />}
-          {enableParticles && <ParticleField />}
+          {/* Basic lighting and environment */}
+          <ambientLight intensity={0.3} />
+          <pointLight position={[10, 10, 5]} intensity={0.5} />
+          
+          {/* Simple background gradient effect */}
+          <mesh position={[0, 0, -15]}>
+            <planeGeometry args={[50, 50]} />
+            <meshBasicMaterial 
+              color="#1e40af" 
+              transparent 
+              opacity={0.1}
+            />
+          </mesh>
           
           {enableControls && (
             <OrbitControls

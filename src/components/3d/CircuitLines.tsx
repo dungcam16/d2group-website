@@ -3,17 +3,11 @@ import { useRef, useMemo } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
 
-interface LineData {
-  geometry: THREE.BufferGeometry;
-  material: THREE.LineBasicMaterial;
-  initialRotation: THREE.Euler;
-}
-
 const CircuitLines = () => {
   const groupRef = useRef<THREE.Group>(null);
   
-  const lineData = useMemo(() => {
-    const lines: LineData[] = [];
+  const lines = useMemo(() => {
+    const lineObjects = [];
     
     for (let i = 0; i < 6; i++) {
       const points: THREE.Vector3[] = [];
@@ -28,25 +22,21 @@ const CircuitLines = () => {
       }
       
       const geometry = new THREE.BufferGeometry().setFromPoints(points);
-      const material = new THREE.LineBasicMaterial({
-        color: i % 3 === 0 ? "#3b82f6" : i % 3 === 1 ? "#8b5cf6" : "#06b6d4",
-        transparent: true,
-        opacity: 0.4 + Math.random() * 0.3,
-        linewidth: 2
-      });
+      const color = i % 3 === 0 ? "#3b82f6" : i % 3 === 1 ? "#8b5cf6" : "#06b6d4";
       
-      lines.push({
+      lineObjects.push({
         geometry,
-        material,
-        initialRotation: new THREE.Euler(
+        color,
+        opacity: 0.4 + Math.random() * 0.3,
+        rotation: [
           Math.random() * Math.PI,
           Math.random() * Math.PI,
           Math.random() * Math.PI
-        )
+        ] as [number, number, number]
       });
     }
     
-    return lines;
+    return lineObjects;
   }, []);
 
   useFrame((state) => {
@@ -60,8 +50,17 @@ const CircuitLines = () => {
 
   return (
     <group ref={groupRef}>
-      {lineData.map((line, index) => (
-        <line key={index} geometry={line.geometry} material={line.material} />
+      {lines.map((lineData, index) => (
+        <mesh key={index} rotation={lineData.rotation}>
+          <bufferGeometry attach="geometry" {...lineData.geometry} />
+          <lineBasicMaterial 
+            attach="material" 
+            color={lineData.color}
+            transparent
+            opacity={lineData.opacity}
+            linewidth={2}
+          />
+        </mesh>
       ))}
     </group>
   );
