@@ -1,7 +1,7 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Shell } from "@/components/Shell";
 import { useNavigate } from "react-router-dom";
 import ScrollTriggered3D from "@/components/ScrollTriggered3D";
 
@@ -44,8 +44,8 @@ const CaseStudies = () => {
         <Button size="lg" onClick={() => navigate('/contact')}>Liên hệ ngay</Button>
       </section>
 
-      {/* Case study list */}
-      <Shell>
+      {/* Case study list (replace Shell with wrapper div) */}
+      <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {caseStudies.map((study, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
@@ -62,7 +62,7 @@ const CaseStudies = () => {
             </Card>
           ))}
         </div>
-      </Shell>
+      </div>
     </div>
   );
 };
