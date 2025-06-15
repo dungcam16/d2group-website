@@ -26,7 +26,8 @@ const CircuitLines = () => {
         opacity: 0.3 + Math.random() * 0.4
       });
       
-      temp.push({ geometry, material });
+      const line = new THREE.Line(geometry, material);
+      temp.push(line);
     }
     return temp;
   }, []);
@@ -47,7 +48,7 @@ const CircuitLines = () => {
       {lines.map((line, index) => (
         <primitive
           key={index}
-          object={new THREE.Line(line.geometry, line.material)}
+          object={line}
         />
       ))}
     </group>
