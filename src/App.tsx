@@ -23,6 +23,9 @@ import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
+import Services from "./pages/Services";
+import AIChatbot from "./pages/services/AIChatbot";
+import ZaloEngine from "./pages/services/ZaloEngine";
 import RetailEcommerce from "./pages/industries/RetailEcommerce";
 import FoodBeverage from "./pages/industries/FoodBeverage";
 import BankingFinance from "./pages/industries/BankingFinance";
@@ -85,6 +88,9 @@ function App() {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/blog/:slug" element={<BlogPost />} />
+                  <Route path="/services" element={<Services />} />
+                  <Route path="/services/ai-chatbot" element={<AIChatbot />} />
+                  <Route path="/services/zalo-engine" element={<ZaloEngine />} />
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                   <Route path="/terms-of-service" element={<TermsOfService />} />
                   <Route path="/cookie-policy" element={<CookiePolicy />} />

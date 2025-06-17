@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Globe } from "lucide-react";
@@ -14,6 +13,7 @@ const Header = () => {
   const navigationItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
+    { name: "Services", path: "/services" },
     { name: "Features", path: "/features" },
     { name: "Case Studies", path: "/case-studies" },
     { name: "Blog", path: "/blog" },
