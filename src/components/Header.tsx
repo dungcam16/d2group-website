@@ -1,8 +1,15 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X, Globe, ChevronDown } from "lucide-react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -13,12 +20,14 @@ const Header = () => {
   const navigationItems = [
     { name: "Home", path: "/" },
     { name: "About", path: "/about" },
-    { name: "Services", path: "/services" },
-    { name: "Features", path: "/features" },
-    { name: "Case Studies", path: "/case-studies" },
+    { name: "Services", path: "/services", hasDropdown: true },
     { name: "Blog", path: "/blog" },
-    { name: "Pricing", path: "/pricing" },
     { name: "Contact", path: "/contact" },
+  ];
+
+  const serviceItems = [
+    { name: "AI - Chatbot Automation", path: "/services/ai-chatbot" },
+    { name: "Zalo All-In-One Engine", path: "/services/zalo-engine" },
   ];
 
   const handleNavigation = (path: string) => {
@@ -33,6 +42,10 @@ const Header = () => {
 
   const isCurrentPath = (path: string) => {
     return location.pathname === path;
+  };
+
+  const isServicesActive = () => {
+    return location.pathname.startsWith('/services');
   };
 
   const toggleLanguage = () => {
@@ -59,17 +72,45 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navigationItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => handleNavigation(item.path)}
-                className={`text-sm font-medium transition-colors hover:text-blue-600 ${
-                  isCurrentPath(item.path) 
-                    ? 'text-blue-600 border-b-2 border-blue-600 pb-1' 
-                    : 'text-gray-700'
-                }`}
-              >
-                {item.name}
-              </button>
+              item.hasDropdown ? (
+                <DropdownMenu key={item.name}>
+                  <DropdownMenuTrigger asChild>
+                    <button
+                      className={`flex items-center space-x-1 text-sm font-medium transition-colors hover:text-blue-600 ${
+                        isServicesActive() 
+                          ? 'text-blue-600 border-b-2 border-blue-600 pb-1' 
+                          : 'text-gray-700'
+                      }`}
+                    >
+                      <span>{item.name}</span>
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="start" className="w-56 bg-white shadow-lg border">
+                    {serviceItems.map((service) => (
+                      <DropdownMenuItem 
+                        key={service.path}
+                        onClick={() => handleNavigation(service.path)}
+                        className="cursor-pointer hover:bg-gray-50"
+                      >
+                        {service.name}
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <button
+                  key={item.name}
+                  onClick={() => handleNavigation(item.path)}
+                  className={`text-sm font-medium transition-colors hover:text-blue-600 ${
+                    isCurrentPath(item.path) 
+                      ? 'text-blue-600 border-b-2 border-blue-600 pb-1' 
+                      : 'text-gray-700'
+                  }`}
+                >
+                  {item.name}
+                </button>
+              )
             ))}
           </nav>
 
@@ -116,17 +157,43 @@ const Header = () => {
           <div className="lg:hidden absolute top-16 left-0 right-0 bg-white border-b border-gray-100 shadow-lg">
             <nav className="flex flex-col py-4">
               {navigationItems.map((item) => (
-                <button
-                  key={item.name}
-                  onClick={() => handleNavigation(item.path)}
-                  className={`text-left px-4 py-3 text-sm font-medium transition-colors hover:bg-gray-50 hover:text-blue-600 ${
-                    isCurrentPath(item.path) 
-                      ? 'text-blue-600 bg-blue-50 border-r-4 border-blue-600' 
-                      : 'text-gray-700'
-                  }`}
-                >
-                  {item.name}
-                </button>
+                item.hasDropdown ? (
+                  <div key={item.name}>
+                    <button
+                      onClick={() => handleNavigation(item.path)}
+                      className={`w-full text-left px-4 py-3 text-sm font-medium transition-colors hover:bg-gray-50 hover:text-blue-600 ${
+                        isServicesActive() 
+                          ? 'text-blue-600 bg-blue-50 border-r-4 border-blue-600' 
+                          : 'text-gray-700'
+                      }`}
+                    >
+                      {item.name}
+                    </button>
+                    <div className="pl-8 space-y-1">
+                      {serviceItems.map((service) => (
+                        <button
+                          key={service.path}
+                          onClick={() => handleNavigation(service.path)}
+                          className="w-full text-left px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-gray-50"
+                        >
+                          {service.name}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <button
+                    key={item.name}
+                    onClick={() => handleNavigation(item.path)}
+                    className={`text-left px-4 py-3 text-sm font-medium transition-colors hover:bg-gray-50 hover:text-blue-600 ${
+                      isCurrentPath(item.path) 
+                        ? 'text-blue-600 bg-blue-50 border-r-4 border-blue-600' 
+                        : 'text-gray-700'
+                    }`}
+                  >
+                    {item.name}
+                  </button>
+                )
               ))}
               <div className="px-4 pt-4 space-y-2">
                 <button
