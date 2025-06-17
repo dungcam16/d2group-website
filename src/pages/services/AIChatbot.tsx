@@ -2,43 +2,185 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { useNavigate } from 'react-router-dom';
-import { Bot, MessageSquare, Zap, BarChart3, Globe, Clock, Brain, Shield, Users, CheckCircle, ArrowRight, Star } from 'lucide-react';
+import { Bot, MessageSquare, Zap, BarChart3, Globe, Clock, Brain, Shield, Users, CheckCircle, ArrowRight, Star, Check, X } from 'lucide-react';
 import ScrollTriggered3D from '@/components/ScrollTriggered3D';
 
 const AIChatbot = () => {
   const navigate = useNavigate();
 
-  const features = [
+  const coreFeatures = [
     {
-      icon: Brain,
       title: "AI/NLP Thông minh",
-      description: "Chatbot được trang bị AI/NLP tiên tiến, hiểu và phản hồi tự nhiên như con người"
+      desc: "Chatbot được trang bị AI/NLP tiên tiến, hiểu và phản hồi tự nhiên như con người",
+      icon: <Brain className="w-8 h-8 text-blue-600" />,
+      details: [
+        "Xử lý ngôn ngữ tự nhiên tiên tiến",
+        "Học hỏi từ cuộc hội thoại",
+        "Hiểu ngữ cảnh và ý định",
+        "Phản hồi thông minh và chính xác"
+      ]
     },
     {
-      icon: Globe,
       title: "Đa nền tảng",
-      description: "Tích hợp Website, Facebook Messenger, Zalo, Telegram, WhatsApp"
+      desc: "Tích hợp Website, Facebook Messenger, Zalo, Telegram, WhatsApp",
+      icon: <Globe className="w-8 h-8 text-blue-600" />,
+      details: [
+        "Tích hợp đa kênh seamless",
+        "Quản lý tập trung",
+        "Đồng bộ dữ liệu real-time",
+        "API mở cho tích hợp custom"
+      ]
     },
     {
-      icon: Clock,
-      title: "Hoạt động 24/7",
-      description: "Hỗ trợ khách hàng liên tục, không giới hạn thời gian, không nghỉ lễ"
+      title: "Phân tích Real-time",
+      desc: "Báo cáo tương tác, hiệu suất và chuyển đổi khách hàng theo thời gian thực",
+      icon: <BarChart3 className="w-8 h-8 text-blue-600" />,
+      details: [
+        "Dashboard analytics chi tiết",
+        "Theo dõi KPI real-time",
+        "Báo cáo tùy chỉnh",
+        "Insights và recommendations"
+      ]
     },
     {
-      icon: BarChart3,
-      title: "Phân tích chi tiết",
-      description: "Báo cáo tương tác, hiệu suất và chuyển đổi khách hàng theo thời gian thực"
-    },
-    {
-      icon: Shield,
       title: "Bảo mật cao",
-      description: "Mã hóa dữ liệu end-to-end, tuân thủ GDPR và các tiêu chuẩn bảo mật"
+      desc: "Mã hóa dữ liệu end-to-end, tuân thủ GDPR và các tiêu chuẩn bảo mật",
+      icon: <Shield className="w-8 h-8 text-blue-600" />,
+      details: [
+        "Mã hóa end-to-end",
+        "Tuân thủ GDPR/CCPA",
+        "Audit logs chi tiết",
+        "Backup tự động"
+      ]
     },
     {
-      icon: Users,
-      title: "Quản lý đội nhóm",
-      description: "Phân quyền người dùng, theo dõi hiệu suất nhân viên"
+      title: "Triển khai nhanh",
+      desc: "Setup và đưa chatbot vào hoạt động chỉ trong 24 giờ",
+      icon: <Zap className="w-8 h-8 text-blue-600" />,
+      details: [
+        "No-code chatbot builder",
+        "Template sẵn có",
+        "Training nhanh chóng",
+        "Go-live trong 24h"
+      ]
+    },
+    {
+      title: "Hội thoại thông minh",
+      desc: "Quản lý flow hội thoại phức tạp và chuyển giao smooth đến nhân viên",
+      icon: <MessageSquare className="w-8 h-8 text-blue-600" />,
+      details: [
+        "Conversation flow designer",
+        "Handover thông minh",
+        "Context preservation",
+        "Multi-turn conversations"
+      ]
+    }
+  ];
+
+  const comparisonTable = [
+    {
+      feature: "Thời gian phản hồi",
+      traditional: "6-24 giờ",
+      aiChatbot: "< 3 giây",
+      improvement: "99.9% nhanh hơn"
+    },
+    {
+      feature: "Khả năng sẵn sàng",
+      traditional: "8-12 giờ/ngày",
+      aiChatbot: "24/7/365",
+      improvement: "300% tăng uptime"
+    },
+    {
+      feature: "Khả năng mở rộng",
+      traditional: "1:1 conversation",
+      aiChatbot: "Không giới hạn",
+      improvement: "Infinite scale"
+    },
+    {
+      feature: "Tính nhất quán",
+      traditional: "Phụ thuộc nhân viên",
+      aiChatbot: "100% consistent",
+      improvement: "Zero variance"
+    },
+    {
+      feature: "Chi phí/tương tác",
+      traditional: "50,000-100,000 VNĐ",
+      aiChatbot: "< 500 VNĐ",
+      improvement: "99% tiết kiệm"
+    },
+    {
+      feature: "Hỗ trợ đa ngôn ngữ",
+      traditional: "Giới hạn",
+      aiChatbot: "100+ ngôn ngữ",
+      improvement: "Unlimited languages"
+    }
+  ];
+
+  const advancedFeatures = [
+    {
+      category: "Tính năng AI nâng cao",
+      features: [
+        {
+          name: "Conversation Flow Designer",
+          desc: "Thiết kế luồng hội thoại phức tạp với drag-and-drop interface"
+        },
+        {
+          name: "Intent Training & Recognition",
+          desc: "Training và nhận diện ý định khách hàng với độ chính xác cao"
+        },
+        {
+          name: "Auto-learning từ feedback",
+          desc: "Tự động học hỏi và cải thiện từ feedback của khách hàng"
+        },
+        {
+          name: "Intelligent Fallback Handling",
+          desc: "Xử lý thông minh khi không hiểu câu hỏi của khách hàng"
+        }
+      ]
+    },
+    {
+      category: "Tích hợp hệ thống",
+      features: [
+        {
+          name: "CRM Integration",
+          desc: "Tích hợp với Salesforce, HubSpot, Pipedrive và các CRM phổ biến"
+        },
+        {
+          name: "E-commerce Platforms",
+          desc: "Kết nối với Shopify, WooCommerce, Magento cho hỗ trợ bán hàng"
+        },
+        {
+          name: "Custom API Integration",
+          desc: "Tích hợp với bất kỳ hệ thống nào qua REST API và webhooks"
+        },
+        {
+          name: "Webhook & Automation",
+          desc: "Tự động hóa quy trình với webhook và trigger events"
+        }
+      ]
+    },
+    {
+      category: "Analytics & Insights",
+      features: [
+        {
+          name: "Conversation Analytics",
+          desc: "Phân tích chi tiết từng cuộc hội thoại và customer journey"
+        },
+        {
+          name: "Performance Metrics",
+          desc: "Theo dõi KPI: response time, resolution rate, satisfaction score"
+        },
+        {
+          name: "Custom Dashboard",
+          desc: "Dashboard tùy chỉnh với metrics và reports theo nhu cầu"
+        },
+        {
+          name: "A/B Testing",
+          desc: "Test và optimize các phiên bản chatbot khác nhau"
+        }
+      ]
     }
   ];
 
@@ -178,32 +320,128 @@ const AIChatbot = () => {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Core Features */}
       <section className="py-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Tính năng nổi bật
+            <h2 className="text-4xl font-bold mb-4 text-gray-900">
+              Tính năng <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">nổi bật</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-600">
               Chatbot AI với công nghệ tiên tiến nhất hiện tại, mang lại trải nghiệm khách hàng vượt trội
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
-                <CardHeader>
-                  <div className="inline-flex p-4 rounded-lg bg-blue-100 text-blue-600 mb-4 w-fit mx-auto">
-                    <feature.icon className="h-8 w-8" />
-                  </div>
-                  <CardTitle className="text-xl">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-gray-600">{feature.description}</p>
+            {coreFeatures.map((feature, index) => (
+              <Card key={index} className="border-none shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+                <CardContent className="p-8">
+                  <div className="mb-6 group-hover:scale-110 transition-transform duration-300">{feature.icon}</div>
+                  <h3 className="text-2xl font-bold mb-4 group-hover:text-blue-600 transition-colors">{feature.title}</h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">{feature.desc}</p>
+                  <ul className="space-y-2">
+                    {feature.details.map((detail, detailIndex) => (
+                      <li key={detailIndex} className="flex items-start space-x-3">
+                        <Check className="w-4 h-4 text-green-500 flex-shrink-0 mt-0.5" />
+                        <span className="text-sm text-gray-600">{detail}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison with Traditional Live Chat */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4 text-gray-900">
+              So sánh với <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Live Chat truyền thống</span>
+            </h2>
+            <p className="text-xl text-gray-600">
+              Tại sao AI Chatbot vượt trội hơn hẳn các giải pháp customer service truyền thống
+            </p>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="overflow-x-auto">
+              <table className="w-full">
+                <thead className="bg-gradient-to-r from-blue-600 to-indigo-600">
+                  <tr>
+                    <th className="text-left p-6 text-white font-semibold">Tiêu chí</th>
+                    <th className="text-center p-6 text-white font-semibold">Live Chat truyền thống</th>
+                    <th className="text-center p-6 text-white font-semibold">AI Chatbot</th>
+                    <th className="text-center p-6 text-white font-semibold">Cải thiện</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {comparisonTable.map((row, index) => (
+                    <tr key={index} className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                      <td className="p-6 font-medium text-gray-900">{row.feature}</td>
+                      <td className="p-6 text-center">
+                        <span className="inline-flex items-center space-x-2">
+                          <X className="w-4 h-4 text-red-500" />
+                          <span className="text-gray-600">{row.traditional}</span>
+                        </span>
+                      </td>
+                      <td className="p-6 text-center">
+                        <span className="inline-flex items-center space-x-2">
+                          <Check className="w-4 h-4 text-green-500" />
+                          <span className="text-gray-900 font-semibold">{row.aiChatbot}</span>
+                        </span>
+                      </td>
+                      <td className="p-6 text-center">
+                        <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">
+                          {row.improvement}
+                        </span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Advanced Features with Accordion */}
+      <section className="py-20">
+        <div className="container mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold mb-4 text-gray-900">
+              Tính năng <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">nâng cao</span>
+            </h2>
+            <p className="text-xl text-gray-600">
+              Khám phá các tính năng chuyên sâu giúp tối ưu hóa hiệu quả chatbot
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <Accordion type="single" collapsible className="space-y-4">
+              {advancedFeatures.map((category, categoryIndex) => (
+                <AccordionItem key={categoryIndex} value={`item-${categoryIndex}`} className="border border-gray-200 rounded-lg">
+                  <AccordionTrigger className="px-6 py-4 hover:no-underline">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
+                      <span className="text-xl font-semibold text-gray-900">{category.category}</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="px-6 pb-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      {category.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="border border-gray-100 rounded-lg p-4 hover:shadow-md transition-shadow">
+                          <h4 className="font-semibold text-blue-600 mb-2">{feature.name}</h4>
+                          <p className="text-gray-600 text-sm leading-relaxed">{feature.desc}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
         </div>
       </section>
