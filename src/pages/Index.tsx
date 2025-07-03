@@ -102,58 +102,69 @@ const Index = () => {
     <div className="pt-16">
       {/* Hero Section */}
       <Section background="gradient">
-        <div className="text-center max-w-6xl mx-auto">
-          <Badge variant="secondary" className="mb-6 px-4 py-2 bg-blue-100 text-blue-700 border-blue-200">
-            ✨ <span className="text-green-600">{t('home.hero.subtitle3')}</span> AI-Powered Customer Conversations
-          </Badge>
-          
-          <h1 className="text-6xl font-bold mb-6 text-gray-900 leading-tight">
-            {t('home.hero.title')} <br />
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-              {t('home.hero.subtitle')}
-            </span> <br />
-            {t('home.hero.subtitle2')} <span className="text-green-600">{t('home.hero.subtitle3')}</span>
-          </h1>
-          
-          <p className="text-xl text-gray-600 mb-8 max-w-4xl mx-auto leading-relaxed">
-            {t('home.hero.description')}
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button 
-              size="lg" 
-              onClick={() => navigate('/contact')}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-8 py-4 text-lg"
-            >
-              {t('home.hero.getDemo')} <ArrowRight className="ml-2 w-5 h-5" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              onClick={() => navigate('/features')}
-              className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-4 text-lg"
-            >
-              {t('home.hero.learnMore')}
-            </Button>
-          </div>
+        <div className="relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/20 rounded-3xl"></div>
+          <div className="relative z-10 text-center max-w-7xl mx-auto px-4 py-20">
+            {/* Floating Badge */}
+            <div className="mb-8 inline-flex">
+              <Badge className="glass px-6 py-3 text-base font-medium bg-white/20 border-white/30 text-primary backdrop-blur-xl">
+                <span className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                  ✨ {t('home.hero.subtitle3')} AI-Powered Revolution
+                </span>
+              </Badge>
+            </div>
+            
+            {/* Modern Heading */}
+            <h1 className="text-7xl md:text-8xl font-black mb-8 leading-none">
+              <span className="block text-foreground/90">New Way Of</span>
+              <span className="block bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+                {t('home.hero.subtitle')}
+              </span>
+              <span className="block text-foreground/80 text-5xl md:text-6xl mt-4">
+                {t('home.hero.subtitle2')}
+              </span>
+            </h1>
+            
+            {/* Subtitle */}
+            <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-4xl mx-auto leading-relaxed font-light">
+              {t('home.hero.description')}
+            </p>
+            
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center mb-16">
+              <Button 
+                size="lg" 
+                onClick={() => navigate('/contact')}
+                className="glass bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-10 py-6 text-lg rounded-2xl shadow-2xl hover:shadow-primary/25 transition-all duration-300 hover:scale-105"
+              >
+                {t('home.hero.getDemo')} <ArrowRight className="ml-3 w-6 h-6" />
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                onClick={() => navigate('/features')}
+                className="glass bg-white/10 border-white/20 text-foreground hover:bg-white/20 px-10 py-6 text-lg rounded-2xl backdrop-blur-xl"
+              >
+                {t('home.hero.learnMore')}
+              </Button>
+            </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-16">
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">1000+</div>
-              <div className="text-gray-600">Active Businesses</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">45%</div>
-              <div className="text-gray-600">Conversion Increase</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">&lt; 2s</div>
-              <div className="text-gray-600">Response Time</div>
-            </div>
-            <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">24/7</div>
-              <div className="text-gray-600">AI Support</div>
+            {/* Modern Stats Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
+              {[
+                { value: "1000+", label: "Active Businesses" },
+                { value: "45%", label: "Conversion Increase" },
+                { value: "< 2s", label: "Response Time" },
+                { value: "24/7", label: "AI Support" }
+              ].map((stat, index) => (
+                <div key={index} className="glass bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 hover:bg-white/20 transition-all duration-300 hover:scale-105">
+                  <div className="text-4xl md:text-5xl font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">
+                    {stat.value}
+                  </div>
+                  <div className="text-muted-foreground font-medium">{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
